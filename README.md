@@ -1,3 +1,13 @@
+# Como executar o projeto
+
+- npm i react-router-dom
+- npm i sass --save-dev
+- npm install react-bootstrap bootstrap
+- npm install react-icons --save
+- npm i jest-watch-typeahead
+- npm i -D --exact jest-watch-typeahead@0.6.5
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
