@@ -1,3 +1,10 @@
+# Como executar o projeto
+
+- npm i react-router-dom
+- npm i sass --save-dev
+- npm install react-bootstrap bootstrap
+- npm install react-icons --save
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
