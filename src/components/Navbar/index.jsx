@@ -15,7 +15,7 @@ export default function NavigationBar() {
   return (
     <Navbar fixed="top" className={style.nav}>
       <Container fluid >
-        <BsChevronDoubleRight onClick={handleShow}/>
+        <BsChevronDoubleRight onClick={handleShow} data-testid="sidebar"/>
 
         <Offcanvas show={show} onHide={handleClose}>
           <Offcanvas.Header closeButton>
