@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import style from './App.module.scss';
 
 import NavigationBar from './components/Navbar';
-import Home from './components/Home';
+import QuestForm from './components/QuestForm';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <div className={style.content}>
 
           <Routes>
-            <Route exact path="/" element={<Home/>} />
+            <Route exact path="/" element={<QuestForm/>} />
           </Routes>
 
         </div>

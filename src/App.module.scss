@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;600&display=swap');
+
 .base {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #a1a1a1;
+  background-color: #c3cfd9;
   margin-top: 50px;
+  font-family: 'Cabin', sans-serif;
 }
 
 .content {

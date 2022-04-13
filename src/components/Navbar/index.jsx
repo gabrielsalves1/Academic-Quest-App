@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, Container, Offcanvas } from 'react-bootstrap'
+import { Navbar, Container, Offcanvas } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BsChevronDoubleRight } from "react-icons/bs";
 import iconeUser from '../../assets/img/icone-user.png';

@@ -6,7 +6,8 @@
 - npm install react-icons --save
 - npm i jest-watch-typeahead
 - npm i -D --exact jest-watch-typeahead@0.6.5
-
+- npm install react-hook-form
+- npm i axios
 
 # Getting Started with Create React App
 
