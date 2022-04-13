@@ -1,25 +1,73 @@
+.title {
+  font-size: 32px;
+}
+
 .containerForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 92vh;
 }
 
 .form {
   color: #484c4e;
-  font-weight: bolder;
+  font-weight: bold;
   border: 3px solid #c3cfd9;
   border-radius: 5px;
   margin-top: 32px;
   padding: 50px;
+  width: 1200px;
 }
 
 .inputForm {
-  border: 4px solid #c3cfd9;
+  border: 2px solid #c3cfd9;
   border-radius: 5px;
+  margin: 8px 0;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.inputFile {
+  padding: 5px;
+  width: 140px;
+  border: 2px solid #c3cfd9;
+  border-radius: 5px;
+  color: #6558f5;
+  text-align: center;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.menuForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+}
+
+.link:hover {
+  color: #4c3ee2;
 }
 
 .buttonForm {
-  color: purple;
+  background-color: #6558f5;
+  border: none;
+}
+
+.buttonForm:hover {
+  background-color: #4c3ee2;
+  border: none;
+}
+
+.alignDateAndFile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

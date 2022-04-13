@@ -17,7 +17,7 @@ export default function NavigationBar() {
       <Container fluid >
         <BsChevronDoubleRight onClick={handleShow} data-testid="sidebar"/>
 
-        <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas show={show} onHide={handleClose} className={style.sidebar}>
           <Offcanvas.Header closeButton>
             <Offcanvas.Title className={style.navItem}>Academic Quest</Offcanvas.Title>
           </Offcanvas.Header>
@@ -33,7 +33,7 @@ export default function NavigationBar() {
         </Link>
         
         <Link to="/" className={style.navItem}>
-          Usuário
+          Leon
           <img src={iconeUser} className={style.iconeUser}/>
         </Link>
       </Container>
