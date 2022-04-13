@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import * as ReactDOMClient from 'react-dom/client';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './reset.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './reset.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOMClient.createRoot(document.getElementById('root'));
 root.render(
