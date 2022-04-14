@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Navbar, Container, Offcanvas } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { BsChevronDoubleRight } from "react-icons/bs";
 import iconeUser from '../../assets/img/icone-user.png';
 import logo from '../../assets/img/logo-academic-quest.png';
 import style from './NavigationBar.module.scss';
+
+import LinkButton from "../LinkButton";
 
 export default function NavigationBar() {
   const [show, setShow] = useState(false);
@@ -22,8 +24,8 @@ export default function NavigationBar() {
             <Offcanvas.Title className={style.navItem}>Academic Quest</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <Link to="/" className={style.navItem}>Projetos</Link><br/>
-            <Link to="/" className={style.navItem}>Grupos</Link>
+            <LinkButton url="/" className={style.navItem}>Projetos</LinkButton><br/>
+            <LinkButton url="/" className={style.navItem}>Grupos</LinkButton>
           </Offcanvas.Body>
         </Offcanvas>
         

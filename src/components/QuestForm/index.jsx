@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Form, Button } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import { Form } from "react-bootstrap";
 import { BsUpload } from "react-icons/bs";
 import axios from "axios";
 import style from "./QuestForm.module.scss";
+
+import SubmitButton from "../SubmitButton";
+import LinkButton from "../LinkButton";
 
 export default function QuestForm() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -59,8 +61,9 @@ export default function QuestForm() {
         </div>
 
         <div className={style.menuForm}>
-          <Link to="/" className={style.link}>Voltar</Link>
-          <Button type="submit" value='Salvar' className={style.buttonForm}>Salvar</Button>
+          <LinkButton url="/">Voltar</LinkButton>
+
+          <SubmitButton>Salvar</SubmitButton>
         </div>
       </Form>
     </div>
