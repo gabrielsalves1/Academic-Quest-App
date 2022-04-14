@@ -1,0 +1,42 @@
+table {
+  margin: 50px auto;
+}
+
+th, td {
+  vertical-align: middle;
+  text-align: center;
+  width: 600px;
+}
+
+.title {
+  font-size: 32px;
+}
+
+.project {
+  border: 2px solid #c3cfd9;
+  border-radius: 5px;
+  width: 100px;
+  height: 100px;
+}
+
+.active {
+  display: block;
+  margin-top: 35px;
+  border: 2px solid #1aae9f;
+  background-color: #1aae9f;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.finished {
+  display: block;
+  margin-top: 35px;
+  border: 2px solid #d3455b;
+  background-color: #d3455b;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
