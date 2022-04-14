@@ -1,20 +1,31 @@
 import React from "react";
+import style from "./ListProjects.module.scss";
+import { BsFillFileTextFill, BsPencil } from "react-icons/bs";
+
+import LinkButton from "../LinkButton";
 
 export default function ListProjects() {
   return (
     <table>
       <thead>
         <tr>
-          <td>Projeto</td>
-          <td>Status</td>
-          <td>Quest</td>
+          <th className={style.title}>Projeto</th>
+          <th className={style.title}>Status</th>
+          <th className={style.title}>Quest</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>TCC 1</td>
-          <td>Ativo</td>
-          <td>Gerenciar Quest</td>
+        <tr className={style.project}>
+          <td>
+            <LinkButton url="/" classStyle="purple">
+              <BsFillFileTextFill/>TCC 1
+            </LinkButton></td>
+          <td className={style.active}>Ativo</td>
+          <td>
+            <LinkButton url="/">
+              <BsPencil/>Gerenciar Quest
+            </LinkButton>
+          </td>
         </tr>
       </tbody>
     </table>
