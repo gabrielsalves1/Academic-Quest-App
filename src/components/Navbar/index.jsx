@@ -21,22 +21,22 @@ export default function NavigationBar() {
 
         <Offcanvas show={show} onHide={handleClose} className={style.sidebar}>
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title className={style.navItem}>Academic Quest</Offcanvas.Title>
+            <Offcanvas.Title className={style.navItem}><Link to="/" className={style.navItem}>Academic Quest</Link></Offcanvas.Title>
           </Offcanvas.Header>
-          <Offcanvas.Body>
-            <LinkButton url="/" className={style.navItem}>Projetos</LinkButton><br/>
-            <LinkButton url="/" className={style.navItem}>Grupos</LinkButton>
+          <Offcanvas.Body className={style.navLinks}>
+            <LinkButton url="/">Projetos</LinkButton><br/>
+            <LinkButton url="/">Grupos</LinkButton>
           </Offcanvas.Body>
         </Offcanvas>
         
         <Link to="/" className={style.navItem}>
-          <img src={logo} className={style.logo}/>
+          <img src={logo} className={style.logo} alt="Logo"/>
           <h1 className={style.title}>Academic Quest</h1>
         </Link>
         
         <Link to="/" className={style.navItem}>
           Leon
-          <img src={iconeUser} className={style.iconeUser}/>
+          <img src={iconeUser} className={style.iconeUser} alt="Icone do usuário"/>
         </Link>
       </Container>
     </Navbar>
