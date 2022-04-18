@@ -27,6 +27,18 @@ export default function ListProjects() {
             </LinkButton>
           </td>
         </tr>
+        <tr className={style.project}>
+          <td>
+            <LinkButton url="/" classStyle="purple">
+              <BsFillFileTextFill/>TCC 1
+            </LinkButton></td>
+          <td className={style.active}>Ativo</td>
+          <td>
+            <LinkButton url="/">
+              <BsPencil/>Gerenciar Quest
+            </LinkButton>
+          </td>
+        </tr>
       </tbody>
     </table>
   );

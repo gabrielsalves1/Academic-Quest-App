@@ -24,6 +24,7 @@
   border: 2px solid #c3cfd9;
   border-radius: 5px;
   margin: 8px 0;
+  max-height: 200px;
 }
 
 input[type="file"] {
@@ -45,10 +46,4 @@ input[type="file"] {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.alignDateAndFile {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
