@@ -6,40 +6,36 @@ import LinkButton from "../LinkButton";
 
 export default function ListProjects() {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th className={style.title}>Projeto</th>
-          <th className={style.title}>Status</th>
-          <th className={style.title}>Quest</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr className={style.project}>
-          <td>
+    <>
+      <div className={style.title}>
+        <h3>Projeto</h3>
+        <h3>Status</h3>
+        <h3>Quest</h3>
+      </div>
+
+      <ul>
+        <li className={style.project}>
             <LinkButton url="/" classStyle="purple">
-              <BsFillFileTextFill/>TCC 1
-            </LinkButton></td>
-          <td className={style.active}>Ativo</td>
-          <td>
-            <LinkButton url="/">
-              <BsPencil/>Gerenciar Quest
+              <BsFillFileTextFill className={style.icone}/>TCC 1
             </LinkButton>
-          </td>
-        </tr>
-        <tr className={style.project}>
-          <td>
+
+            <span className={style.active}>Ativo</span>
+            <LinkButton url="/quest-management">
+              <BsPencil className={style.icone}/>Gerenciar Quest
+            </LinkButton>
+        </li>
+        <li className={style.project}>
             <LinkButton url="/" classStyle="purple">
-              <BsFillFileTextFill/>TCC 1
-            </LinkButton></td>
-          <td className={style.active}>Ativo</td>
-          <td>
-            <LinkButton url="/">
-              <BsPencil/>Gerenciar Quest
+              <BsFillFileTextFill className={style.icone}/>TCC 1
             </LinkButton>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+
+            <span className={style.active}>Ativo</span>
+            <LinkButton url="/quest-management">
+              <BsPencil className={style.icone}/>Gerenciar Quest
+            </LinkButton>
+        </li>
+      </ul>
+    </>
+    
   );
 }
