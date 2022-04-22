@@ -61,7 +61,7 @@ export default function CreateQuest() {
         </div>
 
         <div className={style.menuForm}>
-          <LinkButton url="/">Voltar</LinkButton>
+          <LinkButton url="/quest-management">Voltar</LinkButton>
 
           <SubmitButton>Salvar</SubmitButton>
         </div>

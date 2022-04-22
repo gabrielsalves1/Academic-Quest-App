@@ -1,11 +1,18 @@
-.title {
-  display: flex;
-  justify-content: space-around;
-  font-size: 26px;
-  margin: 20px 0;
+.listQuests {
+  width: 1200px;
 }
 
-.project {
+.menuCreateQuest {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em;
+}
+
+.selectForm {
+  width: 200px;
+}
+
+.quest {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -41,4 +48,6 @@
 
 .icone {
   margin: 5px;
+  width: 30px;
+  height: 30px;
 }
