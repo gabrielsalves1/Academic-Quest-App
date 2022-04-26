@@ -21,13 +21,13 @@ export default function ListQuests() {
 
       <ul>
         <li className={style.quest}>
-          <LinkButton url="/">Desenvolver introdução</LinkButton>
+          <LinkButton url="/evaluate-quest">Desenvolver introdução</LinkButton>
           <span className={style.active}>Aberto</span>
           <BsPencilSquare className={style.icone}/>
           <BsTrash className={style.icone}/>
         </li>
         <li className={style.quest}>
-          <LinkButton url="/">Desenvolver introdução</LinkButton>
+          <LinkButton url="/evaluate-quest">Desenvolver introdução</LinkButton>
           <span className={style.active}>Aberto</span>
           <BsPencilSquare className={style.icone}/>
           <BsTrash className={style.icone}/>
