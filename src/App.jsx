@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import CreateProject from './components/CreateProject';
 import CreateQuest from './components/CreateQuest';
 import QuestManagement from './components/QuestManagement';
+import EvaluateQuest from './components/EvaluateQuest';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route exact path="/create-quest" element={<CreateQuest/>} />
             <Route exact path="/create-project" element={<CreateProject/>} />
             <Route exact path="/quest-management" element={<QuestManagement name="teste"/>} />
+            <Route exact path="/evaluate-quest" element={<EvaluateQuest/>} />
           </Routes>
 
         </div>
