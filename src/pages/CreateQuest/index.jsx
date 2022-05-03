@@ -5,8 +5,8 @@ import { BsUpload } from "react-icons/bs";
 import axios from "axios";
 import style from "./CreateQuest.module.scss";
 
-import SubmitButton from "../SubmitButton";
-import LinkButton from "../LinkButton";
+import SubmitButton from "../../components/SubmitButton";
+import LinkButton from "../../components/LinkButton";
 
 export default function CreateQuest() {
   const { register, handleSubmit, formState: { errors } } = useForm();

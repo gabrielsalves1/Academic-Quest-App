@@ -1,10 +1,9 @@
 import React from "react";
 import style from "./EvaluateQuest.module.scss";
-import { Table } from "react-bootstrap";
 
-import LinkButton from "../LinkButton";
-import CardQuest from "../CardQuest";
-import TableTask from "../TableTask";
+import LinkButton from "../../components/LinkButton";
+import CardQuest from "../../components/CardQuest";
+import TableTask from "../../components/TableTask";
 
 export default function EvaluateQuest() {
   return (
@@ -15,9 +14,8 @@ export default function EvaluateQuest() {
         <CardQuest/>
       </div>
 
-      <TableTask/>
-
       <LinkButton url="/quest-management">Voltar</LinkButton>
+      <TableTask/>
     </div>
   );
 }

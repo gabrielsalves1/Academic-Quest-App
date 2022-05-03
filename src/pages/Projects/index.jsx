@@ -2,8 +2,8 @@ import React from "react";
 import { Form } from "react-bootstrap";
 import style from "./Projects.module.scss";
 
-import LinkButton from "../LinkButton";
-import ListProjects from "../ListProjects";
+import LinkButton from "../../components/LinkButton";
+import ListProjects from "../../components/ListProjects";
 
 export default function Projects() {
   return (

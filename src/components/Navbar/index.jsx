@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Container, Offcanvas } from 'react-bootstrap';
 import { BsChevronDoubleRight } from "react-icons/bs";
-import iconeUser from '../../assets/img/icone-user.png';
+import iconUser from '../../assets/img/icone-user.png';
 import logo from '../../assets/img/logo-academic-quest.png';
 import style from './NavigationBar.module.scss';
 
@@ -36,7 +36,7 @@ export default function NavigationBar() {
         
         <Link to="/" className={style.navItem}>
           Leon
-          <img src={iconeUser} className={style.iconeUser} alt="Icone do usuário"/>
+          <img src={iconUser} className={style.iconUser} alt="Icone do usuário"/>
         </Link>
       </Container>
     </Navbar>
