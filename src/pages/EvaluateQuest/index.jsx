@@ -14,7 +14,7 @@ export default function EvaluateQuest() {
         <CardQuest/>
       </div>
 
-      <LinkButton url="/quest-management">Voltar</LinkButton>
+      <LinkButton to="/quest-management">Voltar</LinkButton>
       <TableTask/>
     </div>
   );

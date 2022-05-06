@@ -19,7 +19,7 @@ export default function Projects() {
             <option value="3">3A</option>
           </Form.Select>
 
-          <LinkButton url="/create-project" classStyle="purple">Criar projeto</LinkButton>
+          <LinkButton to="/create-project" classStyle="purple">Criar projeto</LinkButton>
         </div>
 
         <ListProjects/>

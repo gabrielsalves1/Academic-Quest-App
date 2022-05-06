@@ -47,7 +47,7 @@ export default function CreateProject() {
 
 
         <div className={style.menuForm}>
-          <LinkButton url="/">Voltar</LinkButton>
+          <LinkButton to="/">Voltar</LinkButton>
 
           <SubmitButton>Criar</SubmitButton>
         </div>

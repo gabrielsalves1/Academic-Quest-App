@@ -24,8 +24,8 @@ export default function NavigationBar() {
             <Offcanvas.Title className={style.navItem}><Link to="/" className={style.navItem}>Academic Quest</Link></Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body className={style.navLinks}>
-            <LinkButton url="/">Projetos</LinkButton><br/>
-            <LinkButton url="/">Grupos</LinkButton>
+            <LinkButton to="/">Projetos</LinkButton><br/>
+            <LinkButton to="/">Grupos</LinkButton>
           </Offcanvas.Body>
         </Offcanvas>
         

@@ -15,22 +15,22 @@ export default function ListProjects() {
 
       <ul>
         <li className={style.project}>
-            <LinkButton url="/" classStyle="purple">
+            <LinkButton to="/" classStyle="purple">
               <BsFillFileTextFill className={style.icon}/>TCC 1
             </LinkButton>
 
             <span className={style.active}>Ativo</span>
-            <LinkButton url="/quest-management">
+            <LinkButton to="/quest-management">
               <BsPencil className={style.icon}/>Gerenciar Quest
             </LinkButton>
         </li>
         <li className={style.project}>
-            <LinkButton url="/" classStyle="purple">
+            <LinkButton to="/" classStyle="purple">
               <BsFillFileTextFill className={style.icon}/>TCC 1
             </LinkButton>
 
             <span className={style.active}>Ativo</span>
-            <LinkButton url="/quest-management">
+            <LinkButton to="/quest-management">
               <BsPencil className={style.icon}/>Gerenciar Quest
             </LinkButton>
         </li>

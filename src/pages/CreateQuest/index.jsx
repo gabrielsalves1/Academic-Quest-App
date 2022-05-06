@@ -53,7 +53,7 @@ export default function CreateQuest() {
           </Form.Group>
 
           <Form.Group controlId="formFile" className="mt-2 mb-2" htmlFor='file'>
-            <Form.Label className={style.inputFile}>Carregar arquivo<BsUpload/></Form.Label>
+            <Form.Label className={style.inputFile}>Carregar arquivo<BsUpload className={style.icon}/></Form.Label>
             <Form.Control type="file" name="file" onChange={(e) => {
               handleFile(e)
             }}/>
@@ -61,7 +61,7 @@ export default function CreateQuest() {
         </div>
 
         <div className={style.menuForm}>
-          <LinkButton url="/quest-management">Voltar</LinkButton>
+          <LinkButton to="/quest-management">Voltar</LinkButton>
 
           <SubmitButton>Salvar</SubmitButton>
         </div>
