@@ -1,0 +1,72 @@
+.containerViewTask {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 92vh;
+}
+
+.form {
+  color: #484c4e;
+  font-weight: bold;
+  border: 3px solid #c3cfd9;
+  border-radius: 5px;
+  margin-top: 32px;
+  width: 1200px;
+  padding: 50px;
+}
+
+.menuNameAndDate {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.inputFile {
+  padding: 5px;
+  width: 140px;
+  border: 2px solid #c3cfd9;
+  border-radius: 5px;
+  color: #6558f5;
+  text-align: center;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.inputForm {
+  border: 2px solid #c3cfd9;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.inputArea{
+  border: 2px solid #c3cfd9;
+  min-height: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+}
+
+.menuForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  justify-content: space-around;
+  font-size: 26px;
+  margin: 20px 0;
+}
+
+.menuForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+}

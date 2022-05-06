@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import style from './App.module.scss';
 
 import NavigationBar from './components/Navbar';
-import Projects from './components/Projects';
-import CreateProject from './components/CreateProject';
-import CreateQuest from './components/CreateQuest';
-import QuestManagement from './components/QuestManagement';
-import EvaluateQuest from './components/EvaluateQuest';
+import Projects from './pages/Projects';
+import CreateProject from './pages/CreateProject';
+import CreateQuest from './pages/CreateQuest';
+import QuestManagement from './pages/QuestManagement';
+import EvaluateQuest from './pages/EvaluateQuest';
+import ViewTask from './pages/ViewTask';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route exact path="/create-project" element={<CreateProject/>} />
             <Route exact path="/quest-management" element={<QuestManagement name="teste"/>} />
             <Route exact path="/evaluate-quest" element={<EvaluateQuest/>} />
+            <Route exact path="/view-task" element={<ViewTask/>} />
           </Routes>
 
         </div>

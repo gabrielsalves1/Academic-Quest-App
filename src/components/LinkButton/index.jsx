@@ -4,7 +4,7 @@ import style from "./LinkButton.module.scss";
 
 export default function LinkButton(props) {
   return (
-    <Link to={props.url} className={`${props.classStyle === 'purple' ? style.linkPurple : style.link }`}>
+    <Link to={props.to} className={`${props.classStyle === 'purple' ? style.linkPurple : style.link }`}>
       {props.children}
     </Link>
   );

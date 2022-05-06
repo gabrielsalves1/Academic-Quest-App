@@ -4,8 +4,8 @@ import { Form } from "react-bootstrap";
 import axios from "axios";
 import style from "./CreateProject.module.scss";
 
-import LinkButton from "../LinkButton";
-import SubmitButton from "../SubmitButton";
+import LinkButton from "../../components/LinkButton";
+import SubmitButton from "../../components/SubmitButton";
 
 export default function CreateProject() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -47,7 +47,7 @@ export default function CreateProject() {
 
 
         <div className={style.menuForm}>
-          <LinkButton url="/">Voltar</LinkButton>
+          <LinkButton to="/">Voltar</LinkButton>
 
           <SubmitButton>Criar</SubmitButton>
         </div>

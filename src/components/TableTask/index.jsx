@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
+import { BsFillEyeFill } from "react-icons/bs";
 import style from "./TableTask.module.scss";
 
 export default function TableTask() {
@@ -23,14 +25,22 @@ export default function TableTask() {
             <td>Avaliado</td>
             <td>0</td>
             <td>01/01/2023</td>
-            <td>Icone</td>
+            <td>
+              <Link to="/view-task">
+                <BsFillEyeFill className={style.icon}/>
+              </Link>
+            </td>
           </tr>
           <tr className={style.line}>
             <td>XD</td>
             <td>Avaliado</td>
             <td>0</td>
             <td>01/01/2023</td>
-            <td>Icone</td>
+            <td>
+              <Link to="/view-task">
+                <BsFillEyeFill className={style.icon}/>
+              </Link>
+            </td>
           </tr>
         </tbody>
       </Table>

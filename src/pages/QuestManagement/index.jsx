@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./QuestManagement.module.scss";
 
-import ListQuests from "../ListQuests";
+import ListQuests from "../../components/ListQuests";
 
 export default function QuestManagement(props) {
   return (

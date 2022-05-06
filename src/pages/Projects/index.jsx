@@ -2,8 +2,8 @@ import React from "react";
 import { Form } from "react-bootstrap";
 import style from "./Projects.module.scss";
 
-import LinkButton from "../LinkButton";
-import ListProjects from "../ListProjects";
+import LinkButton from "../../components/LinkButton";
+import ListProjects from "../../components/ListProjects";
 
 export default function Projects() {
   return (
@@ -19,7 +19,7 @@ export default function Projects() {
             <option value="3">3A</option>
           </Form.Select>
 
-          <LinkButton url="/create-project" classStyle="purple">Criar projeto</LinkButton>
+          <LinkButton to="/create-project" classStyle="purple">Criar projeto</LinkButton>
         </div>
 
         <ListProjects/>
