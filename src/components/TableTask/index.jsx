@@ -25,9 +25,11 @@ export default function TableTask() {
             <td>Avaliado</td>
             <td>0</td>
             <td>01/01/2023</td>
-            <Link to="/view-task">
-              <BsFillEyeFill className={style.icon}/>
-            </Link>
+            <td>
+              <Link to="/view-task">
+                <BsFillEyeFill className={style.icon}/>
+              </Link>
+            </td>
           </tr>
           <tr className={style.line}>
             <td>XD</td>
@@ -35,9 +37,9 @@ export default function TableTask() {
             <td>0</td>
             <td>01/01/2023</td>
             <td>
-            <Link to="/view-task">
-              <BsFillEyeFill className={style.icon}/>
-            </Link>
+              <Link to="/view-task">
+                <BsFillEyeFill className={style.icon}/>
+              </Link>
             </td>
           </tr>
         </tbody>
