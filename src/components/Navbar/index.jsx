@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Navbar, Container, Offcanvas } from 'react-bootstrap';
 import { BsChevronDoubleRight } from "react-icons/bs";
 import iconUser from '../../assets/img/icone-user.png';
-import logo from '../../assets/img/logo-academic-quest.png';
 import style from './NavigationBar.module.scss';
 
 import LinkButton from "../LinkButton";
@@ -25,12 +24,11 @@ export default function NavigationBar() {
           </Offcanvas.Header>
           <Offcanvas.Body className={style.navLinks}>
             <LinkButton to="/">Projetos</LinkButton><br/>
-            <LinkButton to="/">Grupos</LinkButton>
+            <LinkButton to="/groups">Grupos</LinkButton>
           </Offcanvas.Body>
         </Offcanvas>
         
         <Link to="/" className={style.navItem}>
-          <img src={logo} className={style.logo} alt="Logo"/>
           <h1 className={style.title}>Academic Quest</h1>
         </Link>
         

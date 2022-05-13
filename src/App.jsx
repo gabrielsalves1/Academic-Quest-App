@@ -9,6 +9,7 @@ import CreateQuest from './pages/CreateQuest';
 import QuestManagement from './pages/QuestManagement';
 import EvaluateQuest from './pages/EvaluateQuest';
 import ViewTask from './pages/ViewTask';
+import Groups from './pages/Groups';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route exact path="/quest-management" element={<QuestManagement name="teste"/>} />
             <Route exact path="/evaluate-quest" element={<EvaluateQuest/>} />
             <Route exact path="/view-task" element={<ViewTask/>} />
+            <Route exact path="/groups" element={<Groups/>} />
           </Routes>
 
         </div>

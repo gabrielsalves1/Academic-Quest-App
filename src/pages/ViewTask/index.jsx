@@ -69,7 +69,7 @@ export default function ViewTask() {
           </Container>
 
           <div className={style.menuForm}>
-            <LinkButton to="/">Voltar</LinkButton>
+            <LinkButton to="/evaluate-quest">Voltar</LinkButton>
 
             <SubmitButton>Aplicar</SubmitButton>
           </div>
