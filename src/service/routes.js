@@ -24,7 +24,7 @@ export default function Routes() {
       <RoutesSwitch>
         <Route exact path="/login" element={<Login/>} />
         <Route element={<PrivateRoute/>}>
-            <Route exact path="/projects" element={<Projects/>}/>
+            <Route exact path="/" element={<Projects/>}/>
             <Route exact path="/create-quest" element={<CreateQuest/>}/>
             <Route exact path="/create-project" element={<CreateProject/>}/>
             <Route exact path="/quest-management" element={<QuestManagement name="teste"/>}/>
