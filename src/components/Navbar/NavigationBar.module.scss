@@ -12,6 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #fff;
 }
 
 .navItem:hover {
@@ -28,19 +29,31 @@
   font-size: 32px;
 }
 
-.iconUser {
-  width: 30px;
-  height: 30px;
-  margin: 0 8px;
-}
-
-.logo {
-  width: 70px;
-  height: 70px;
-  margin: 0 8px;
+.icon {
+  width: 20px;
+  height: 20px;
+  margin: 0 4px;
 }
 
 .sidebar {
   font-family: 'Cabin', sans-serif;
   width: 250px;
+}
+
+.dropdown {
+  background-color: #6558f5;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.dropdown:focus, .buttonForm:active {
+  outline: none;
+  box-shadow: none;
+  border: none;
+  background-color: #4c3ee2;
+}
+
+.dropdown:hover {
+  background-color: #4c3ee2;
 }
