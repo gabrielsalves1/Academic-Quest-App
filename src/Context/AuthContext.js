@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useState } from "react";
 
 import api from '../service/api';
 import history from '../service/history';
@@ -18,7 +18,7 @@ function AuthProvider({ children }) {
       localStorage.setItem('userFirstName', JSON.stringify(res.data.userFirtsName));
     
       api.defaults.headers.Authorization = `Bearer ${JSON.stringify(res.data.access_token)}`;
-      history.push('/projects');
+      history.push('/');
     }
   }
 

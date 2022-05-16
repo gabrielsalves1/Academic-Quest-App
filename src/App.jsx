@@ -7,8 +7,6 @@ import history from './service/history';
 import { AuthProvider } from './Context/AuthContext';
 
 function App() {
-  const Context = createContext();
-
   return (
     <AuthProvider>
       <HistoryRouter location={history.location} history={history}>
