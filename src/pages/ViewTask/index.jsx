@@ -49,8 +49,8 @@ export default function ViewTask() {
           <Container fluid>
             <Row>
               <Col>
-                <StylizedLink to="/">Visualizar Arquivo<BsFillEyeFill className={style.icon}/></StylizedLink><br/>
-                <LinkButton to="/">Baixar Arquivo<BsDownload className={style.icon}/></LinkButton>
+                <StylizedLink to="/projects">Visualizar Arquivo<BsFillEyeFill className={style.icon}/></StylizedLink><br/>
+                <LinkButton to="/projects">Baixar Arquivo<BsDownload className={style.icon}/></LinkButton>
 
                 <Form.Group>
                   <Form.Label htmlFor='note'>Nota</Form.Label>
@@ -69,7 +69,7 @@ export default function ViewTask() {
           </Container>
 
           <div className={style.menuForm}>
-            <LinkButton to="/">Voltar</LinkButton>
+            <LinkButton to="/quest-management">Voltar</LinkButton>
 
             <SubmitButton>Aplicar</SubmitButton>
           </div>

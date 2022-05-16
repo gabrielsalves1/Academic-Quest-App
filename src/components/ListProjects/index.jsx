@@ -15,7 +15,7 @@ export default function ListProjects() {
 
       <ul>
         <li className={style.project}>
-            <LinkButton to="/" classStyle="purple">
+            <LinkButton to="/projects" classStyle="purple">
               <BsFillFileTextFill className={style.icon}/>TCC 1
             </LinkButton>
 
@@ -25,7 +25,7 @@ export default function ListProjects() {
             </LinkButton>
         </li>
         <li className={style.project}>
-            <LinkButton to="/" classStyle="purple">
+            <LinkButton to="/projects" classStyle="purple">
               <BsFillFileTextFill className={style.icon}/>TCC 1
             </LinkButton>
 
