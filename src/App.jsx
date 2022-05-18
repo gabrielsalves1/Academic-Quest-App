@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
 import style from './App.module.scss';
 

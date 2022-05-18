@@ -1,16 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Form } from "react-bootstrap";
-import api from "../../service/api";
 import style from "./Login.module.scss";
 
+import api from "../../service/api";
 import { Context } from "../../Context/AuthContext";
 import SubmitButton from "../../components/SubmitButton";
 
 export default function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const { authenticated, handleLogin } = useContext(Context);
-  console.log('Login', authenticated);
+  const { handleLogin } = useContext(Context);
 
   const onSubmit = data => {
     let formData = new FormData();
