@@ -3,6 +3,11 @@
   border: none;
 }
 
+.buttonForm:focus, .buttonForm:active {
+  outline: none;
+  background-color: #4c3ee2;
+}
+
 .buttonForm:hover {
   background-color: #4c3ee2;
 }

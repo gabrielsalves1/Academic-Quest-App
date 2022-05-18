@@ -1,37 +1,24 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
 import style from './App.module.scss';
 
-import NavigationBar from './components/Navbar';
-import Projects from './pages/Projects';
-import CreateProject from './pages/CreateProject';
-import CreateQuest from './pages/CreateQuest';
-import QuestManagement from './pages/QuestManagement';
-import EvaluateQuest from './pages/EvaluateQuest';
-import ViewTask from './pages/ViewTask';
-import Groups from './pages/Groups';
+import Routes from './service/routes';
+import history from './service/history';
+import { AuthProvider } from './Context/AuthContext';
 
 function App() {
   return (
-    <Router>
-      <NavigationBar/>
+    <AuthProvider>
+      <HistoryRouter location={history.location} history={history}>
+        <div className={style.base}>
+          <div className={style.content}>
 
-      <div className={style.base}>
-        <div className={style.content}>
+            <Routes/>
 
-          <Routes>
-            <Route exact path="/" element={<Projects/>} />
-            <Route exact path="/create-quest" element={<CreateQuest/>} />
-            <Route exact path="/create-project" element={<CreateProject/>} />
-            <Route exact path="/quest-management" element={<QuestManagement name="teste"/>} />
-            <Route exact path="/evaluate-quest" element={<EvaluateQuest/>} />
-            <Route exact path="/view-task" element={<ViewTask/>} />
-            <Route exact path="/groups" element={<Groups/>} />
-          </Routes>
-
+          </div>
         </div>
-      </div>
-    </Router>
+      </HistoryRouter>
+    </AuthProvider>
   );
 }
 
