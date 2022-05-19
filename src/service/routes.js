@@ -12,14 +12,22 @@ import QuestManagement from '../pages/QuestManagement';
 import EvaluateQuest from '../pages/EvaluateQuest';
 import ViewTask from '../pages/ViewTask';
 
-function PrivateRoute() {
-  const { authenticated } = useContext(Context);
-  return authenticated || localStorage.getItem('token') ? <Outlet/> : <Navigate to="/login"/>
-  
-}
-
 export default function Routes() {
+  const { authenticated, recoverUser } = useContext(Context);
   const { pathname } = useLocation();
+
+  function PrivateRoute() {
+    if (!authenticated) {
+      RecoverUser();
+    }
+
+    return authenticated ? <Outlet/> : <Navigate to="/login"/>
+  }
+
+  function RecoverUser() {
+    const token = localStorage.getItem('token');
+    recoverUser(token);
+  }
 
   return (
     <>

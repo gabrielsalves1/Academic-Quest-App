@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
 
 import history from '../../service/history';
 
@@ -27,5 +28,18 @@ export default function useAuth() {
     history.push('/login');
   }
 
-  return { authenticated, loading, handleLogin, handleLogout }
+  function recoverUser(token) {
+    axios.get(`https://ms-academicquest.herokuapp.com/verificar/token/${token}`)
+    .then(res => {
+      if(res.status === 200) {
+        setAuthenticated(true);
+        history.push('/');
+      } else {
+        localStorage.clear();
+        history.push('/login');
+      }
+    });
+  }
+
+  return { authenticated, recoverUser, loading, handleLogin, handleLogout }
 }
