@@ -1,30 +1,28 @@
 import { useState } from "react";
 import axios from "axios";
+import api from "../../service/api";
 
 import history from '../../service/history';
 
 export default function useAuth() {
-  const [authenticated, setAuthenticated] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [authenticated, setAuthenticated] = useState(true);
 
   function handleLogin(res) {
-    console.log(res);
     if (res.status === 200) {
       setAuthenticated(true);
 
       localStorage.setItem('token', res.data.access_token);
       localStorage.setItem('role', JSON.stringify(res.data.role));
       localStorage.setItem('userFirstName', JSON.stringify(res.data.userFirtsName));
-    
-      setLoading(false);
-      history.push('/');
+
+      history.push('/projects');
     }
   }
 
   function handleLogout() {
     setAuthenticated(false);
     localStorage.clear();
-
+    api.defaults.headers.Authorization = undefined;
     history.push('/login');
   }
 
@@ -32,14 +30,15 @@ export default function useAuth() {
     axios.get(`https://ms-academicquest.herokuapp.com/verificar/token/${token}`)
     .then(res => {
       if(res.status === 200) {
-        setAuthenticated(true);
-        history.push('/');
-      } else {
-        localStorage.clear();
-        history.push('/login');
+        return true;
       }
+    })
+    .catch(err => {
+      localStorage.clear();
+      history.push('/login');
+      return false;
     });
   }
 
-  return { authenticated, recoverUser, loading, handleLogin, handleLogout }
+  return { authenticated, recoverUser, handleLogin, handleLogout }
 }

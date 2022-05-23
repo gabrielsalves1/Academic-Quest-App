@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Routes as RoutesSwitch, Route, Navigate, Outlet, useLocation } from 'react-router-dom';
 
 import { Context } from "../Context/AuthContext";
@@ -13,20 +13,17 @@ import EvaluateQuest from '../pages/EvaluateQuest';
 import ViewTask from '../pages/ViewTask';
 
 export default function Routes() {
+  const [ tokenIsValid, setTokenIsValid ] = useState(false);
   const { authenticated, recoverUser } = useContext(Context);
   const { pathname } = useLocation();
 
-  function PrivateRoute() {
-    if (!authenticated) {
-      RecoverUser();
-    }
-
-    return authenticated ? <Outlet/> : <Navigate to="/login"/>
-  }
-
-  function RecoverUser() {
+  useEffect(() => {
     const token = localStorage.getItem('token');
-    recoverUser(token);
+    setTokenIsValid(recoverUser(token));
+  }, []);
+
+  function PrivateRoute() {
+    return authenticated || tokenIsValid ? <Outlet/> : <Navigate to="/login"/>
   }
 
   return (
@@ -37,7 +34,7 @@ export default function Routes() {
         <Route exact path="/login" element={<Login/>} />
 
         <Route element={<PrivateRoute/>}>
-            <Route exact path="/" element={<Projects/>}/>
+            <Route exact path="/projects" element={<Projects/>}/>
             <Route exact path="/groups" element={<Groups/>}/>
             <Route exact path="/create-quest" element={<CreateQuest/>}/>
             <Route exact path="/create-project" element={<CreateProject/>}/>
