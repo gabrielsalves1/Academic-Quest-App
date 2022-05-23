@@ -9,7 +9,7 @@ export default function ListQuests() {
   return (
     <div className={style.listQuests}>
       <div className={style.menuCreateQuest}>
-        <LinkButton to="/">Voltar</LinkButton>
+        <LinkButton to="/projects">Voltar</LinkButton>
         <Form.Select size="sm" className={style.selectForm} data-testid="formSelect">
           <option>Ordem de Exibição</option>
           <option value="1">Recentes</option>

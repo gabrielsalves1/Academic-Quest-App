@@ -39,14 +39,14 @@ export default function Login() {
           <Form.Label htmlFor="username">E-mail</Form.Label>
           <Form.Control name="username" {...register("username", { required: true })}
             placeholder="E-mail" className={style.inputForm}/>
-          {errors.name && <span>Esse campo é obrigatório.</span>}
+          {errors.username && <span>Esse campo é obrigatório.</span>}
         </Form.Group>
 
         <Form.Group>
           <Form.Label htmlFor="password">Senha</Form.Label>
           <Form.Control type="password" name="password" {...register("password", { required: true })}
             placeholder="Senha" className={style.inputForm}/>
-          {errors.description && <span>Esse campo é obrigatório.</span>}
+          {errors.password && <span>Esse campo é obrigatório.</span>}
         </Form.Group>
 
         <SubmitButton>Entrar</SubmitButton>
