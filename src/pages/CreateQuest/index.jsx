@@ -5,7 +5,7 @@ import { BsUpload } from "react-icons/bs";
 import axios from "axios";
 import style from "./CreateQuest.module.scss";
 
-import SubmitButton from "../../components/SubmitButton";
+import StylizedButton from "../../components/StylizedButton";
 import LinkButton from "../../components/LinkButton";
 
 export default function CreateQuest() {
@@ -63,7 +63,7 @@ export default function CreateQuest() {
         <div className={style.menuForm}>
           <LinkButton to="/quest-management">Voltar</LinkButton>
 
-          <SubmitButton>Salvar</SubmitButton>
+          <StylizedButton type="submit">Salvar</StylizedButton>
         </div>
       </Form>
     </div>

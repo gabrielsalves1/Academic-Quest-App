@@ -26,7 +26,7 @@ export default function ListProjects() {
         </li>
         <li className={style.project}>
             <LinkButton to="/projects" classStyle="purple">
-              <BsFillFileTextFill className={style.icon}/>TCC 1
+              <BsFillFileTextFill className={style.icon}/>TCC 2
             </LinkButton>
 
             <span className={style.active}>Ativo</span>

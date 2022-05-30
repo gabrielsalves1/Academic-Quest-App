@@ -21,7 +21,6 @@ export default function ListQuests() {
 
       <ul>
         <CardQuest/>
-        <CardQuest/>
       </ul>
     </div>
   );

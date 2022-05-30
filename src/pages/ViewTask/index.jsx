@@ -7,7 +7,7 @@ import axios from "axios";
 
 import StylizedLink from "../../components/StylizedLink";
 import LinkButton from "../../components/LinkButton";
-import SubmitButton from "../../components/SubmitButton";
+import StylizedButton from "../../components/StylizedButton";
 
 export default function ViewTask() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -71,7 +71,7 @@ export default function ViewTask() {
           <div className={style.menuForm}>
             <LinkButton to="/evaluate-quest">Voltar</LinkButton>
 
-            <SubmitButton>Aplicar</SubmitButton>
+            <StylizedButton type="submit">Aplicar</StylizedButton>
           </div>
         </Form>
       </div>
