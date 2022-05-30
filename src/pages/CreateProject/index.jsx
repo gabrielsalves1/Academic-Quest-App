@@ -5,7 +5,7 @@ import axios from "axios";
 import style from "./CreateProject.module.scss";
 
 import LinkButton from "../../components/LinkButton";
-import SubmitButton from "../../components/SubmitButton";
+import StylizedButton from "../../components/StylizedButton";
 
 export default function CreateProject() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -49,7 +49,7 @@ export default function CreateProject() {
         <div className={style.menuForm}>
           <LinkButton to="/projects">Voltar</LinkButton>
 
-          <SubmitButton>Criar</SubmitButton>
+          <StylizedButton type="submit">Criar</StylizedButton>
         </div>
       </Form>
     </div>

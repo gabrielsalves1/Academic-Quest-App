@@ -5,7 +5,7 @@ import style from "./Login.module.scss";
 
 import api from "../../service/api";
 import { Context } from "../../Context/AuthContext";
-import SubmitButton from "../../components/SubmitButton";
+import StylizedButton from "../../components/StylizedButton";
 
 export default function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -49,7 +49,7 @@ export default function Login() {
           {errors.password && <span>Esse campo é obrigatório.</span>}
         </Form.Group>
 
-        <SubmitButton>Entrar</SubmitButton>
+        <StylizedButton type="submit">Entrar</StylizedButton>
       </Form>
     </div>
   );

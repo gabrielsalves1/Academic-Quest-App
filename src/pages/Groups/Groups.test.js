@@ -8,10 +8,4 @@ describe('Renderiza a página de grupos', () => {
 
     expect(screen.getByText('Grupos')).toBeInTheDocument();
   });
-
-  it('e consegue visualizar o formulário de seleção', () => {
-    render(<Groups/>, {wrapper: MemoryRouter })
-
-    expect(screen.getByTestId('formSelect')).toBeInTheDocument();
-  });
 })
