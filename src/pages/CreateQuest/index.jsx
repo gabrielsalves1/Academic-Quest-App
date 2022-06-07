@@ -5,6 +5,7 @@ import { BsUpload } from "react-icons/bs";
 import axios from "axios";
 import style from "./CreateQuest.module.scss";
 
+import Container from "../../components/Container";
 import StylizedButton from "../../components/StylizedButton";
 import LinkButton from "../../components/LinkButton";
 
@@ -29,7 +30,7 @@ export default function CreateQuest() {
   }
 
   return (
-    <div className={style.containerForm}>
+    <Container>
       <h2 className={style.title}>Criar Quest</h2>
 
       <Form onSubmit = { handleSubmit(onSubmit) } className={style.form} >
@@ -66,6 +67,6 @@ export default function CreateQuest() {
           <StylizedButton type="submit">Salvar</StylizedButton>
         </div>
       </Form>
-    </div>
+    </Container>
   );
 }

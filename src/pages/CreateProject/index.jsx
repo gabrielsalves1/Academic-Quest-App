@@ -4,6 +4,7 @@ import { Form } from "react-bootstrap";
 import axios from "axios";
 import style from "./CreateProject.module.scss";
 
+import Container from "../../components/Container";
 import LinkButton from "../../components/LinkButton";
 import StylizedButton from "../../components/StylizedButton";
 
@@ -23,7 +24,7 @@ export default function CreateProject() {
   }
 
   return (
-    <div className={style.containerForm}>
+    <Container>
       <h2 className={style.title}>Criar Projeto</h2>
 
       <Form onSubmit = { handleSubmit(onSubmit) } className={style.form} >
@@ -52,6 +53,6 @@ export default function CreateProject() {
           <StylizedButton type="submit">Criar</StylizedButton>
         </div>
       </Form>
-    </div>
+    </Container>
   );
 }

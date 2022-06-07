@@ -4,7 +4,7 @@ import style from "./SubmitButton.module.scss";
 
 export default function StylizedButton(props) {
   return (
-    <Button type={props.type} className={style.buttonForm}>
+    <Button type={props.type} className={style.buttonForm} onClick={props.onClick}>
       {props.children}
     </Button>
   );

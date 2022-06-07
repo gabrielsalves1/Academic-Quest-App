@@ -1,12 +1,14 @@
 import React, { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { Form } from "react-bootstrap";
+import { Form, Image } from "react-bootstrap";
 import style from "./Login.module.scss";
 
+import logo from '../../assets/img/logo-academic-quest.png';
 import api from "../../service/api";
 import { Context } from "../../Context/AuthContext";
+import Container from "../../components/Container";
 import StylizedButton from "../../components/StylizedButton";
-
+  
 export default function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const { handleLogin } = useContext(Context);
@@ -31,7 +33,8 @@ export default function Login() {
   }
 
   return (
-    <div className={style.containerForm}>
+    <Container>
+      <Image fluid src={logo} className={style.logo}/>
       <h2 className={style.title}>Entrar no Academic Quest</h2>
 
       <Form onSubmit = { handleSubmit(onSubmit) } className={style.form}>
@@ -51,6 +54,6 @@ export default function Login() {
 
         <StylizedButton type="submit">Entrar</StylizedButton>
       </Form>
-    </div>
+    </Container>
   );
 }
