@@ -10,12 +10,20 @@
   border: solid 2px $color-gray;
   border-collapse: collapse;
   font-weight: bold;
+  text-align: center;
 }
 
 .line {
   background-color: $color-gray-light;
+  text-align: center;
 }
 
 .line:nth-child(even) {
   background-color: $color-white;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: $color-black;
 }
