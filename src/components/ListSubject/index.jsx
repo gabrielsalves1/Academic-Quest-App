@@ -23,7 +23,7 @@ export default function ListSubject(props) {
         }
       </ul>
 
-      { props.subjects.length === 0 && <span className={style.noClass}>Não há nenhuma matéria cadastrada para a turma.</span> }
+      { props.subjects?.length === 0 && <span className={style.noClass}>Não há nenhuma matéria cadastrada para a turma.</span> }
       { props.getGroups && subjectId && <ListGroups subjectId={subjectId}/> }
     </>
   );
