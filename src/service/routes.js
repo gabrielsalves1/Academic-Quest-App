@@ -6,6 +6,7 @@ import NavigationBar from '../components/Navbar';
 import Login from '../pages/Login';
 import Projects from '../pages/Projects';
 import Groups from '../pages/Groups';
+import CreateGroup from '../pages/CreateGroup';
 import CreateProject from '../pages/CreateProject';
 import CreateQuest from '../pages/CreateQuest';
 import QuestManagement from '../pages/QuestManagement';
@@ -36,6 +37,7 @@ export default function Routes() {
         <Route element={<PrivateRoute/>}>
             <Route exact path="/projects" element={<Projects/>}/>
             <Route exact path="/groups" element={<Groups/>}/>
+            <Route exact path="/create-group" element={<CreateGroup/>}/>
             <Route exact path="/create-quest" element={<CreateQuest/>}/>
             <Route exact path="/create-project" element={<CreateProject/>}/>
             <Route exact path="/quest-management" element={<QuestManagement name="teste"/>}/>

@@ -1,3 +1,5 @@
+@import "../../global.scss";
+
 .containerViewTask {
   display: flex;
   flex-direction: column;
@@ -7,9 +9,9 @@
 }
 
 .form {
-  color: #484c4e;
+  color: $color-gray-dark;
   font-weight: bold;
-  border: 3px solid #c3cfd9;
+  border: 3px solid $color-gray;
   border-radius: 5px;
   margin-top: 32px;
   width: 1200px;
@@ -25,22 +27,22 @@
 .inputFile {
   padding: 5px;
   width: 140px;
-  border: 2px solid #c3cfd9;
+  border: 2px solid $color-gray;
   border-radius: 5px;
-  color: #6558f5;
+  color: $color-purple;
   text-align: center;
   margin-top: 10px;
   cursor: pointer;
 }
 
 .inputForm {
-  border: 2px solid #c3cfd9;
+  border: 2px solid $color-gray;
   border-radius: 5px;
   margin-bottom: 20px;
 }
 
 .inputArea{
-  border: 2px solid #c3cfd9;
+  border: 2px solid $color-gray;
   min-height: 120px;
   height: 120px;
   margin-bottom: 20px;

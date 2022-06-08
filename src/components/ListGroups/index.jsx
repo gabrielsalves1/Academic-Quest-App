@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { BsFillTrashFill, BsPencilFill } from "react-icons/bs";
 import style from "./ListGroups.module.scss";
@@ -11,21 +11,14 @@ export default function ListGroups(props) {
   async function getGroups(id) {
     const response = await api.get(`/grupos/materia/${id}`);
     setGroups(response.data);
-    console.log(response.data);
   }
+
+  useEffect(() => {
+    getGroups(props.subjectId);
+  }, [props.subjectId]);
 
   return (
     <>
-      <ul className={style.listSubject} data-testid="listSubject">
-        {
-          props.subjects?.map((subject) => (
-            <li key={subject.id} className={style.subjectItem}>
-              <span onClick={() => { getGroups(subject.id) }}>{subject.nome}</span>
-            </li>
-          ))
-        }
-      </ul>
-
       {
         groups &&
         <Table className={style.table} data-testid="tableGroups">

@@ -1,38 +1,21 @@
-.listSubject {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.subjectItem {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  width: 400px;
-  border: solid 2px #c3cfd9;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 10px;
-  cursor: pointer;
-}
+@import "../../global.scss";
 
 .table {
-	border: solid 2px #c3cfd9;
+	border: solid 2px $color-gray;
   border-collapse: collapse;
   align-items: center;
 }
 
 .header {
-  border: solid 2px #c3cfd9;
+  border: solid 2px $color-gray;
   border-collapse: collapse;
   font-weight: bold;
 }
 
 .line {
-  background-color: #d8e5f0;
+  background-color: $color-gray-light;
 }
 
 .line:nth-child(even) {
-  background-color: #fff;
+  background-color: $color-white;
 }

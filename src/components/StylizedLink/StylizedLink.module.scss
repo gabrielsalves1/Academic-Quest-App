@@ -1,9 +1,11 @@
+@import "../../global.scss";
+
 .stylizedLink {
   display: inline-block;
-  color: #6558f5;
+  color: $color-purple;
   margin: 10px 10px;
 }
 
 .stylizedLink:hover {
-  color: #4c3ee2;
+  color: $color-purple-dark;
 }

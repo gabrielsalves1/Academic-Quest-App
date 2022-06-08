@@ -1,28 +1,25 @@
+@import "../../global.scss";
+
+.logo {
+  width: 300px;
+}
+
 .title {
   font-size: 32px;
 }
 
-.containerForm {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 92vh;
-}
-
 .form {
-  color: #484c4e;
+  color: $color-gray-dark;
   font-weight: bold;
-  border: 3px solid #c3cfd9;
+  border: 3px solid $color-gray-light;
   border-radius: 5px;
   margin-top: 32px;
   padding: 50px;
 }
 
 .inputForm {
-  border: 2px solid #c3cfd9;
+  border: 2px solid $color-gray-light;
   border-radius: 5px;
   margin: 8px 0;
   max-height: 200px;
-  font-family: Cascadia Mono, Consolas, 'Courier New', monospace;
 }
