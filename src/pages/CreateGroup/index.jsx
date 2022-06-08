@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { FaCrown } from "react-icons/fa";
 import { Form } from "react-bootstrap";
 import AsyncSelect from 'react-select/async';
 import style from "./CreateGroup.module.scss";
@@ -18,11 +19,12 @@ export default function CreateGroup() {
   const [ selectMember, setSelectMember] = useState();
   const [ students, setStudents ] = useState();
   const [ membersId, setMembersId ] = useState([]);
+  const [ leadMember, setMemberLead ] = useState();
 
   const onSubmit = data => {
     data['alunosId'] = membersId;
     data['materiaId'] = selectSubject;
-    data['alunoLiderId'] = 1;
+    data['alunoLiderId'] = leadMember;
     console.log(data);
     
     api.post('https://ms-academicquest.herokuapp.com/grupos', data, {
@@ -40,7 +42,8 @@ export default function CreateGroup() {
   useEffect(() => {
     if(selectSubject !== undefined) {
       getStudents(selectSubject, setStudents);
-      console.log(students);
+      setMembersId([]);
+      setMemberLead();
     }
   }, [selectSubject])
 
@@ -68,7 +71,7 @@ export default function CreateGroup() {
           className={style.selectForm}
           placeholder="Selecione a turma"/>
 
-        { subjects && 
+        { subjects &&
           <Form.Group>
             <Form.Label className={style.label} htmlFor="subject">Matéria</Form.Label>
             <ListSubject 
@@ -83,7 +86,6 @@ export default function CreateGroup() {
             <div className={style.selectButtonAlign}>
               <Form.Select className={style.inputForm} onChange={(e) => {
                 setSelectMember(e.target.value);
-                console.log("Select foi alterado para o membro ", selectMember);
               }}>
                 <option>Selecione o aluno</option>
                 {students?.map((student) => (
@@ -102,15 +104,39 @@ export default function CreateGroup() {
           </Form.Group>
         }
 
+        { membersId.length === 0 && students &&
+          <span className={style.error}>Selecione os integrantes do grupo e defina o líder do grupo.</span>
+        }
+
         { membersId &&
           membersId?.map((memberId) => (
             students?.map((student) => {
               if(student.id == memberId) {
                 return (
-                <div key={memberId}>
-                  <span>{student.firstName} {student.lastName}</span>
-                </div>
+                  <div key={memberId} className={style.cardGroup}>
+                    <div key={memberId} className={style.student}>
+                      { leadMember === memberId && 
+                        <p className={style.leadStudent}>Líder do Grupo <FaCrown className={style.icon}/></p>
+                      }
+                      <span>{student.firstName} {student.lastName}</span>
+                    </div>
+
+                    <StylizedButton type="button" onClick={() => {
+                      setMemberLead(memberId);
+                    }}>
+                      Líder do Grupo
+                    </StylizedButton>
+                    
+                    <StylizedButton type="button" onClick={() => {
+                      membersId.splice(membersId.indexOf(memberId), 1);
+                      setMembersId(membersId => [...membersId]);
+                    }}>
+                      Remover
+                    </StylizedButton>
+                  </div>
                 );
+              } else {
+                return undefined;
               }
             })
           ))

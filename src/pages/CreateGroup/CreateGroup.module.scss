@@ -30,6 +30,33 @@
   max-height: 200px;
 }
 
+.cardGroup {
+  color: $color-gray-dark;
+  font-weight: bold;
+  border: 3px solid $color-gray;
+  border-radius: 5px;
+  width: 600px;
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.student {
+  font-size: 20px;
+  width: 120px;
+}
+
+.leadStudent {
+  font-size: 14px;
+}
+
+.icon {
+  font-size: 16px;
+  color: $color-purple-light;
+}
+
 .menuForm {
   display: flex;
   justify-content: space-between;

@@ -9,21 +9,21 @@ export default function ListSubject(props) {
   return (
     <>
       <ul className={style.listSubject} data-testid="listSubject">
-        {
-          props.subjects?.map((subject) => (
-            <li key={subject.id}>
-              <div className={`${subject.id === subjectId ? style.subjectItemActive : style.subjectItem}`} onClick={() => { 
-                  setSubjectId(subject.id);
-                  if(props.setSelectSubject) {
-                    props.setSelectSubject(subject.id);
-                  }
+        { props.subjects?.map((subject) => (
+          <li key={subject.id}>
+            <div className={`${subject.id === subjectId ? style.subjectItemActive : style.subjectItem}`} onClick={() => { 
+                setSubjectId(subject.id);
+                if(props.setSelectSubject) {
+                  props.setSelectSubject(subject.id);
                 }
-              }>{subject.nome}</div>
-            </li>
+              }
+            }>{subject.nome}</div>
+          </li>
           ))
-         }
+        }
       </ul>
 
+      { props.subjects.length === 0 && <span className={style.noClass}>Não há nenhuma matéria cadastrada para a turma.</span> }
       { props.getGroups && subjectId && <ListGroups subjectId={subjectId}/> }
     </>
   );

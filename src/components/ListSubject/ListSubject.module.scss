@@ -19,6 +19,14 @@
   cursor: pointer;
 }
 
+.noClass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin: 10px;
+}
+
 .subjectItemActive {
   display: flex;
   justify-content: center;
