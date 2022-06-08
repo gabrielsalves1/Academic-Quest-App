@@ -12,6 +12,7 @@ import CreateQuest from '../pages/CreateQuest';
 import QuestManagement from '../pages/QuestManagement';
 import EvaluateQuest from '../pages/EvaluateQuest';
 import ViewTask from '../pages/ViewTask';
+import ViewGroup from '../pages/ViewGroup';
 
 export default function Routes() {
   const [ tokenIsValid, setTokenIsValid ] = useState(false);
@@ -43,6 +44,7 @@ export default function Routes() {
             <Route exact path="/quest-management" element={<QuestManagement name="teste"/>}/>
             <Route exact path="/evaluate-quest" element={<EvaluateQuest/>}/>
             <Route exact path="/view-task" element={<ViewTask/>}/>
+            <Route exact path="/view-group/:idGroup/subject/:idSubject" element={<ViewGroup/>}/>
         </Route>
       </RoutesSwitch>
     </>

@@ -105,7 +105,7 @@ export default function CreateGroup() {
         }
 
         { membersId?.length === 0 && students &&
-          <span className={style.error}>Selecione os integrantes do grupo e defina o líder do grupo.</span>
+          <p className={style.error}>Selecione os integrantes do grupo e defina o líder do grupo.</p>
         }
 
         { membersId &&

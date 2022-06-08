@@ -20,3 +20,9 @@ export async function getStudents(id_subject, setStudents) {
   const response = await api.get(`/grupos/alunos/materia/${id_subject}`);
   return setStudents(response.data);
 }
+
+export async function getGroup(id_group, setGroup) {
+  const response = await api.get(`/grupos/${id_group}`);
+  console.log(response.data);
+  return setGroup(response.data);
+}
