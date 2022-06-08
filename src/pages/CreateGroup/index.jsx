@@ -104,7 +104,7 @@ export default function CreateGroup() {
           </Form.Group>
         }
 
-        { membersId.length === 0 && students &&
+        { membersId?.length === 0 && students &&
           <span className={style.error}>Selecione os integrantes do grupo e defina o líder do grupo.</span>
         }
 
