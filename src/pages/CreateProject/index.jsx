@@ -12,7 +12,6 @@ export default function CreateProject() {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = data => {
-    console.log(data)
     axios.post('https://ms-academicquest.herokuapp.com/teste', data, {
       headers: {'Content-Type': 'application/json'}
     })
@@ -24,7 +23,7 @@ export default function CreateProject() {
   }
 
   return (
-    <Container>
+    <Container classStyle="containerJustifyCenter">
       <h2 className={style.title}>Criar Projeto</h2>
 
       <Form onSubmit = { handleSubmit(onSubmit) } className={style.form} >

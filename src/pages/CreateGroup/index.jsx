@@ -6,6 +6,7 @@ import AsyncSelect from 'react-select/async';
 import style from "./CreateGroup.module.scss";
 
 import api from "../../service/api";
+import history from '../../service/history';
 import { getClasses, getSubjects, getStudents } from "../../service/requests";
 import Container from "../../components/Container";
 import LinkButton from "../../components/LinkButton";
@@ -33,7 +34,9 @@ export default function CreateGroup() {
       }
     })
     .then((res) => {
-      console.log(res);
+      if(res.status === 200) {
+        history.push('/groups');
+      }
     }).catch((err) => {
       console.log(err);
     })
@@ -48,7 +51,7 @@ export default function CreateGroup() {
   }, [selectSubject])
 
   return (
-    <Container>
+    <Container classStyle="containerJustifyCenter">
       <h2 className={style.title}>Criar Grupo</h2>
 
       <Form className={style.form} onSubmit = { handleSubmit(onSubmit) }>
