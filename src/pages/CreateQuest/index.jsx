@@ -30,7 +30,7 @@ export default function CreateQuest() {
   }
 
   return (
-    <Container>
+    <Container classStyle="containerJustifyCenter">
       <h2 className={style.title}>Criar Quest</h2>
 
       <Form onSubmit = { handleSubmit(onSubmit) } className={style.form} >

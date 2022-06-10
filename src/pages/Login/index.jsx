@@ -33,7 +33,7 @@ export default function Login() {
   }
 
   return (
-    <Container>
+    <Container classStyle="containerJustifyCenter">
       <Image fluid src={logo} className={style.logo}/>
       <h2 className={style.title}>Entrar no Academic Quest</h2>
 

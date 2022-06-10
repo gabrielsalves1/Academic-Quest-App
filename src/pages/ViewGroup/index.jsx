@@ -16,7 +16,7 @@ export default function ViewGroup() {
   }, [idGroup])
 
   return (
-    <Container>
+    <Container classStyle="containerJustifyCenter">
       <h1 className={style.title}>Grupo {group?.nome} - {idGroup}</h1>
       <h1 className={style.title}>Matéria - {idSubject}</h1>
 

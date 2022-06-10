@@ -3,6 +3,7 @@ import AsyncSelect from 'react-select/async';
 import style from "./Groups.module.scss";
 
 import { getClasses, getSubjects } from "../../service/requests";
+import Container from "../../components/Container";
 import LinkButton from "../../components/LinkButton";
 import ListSubject from "../../components/ListSubject";
 
@@ -14,7 +15,7 @@ export default function Groups() {
   }, [])
 
   return (
-    <div className={style.containerGroups}>
+    <Container>
       <h1 className={style.title}>Grupos</h1>
 
       <div className={style.groups}>
@@ -43,6 +44,6 @@ export default function Groups() {
 
         <ListSubject subjects={subjects} getGroups={true}/>
       </div>
-    </div>
+    </Container>
   );
 }

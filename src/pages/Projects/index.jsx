@@ -1,23 +1,38 @@
-import React from "react";
-import { Form } from "react-bootstrap";
+import React, { useState } from "react";
+import AsyncSelect from "react-select/async";
 import style from "./Projects.module.scss";
 
+import { getClasses, getSubjects } from "../../service/requests";
 import LinkButton from "../../components/LinkButton";
 import ListProjects from "../../components/ListProjects";
 
 export default function Projects() {
+  const [ subjects, setSubjects ] = useState();
+
   return (
     <div className={style.containerProjects}>
       <h1 className={style.title}>Projetos</h1>
 
       <div className={style.projects}>
         <div className={style.menuClassAndProject}>
-          <Form.Select size="sm" className={style.selectForm} data-testid="formSelect">
-            <option>Selecione a turma</option>
-            <option value="1">7A</option>
-            <option value="2">2B</option>
-            <option value="3">3A</option>
-          </Form.Select>
+        <AsyncSelect 
+          cacheOptions
+          loadOptions={getClasses}
+          onChange={(data) => {
+            getSubjects(data.id, setSubjects);
+          }}
+          defaultOptions
+          theme={(theme) => ({
+            ...theme,
+            borderRadius: 5,
+            colors: {
+              ...theme.colors,
+              primary: '#aea8ee',
+              neutral20: '#c3cfd9',
+            },
+          })}
+          className={style.selectForm}
+          placeholder="Selecione a turma"/>
 
           <LinkButton to="/create-project" classStyle="purple">Criar projeto</LinkButton>
         </div>

@@ -13,6 +13,7 @@ export default function ListSubject(props) {
           <li key={subject.id}>
             <div className={`${subject.id === subjectId ? style.subjectItemActive : style.subjectItem}`} onClick={() => { 
                 setSubjectId(subject.id);
+                
                 if(props.setSelectSubject) {
                   props.setSelectSubject(subject.id);
                 }
