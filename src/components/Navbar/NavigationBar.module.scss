@@ -1,28 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;600&display=swap');
+@import "../../global.scss"; 
 
 .nav {
   font-family: 'Cabin', sans-serif;
-  background-color: #fff;
+  background-color: $color-white;
   height: 50px;
 }
 
 .navItem {
   text-decoration: none;
-  color: black;
+  color: $color-black;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
+  background-color: $color-white;
 }
 
 .navItem:hover {
-  color: #6558f5;
+  color: $color-purple;
+}
+
+.navItemDropdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-purple !important;
 }
 
 .navLinks {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.dropdown {
+  background-color: $color-purple;
+}
+
+.dropdown:focus, .dropdown:hover {
+  background-color: $color-purple-dark !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .title {
@@ -38,22 +56,4 @@
 .sidebar {
   font-family: 'Cabin', sans-serif;
   width: 250px;
-}
-
-.dropdown {
-  background-color: #6558f5;
-  border: none;
-  outline: none;
-  box-shadow: none;
-}
-
-.dropdown:focus, .buttonForm:active {
-  outline: none;
-  box-shadow: none;
-  border: none;
-  background-color: #4c3ee2;
-}
-
-.dropdown:hover {
-  background-color: #4c3ee2;
 }

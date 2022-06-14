@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Container, Offcanvas, Dropdown } from 'react-bootstrap';
-import { BsChevronDoubleRight, BsFillPersonFill } from "react-icons/bs";
+import { BsFillPersonFill } from "react-icons/bs";
+import { AiOutlineMenu } from "react-icons/ai";
 import style from './NavigationBar.module.scss';
 
 import { Context } from "../../Context/AuthContext";
@@ -17,7 +18,7 @@ export default function NavigationBar() {
   return (
     <Navbar fixed="top" className={style.nav}>
       <Container fluid >
-        <BsChevronDoubleRight onClick={handleShow} data-testid="sidebar"/>
+        <AiOutlineMenu onClick={handleShow} className={style.icon} data-testid="sidebar"/>
 
         <Offcanvas show={show} onHide={handleClose} className={style.sidebar}>
           <Offcanvas.Header closeButton>
@@ -43,8 +44,8 @@ export default function NavigationBar() {
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
-            <Dropdown.Item onClick={handleLogout} className={style.navItem} active>
-              Sair 
+            <Dropdown.Item onClick={handleLogout} className={style.navItemDropdown} active>
+              Sair
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>

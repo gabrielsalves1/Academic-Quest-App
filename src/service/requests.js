@@ -26,3 +26,13 @@ export async function getGroup(id_group, setGroup) {
   console.log(response.data);
   return setGroup(response.data);
 }
+
+export async function getGroups(id_subject, setGroups) {
+  const response = await api.get(`/grupos/materia/${id_subject}`);
+  return setGroups(response.data);
+}
+
+export async function getProjects(id_subject, setProjects) {
+  const response = await api.get(`/projetos/materia/${id_subject}`)
+  return setProjects(response.data);
+}
