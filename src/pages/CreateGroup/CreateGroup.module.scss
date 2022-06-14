@@ -4,16 +4,6 @@
   font-size: 32px;
 }
 
-.form {
-  color: $color-gray-dark;
-  font-weight: bold;
-  border: 3px solid $color-gray;
-  border-radius: 5px;
-  margin-top: 32px;
-  padding: 50px;
-  width: 1200px;
-}
-
 .label {
   margin: 5px 0;
 }
@@ -21,13 +11,6 @@
 .selectButtonAlign {
   display: flex;
   align-items: center;
-}
-
-.inputForm {
-  border: 2px solid $color-gray;
-  border-radius: 5px;
-  margin: 8px 5px;
-  max-height: 200px;
 }
 
 .cardGroup {

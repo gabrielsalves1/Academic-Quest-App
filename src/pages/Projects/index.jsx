@@ -4,7 +4,7 @@ import style from "./Projects.module.scss";
 
 import { getClasses, getSubjects } from "../../service/requests";
 import LinkButton from "../../components/LinkButton";
-import ListProjects from "../../components/ListProjects";
+import ListSubject from "../../components/ListSubject";
 
 export default function Projects() {
   const [ subjects, setSubjects ] = useState();
@@ -37,7 +37,9 @@ export default function Projects() {
           <LinkButton to="/create-project" classStyle="purple">Criar projeto</LinkButton>
         </div>
 
-        <ListProjects/>
+        <ListSubject 
+        subjects={subjects}
+        getProjects={true}/>
       </div>
     </div>
   );

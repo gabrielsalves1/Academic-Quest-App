@@ -1,30 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from "./ListProjects.module.scss";
-import { BsFillFileTextFill, BsPencil } from "react-icons/bs";
-
+import { BsPencil } from "react-icons/bs";
+import { getProjects } from "../../service/requests";
 import LinkButton from "../LinkButton";
 
-export default function ListProjects() {
+export default function ListProjects(props) {
+  const [ projects, setProjects ] = useState();
+
+  useEffect(() => {
+    getProjects(props.subjectId, setProjects);
+  }, [props.subjectId]);
+
   return (
     <>
-      <div className={style.title}>
-        <h3>Projeto</h3>
-        <h3>Status</h3>
-        <h3>Quest</h3>
-      </div>
+      { projects && projects.length !== 0 &&
+        <>
+          <div className={style.titles}>
+            <h2>Projeto</h2>
+            <h2>Status</h2>
+            <h2>Quest</h2>
+          </div>
 
-      <ul>
-        <li className={style.project}>
-            <LinkButton to="/projects" classStyle="purple">
-              TCC 1 <BsFillFileTextFill className={style.icon}/>
-            </LinkButton>
-
-            <span className={style.active}>Ativo</span>
-            <LinkButton to="/quest-management">
-              Gerenciar Quest <BsPencil className={style.icon}/>
-            </LinkButton>
-        </li>
-      </ul>
+          <ul>
+            { projects?.map((project) => {
+              if(project.status === "EM_ANDAMENTO") {
+                return (
+                  <li className={style.project}>
+                    <LinkButton to="/projects" classStyle="purple">
+                      {project.nome}
+                    </LinkButton>
+                    <span className={style.active}>Ativo</span>
+                    <LinkButton to={`/quest-management/${project.id}`}>
+                      Gerenciar Quest <BsPencil className={style.icon}/>
+                    </LinkButton>
+                  </li>
+                );
+              }
+              })
+            }
+          </ul>
+        </>
+      }
     </>
   );
 }

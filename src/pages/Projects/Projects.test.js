@@ -8,10 +8,4 @@ describe('Renderiza a página de projetos', () => {
 
     expect(screen.getByText('Projetos')).toBeInTheDocument();
   });
-
-  it('e consegue visualizar o formulário de seleção', () => {
-    render(<Projects/>, {wrapper: MemoryRouter })
-
-    expect(screen.getByTestId('formSelect')).toBeInTheDocument();
-  });
 })

@@ -4,24 +4,18 @@ import { Table } from "react-bootstrap";
 import { BsFillTrashFill, BsPencilFill, BsFillEyeFill } from "react-icons/bs";
 import style from "./ListGroups.module.scss";
 
-import api from "../../service/api";
+import { getGroups } from "../../service/requests";
 
 export default function ListGroups(props) {
   const [ groups, setGroups ] = useState();
 
-  async function getGroups(id) {
-    const response = await api.get(`/grupos/materia/${id}`);
-    setGroups(response.data);
-  }
-
   useEffect(() => {
-    getGroups(props.subjectId);
+    getGroups(props.subjectId, setGroups);
   }, [props.subjectId]);
 
   return (
     <>
-      {
-        groups &&
+      { groups &&
         <Table className={style.table} data-testid="tableGroups">
           <thead className={style.header}>
             <tr>

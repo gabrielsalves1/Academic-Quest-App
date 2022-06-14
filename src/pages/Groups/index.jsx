@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AsyncSelect from 'react-select/async';
 import style from "./Groups.module.scss";
 
@@ -9,10 +9,6 @@ import ListSubject from "../../components/ListSubject";
 
 export default function Groups() {
   const [ subjects, setSubjects ] = useState();
-
-  useEffect(() => {
-    getClasses();
-  }, [])
 
   return (
     <Container>
@@ -42,7 +38,9 @@ export default function Groups() {
           <LinkButton to="/create-group" classStyle="purple">Criar grupo</LinkButton>
         </div>
 
-        <ListSubject subjects={subjects} getGroups={true}/>
+        <ListSubject 
+        subjects={subjects}
+        getGroups={true}/>
       </div>
     </Container>
   );

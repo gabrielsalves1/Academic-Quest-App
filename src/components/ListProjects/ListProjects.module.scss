@@ -1,10 +1,11 @@
 @import "../../global.scss";
 
-.title {
+.titles {
   display: flex;
   justify-content: space-around;
-  font-size: 26px;
-  margin: 20px 0;
+  align-items: center;
+  font-size: 24px;
+  margin: 30px 0;
 }
 
 .project {
@@ -12,9 +13,12 @@
   justify-content: space-around;
   align-items: center;
   border: 2px solid $color-gray;
-  border-radius: 5px;
+  border-bottom: 0;
   height: 80px;
-  margin: 10px 0;
+}
+
+.project:last-child {
+  border-bottom: 2px solid $color-gray;
 }
 
 .active {
@@ -28,19 +32,23 @@
   font-size: 20px;
   font-weight: bold;
   color: $color-white;
+  height: 30px;
 }
 
 .finished {
-  display: block;
-  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
   border: 2px solid $color-red;
   background-color: $color-red;
   border-radius: 5px;
   font-size: 20px;
   font-weight: bold;
   color: $color-white;
+  height: 30px;
 }
 
 .icon {
-  margin: 5px;
+  margin: 0 5px;
 }
