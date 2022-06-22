@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Form } from "react-bootstrap";
 import AsyncSelect from "react-select/async";
-import axios from "axios";
 import style from "./CreateProject.module.scss";
 
 import api from "../../service/api";
