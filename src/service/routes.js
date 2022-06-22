@@ -16,16 +16,21 @@ import ViewGroup from '../pages/ViewGroup';
 
 export default function Routes() {
   const [ tokenIsValid, setTokenIsValid ] = useState(false);
+  const [ isAdmin, setIsAdmin ] = useState(false);
   const { authenticated, recoverUser } = useContext(Context);
   const { pathname } = useLocation();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+    const role = localStorage.getItem('role');
+    if(role === "PROFESSOR") {
+      setIsAdmin(true);
+    }
     setTokenIsValid(recoverUser(token));
   }, []);
 
-  function PrivateRoute() {
-    return authenticated || tokenIsValid ? <Outlet/> : <Navigate to="/login"/>
+  function PrivateRouteAdmin() {
+    return authenticated || tokenIsValid && isAdmin ? <Outlet/> : <Navigate to="/login"/>
   }
 
   return (
@@ -35,7 +40,7 @@ export default function Routes() {
       <RoutesSwitch>
         <Route exact path="/login" element={<Login/>} />
 
-        <Route element={<PrivateRoute/>}>
+        <Route element={<PrivateRouteAdmin/>}>
             <Route exact path="/projects" element={<Projects/>}/>
             <Route exact path="/groups" element={<Groups/>}/>
             <Route exact path="/create-group" element={<CreateGroup/>}/>
