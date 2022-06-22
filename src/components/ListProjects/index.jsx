@@ -16,9 +16,8 @@ export default function ListProjects(props) {
       { projects && projects.length !== 0 &&
         <>
           <div className={style.titles}>
-            <h2>Projeto</h2>
-            <h2>Status</h2>
-            <h2>Quest</h2>
+            <h2 className={style.title}>Projeto</h2>
+            <h2 className={style.title}>Status</h2>
           </div>
 
           <ul>

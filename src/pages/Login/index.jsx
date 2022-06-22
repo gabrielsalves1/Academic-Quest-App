@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Form, Image } from "react-bootstrap";
 import style from "./Login.module.scss";
