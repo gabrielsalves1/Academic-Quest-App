@@ -1,27 +1,45 @@
-import React from "react";
-import { Form } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
 import style from "./ListQuests.module.scss";
+import { BsPencilSquare, BsTrash } from "react-icons/bs";
 
 import LinkButton from "../LinkButton";
-import CardQuest from "../CardQuest";
+import { getTasks } from "../../service/requests";
 
-export default function ListQuests() {
+export default function ListQuests(props) {
+  const [ quests, setQuests ] = useState();
+
+  useEffect(() => {
+    getTasks(props.idProject, setQuests);
+  }, []);
+
   return (
-    <div className={style.listQuests}>
+    <>
       <div className={style.menuCreateQuest}>
         <LinkButton to="/projects">Voltar</LinkButton>
-        <Form.Select size="sm" className={style.selectForm} data-testid="formSelect">
-          <option>Ordem de Exibição</option>
-          <option value="1">Recentes</option>
-          <option value="2">Finalizados</option>
-        </Form.Select>
 
-        <LinkButton to="/create-quest" classStyle="purple">Criar</LinkButton>
+        <LinkButton to={`/project/${props.idProject}/create-quest`} classStyle="purple">Criar Quest</LinkButton>
+      </div>
+
+      <div className={style.titles}>
+        <h2 className={style.title}>Quest</h2>
+        <h2 className={style.title}>Data de Entrega</h2>
+        <h2 className={style.titleStatus}>Status</h2>
+        <h2 className={style.title}>Editar</h2>
+        <h2 className={style.title}>Excluir</h2>
       </div>
 
       <ul>
-        <CardQuest/>
+        { quests?.map((quest) => (
+            <li className={style.quest}>
+              <LinkButton to={`/project/${props.idProject}/evaluate-quest/${quest.id}`}>{quest.nome}</LinkButton>
+              <span>{quest.dataEntrega}</span>
+              <span className={style.active}>Ativo</span>
+              <BsPencilSquare className={style.icone}/>
+              <BsTrash className={style.icone}/>
+            </li>
+          )
+        )}
       </ul>
-    </div>
+    </>
   );
 }

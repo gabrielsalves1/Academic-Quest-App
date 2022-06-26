@@ -4,7 +4,7 @@ import { Table } from "react-bootstrap";
 import { BsFillEyeFill } from "react-icons/bs";
 import style from "./TableTask.module.scss";
 
-export default function TableTask() {
+export default function TableTask(props) {
   return (
     <>
       <h2 className={style.titleSecundary}>Entregues</h2>
@@ -26,18 +26,7 @@ export default function TableTask() {
             <td>0</td>
             <td>01/01/2023</td>
             <td>
-              <Link to="/view-task">
-                <BsFillEyeFill className={style.icon}/>
-              </Link>
-            </td>
-          </tr>
-          <tr className={style.line}>
-            <td>XD</td>
-            <td>Avaliado</td>
-            <td>0</td>
-            <td>01/01/2023</td>
-            <td>
-              <Link to="/view-task">
+              <Link to={`/project/${props.idProject}/view-task`}>
                 <BsFillEyeFill className={style.icon}/>
               </Link>
             </td>
