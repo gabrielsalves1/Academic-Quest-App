@@ -29,7 +29,7 @@ export default function ListProjects(props) {
                       {project.nome}
                     </LinkButton>
                     <span className={style.active}>Ativo</span>
-                    <LinkButton to={`/quest-management/${project.id}`}>
+                    <LinkButton to={`/project/${project.id}/quest-management`}>
                       Gerenciar Quest <BsPencil className={style.icon}/>
                     </LinkButton>
                   </li>

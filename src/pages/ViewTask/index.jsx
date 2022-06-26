@@ -1,25 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./ViewTask.module.scss";
+import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { Form, Container, Row, Col } from "react-bootstrap";
+import { Form, Container as ContainerBs, Row, Col } from "react-bootstrap";
 import { BsDownload, BsFillEyeFill } from "react-icons/bs";
-import axios from "axios";
 
+import api from "../../service/api";
 import StylizedLink from "../../components/StylizedLink";
 import LinkButton from "../../components/LinkButton";
 import StylizedButton from "../../components/StylizedButton";
+import Container from "../../components/Container";
 
 export default function ViewTask() {
+  const { idProject } = useParams();
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const [ file, setFile ] = useState();
-
-  const handleFile = (e) => {
-    setFile(e.target.files[0])
-  }
 
   const onSubmit = data => {
     console.log(data)
-    axios.post('https://ms-academicquest.herokuapp.com/teste', data, {
+    api.post('https://ms-academicquest.herokuapp.com/teste', data, {
       headers: {'Content-Type': 'application/json'}
     })
     .then((res) => {
@@ -30,7 +28,7 @@ export default function ViewTask() {
   }
 
   return (
-    <div className={style.containerViewTask}>
+    <Container classStyle="containerJustifyCenter">
       <div className={style.form}>
         <h1 className={style.title}>Teste Grupo</h1>
 
@@ -46,7 +44,7 @@ export default function ViewTask() {
         </div>
         
         <Form onSubmit = { handleSubmit(onSubmit) }>
-          <Container fluid>
+          <ContainerBs fluid>
             <Row>
               <Col>
                 <StylizedLink to="/projects">Visualizar Arquivo<BsFillEyeFill className={style.icon}/></StylizedLink><br/>
@@ -66,15 +64,15 @@ export default function ViewTask() {
                 </Form.Group>
               </Col>
             </Row>
-          </Container>
+          </ContainerBs>
 
           <div className={style.menuForm}>
-            <LinkButton to="/evaluate-quest">Voltar</LinkButton>
+            <LinkButton to={`/project/${idProject}/evaluate-quest`}>Voltar</LinkButton>
 
             <StylizedButton type="submit">Aplicar</StylizedButton>
           </div>
         </Form>
       </div>
-    </div>
+    </Container>
   );
 }

@@ -5,12 +5,13 @@ import style from "./Projects.module.scss";
 import { getClasses, getSubjects } from "../../service/requests";
 import LinkButton from "../../components/LinkButton";
 import ListSubject from "../../components/ListSubject";
+import Container from "../../components/Container";
 
 export default function Projects() {
   const [ subjects, setSubjects ] = useState();
 
   return (
-    <div className={style.containerProjects}>
+    <Container classStyle="containerAlignCenter">
       <h1 className={style.title}>Projetos</h1>
 
       <div className={style.projects}>
@@ -41,6 +42,6 @@ export default function Projects() {
         subjects={subjects}
         getProjects={true}/>
       </div>
-    </div>
+    </Container>
   );
 }

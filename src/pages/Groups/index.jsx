@@ -11,7 +11,7 @@ export default function Groups() {
   const [ subjects, setSubjects ] = useState();
 
   return (
-    <Container>
+    <Container classStyle="containerAlignCenter">
       <h1 className={style.title}>Grupos</h1>
 
       <div className={style.groups}>
