@@ -6,7 +6,7 @@
   justify-content: center;
 }
 
-.subjectItem {
+.subjectItem, .subjectItemActive {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,6 +19,10 @@
   cursor: pointer;
 }
 
+.subjectItemActive {
+  border: solid 2px $color-purple-light;
+}
+
 .noClass {
   display: flex;
   justify-content: center;
@@ -27,15 +31,9 @@
   margin: 10px;
 }
 
-.subjectItemActive {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  width: 400px;
-  border: solid 2px $color-purple-light;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 10px;
-  cursor: pointer;
+@media only screen and (max-device-width: 900px) {
+  .listSubject {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }

@@ -7,8 +7,11 @@ import { getTasks } from "../../service/requests";
 
 export default function ListQuests(props) {
   const [ quests, setQuests ] = useState();
+  const timeElapsed = Date.now();
+  const today = new Date(timeElapsed);
 
   useEffect(() => {
+    console.log("Data: ", today.toLocaleDateString())
     getTasks(props.idProject, setQuests);
   }, []);
 
@@ -29,15 +32,29 @@ export default function ListQuests(props) {
       </div>
 
       <ul>
-        { quests?.map((quest) => (
-            <li className={style.quest}>
-              <LinkButton to={`/project/${props.idProject}/evaluate-quest/${quest.id}`}>{quest.nome}</LinkButton>
-              <span>{quest.dataEntrega}</span>
-              <span className={style.active}>Ativo</span>
-              <BsPencilSquare className={style.icone}/>
-              <BsTrash className={style.icone}/>
-            </li>
-          )
+        { quests?.map((quest) => {
+          const date = new Date(Date.parse(quest.dataEntrega));
+          if(date < today) {
+            return (
+              <li className={style.quest}>
+                <LinkButton to={`/project/${props.idProject}/evaluate-quest/${quest.id}`}>{quest.nome}</LinkButton>
+                <span>{date.toLocaleDateString()}</span>
+                <span className={style.finished}>Finalizado</span>
+                <BsPencilSquare className={style.icone}/>
+                <BsTrash className={style.icone}/>
+              </li>
+            );
+          } else {
+            return (
+              <li className={style.quest}>
+                <LinkButton to={`/project/${props.idProject}/evaluate-quest/${quest.id}`}>{quest.nome}</LinkButton>
+                <span>{date.toLocaleDateString()}</span>
+                <span className={style.active}>Ativo</span>
+                <BsPencilSquare className={style.icone}/>
+                <BsTrash className={style.icone}/>
+              </li>
+            );
+          }}
         )}
       </ul>
     </>

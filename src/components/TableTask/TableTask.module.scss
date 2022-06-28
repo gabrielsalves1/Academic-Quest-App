@@ -1,3 +1,5 @@
+@import "../../global.scss";
+
 .titleSecundary {
   font-size: 20px;
   margin: 20px 0;
@@ -13,17 +15,21 @@
   border: solid 2px #c3cfd9;
   border-collapse: collapse;
   font-weight: bold;
+  text-align: center;
 }
 
 .line {
   background-color: #d8e5f0;
+  text-align: center;
 }
 
 .line:nth-child(even) {
   background-color: #fff;
+  text-align: center;
 }
 
 .icon {
   width: 30px;
   height: 30px;
+  color: $color-black;
 }

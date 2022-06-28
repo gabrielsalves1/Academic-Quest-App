@@ -34,6 +34,30 @@ export default function ListProjects(props) {
                     </LinkButton>
                   </li>
                 );
+              } else if(project.status === "CONCLUIDO") {
+                return (
+                  <li className={style.project}>
+                    <LinkButton to="/projects" classStyle="purple">
+                      {project.nome}
+                    </LinkButton>
+                    <span className={style.active}>Concluído</span>
+                    <LinkButton to={`/project/${project.id}/quest-management`}>
+                      Gerenciar Quest <BsPencil className={style.icon}/>
+                    </LinkButton>
+                  </li>
+                );
+              } else {
+                return (
+                  <li className={style.project}>
+                    <LinkButton to="/projects" classStyle="purple">
+                      {project.nome}
+                    </LinkButton>
+                    <span className={style.finished}>Finalizado</span>
+                    <LinkButton to={`/project/${project.id}/quest-management`}>
+                      Gerenciar Quest <BsPencil className={style.icon}/>
+                    </LinkButton>
+                  </li>
+                );
               }
               })
             }
