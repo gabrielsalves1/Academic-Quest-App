@@ -54,6 +54,5 @@ export async function getTaskGroups(id_task, setTaskGroups) {
 
 export async function getTaskByGroup(id_group, setTask) {
   const response = await api.get(`/tarefa/grupo/id/${id_group}`);
-  console.log(response.data);
   return setTask(response.data);
 }

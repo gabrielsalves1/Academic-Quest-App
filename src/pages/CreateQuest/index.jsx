@@ -23,7 +23,7 @@ export default function CreateQuest() {
     let formData = new FormData();
     formData.append('arquivoUpload', file);
     formData.append('nome', data["nome"])
-    formData.append('idProjeto', idProject)
+    formData.append('projetoId', idProject)
     formData.append('descricao', data["descricao"])
     formData.append('dataEntrega', data["dataEntrega"])
     api.post('/tarefas', formData, {

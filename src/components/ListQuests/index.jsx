@@ -26,7 +26,7 @@ export default function ListQuests(props) {
           const date = new Date(Date.parse(quest.dataEntrega));
           if(date < today) {
             return (
-              <li className={style.quest}>
+              <li className={style.quest} key={quest.id}>
                 <LinkButton to={`/project/${props.idProject}/evaluate-quest/${quest.id}`}>Quest {quest.nome}</LinkButton>
                 <span className={style.date}>
                   Data de Entrega <br/>
@@ -37,7 +37,7 @@ export default function ListQuests(props) {
             );
           } else {
             return (
-              <li className={style.quest}>
+              <li className={style.quest} key={quest.id}>
                 <LinkButton to={`/project/${props.idProject}/evaluate-quest/${quest.id}`}>Quest {quest.nome}</LinkButton>
                 <span className={style.date}>
                   Data de Entrega <br/>

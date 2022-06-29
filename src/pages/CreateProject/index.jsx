@@ -18,8 +18,7 @@ export default function CreateProject() {
   const [ selectSubject, setSelectSubject ] = useState();
 
   const onSubmit = data => {
-    data['idMateria'] = selectSubject;
-    console.log(data);
+    data['materiaId'] = selectSubject;
 
     api.post('https://ms-academicquest.herokuapp.com/projetos', data, {
       headers: {'Content-Type': 'application/json'}

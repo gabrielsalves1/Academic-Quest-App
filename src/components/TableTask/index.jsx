@@ -29,13 +29,13 @@ export default function TableTask(props) {
         </thead>
         <tbody>
         { taskGroups?.map((group) => (
-          <tr className={style.line}>
+          <tr className={style.line} key={group.id}>
             <td>{group.nomeGrupo}</td>
             <td>{group.statusTarefaGrupo}</td>
             <td>{group.nota !== null ? group.nota : " - "}</td>
             <td>{group.dataEntrega ? new Date(Date.parse(group.dataEntrega)).toLocaleDateString() : " - "}</td>
             <td>
-              <Link to={`/project/${props.idProject}/view-task/${props.idQuest}/group/${group.id}`}>
+              <Link to={`/project/${props.idProject}/view-task/${props.idQuest}/task-group/${group.id}`}>
                 <BsFillEyeFill className={style.icon}/>
               </Link>
             </td>
