@@ -2,6 +2,7 @@
 
 .title {
   font-size: 32px;
+  margin: 16px 0;
 }
 
 .menuForm {
@@ -14,4 +15,10 @@
   margin: 20px 0;
   width: 100%;
   cursor: pointer;
+}
+
+@media only screen and (max-device-width: 900px) {
+  .menuForm {
+    flex-direction: column-reverse;
+  }
 }

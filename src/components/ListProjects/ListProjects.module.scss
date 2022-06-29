@@ -1,19 +1,5 @@
 @import "../../global.scss";
 
-.titles {
-  display: flex;
-  align-items: center;
-  font-size: 22px;
-  margin: 30px 0;
-}
-
-.title {
-  display: flex;
-  justify-content: center;
-  width: 300px;
-  margin: 0 95px 0 20px;
-}
-
 .project {
   display: flex;
   justify-content: space-around;
@@ -57,4 +43,19 @@
 
 .icon {
   margin: 0 5px;
+}
+
+@media only screen and (max-device-width: 900px) {
+  .titles {
+    visibility: hidden;
+  }
+
+  .project {
+    flex-direction: column;
+    height: 160px;
+  }
+
+  .active, .finished {
+    width: 50%;
+  }
 }

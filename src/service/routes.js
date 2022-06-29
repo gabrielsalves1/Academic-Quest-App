@@ -22,7 +22,7 @@ export default function Routes() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     setTokenIsValid(recoverUser(token));
-  }, []);
+  }, [tokenIsValid]);
 
   function PrivateRoute() {
     return authenticated || tokenIsValid ? <Outlet/> : <Navigate to="/login"/>

@@ -36,4 +36,10 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
+
+  .subject {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+  }
 }

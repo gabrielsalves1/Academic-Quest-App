@@ -53,3 +53,10 @@ input[type="file"] {
   margin-top: 10px;
   cursor: pointer;
 }
+
+.inputArea{
+  border: 2px solid $color-gray;
+  min-height: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+}

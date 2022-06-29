@@ -1,43 +1,9 @@
 @import "../../global.scss";
 
-.form {
-  color: $color-gray-dark;
-  font-weight: bold;
-  border: 3px solid $color-gray;
-  border-radius: 5px;
-  margin-top: 32px;
-  width: 1200px;
-  padding: 50px;
-}
-
 .menuNameAndDate {
   display: flex;
   justify-content: space-between;
   padding: 16px;
-}
-
-.inputFile {
-  padding: 5px;
-  width: 140px;
-  border: 2px solid $color-gray;
-  border-radius: 5px;
-  color: $color-purple;
-  text-align: center;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-.inputForm {
-  border: 2px solid $color-gray;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
-.inputArea{
-  border: 2px solid $color-gray;
-  min-height: 120px;
-  height: 120px;
-  margin-bottom: 20px;
 }
 
 .menuForm {
@@ -61,14 +27,23 @@
   margin: 10px 0;
 }
 
-.menuForm {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .icon {
   width: 20px;
   height: 20px;
   margin: 0 5px;
+}
+
+@media only screen and (max-device-width: 900px) {
+  .menuNameAndDate {
+    flex-direction: column;
+  }
+
+  .titleSecundary {
+    font-size: 14px;
+    margin: 20px 0;
+  }
+
+  .menuForm {
+    flex-direction: column;
+  }
 }

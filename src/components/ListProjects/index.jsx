@@ -15,18 +15,13 @@ export default function ListProjects(props) {
     <>
       { projects && projects.length !== 0 &&
         <>
-          <div className={style.titles}>
-            <h2 className={style.title}>Projeto</h2>
-            <h2 className={style.title}>Status</h2>
-          </div>
-
           <ul>
             { projects?.map((project) => {
               if(project.status === "EM_ANDAMENTO") {
                 return (
                   <li className={style.project}>
                     <LinkButton to="/projects" classStyle="purple">
-                      {project.nome}
+                      Projeto {project.nome}
                     </LinkButton>
                     <span className={style.active}>Ativo</span>
                     <LinkButton to={`/project/${project.id}/quest-management`}>

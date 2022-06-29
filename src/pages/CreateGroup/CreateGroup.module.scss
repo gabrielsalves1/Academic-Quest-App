@@ -51,3 +51,18 @@
   width: 100%;
   cursor: pointer;
 }
+
+@media only screen and (max-device-width: 900px) {
+  .selectButtonAlign {
+    flex-direction: column;
+  }
+
+  .cardGroup {
+    flex-direction: column;
+    width: 200px;
+  }
+
+  .menuForm {
+    flex-direction: column-reverse;
+  }
+}
