@@ -12,17 +12,17 @@ import Container from "../../components/Container";
 import { getTaskByGroup } from "../../service/requests";
 
 export default function ViewTask() {
-  const { idProject, idQuest, idGroup } = useParams();
+  const { idProject, idQuest, idTaskGroup } = useParams();
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [ taskGroup, setTaskGroup ] = useState();
 
   useEffect(() => {
-    getTaskByGroup(idGroup, setTaskGroup);
-  }, [idGroup]);
+    getTaskByGroup(idTaskGroup, setTaskGroup);
+  }, [idTaskGroup]);
 
   const onSubmit = data => {
     console.log(data)
-    api.put(`/tarefa/grupo/${idGroup}`, data, {
+    api.put(`/tarefa/grupo/${idTaskGroup}`, data, {
       headers: {'Content-Type': 'application/json'}
     })
     .then((res) => {

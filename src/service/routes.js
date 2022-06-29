@@ -43,7 +43,7 @@ export default function Routes() {
             <Route exact path="/create-project" element={<CreateProject/>}/>
             <Route exact path="/project/:idProject/quest-management" element={<QuestManagement/>}/>
             <Route exact path="/project/:idProject/evaluate-quest/:idQuest" element={<EvaluateQuest/>}/>
-            <Route exact path="/project/:idProject/view-task/:idQuest/group/:idGroup" element={<ViewTask/>}/>
+            <Route exact path="/project/:idProject/view-task/:idQuest/task-group/:idTaskGroup" element={<ViewTask/>}/>
             <Route exact path="/view-group/:idGroup/subject/:idSubject" element={<ViewGroup/>}/>
         </Route>
       </RoutesSwitch>
