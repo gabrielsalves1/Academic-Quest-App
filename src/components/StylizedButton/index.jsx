@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import style from "./SubmitButton.module.scss";
+import style from "./StylizedButton.module.scss";
 
 export default function StylizedButton(props) {
   return (

@@ -3,28 +3,8 @@
 .menuCreateQuest {
   display: flex;
   justify-content: space-between;
-  width: 1200px;
+  width: 75%;
   margin: 20px 0;
-}
-
-.titles {
-  display: flex;
-  align-items: center;
-  font-size: 22px;
-  width: 1200px;
-  margin: 30px 0;
-}
-
-.title {
-  margin: 0 85px;
-}
-
-.title:last-child, .title:nth-last-child(-n+2) {
-  margin: 0 55px;
-}
-
-.titleStatus {
-  margin: 0 160px;
 }
 
 .quest {
@@ -45,7 +25,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 300px;
+  width: 20%;
   border: 2px solid $color-green;
   background-color: $color-green-light;
   border-radius: 5px;
@@ -58,7 +38,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 300px;
+  width: 20%;
   border: 2px solid $color-red;
   background-color: $color-red;
   border-radius: 5px;
@@ -67,8 +47,20 @@
   color: $color-white;
 }
 
-.icone {
-  margin: 5px;
-  width: 30px;
-  height: 30px;
+@media only screen and (max-device-width: 900px) {
+  .quest {
+    flex-direction: column;
+    height: 150px;
+    width: 300px;
+  }
+
+  .menuCreateQuest {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .active, .finished {
+    width: 50%;
+  }
 }
