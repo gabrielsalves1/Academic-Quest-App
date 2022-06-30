@@ -1,31 +1,40 @@
 @import "../../global.scss";
 
-.containerQuest {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 90%;
-  min-height: 92vh;
-}
-
 .title {
   display: flex;
   justify-content: space-around;
   font-size: 26px;
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
-.quest {
+.backButton {
   display: flex;
-  justify-content: space-around;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 40px 0;
+}
+
+.taskItem {
+  font-size: 17px;
+  margin: 5px;
+}
+
+.questSection {
+  display: flex;
+  justify-content: center;
   align-items: center;
   border: 2px solid $color-gray;
   border-radius: 5px;
-  width: 1200px;
-  height: 80px;
+  padding: 50px;
   margin: 20px 0;
 }
 
+.questInfo {
+  display: flex;
+  flex-direction: column;
+  margin-right: 25px;
+}
 
 .active {
   display: flex;
@@ -51,8 +60,8 @@
   color: $color-white;
 }
 
-.icone {
+.icon {
   margin: 5px;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }

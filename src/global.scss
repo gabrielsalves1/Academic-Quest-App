@@ -23,7 +23,7 @@ $color-black: #000;
   border-radius: 5px;
   margin-top: 32px;
   padding: 50px;
-  width: 1200px;
+  width: 90%;
 }
 
 .inputForm {
@@ -52,4 +52,11 @@ input[type="file"] {
   text-align: center;
   margin-top: 10px;
   cursor: pointer;
+}
+
+.inputArea{
+  border: 2px solid $color-gray;
+  min-height: 120px;
+  height: 120px;
+  margin-bottom: 20px;
 }

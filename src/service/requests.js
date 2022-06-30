@@ -33,6 +33,26 @@ export async function getGroups(id_subject, setGroups) {
 }
 
 export async function getProjects(id_subject, setProjects) {
-  const response = await api.get(`/projetos/materia/${id_subject}`)
+  const response = await api.get(`/projetos/materia/${id_subject}`);
   return setProjects(response.data);
+}
+
+export async function getTasks(id_project, setQuests) {
+  const response = await api.get(`/tarefas/projeto/${id_project}`);
+  return setQuests(response.data);
+}
+
+export async function getTask(id_task, setTask) {
+  const response = await api.get(`/tarefas/${id_task}`);
+  return setTask(response.data);
+}
+
+export async function getTaskGroups(id_task, setTaskGroups) {
+  const response = await api.get(`/tarefa/grupo/${id_task}`);
+  return setTaskGroups(response.data);
+}
+
+export async function getTaskByGroup(id_group, setTask) {
+  const response = await api.get(`/tarefa/grupo/id/${id_group}`);
+  return setTask(response.data);
 }

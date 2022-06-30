@@ -23,11 +23,11 @@ export default function CreateGroup() {
   const [ leadMember, setMemberLead ] = useState();
 
   const onSubmit = data => {
-    data['alunosId'] = membersId;
+    data['listaAlunosId'] = membersId;
     data['materiaId'] = selectSubject;
     data['alunoLiderId'] = leadMember;
     console.log(data);
-    
+  
     api.post('https://ms-academicquest.herokuapp.com/grupos', data, {
       headers: {
         'Content-Type': 'application/json'

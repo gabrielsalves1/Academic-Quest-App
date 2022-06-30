@@ -16,8 +16,8 @@ export default function NavigationBar() {
   const handleShow = () => setShow(true);
 
   return (
-    <Navbar fixed="top" className={style.nav}>
-      <Container fluid >
+    <Navbar collapseOnSelect fixed="top" expand="lg" className={style.nav}>
+      <Container fluid>
         <AiOutlineMenu onClick={handleShow} className={style.icon} data-testid="sidebar"/>
 
         <Offcanvas show={show} onHide={handleClose} className={style.sidebar}>
@@ -39,7 +39,7 @@ export default function NavigationBar() {
         {localStorage.getItem('userFirstName') != null &&
         <Dropdown>
           <Dropdown.Toggle className={style.dropdown}>
-            {localStorage.getItem('userFirstName').replace(/"/g, '')}
+            <span className={style.username}>{localStorage.getItem('userFirstName').replace(/"/g, '')}</span>
             <BsFillPersonFill className={style.icon}/>
           </Dropdown.Toggle>
 

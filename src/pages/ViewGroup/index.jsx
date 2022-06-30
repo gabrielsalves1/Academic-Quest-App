@@ -22,8 +22,8 @@ export default function ViewGroup() {
 
       <div className={style.integrants}>
         <h2 className={style.title}>Integrantes</h2>
-        { group?.alunos.map((student) => (
-            <span>{student.firstName} {student.lastName} <BsFillPersonFill/></span>
+        { group?.listaAlunos.map((student) => (
+            <span key={student.id}>{student.firstName} {student.lastName} <BsFillPersonFill/></span>
           ))
         }
       </div>

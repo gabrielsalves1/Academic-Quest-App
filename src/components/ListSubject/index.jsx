@@ -11,7 +11,7 @@ export default function ListSubject(props) {
     <>
       <ul className={style.listSubject} data-testid="listSubject">
         { props.subjects?.map((subject) => (
-          <li key={subject.id}>
+          <li key={subject.id} className={style.subject}>
             <div className={`${subject.id === subjectId ? style.subjectItemActive : style.subjectItem}`} onClick={() => { 
                 setSubjectId(subject.id);
                 

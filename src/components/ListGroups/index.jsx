@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
-import { BsFillTrashFill, BsPencilFill, BsFillEyeFill } from "react-icons/bs";
+import { BsFillEyeFill } from "react-icons/bs";
 import style from "./ListGroups.module.scss";
 
 import { getGroups } from "../../service/requests";
@@ -21,8 +21,6 @@ export default function ListGroups(props) {
             <tr>
               <th>Grupos</th>
               <th>Visualizar Grupo</th>
-              <th>Editar</th>
-              <th>Excluir</th>
             </tr>
           </thead>
           <tbody>
@@ -34,8 +32,6 @@ export default function ListGroups(props) {
                       <BsFillEyeFill className={style.icon}/>
                     </Link>
                   </td>
-                  <td><BsPencilFill className={style.icon}/></td>
-                  <td><BsFillTrashFill className={style.icon}/></td>
                 </tr>
               ))
             }

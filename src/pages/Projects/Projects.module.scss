@@ -3,24 +3,29 @@
   margin: 32px 0;
 }
 
-.containerProjects {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 92vh;
-}
-
 .projects {
-  width: 1200px;
+  width: 70%;
 }
 
 .menuClassAndProject {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   margin: 16px 0;
 }
 
 .selectForm {
   width: 250px;
+}
+
+@media only screen and (max-device-width: 900px) {
+  .menuClassAndProject {
+    flex-direction: column-reverse;
+  }
+
+  .selectForm {
+    width: 200px;
+    margin: 8px 8px;
+  }
 }

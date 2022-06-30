@@ -1,17 +1,10 @@
 @import "../../global.scss";
 
-.listQuests {
-  width: 1200px;
-}
-
 .menuCreateQuest {
   display: flex;
   justify-content: space-between;
-  margin: 1em;
-}
-
-.selectForm {
-  width: 200px;
+  width: 75%;
+  margin: 20px 0;
 }
 
 .quest {
@@ -19,16 +12,20 @@
   justify-content: space-around;
   align-items: center;
   border: 2px solid $color-gray;
-  border-radius: 5px;
+  border-bottom: 0;
+  width: 1200px;
   height: 80px;
-  margin: 20px 0;
+}
+
+.quest:last-child {
+  border-bottom: 2px solid $color-gray;
 }
 
 .active {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 300px;
+  width: 20%;
   border: 2px solid $color-green;
   background-color: $color-green-light;
   border-radius: 5px;
@@ -38,8 +35,10 @@
 }
 
 .finished {
-  display: block;
-  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
   border: 2px solid $color-red;
   background-color: $color-red;
   border-radius: 5px;
@@ -48,8 +47,20 @@
   color: $color-white;
 }
 
-.icone {
-  margin: 5px;
-  width: 30px;
-  height: 30px;
+@media only screen and (max-device-width: 900px) {
+  .quest {
+    flex-direction: column;
+    height: 150px;
+    width: 300px;
+  }
+
+  .menuCreateQuest {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .active, .finished {
+    width: 50%;
+  }
 }
