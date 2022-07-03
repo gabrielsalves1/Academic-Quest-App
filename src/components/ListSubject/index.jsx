@@ -25,7 +25,7 @@ export default function ListSubject(props) {
         }
       </ul>
 
-      { props.subjects?.length === 0 && <span className={style.noClass}>Não há nenhuma matéria cadastrada para a turma.</span> }
+      { props.subjects?.length === 0 && <span className={style.withoutDataError}>Não há nenhuma matéria cadastrada para a turma.</span> }
       { props.getProjects && props.subjects?.length !== 0 && subjectId && <ListProjects subjectId={subjectId}/> }
       { props.getGroups && props.subjects?.length !== 0 && subjectId && <ListGroups subjectId={subjectId}/> }
     </>

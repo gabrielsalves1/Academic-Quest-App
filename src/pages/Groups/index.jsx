@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import AsyncSelect from 'react-select/async';
 import style from "./Groups.module.scss";
 
-import { getClasses, getSubjects } from "../../service/requests";
+import { getClasses, getData } from "../../service/requests";
 import Container from "../../components/Container";
 import LinkButton from "../../components/LinkButton";
 import ListSubject from "../../components/ListSubject";
 
 export default function Groups() {
+  const [ loading, setLoading ] = useState();
   const [ subjects, setSubjects ] = useState();
 
   return (
@@ -20,7 +21,7 @@ export default function Groups() {
           cacheOptions
           loadOptions={getClasses}
           onChange={(data) => {
-            getSubjects(data.id, setSubjects);
+            getData(`/materias/turma/${data.id}`, setSubjects, setLoading);
           }}
           defaultOptions
           theme={(theme) => ({
@@ -37,10 +38,12 @@ export default function Groups() {
           
           <LinkButton to="/create-group" classStyle="purple">Criar grupo</LinkButton>
         </div>
-
-        <ListSubject 
-        subjects={subjects}
-        getGroups={true}/>
+        
+        { loading &&
+          <ListSubject 
+          subjects={subjects}
+          getGroups={true}/>
+        }
       </div>
     </Container>
   );

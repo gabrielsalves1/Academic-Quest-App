@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import AsyncSelect from "react-select/async";
 import style from "./Projects.module.scss";
 
-import { getClasses, getSubjects } from "../../service/requests";
+import { getClasses, getData } from "../../service/requests";
 import LinkButton from "../../components/LinkButton";
 import ListSubject from "../../components/ListSubject";
 import Container from "../../components/Container";
 
 export default function Projects() {
+  const [ loading, setLoading ] = useState();
   const [ subjects, setSubjects ] = useState();
 
   return (
@@ -20,7 +21,7 @@ export default function Projects() {
           cacheOptions
           loadOptions={getClasses}
           onChange={(data) => {
-            getSubjects(data.id, setSubjects);
+            getData(`/materias/turma/${data.id}`, setSubjects, setLoading);
           }}
           defaultOptions
           theme={(theme) => ({
@@ -38,9 +39,11 @@ export default function Projects() {
           <LinkButton to="/create-project" classStyle="purple">Criar projeto</LinkButton>
         </div>
 
-        <ListSubject 
-        subjects={subjects}
-        getProjects={true}/>
+        { loading &&
+          <ListSubject 
+            subjects={subjects}
+            getProjects={true}/>
+        }
       </div>
     </Container>
   );

@@ -1,0 +1,28 @@
+@import "../../global.scss";
+
+.title {
+  font-size: 24px;
+  margin: 10px;
+}
+
+.menuForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.questSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid $color-gray;
+  border-radius: 5px;
+  padding: 50px;
+  margin: 20px 0;
+}
+
+.questInfo {
+  display: flex;
+  flex-direction: column;
+  margin-right: 25px;
+}

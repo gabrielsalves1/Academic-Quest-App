@@ -1,58 +1,100 @@
 import api from "./api";
+import history from './history';
 
 export async function getClasses() {
   const response = await api.get('/turmas');
   const options = response.data.map(classSchool => {
     return {
-      label: classSchool.semestre+classSchool.complemento,
+      label: classSchool.semestre+classSchool.complemento+" - "+classSchool.curso,
       id: classSchool.id
     }
   });
   return options;
 }
 
-export async function getSubjects(id_class, setSubjects) {
-  const response = await api.get(`/materias/turma/${id_class}`);
-  return setSubjects(response.data);
-}
-
-export async function getStudents(id_subject, setStudents) {
-  const response = await api.get(`/grupos/alunos/materia/${id_subject}`);
-  return setStudents(response.data);
-}
-
-export async function getGroup(id_group, setGroup) {
-  const response = await api.get(`/grupos/${id_group}`);
+export async function getData(url, setData, setLoading) {
+  const response = await api.get(url);
   console.log(response.data);
-  return setGroup(response.data);
+  setLoading(true);
+  return setData(response.data);
 }
 
-export async function getGroups(id_subject, setGroups) {
-  const response = await api.get(`/grupos/materia/${id_subject}`);
-  return setGroups(response.data);
+export function postLogin(formData, handleLogin, setMsgError) {
+  api.post('/oauth/token', formData, {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded', 
+      Authorization: 'Basic ' + window.btoa('academicquest:ricardosilvagostadexbox')
+    }
+  })
+  .then((res) => {
+    console.log(res);
+    handleLogin(res);
+  }).catch((err) => {
+    setMsgError("E-mail ou senha inválido, verifique e tente novamente.");
+  });
 }
 
-export async function getProjects(id_subject, setProjects) {
-  const response = await api.get(`/projetos/materia/${id_subject}`);
-  return setProjects(response.data);
+export function postGroup(data) {
+  api.post('/grupos', data, {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then((res) => {
+    if(res.status === 201) {
+      history.push('/groups');
+    }
+  }).catch((err) => {
+    console.log(err);
+  });
 }
 
-export async function getTasks(id_project, setQuests) {
-  const response = await api.get(`/tarefas/projeto/${id_project}`);
-  return setQuests(response.data);
+export function postProject(data) {
+  api.post('/projetos', data, {
+    headers: {'Content-Type': 'application/json'}
+  })
+  .then((res) => {
+    if(res.status === 201) {
+      history.push('/projects');
+    }
+  }).catch((err) => {
+    console.log(err);
+  });
 }
 
-export async function getTask(id_task, setTask) {
-  const response = await api.get(`/tarefas/${id_task}`);
-  return setTask(response.data);
+export function postQuest(formData, idProject, setUploadPercentage) {
+  const options = {
+    onUploadProgress: (progressEvent) => {
+      const {loaded, total} = progressEvent;
+      let percent = Math.floor( (loaded * 100) / total );
+
+      if( percent < 100 ){
+        setUploadPercentage(percent);
+      }
+    }
+  }
+
+  api.post('/tarefas', formData, options, {
+    headers: {'Content-Type': 'application/json'}
+  })
+  .then((res) => {
+    setUploadPercentage(100);
+
+    if(res.status === 201) {
+      history.push(`/project/${idProject}/quest-management`);
+    }
+  }).catch((err) => {
+    console.log(err);
+  });
 }
 
-export async function getTaskGroups(id_task, setTaskGroups) {
-  const response = await api.get(`/tarefa/grupo/${id_task}`);
-  return setTaskGroups(response.data);
-}
-
-export async function getTaskByGroup(id_group, setTask) {
-  const response = await api.get(`/tarefa/grupo/id/${id_group}`);
-  return setTask(response.data);
+export function postGroupGradeByProject(data, idProject) {
+  api.post(`/projetos/avaliar/${idProject}`, data, {
+    headers: {'Content-Type': 'application/json'}
+  })
+  .then((res) => {
+    console.log(res);
+  }).catch((err) => {
+    console.log(err);
+  });
 }

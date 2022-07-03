@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Table } from "react-bootstrap";
+import { Table, Spinner } from "react-bootstrap";
 import { BsFillEyeFill } from "react-icons/bs";
 import style from "./TableTask.module.scss";
 
-import { getTaskGroups } from "../../service/requests";
+import { getData } from "../../service/requests";
 
 export default function TableTask(props) {
+  const [ loading, setLoading ] = useState();
   const [ taskGroups, setTaskGroups ] = useState();
 
   useEffect(() => {
-    getTaskGroups(props.idQuest, setTaskGroups);
+    getData(`/tarefa/grupo/${props.idQuest}`, setTaskGroups, setLoading);
   }, [props.idQuest]);
 
   return (
     <>
       <h2 className={style.titleSecundary}>Grupos</h2>
 
+      { loading ? (
       <Table data-testid="tableTask" className={style.table}>
         <thead className={style.header}>
           <tr>
@@ -43,6 +45,7 @@ export default function TableTask(props) {
         ))}
         </tbody>
       </Table>
+    ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
     </>
   );
 }
