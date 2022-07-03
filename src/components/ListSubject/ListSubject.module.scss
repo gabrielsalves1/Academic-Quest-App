@@ -23,14 +23,6 @@
   border: solid 2px $color-purple-light;
 }
 
-.noClass {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  margin: 10px;
-}
-
 @media only screen and (max-device-width: 900px) {
   .listSubject {
     flex-direction: row;

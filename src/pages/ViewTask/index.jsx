@@ -2,31 +2,34 @@ import React, { useState, useEffect } from "react";
 import style from "./ViewTask.module.scss";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { Form } from "react-bootstrap";
+import { Form, Spinner } from "react-bootstrap";
 import { BsDownload } from "react-icons/bs";
 
 import api from "../../service/api";
+import history from "../../service/history";
 import LinkButton from "../../components/LinkButton";
 import StylizedButton from "../../components/StylizedButton";
 import Container from "../../components/Container";
-import { getTaskByGroup } from "../../service/requests";
+import { getData } from "../../service/requests";
 
 export default function ViewTask() {
+  const [ loading, setLoading ] = useState();
   const { idProject, idQuest, idTaskGroup } = useParams();
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [ taskGroup, setTaskGroup ] = useState();
 
   useEffect(() => {
-    getTaskByGroup(idTaskGroup, setTaskGroup);
+    getData(`/tarefa/grupo/id/${idTaskGroup}`, setTaskGroup, setLoading);
   }, [idTaskGroup]);
 
   const onSubmit = data => {
-    console.log(data)
     api.put(`/tarefa/grupo/${idTaskGroup}`, data, {
       headers: {'Content-Type': 'application/json'}
     })
     .then((res) => {
-      console.log(res)
+      if(res.status === 200) {
+        history.push(`/project/${idProject}/evaluate-quest/${idQuest}`);
+      }
     }).catch((err) => {
       console.log(err)
     })
@@ -43,6 +46,7 @@ export default function ViewTask() {
 
   return (
     <Container classStyle="containerJustifyCenter">
+      { loading ? (
       <div className={style.form}>
         <h1 className={style.title}>{taskGroup?.nomeGrupo}</h1>
 
@@ -79,6 +83,7 @@ export default function ViewTask() {
           </div>
         </Form>
       </div>
+      ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
     </Container>
   );
 }

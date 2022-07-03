@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Table } from "react-bootstrap";
+import { Table, Spinner } from "react-bootstrap";
 import { BsFillEyeFill } from "react-icons/bs";
 import style from "./ListGroups.module.scss";
 
-import { getGroups } from "../../service/requests";
+import { getData } from "../../service/requests";
 
 export default function ListGroups(props) {
+  const [ loading, setLoading ] = useState();
   const [ groups, setGroups ] = useState();
 
   useEffect(() => {
-    getGroups(props.subjectId, setGroups);
+    getData(`/grupos/materia/${props.subjectId}`, setGroups, setLoading);
   }, [props.subjectId]);
 
   return (
     <>
-      { groups &&
+      { loading ? (
         <Table className={style.table} data-testid="tableGroups">
           <thead className={style.header}>
             <tr>
@@ -37,7 +38,11 @@ export default function ListGroups(props) {
             }
           </tbody>
         </Table>
-      }
+      ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
+
+    { groups?.length === 0 &&
+      <span className={style.withoutDataError}>Não há nenhum grupo cadastrado para a turma e matéria selecionada.</span>
+    }
     </>
   );
 }

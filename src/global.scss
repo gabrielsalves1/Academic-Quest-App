@@ -7,13 +7,30 @@ $color-gray-light: #d8e5f0;
 $color-gray-dark: #484c4e;
 $color-green: #1aae9f;
 $color-green-light: #1aae9f;
+$color-green-dark: #157c72;
 $color-red: #d3455b;
 $color-black: #000;
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-purple-light !important;
+  margin: 20px auto;
+}
 
 .error {
   margin: 15px 0;
   font-style: italic;
   font-size: 12px;
+}
+
+.withoutDataError {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin: 10px;
 }
 
 .form {

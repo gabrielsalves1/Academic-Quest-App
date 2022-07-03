@@ -5,15 +5,14 @@ import { Form } from "react-bootstrap";
 import AsyncSelect from 'react-select/async';
 import style from "./CreateGroup.module.scss";
 
-import api from "../../service/api";
-import history from '../../service/history';
-import { getClasses, getSubjects, getStudents } from "../../service/requests";
+import { getClasses, getData, postGroup } from "../../service/requests";
 import Container from "../../components/Container";
 import LinkButton from "../../components/LinkButton";
 import StylizedButton from "../../components/StylizedButton";
 import ListSubject from "../../components/ListSubject";
 
 export default function CreateGroup() {
+  const [ loading, setLoading ] = useState();
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [ subjects, setSubjects ] = useState();
   const [ selectSubject, setSelectSubject ] = useState();
@@ -26,29 +25,17 @@ export default function CreateGroup() {
     data['listaAlunosId'] = membersId;
     data['materiaId'] = selectSubject;
     data['alunoLiderId'] = leadMember;
-    console.log(data);
-  
-    api.post('https://ms-academicquest.herokuapp.com/grupos', data, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then((res) => {
-      if(res.status === 200) {
-        history.push('/groups');
-      }
-    }).catch((err) => {
-      console.log(err);
-    })
+
+    postGroup(data);
   }
 
   useEffect(() => {
     if(selectSubject !== undefined) {
-      getStudents(selectSubject, setStudents);
+      getData(`/grupos/alunos/materia/${selectSubject}`, setStudents, setLoading);
       setMembersId([]);
       setMemberLead();
     }
-  }, [selectSubject])
+  }, [selectSubject]);
 
   return (
     <Container classStyle="containerJustifyCenter">
@@ -60,7 +47,7 @@ export default function CreateGroup() {
           defaultOptions
           loadOptions={getClasses}
           onChange={(data) => {
-            getSubjects(data.id, setSubjects);
+            getData(`/materias/turma/${data.id}`, setSubjects, setLoading);
           }}
           theme={(theme) => ({
             ...theme,
@@ -74,7 +61,7 @@ export default function CreateGroup() {
           className={style.selectForm}
           placeholder="Selecione a turma"/>
 
-        { subjects &&
+        { loading &&
           <Form.Group>
             <Form.Label className={style.label} htmlFor="subject">Matéria</Form.Label>
             <ListSubject 
@@ -114,7 +101,7 @@ export default function CreateGroup() {
         { membersId &&
           membersId?.map((memberId) => (
             students?.map((student) => {
-              if(student.id == memberId) {
+              if(student.id === parseInt(memberId)) {
                 return (
                   <div key={memberId} className={style.cardGroup}>
                     <div key={memberId} className={style.student}>
