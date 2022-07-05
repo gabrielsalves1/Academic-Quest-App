@@ -16,6 +16,7 @@ import EvaluateQuest from '../pages/EvaluateQuest';
 import ViewTask from '../pages/ViewTask';
 import ViewGroup from '../pages/ViewGroup';
 import ViewProject from '../pages/ViewProject';
+import EditProject from '../pages/EditProject';
 
 export default function Routes() {
   const [ tokenIsValid, setTokenIsValid ] = useState(false);
@@ -67,7 +68,8 @@ export default function Routes() {
           <Route exact path="/project/:idProject/view-task/:idQuest/task-group/:idTaskGroup" element={<ViewTask/>}/>
           <Route exact path="/view-group/:idGroup/subject/:idSubject" element={<ViewGroup/>}/>
           <Route exact path="/view-project/:idProject" element={<ViewProject/>}/>
-          <Route exact path="/edit-group/:idGroup" element={<EditGroup/>}/>
+          <Route exact path="/edit-group/:idGroup/subject/:idSubject" element={<EditGroup/>}/>
+          <Route exact path="/edit-project/:idProject" element={<EditProject/>}/>
         </Route>
 
         <Route element={<PrivateRouteStudent/>}>

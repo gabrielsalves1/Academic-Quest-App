@@ -4,24 +4,36 @@
   font-size: 32px;
 }
 
-.integrants {
+.selectButtonAlign {
   display: flex;
-  flex-direction: column;
-  margin: 20px 0;
-  padding: 20px;
+  align-items: center;
+}
+
+.cardGroup {
+  color: $color-gray-dark;
+  font-weight: bold;
+  border: 3px solid $color-gray;
+  border-radius: 5px;
+  width: 600px;
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.student {
+  font-size: 20px;
+  width: 120px;
+}
+
+.leadStudent {
+  font-size: 14px;
 }
 
 .icon {
-  width: 20px;
-  height: 20px;
-  margin: 5px;
-}
-
-.iconPurple {
-  width: 20px;
-  height: 20px;
-  margin: 5px;
-  color: $color-purple;
+  font-size: 16px;
+  color: $color-purple-light;
 }
 
 .menuForm {
@@ -30,7 +42,22 @@
   align-items: center;
 }
 
+.selectForm {
+  margin: 20px 0;
+  width: 100%;
+  cursor: pointer;
+}
+
 @media only screen and (max-device-width: 900px) {
+  .selectButtonAlign {
+    flex-direction: column;
+  }
+
+  .cardGroup {
+    flex-direction: column;
+    width: 200px;
+  }
+
   .menuForm {
     flex-direction: column-reverse;
   }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BsFillPersonFill } from "react-icons/bs";
+import { FaCrown } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 import style from "./ViewGroup.module.scss";
@@ -29,9 +30,20 @@ export default function ViewGroup() {
         
           <div className={style.integrants}>
             <h2 className={style.title}>Integrantes</h2>
-            { group?.listaAlunos.map((student) => (
-                <span key={student.id}><BsFillPersonFill className={style.icon}/>{student.firstName} {student.lastName}</span>
-              ))
+            { group?.listaAlunos.map((student) => {
+              if(student.id === group?.alunoLiderId) {
+                return (
+                  <span key={student.id}>
+                    <FaCrown className={style.iconLead}/>{student.firstName} {student.lastName}
+                  </span>
+                );
+              } else {
+                return (
+                  <span key={student.id}>
+                    <BsFillPersonFill className={style.icon}/>{student.firstName} {student.lastName}
+                  </span>
+                );
+              }})
             }
           </div>
         </>
@@ -41,7 +53,7 @@ export default function ViewGroup() {
       <div className={style.menuForm}>
         <LinkButton to="/groups">Voltar</LinkButton>
 
-        <LinkButton to={`/edit-group/${idGroup}`} classStyle="purple">Editar</LinkButton>
+        <LinkButton to={`/edit-group/${idGroup}/subject/${idSubject}`} classStyle="purple">Editar</LinkButton>
       </div>
     </Container>
   );
