@@ -42,7 +42,7 @@ export default function ViewProject() {
       <div className={style.menuForm}>
         <LinkButton to="/projects">Voltar</LinkButton>
 
-        <LinkButton to={`/edit-project`} classStyle="purple">Editar</LinkButton>
+        <LinkButton to={`/edit-project/${project?.id}`} classStyle="purple">Editar</LinkButton>
       </div>
     </Container>
   );

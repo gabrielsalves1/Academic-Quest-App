@@ -14,9 +14,22 @@ export async function getClasses() {
 
 export async function getData(url, setData, setLoading) {
   const response = await api.get(url);
-  console.log(response.data);
+  console.log("REQ: ", response.data);
   setLoading(true);
   return setData(response.data);
+}
+
+export function putData(data, url, redirect) {
+  api.put(url, data, {
+    headers: {'Content-Type': 'application/json'}
+  })
+  .then((res) => {
+    if(res.status === 200) {
+      history.push(redirect);
+    }
+  }).catch((err) => {
+    console.log(err);
+  });
 }
 
 export function postLogin(formData, handleLogin, setMsgError) {
@@ -27,7 +40,6 @@ export function postLogin(formData, handleLogin, setMsgError) {
     }
   })
   .then((res) => {
-    console.log(res);
     handleLogin(res);
   }).catch((err) => {
     setMsgError("E-mail ou senha inválido, verifique e tente novamente.");
