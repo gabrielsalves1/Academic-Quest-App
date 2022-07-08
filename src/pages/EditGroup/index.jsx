@@ -34,7 +34,6 @@ export default function EditGroup() {
 
   useEffect(() => {
     setMemberLead(group?.alunoLiderId);
-    console.log("2 USEEFFECT", group)
     group?.listaAlunos.map((alunoId) => {
         setMembersId(membersId => [...membersId, alunoId.id]);
     });
@@ -71,9 +70,8 @@ export default function EditGroup() {
           }
 
           { students?.length === 0 &&
-            <p className={style.error}>Não há alunos sem grupo para a turma informada.</p>
+            <p className={style.error}>Não há alunos sem grupo nessa matéria.</p>
           }
-
 
           { membersId?.length === 0 && students &&
             <p className={style.error}>Selecione os integrantes do grupo e defina o líder do grupo.</p>
