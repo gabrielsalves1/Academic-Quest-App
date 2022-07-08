@@ -94,6 +94,10 @@ export default function CreateGroup() {
           </Form.Group>
         }
 
+          { students?.length === 0 &&
+            <p className={style.error}>Não há alunos sem grupo nessa matéria.</p>
+          }
+
         { membersId?.length === 0 && students &&
           <p className={style.error}>Selecione os integrantes do grupo e defina o líder do grupo.</p>
         }
