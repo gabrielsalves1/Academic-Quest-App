@@ -4,8 +4,8 @@ import QuestManagement from ".";
 
 describe('Renderiza o gerenciamento de quest', () => {
   it('e deve conter o nome da projeto', () => {
-    render(<QuestManagement name="teste"/>, {wrapper: MemoryRouter })
+    render(<QuestManagement/>, {wrapper: MemoryRouter })
 
-    expect(screen.getByText('Projeto: teste')).toBeInTheDocument();
+    expect(screen.getByText('Gerenciamento de Quest')).toBeInTheDocument();
   });
 })
