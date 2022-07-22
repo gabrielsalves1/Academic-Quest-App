@@ -9,9 +9,9 @@ import StylizedButton from "../../components/StylizedButton";
 import LinkButton from "../../components/LinkButton";
 
 export default function ViewProject() {
-  const [ loading, setLoading ] = useState();
+  const [loading, setLoading] = useState();
   const { idProject } = useParams();
-  const [ project, setProject ] = useState();
+  const [project, setProject] = useState();
 
   useEffect(() => {
     getData(`/projetos/${idProject}`, setProject, setLoading);
@@ -23,7 +23,7 @@ export default function ViewProject() {
 
   return (
     <Container classStyle="containerJustifyCenter">
-      { loading ? (
+      {loading ? (
         <section className={style.questSection}>
           <div className={style.questInfo}>
             <h1 className={style.title}>Projeto - {project?.nome}</h1>
@@ -32,12 +32,16 @@ export default function ViewProject() {
           </div>
 
           <div className={style.questInfo}>
-            <h3 className={style.title}>{project?.status}</h3>
+            <h3 className={style.statusProject}>
+              {project?.status === "EM_ANDAMENTO" ? "Em andamento" : ""}
+              {project?.status === "CONCLUIDO" ? "Concluído" : ""}
+              {project?.status === "DESATIVADO" ? "Desativado" : ""}
+            </h3>
 
-            <StylizedButton type="submit"  onClick={() => {onSubmit("")}}>Atribuir Nota</StylizedButton>
+            <StylizedButton type="submit" onClick={() => { onSubmit("") }}>Atribuir nota</StylizedButton>
           </div>
         </section>
-      ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
+      ) : (<Spinner className={style.loading} animation="border" variant="primary" />)}
 
       <div className={style.menuForm}>
         <LinkButton to="/projects">Voltar</LinkButton>

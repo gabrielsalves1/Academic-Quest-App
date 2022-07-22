@@ -1,5 +1,16 @@
 @import "../../global.scss";
 
+.groupSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid $color-gray;
+  border-radius: 5px;
+  padding: 50px;
+  margin: 20px 0;
+}
+
 .menuForm {
   display: flex;
   justify-content: space-between;
@@ -14,8 +25,7 @@
 .integrants {
   display: flex;
   flex-direction: column;
-  margin: 20px 0;
-  padding: 100px;
+  padding: 50px;
 }
 
 .icon {

@@ -11,31 +11,35 @@ import LinkButton from "../../components/LinkButton";
 import StylizedButton from "../../components/StylizedButton";
 
 export default function EditGroup() {
-  const [ loading, setLoading ] = useState();
+  const [loading, setLoading] = useState();
   const { idGroup, idSubject } = useParams();
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const [ group, setGroup ] = useState();
-  const [ students, setStudents ] = useState();
-  const [ selectMember, setSelectMember] = useState();
-  const [ membersId, setMembersId ] = useState([]);
-  const [ leadMember, setMemberLead ] = useState();
+  const [group, setGroup] = useState();
+  const [students, setStudents] = useState();
+  const [selectMember, setSelectMember] = useState();
+  const [membersId, setMembersId] = useState([]);
+  const [leadMember, setMemberLead] = useState();
 
   const onSubmit = data => {
     data['listaAlunosId'] = membersId;
     data['alunoLiderId'] = leadMember;
+    console.log(membersId);
+    console.log(data);
 
     putData(data, `/grupos/${group.id}`, `/view-group/${group.id}/subject/${group.materiaId}`);
   }
 
   useEffect(() => {
-    getData(`/grupos/${idGroup, idSubject}`, setGroup, setLoading);
+    getData(`/grupos/${idGroup}`, setGroup, setLoading);
     getData(`/grupos/alunos/materia/${idSubject}`, setStudents, setLoading);
   }, [idGroup, idSubject]);
 
   useEffect(() => {
     setMemberLead(group?.alunoLiderId);
     group?.listaAlunos.map((alunoId) => {
+      if (!membersId.includes(alunoId.id)) {
         setMembersId(membersId => [...membersId, alunoId.id]);
+      }
     });
   }, [group]);
 
@@ -43,9 +47,9 @@ export default function EditGroup() {
     <Container classStyle="containerJustifyCenter">
       <h2 className={style.title}>Editar Grupo</h2>
 
-      { loading ? (
-        <Form className={style.form} onSubmit = { handleSubmit(onSubmit) }>
-          { students &&
+      {loading ? (
+        <Form className={style.form} onSubmit={handleSubmit(onSubmit)}>
+          {students &&
             <Form.Group>
               <Form.Label className={style.label} htmlFor="students">Integrantes</Form.Label>
               <div className={style.selectButtonAlign}>
@@ -57,9 +61,9 @@ export default function EditGroup() {
                     <option value={student.id} key={student.id}>{student.firstName} {student.lastName}</option>
                   ))}
                 </Form.Select>
-                  
+
                 <StylizedButton type="button" onClick={() => {
-                  if(!membersId.includes(selectMember)) {
+                  if (!membersId.includes(selectMember)) {
                     setMembersId(membersId => [...membersId, selectMember]);
                   }
                 }}>
@@ -69,23 +73,23 @@ export default function EditGroup() {
             </Form.Group>
           }
 
-          { students?.length === 0 &&
+          {students?.length === 0 &&
             <p className={style.error}>Não há alunos sem grupo nessa matéria.</p>
           }
 
-          { membersId?.length === 0 && students &&
+          {membersId?.length === 0 && students &&
             <p className={style.error}>Selecione os integrantes do grupo e defina o líder do grupo.</p>
           }
 
-          { membersId &&
+          {membersId &&
             membersId?.map((memberId) => (
               students?.map((student) => {
-                if(student.id === parseInt(memberId)) {
+                if (student.id === parseInt(memberId)) {
                   return (
                     <div key={memberId} className={style.cardGroup}>
                       <div key={memberId} className={style.student}>
-                        { leadMember === memberId && 
-                          <p className={style.leadStudent}>Líder do Grupo <FaCrown className={style.icon}/></p>
+                        {leadMember === memberId &&
+                          <p className={style.leadStudent}>Líder do Grupo <FaCrown className={style.icon} /></p>
                         }
                         <span>{student.firstName} {student.lastName}</span>
                       </div>
@@ -112,7 +116,7 @@ export default function EditGroup() {
 
           <Form.Group>
             <Form.Label className={style.label} htmlFor="name">Nome do Grupo</Form.Label>
-            <Form.Control defaultValue={group?.nome} name="name" {...register("nome", { required: true })} className={style.inputForm}/>
+            <Form.Control defaultValue={group?.nome} name="name" {...register("nome", { required: true })} className={style.inputForm} />
             {errors.nome && <p className={style.error}>Este campo é obrigatório.</p>}
           </Form.Group>
 
@@ -122,7 +126,7 @@ export default function EditGroup() {
             <StylizedButton type="submit">Salvar</StylizedButton>
           </div>
         </Form>
-      ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
+      ) : (<Spinner className={style.loading} animation="border" variant="primary" />)}
     </Container>
   );
 }
