@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { BsDownload } from "react-icons/bs";
-import Spinner from 'react-bootstrap/Spinner'; 
+import Spinner from 'react-bootstrap/Spinner';
 import style from "./EvaluateQuest.module.scss";
 
 import LinkButton from "../../components/LinkButton";
@@ -11,8 +11,8 @@ import StylizedButton from "../../components/StylizedButton";
 import { getData } from "../../service/requests";
 
 export default function EvaluateQuest() {
-  const [ loading, setLoading ] = useState();
-  const [ task, setTask ] = useState();
+  const [loading, setLoading] = useState(false);
+  const [task, setTask] = useState();
   const { idProject, idQuest } = useParams();
 
   useEffect(() => {
@@ -35,19 +35,19 @@ export default function EvaluateQuest() {
       </div>
       <h1 className={style.title}>Avaliar Quest</h1>
 
-      { loading ? (
-          <section className={style.questSection}>
-            <div className={style.questInfo}>
-              <h2 className={style.taskItem}>{task.nome}</h2>
-              <p className={style.taskItem}>Descrição: {task.descricao}</p>
-              <span className={style.taskItem}>Data de Entrega: {new Date(Date.parse(task.dataEntrega)).toLocaleDateString()}</span>
-            </div>
+      {loading ? (
+        <section className={style.questSection}>
+          <div className={style.questInfo}>
+            <h2 className={style.taskItem}>{task.nome}</h2>
+            <p className={style.taskItem}>Descrição: {task.descricao}</p>
+            <span className={style.taskItem}>Data de Entrega: {new Date(Date.parse(task.dataEntrega)).toLocaleDateString()}</span>
+          </div>
 
-            <StylizedButton onClick={() => { Base64ToPdf(task.nomeArquivo, task.upload, task.formato) }}>Baixar Arquivo<BsDownload className={style.icon}/></StylizedButton>
-          </section>
-        ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
-      
-      <TableTask idProject={idProject} idQuest={idQuest}/>
+          <StylizedButton onClick={() => { Base64ToPdf(task.nomeArquivo, task.upload, task.formato) }}>Baixar Arquivo<BsDownload className={style.icon} /></StylizedButton>
+        </section>
+      ) : (<Spinner className={style.loading} animation="border" variant="primary" />)}
+
+      <TableTask idProject={idProject} idQuest={idQuest} />
     </Container>
   );
 }

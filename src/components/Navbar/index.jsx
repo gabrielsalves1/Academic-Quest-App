@@ -39,7 +39,7 @@ export default function NavigationBar() {
         {localStorage.getItem('userFirstName') != null &&
         <Dropdown>
           <Dropdown.Toggle className={style.dropdown}>
-            <span className={style.username}>{localStorage.getItem('userFirstName').replace(/"/g, '')}</span>
+            <span className={style.username}>{localStorage.getItem('userFirstName')?.replace(/"/g, '')}</span>
             <BsFillPersonFill className={style.icon}/>
           </Dropdown.Toggle>
 
