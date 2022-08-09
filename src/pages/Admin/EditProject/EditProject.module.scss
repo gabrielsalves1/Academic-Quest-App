@@ -1,0 +1,23 @@
+@import "../../../global.scss";
+
+.title {
+  font-size: 32px;
+  margin: 16px 0;
+}
+
+.titleSecondary {
+  font-size: 24px;
+  margin: 16px 0;
+}
+
+.menuForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media only screen and (max-device-width: 900px) {
+  .menuForm {
+    flex-direction: column-reverse;
+  }
+}

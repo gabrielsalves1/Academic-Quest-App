@@ -18,28 +18,31 @@ export default function NavigationBar() {
   return (
     <Navbar collapseOnSelect fixed="top" expand="lg" className={style.nav}>
       <Container fluid>
-        <AiOutlineMenu onClick={handleShow} className={style.icon} data-testid="sidebar"/>
+        <div className={style.alignLogo}>
+          <AiOutlineMenu onClick={handleShow} className={style.icon} data-testid="sidebar"/>
 
-        <Offcanvas show={show} onHide={handleClose} className={style.sidebar}>
-          <Offcanvas.Header closeButton>
-            <Offcanvas.Title className={style.navItem}>
-              <Link to="/projects" className={style.navItem}>Academic Quest</Link>
-            </Offcanvas.Title>
-          </Offcanvas.Header>
-          <Offcanvas.Body className={style.navLinks}>
-            <LinkButton to="/projects">Projetos</LinkButton><br/>
-            <LinkButton to="/groups">Grupos</LinkButton>
-          </Offcanvas.Body>
-        </Offcanvas>
+          <Offcanvas show={show} onHide={handleClose} className={style.sidebar}>
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title className={style.navItem}>
+                <Link to="/projects" className={style.navItem}>Academic Quest</Link>
+              </Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body className={style.navLinks}>
+              <LinkButton to="/projects">Projetos</LinkButton><br/>
+              <LinkButton to="/groups">Grupos</LinkButton>
+            </Offcanvas.Body>
+          </Offcanvas>
+
+          <Link to="/" className={style.navItem}>
+            <h1 className={style.title}>Academic Quest</h1>
+          </Link>
+        </div>
         
-        <Link to="/projects" className={style.navItem}>
-          <h1 className={style.title}>Academic Quest</h1>
-        </Link>
         
-        {localStorage.getItem('userFirstName') != null &&
+        {sessionStorage.getItem('userFirstName') != null &&
         <Dropdown>
           <Dropdown.Toggle className={style.dropdown}>
-            <span className={style.username}>{localStorage.getItem('userFirstName')?.replace(/"/g, '')}</span>
+            <span className={style.username}>{sessionStorage.getItem('userFirstName')}</span>
             <BsFillPersonFill className={style.icon}/>
           </Dropdown.Toggle>
 

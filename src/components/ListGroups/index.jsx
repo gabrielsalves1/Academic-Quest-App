@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Table, Spinner } from "react-bootstrap";
-import { BsFillEyeFill } from "react-icons/bs";
+import { RiEye2Line } from "react-icons/ri";
 import style from "./ListGroups.module.scss";
 
 import { getData } from "../../service/requests";
@@ -17,27 +17,29 @@ export default function ListGroups(props) {
   return (
     <>
       { loading ? (
-        <Table className={style.table} data-testid="tableGroups">
-          <thead className={style.header}>
-            <tr>
-              <th>Grupos</th>
-              <th>Visualizar Grupo</th>
-            </tr>
-          </thead>
-          <tbody>
-            { groups?.map((group) => (
-                <tr className={style.line} key={group.id}>
-                  <td>{group.nome}</td>
-                  <td>
-                    <Link to={`/view-group/${group.id}/subject/${props.subjectId}`}>
-                      <BsFillEyeFill className={style.icon}/>
-                    </Link>
-                  </td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </Table>
+        <div className={style.listGroup}>
+          <Table className={style.table} data-testid="tableGroups">
+            <thead className={style.header}>
+              <tr>
+                <th>Grupos</th>
+                <th>Visualizar Grupo</th>
+              </tr>
+            </thead>
+            <tbody>
+              { groups?.map((group) => (
+                  <tr className={style.line} key={group.id}>
+                    <td>{group.nome}</td>
+                    <td>
+                      <Link to={`/view-group/${group.id}/subject/${props.subjectId}`}>
+                        <RiEye2Line className={style.icon}/>
+                      </Link>
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </Table>
+        </div>
       ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
 
     { groups?.length === 0 &&

@@ -11,17 +11,17 @@ export default function useAuth() {
     if (res.status === 200) {
       setAuthenticated(true);
 
-      localStorage.setItem('token', res.data.access_token);
-      localStorage.setItem('role', JSON.stringify(res.data.role));
-      localStorage.setItem('userFirstName', JSON.stringify(res.data.userFirtsName));
+      sessionStorage.setItem('token', res.data.access_token);
+      sessionStorage.setItem('role', JSON.stringify(res.data.role).replace(/"/g, ''));
+      sessionStorage.setItem('userFirstName', JSON.stringify(res.data.userFirtsName).replace(/"/g, ''));
 
-      history.push('/projects');
+      history.push('/');
     }
   }
 
   function handleLogout() {
     setAuthenticated(false);
-    localStorage.clear();
+    sessionStorage.clear();
     api.defaults.headers.Authorization = undefined;
     history.push('/login');
   }
@@ -34,7 +34,7 @@ export default function useAuth() {
       }
     })
     .catch(err => {
-      localStorage.clear();
+      sessionStorage.clear();
       history.push('/login');
       return false;
     });
