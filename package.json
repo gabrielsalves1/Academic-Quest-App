@@ -1,6 +1,6 @@
 {
   "name": "academic-quest-app",
-  "homepage": "/projects",
+  "homepage": "/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

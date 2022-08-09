@@ -1,0 +1,55 @@
+@import "../../../global.scss";
+
+.logo {
+  width: 100%;
+}
+
+.title {
+  margin: 40px;
+  font-size: 32px;
+}
+
+.titleSecondary {
+  margin: 40px;
+  font-size: 24px;
+}
+
+.textAlign {
+  margin: 15px;
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  margin: 8px;
+  height: 50vh;
+  border: 2px solid $color-gray;
+  border-radius: 5px;
+}
+
+.usefulLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+@media only screen and (max-device-width: 900px) {
+  .title {
+    margin: 30px;
+    font-size: 22px;
+  }
+  
+  .links {
+    flex-direction: column;
+  }
+
+  .article {
+    padding: 30px;
+  }
+}

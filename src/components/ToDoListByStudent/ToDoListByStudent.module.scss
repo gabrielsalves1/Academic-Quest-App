@@ -1,7 +1,24 @@
 @import "../../global.scss";
 
-.listGroup {
+.toDoList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin: 25px;
   overflow-x: auto;
+}
+
+.titleSecondary {
+  margin: 40px;
+  font-size: 24px;
+}
+
+.textAlign {
+  margin: 15px;
+  font-size: 16px;
+  font-weight: lighter;
 }
 
 .table {
@@ -30,7 +47,4 @@
   width: 25px;
   height: 25px;
   color: $color-purple-dark;
-}
-
-@media only screen and (max-device-width: 900px) {
 }

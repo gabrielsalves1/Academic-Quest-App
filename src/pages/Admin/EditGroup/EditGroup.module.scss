@@ -1,0 +1,64 @@
+@import "../../../global.scss";
+
+.title {
+  font-size: 32px;
+}
+
+.selectButtonAlign {
+  display: flex;
+  align-items: center;
+}
+
+.cardGroup {
+  color: $color-gray-dark;
+  font-weight: bold;
+  border: 3px solid $color-gray;
+  border-radius: 5px;
+  width: 600px;
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.student {
+  font-size: 20px;
+  width: 120px;
+}
+
+.leadStudent {
+  font-size: 14px;
+}
+
+.icon {
+  font-size: 16px;
+  color: $color-purple-light;
+}
+
+.menuForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selectForm {
+  margin: 20px 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+@media only screen and (max-device-width: 900px) {
+  .selectButtonAlign {
+    flex-direction: column;
+  }
+
+  .cardGroup {
+    flex-direction: column;
+    width: 200px;
+  }
+
+  .menuForm {
+    flex-direction: column-reverse;
+  }
+}

@@ -1,0 +1,24 @@
+.article {
+  background-size: 90px;
+  background-image: url("../../assets/img/logo-academic-quest.png");
+  background-repeat: no-repeat;
+  background-position: top 30px right;
+  margin-bottom: 30px;
+}
+
+.titleSecondary {
+  margin: 40px;
+  font-size: 24px;
+}
+
+.textAlign {
+  margin: 15px;
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+@media only screen and (max-device-width: 900px) {
+  .article {
+    padding: 30px;
+  }
+}
