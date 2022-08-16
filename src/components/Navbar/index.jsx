@@ -30,6 +30,7 @@ export default function NavigationBar() {
             <Offcanvas.Body className={style.navLinks}>
               <LinkButton to="/projects">Projetos</LinkButton><br/>
               <LinkButton to="/groups">Grupos</LinkButton>
+              <LinkButton to="/dashboard">Dashboard</LinkButton>
             </Offcanvas.Body>
           </Offcanvas>
 
