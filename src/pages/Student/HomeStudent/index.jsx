@@ -7,12 +7,12 @@ import Container from "../../../components/Container";
 import About from "../../../components/About";
 import ToDoListByStudent from "../../../components/ToDoListByStudent";
 import LinkButton from "../../../components/LinkButton";
-import StylizedLink from "../../../components/StylizedLink";
+import StylizedA from "../../../components/StylizedA";
 
 export default function HomeStudent() {
   return (
     <Container classStyle="containerAlignCenter">
-      <h2 className={style.title}>Aluno, bem vindo ao Academic Quest!</h2>
+      <h2 className={style.title}>Aluno, bem-vindo ao Academic Quest!</h2>
 
       <div className={style.links}>
         <LinkButton to="/projects">
@@ -24,8 +24,8 @@ export default function HomeStudent() {
       <div className={style.usefulLinks}>
         <h3 className={style.titleSecondary}>Links úteis</h3>
 
-        <StylizedLink href="#toDoList">Tarefas Pendentes</StylizedLink>
-        <StylizedLink href="#about">Sobre o Academic Quest</StylizedLink>
+        <StylizedA href="#toDoList">Tarefas Pendentes</StylizedA>
+        <StylizedA href="#about">Sobre o Academic Quest</StylizedA>
       </div>
       
       <ToDoListByStudent/>

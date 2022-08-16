@@ -23,7 +23,7 @@ export default function ListProjects(props) {
               return (
                 <li className={style.project} key={project.id}>
                   <LinkButton to={`/view-project/${project.id}`} classStyle="purple">
-                    Projeto {project.nome}
+                    {project.nome}
                   </LinkButton>
                   <span className={style.active}>Ativo</span>
                   <LinkButton to={`/project/${project.id}/quest-management`}>
