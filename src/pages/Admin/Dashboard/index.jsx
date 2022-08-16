@@ -2,76 +2,108 @@ import React, {useEffect, useState }from "react";
 // import style from "./PieChart.module.scss";
 import { Chart } from "react-google-charts";
 import _ from "lodash"
+import { getData } from "../../../service/requests";
+import { RiContactsBookLine } from "react-icons/ri";
 
-function PieChart() {
-  
+
+export default function Dashboard() {
+  const [ loading, setLoading ] = useState();
   const [ chartData, setChartData] = useState([])
-
+  const [ dataFinal, setDataFinal] = useState([])
+  const [ allOpenQuests, setAllOpenQuests] = useState([])
+  // const [ options, setOptions] = useState({})
+  
   const loadData = (data) => {
     const values = _.groupBy(data, (value) => value.status)
-
+    
     const result = _.map(values, (value, key) => {
       return [
         key, 
-        _.sumBy(values[key], (v) => v.qtd)
+        values[key].length
       ]
     });
 
-
-    return [
-      ["status", "qtd grupos"], ...result,
-
-    ]
+    return [ ["status", "qtd grupos"], ...result,]
   }
 
   useEffect (() => { 
     // pegar da api
-    // projeto tem status
+    // getData(`/materias`, setData, setLoading);
+ 
 
+    const data2 = 
+    {
+      "result" : { 
+      "projeto" : "TCC1",
+      "statusProjeto" : "EM_ANDAMENTO",
+      "tarefas" : 
+        [
+          {
+            "nomeTarefa" : "Introdução",
+            "dataEntrega" : "xx/xx/xxxx",
+            "status":  "aberta",
+            "tarefasGrupo" : [
+              {
+                "nomeGrupo" : "Fumacas",
+                "status" : "PENDENTE"
+              },
+              {
+                "nomeGrupo" : "Boston Dynamics",
+                "status" : "ENTREGUE"
+              },
+              {
+                "nomeGrupo" : "Paola",
+                "status" : "ENTREGUE"
+              },
+              {
+                "nomeGrupo" : "Paola",
+                "status" : "ENTREGUE"
+              },
+              {
+                "nomeGrupo" : "Os Nadas",
+                "status" : "CORRIGIDA"
+              }
+            ]
+          },
+          {
+            "nomeTarefa" : "Cronograma",
+            "dataEntrega" : "xx/xx/xxxx",
+            "status":  "aberta",
+            "tarefasGrupo" : [
+                {
+                    "nomeGrupo" : "Fumacas",
+                    "status" : "CORRIGIDA"
+                },
+                {
+                    "nomeGrupo" : "Boston Dynamics",
+                    "status" : "Entregue"
+                }
+                  ]
+                }
+        ]
+    }
+    }
 
-    // seleciona turma
-    // seleciona matéria
-    // seleciona projeto
-      // cria tarefas {name}
+    data2["result"]["tarefas"].forEach((tarefa)  =>
+      {if (tarefa.status == "aberta") {
+        setDataFinal(loadData(tarefa.tarefasGrupo))      
+      };
+    })
 
-    // tarefas > status > grupos que sao obrigados a entregar
-    //grupo.tarefa.status
-
-    // status: aberta, fechada, devolvida(com nota)
-    // estado: pra fazer, fazendo, feito
-
-    const data = [
-      {quest: "Requisitos", group: "Fumacas", status: "done", qtd: 1 },
-      {quest: "Requisitos", group: "Grupo 3", status: "doing", qtd: 1 },
-      {quest: "Requisitos", group: "Grupo 2", status: "todo", qtd: 1 },
-      {quest: "Requisitos", group: "Grupo 4", status: "doing", qtd: 1 },
-      {quest: "Requisitos", group: "Grupo 5", status: "doing", qtd: 1 },
-      {quest: "Requisitos", group: "Grupo 5", status: "done", qtd: 1 },
-      {quest: "Requisitos", group: "Grupo 5", status: "todo", qtd: 1 },
-    ];
-
-    setChartData(loadData(data));
   }, [])
-
- 
- 
-
+  
   const options = {
     title: "Quest 3 - Requisitos do projeto",
-    colors: ["#00B983", "#FFAC2C", "#FF3143"]
+    colors: ["#845EC2", "#D65DB1", "#5D8DD6"]
   };
-
  
   
   return (
-    <>
-      <div className="card">
-
-      </div>
+    <>    
       <Chart
         chartType="PieChart"
         options={options}
-        data={chartData}
+        data={dataFinal}
         width={"1000px"}
         height={"1000px"}
         
@@ -79,6 +111,3 @@ function PieChart() {
     </>
   )
 }
-
-export default PieChart;
-
