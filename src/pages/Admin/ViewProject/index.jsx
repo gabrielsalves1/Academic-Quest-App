@@ -26,14 +26,20 @@ export default function ViewProject() {
       { loading ? (
         <section className={style.questSection}>
           <div className={style.questInfo}>
-            <h1 className={style.title}>Projeto - {project?.nome}</h1>
+            <h1 className={style.title}>Projeto: {project?.nome}</h1>
             <h2 className={style.title}>Matéria: {project?.materia}</h2>
             <h2 className={style.title}>Descrição: {project?.descricao}</h2>
           </div>
 
           <div className={style.questInfo}>
-            <h3 className={style.title}>{project?.status}</h3>
-
+            {project?.status === "EM_ANDAMENTO" &&
+              <h3 className={style.title}>Em andamento</h3>
+            }
+            
+            {project?.status === "CONCLUIDO" &&
+              <h3 className={style.title}>Concluído</h3>
+            }
+            
             <StylizedButton type="submit"  onClick={() => {onSubmit("")}}>Atribuir Nota</StylizedButton>
           </div>
         </section>

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { Table, Spinner } from "react-bootstrap";
-import { RiEye2Line } from "react-icons/ri";
 import style from "./ListGroups.module.scss";
 
 import { getData } from "../../service/requests";
+import StylizedLink from "../StylizedLink";
 
 export default function ListGroups(props) {
   const [ loading, setLoading ] = useState();
@@ -30,9 +29,9 @@ export default function ListGroups(props) {
                   <tr className={style.line} key={group.id}>
                     <td>{group.nome}</td>
                     <td>
-                      <Link to={`/view-group/${group.id}/subject/${props.subjectId}`}>
-                        <RiEye2Line className={style.icon}/>
-                      </Link>
+                      <StylizedLink to={`/view-group/${group.id}/subject/${props.subjectId}`}>
+                        Visualizar
+                      </StylizedLink>
                     </td>
                   </tr>
                 ))

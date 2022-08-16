@@ -1,49 +1,21 @@
-import React, { useState } from "react";
-import AsyncSelect from "react-select/async";
+import React from "react";
 import style from "./ProjectsStudent.module.scss";
 
-import { getClasses, getData } from "../../../service/requests";
 import LinkButton from "../../../components/LinkButton";
-import ListSubject from "../../../components/ListSubject";
 import Container from "../../../components/Container";
+import ListProjectsByStudent from "../../../components/ListProjectsByStudent";
 
 export default function Projects() {
-  const [ loading, setLoading ] = useState();
-  const [ subjects, setSubjects ] = useState();
-
   return (
     <Container classStyle="containerAlignCenter">
-      <h1 className={style.title}>Projetos por Aluno</h1>
+      <h1 className={style.title}>Projetos</h1>
 
       <div className={style.projects}>
-        <div className={style.menuClassAndProject}>
-        <AsyncSelect 
-          cacheOptions
-          loadOptions={getClasses}
-          onChange={(data) => {
-            getData(`/materias/turma/${data.id}`, setSubjects, setLoading);
-          }}
-          defaultOptions
-          theme={(theme) => ({
-            ...theme,
-            borderRadius: 5,
-            colors: {
-              ...theme.colors,
-              primary: '#aea8ee',
-              neutral20: '#c3cfd9',
-            },
-          })}
-          className={style.selectForm}
-          placeholder="Selecione a turma"/>
-
-          <LinkButton to="/create-project" classStyle="purple">Criar projeto</LinkButton>
+        <div className={style.menuProject}>
+          <LinkButton to="/">Página inicial</LinkButton>
         </div>
 
-        { loading &&
-          <ListSubject
-            subjects={subjects}
-            getProjectsByStudent={true}/>
-        }
+        <ListProjectsByStudent/>
       </div>
     </Container>
   );
