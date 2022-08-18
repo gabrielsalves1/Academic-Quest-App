@@ -7,16 +7,16 @@ $line-height-medium: 120%;
 $line-height-distant: 150%;
 $line-height-superdistant: 200%;
 
-.line-height-light {
+.lineHeightLight {
   line-height: $line-height-light !important;
 }
-.line-height-medium {
+.lineHeightMedium {
   line-height: $line-height-medium !important;
 }
-.line-height-distant {
+.lineHeightDistant {
   line-height: $line-height-distant !important;
 }
-.line-height-superdistant {
+.lineHeightSuperdistant {
   line-height: $line-height-superdistant !important;
 }
 
@@ -29,19 +29,19 @@ $font-weight-light: 400; //normal
 $font-weight-lightest: 300;
 
 
-.font-weight-bold {
+.fontWeightBold {
   font-weight: $font-weight-bold !important; //700
 }
-.font-weight-medium {
+.fontWeightMedium {
   font-weight: $font-weight-medium !important; //600
 }
-.font-weight-regular {
+.fontWeightRegular {
   font-weight: $font-weight-regular !important;//500
 }
-.font-weight-light {
+.fontWeightLight {
   font-weight: $font-weight-light !important; //400 - normal
 }
-.font-weight-lightest {
+.fontWeightLightest {
   font-weight: $font-weight-lightest !important; //300
 }
 
@@ -57,34 +57,34 @@ $font-size-xl: 36px;
 $font-size-xxl: 48px; 
 $font-size-xxxl: 64px; 
 
-.font-size-xxxs {
+.fontSizeXxxs {
   font-size: $font-size-xxxs !important; //10px
 }
-.font-size-xxs {
+.fontSizeXxs {
   font-size: $font-size-xxs !important; //12px
 }
-.font-size-xs {
+.fontSizeXs {
   font-size: $font-size-xs !important; //14px
 }
-.font-size-s {
+.fontSizeS {
   font-size: $font-size-s !important; //16px
 }
-.font-size-m {
+.fontSizeM {
   font-size: $font-size-m !important; //18px
 }
-.font-size-l {
+.fontSizeL {
   font-size: $font-size-l !important; //24px
 }
-.font-size-32 {
+.fontSize32 {
   font-size: 32px !important; //32px
 }
-.font-size-xl {
+.fontSizeXl {
   font-size: $font-size-xl !important; //36px
 }
-.font-size-xxl {
+.fontSizeXxl {
   font-size: $font-size-xxl !important; //48px
 }
-.font-size-xxxl {
+.fontSizeXxl {
   font-size: $font-size-xxxl !important; //64px
 }
 
@@ -97,27 +97,27 @@ $letter-spacing-109: 1.09975px;
 $letter-spacing-125: 1.25px;
 $letter-spacing-15: 1.5px;
 
-.letter-spacing-025 {
+.letterSpacing025 {
   letter-spacing: $letter-spacing-025 !important; 
 }
 
-.letter-spacing-015 {
+.letterSpacing015 {
   letter-spacing: $letter-spacing-015 !important; 
 }
 
-.letter-spacing-01 {
+.letterSpacing01 {
   letter-spacing: $letter-spacing-01 !important; 
 }
-.letter-spacing-04 {
+.letterSpacing04 {
   letter-spacing: $letter-spacing-04 !important; 
 }
-.letter-spacing-05 {
+.letterSpacing05 {
   letter-spacing: $letter-spacing-05 !important; 
 }
-.letter-spacing-125 {
+.letterSpacing125 {
   letter-spacing: $letter-spacing-125 !important; 
 }
-.letter-spacing-15 {
+.letterSpacing15 {
   letter-spacing: $letter-spacing-15 !important; 
 }
 
@@ -130,11 +130,11 @@ $letter-spacing-15: 1.5px;
   text-transform: uppercase !important;
 }
 
-.text-align-center {
+.textAlignCenter {
   text-align: center !important;
 }
 
-.text-align-right {
+.textAlignRight {
   text-align: right !important;
 }
 
@@ -142,15 +142,15 @@ $letter-spacing-15: 1.5px;
   text-transform: lowercase !important;
 }
 
-.text-transform-none {
+.textTransformNone {
   text-transform: none !important;
 }
 
-.word-break {
+.wordBreak {
   word-break: break-word !important;
 }
 
-.title-1 {
+.title1 {
   font-style: normal !important;
   font-weight: 700 !important;
   font-size: 120px !important;
@@ -159,7 +159,7 @@ $letter-spacing-15: 1.5px;
 }
 
 
-.subtitle-1 {
+.subtitle1 {
   font-style: normal !important;
   font-weight: 500 !important;
   font-size: 16px;
@@ -168,7 +168,7 @@ $letter-spacing-15: 1.5px;
   color: #09081A !important;
 }
 
-.subtitle-2 {
+.subtitle2 {
   font-style: normal !important;
   font-weight: 500 !important;
   font-size: 14px !important;
@@ -177,7 +177,7 @@ $letter-spacing-15: 1.5px;
   color: #09081A;
 }
 
-.subtitle-3 {
+.subtitle3 {
   font-style: normal !important;
   font-weight: 600 !important;
   font-size: 24px !important;
@@ -186,7 +186,7 @@ $letter-spacing-15: 1.5px;
   color: #09081A !important;
 }
 
-.subtitle-4 {
+.subtitle4 {
   font-style: normal !important;
   font-weight: 500 !important;
   line-height: 150% !important;
@@ -194,7 +194,7 @@ $letter-spacing-15: 1.5px;
   color: #09081A;
 }
 
-.subtitle-5 {
+.subtitle5 {
   font-style: normal !important;
   font-weight: 600 !important;
   font-size: 18px !important;
@@ -203,7 +203,7 @@ $letter-spacing-15: 1.5px;
   color: #09081A;
 }
 
-.subtitle-6 {
+.subtitle6 {
   font-style: normal !important;
   font-weight: 700 !important;
   font-size: 18px !important;
@@ -211,14 +211,14 @@ $letter-spacing-15: 1.5px;
   letter-spacing: 5% !important;
 }
 
-.subtitle-7 {
+.subtitle7 {
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 200%;
 }
 
-.subtitle-8 {
+.subtitle8 {
   font-style: normal !important;
   font-weight: 400 !important;
   font-size: 16px !important;
@@ -227,7 +227,7 @@ $letter-spacing-15: 1.5px;
   color: #09081A !important;
 }
 
-.subtitle-9 {
+.subtitle9 {
   font-style: normal !important;
   font-size: 12px !important;
   line-height: 160% !important;
@@ -235,7 +235,7 @@ $letter-spacing-15: 1.5px;
   color: #09081A !important;
 }
 
-.subtitle-10 {
+.subtitle10 {
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -243,7 +243,7 @@ $letter-spacing-15: 1.5px;
   letter-spacing: 1.25px;
 }
 
-.body-1 {
+.body1 {
   font-style: normal;
   font-weight: 300;
   font-size: 16px;
@@ -251,7 +251,7 @@ $letter-spacing-15: 1.5px;
   letter-spacing: 0.5px;
 }
 
-.body-2 {
+.body2 {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -259,7 +259,7 @@ $letter-spacing-15: 1.5px;
   letter-spacing: 0.25px;
 }
 
-.text-align-center {
+.textAlignCenter {
   text-align: center;
 }
 
