@@ -24,10 +24,12 @@ export default function Dashboard() {
     lateQuestCalculus(result)
     questsDeliveredByGroup(result)
     questsNotDeliveredByGroup(result)
-
-    setDiffData({new: dataQuestsDelivered, old: dataQuestsnotDelivered})
-    console.log(diffData)
+  
   }, [idProject])
+
+  useEffect (() => {
+    setDiffData({new: dataQuestsDelivered, old: dataQuestsnotDelivered})
+  }, [dataQuestsDelivered, dataQuestsnotDelivered])
 
   const groupByStatus = (data) => {
     const values = _.groupBy(data, (value) => value.status)
@@ -131,7 +133,7 @@ export default function Dashboard() {
             { 
               "id": 1,
               "nomeGrupo" : "Fumacas",
-              "status" : "ENTREGUE"
+              "status" : "CORRIGIDA"
             },
             { "id": 2,
               "nomeGrupo" : "Boston Dynamics",
@@ -157,14 +159,28 @@ export default function Dashboard() {
           "dataEntrega" : "20/10/2022",
           "status":  "fechada",
           "tarefasGrupo" : [
-              {   "id": 6,
-                  "nomeGrupo" : "Fumacas",
-                  "status" : "CORRIGIDA"
-              },
-              {   "id": 7,
-                  "nomeGrupo" : "Boston Dynamics",
-                  "status" : "ENTREGUE"
-              }
+            { 
+              "id": 1,
+              "nomeGrupo" : "Fumacas",
+              "status" : "CORRIGIDA"
+            },
+            { "id": 2,
+              "nomeGrupo" : "Boston Dynamics",
+              "status" : "ENTREGUE"
+            },
+            { 
+              "id": 3,
+              "nomeGrupo" : "Paola",
+              "status" : "ENTREGUE"
+            },
+            { "id": 4,
+              "nomeGrupo" : "Paola",
+              "status" : "PENDENTE"
+            },
+            { "id": 5,
+              "nomeGrupo" : "Os Nadas",
+              "status" : "ENTREGUE"
+            }
                 ]
         },
         {
@@ -172,26 +188,33 @@ export default function Dashboard() {
           "dataEntrega" : "20/11/2022",
           "status":  "aberta",
           "tarefasGrupo" : [
-              {   "id": 8,
-                  "nomeGrupo" : "Fumacas",
-                  "status" : "CORRIGIDA"
-              },
-              {   "id": 9,
-                  "nomeGrupo" : "Boston Dynamics",
-                  "status" : "ENTREGUE"
-              },
-              {   "id": 10,
-                  "nomeGrupo" : "Outro Grupo",
-                  "status" : "PENDENTE"
-              }
+            { 
+              "id": 1,
+              "nomeGrupo" : "Fumacas",
+              "status" : "PENDENTE"
+            },
+            { "id": 2,
+              "nomeGrupo" : "Boston Dynamics",
+              "status" : "PENDENTE"
+            },
+            { 
+              "id": 3,
+              "nomeGrupo" : "Paola",
+              "status" : "PENDENTE"
+            },
+            { "id": 4,
+              "nomeGrupo" : "Paola",
+              "status" : "PENDENTE"
+            },
+            { "id": 5,
+              "nomeGrupo" : "Os Nadas",
+              "status" : "PENDENTE"
+            }
             ]
         },
       ]
   }
   }
-
-
- 
 
   return (
     <>
@@ -241,16 +264,16 @@ export default function Dashboard() {
         </li>
       </ul>
 
-
-      <div className={style.chartDiffBox}> 
-        <Chart
-          chartType="BarChart"
-          width="100%"
-          height="400px"
-          diffdata={diffData}
-        />
-      </div> 
-
+      { diffData &&
+        <div className={style.chartDiffBox}> 
+          <Chart
+            chartType="BarChart"
+            width="100%"
+            height="400px"
+            diffdata={diffData}
+          />
+        </div> 
+       }
     </div>
     </>
   )
