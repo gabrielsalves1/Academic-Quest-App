@@ -1,0 +1,61 @@
+@import "../../global.scss";
+
+.project {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid $color-gray;
+  border-bottom: 0;
+  height: 80px;
+}
+
+.project:last-child {
+  border-bottom: 2px solid $color-gray;
+}
+
+.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  border: 2px solid $color-green;
+  background-color: $color-green-light;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: $color-white;
+  height: 30px;
+}
+
+.finished {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  border: 2px solid $color-green-dark;
+  background-color: $color-green-dark;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: $color-white;
+  height: 30px;
+}
+
+.icon {
+  margin: 0 5px;
+}
+
+@media only screen and (max-device-width: 900px) {
+  .titles {
+    visibility: hidden;
+  }
+
+  .project {
+    flex-direction: column;
+    height: 160px;
+  }
+
+  .active, .finished {
+    width: 50%;
+  }
+}

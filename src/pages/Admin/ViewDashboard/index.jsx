@@ -1,5 +1,6 @@
-import React, {useEffect, useState }from "react";
-import style from "./Dashboard.module.scss";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import style from "./ViewDashboard.module.scss";
 import { Chart } from "react-google-charts";
 import _ from "lodash"
 import { getData } from "../../../service/requests";
@@ -7,12 +8,26 @@ import BallStatusDanger from "../../../components/BallStatusDanger";
 import BallStatusSuccess from "../../../components/BallStatusSuccess";
 
 export default function Dashboard() {
+  const [ loading, setLoading ] = useState();
+  const { idProject } = useParams();
+  const [ project, setProject ] = useState();
   const [ count, setCount ] = useState(0);
   const [ optionsForQuestsByGroup, setOptionsForQuestByGroup ] = useState([]);
   const [ dataQuestsnotDelivered, setDataQuestsnotDelivered] = useState([]);
   const [ dataQuestsDelivered, setDataQuestsDelivered] = useState([]);
   const [ diffData, setDiffData] = useState({});
 
+  useEffect (() => { 
+    // pegar da api
+    // getData(`/urldojoao/${idProject}`, setProject, setLoading);
+
+    lateQuestCalculus(result)
+    questsDeliveredByGroup(result)
+    questsNotDeliveredByGroup(result)
+
+    setDiffData({new: dataQuestsDelivered, old: dataQuestsnotDelivered})
+    console.log(diffData)
+  }, [idProject])
 
   const groupByStatus = (data) => {
     const values = _.groupBy(data, (value) => value.status)
@@ -103,6 +118,7 @@ export default function Dashboard() {
   const result = 
   {
     "result" : { 
+    "id": 12,
     "projeto" : "TCC1",
     "statusProjeto" : "EM_ANDAMENTO",
     "tarefas" : 
@@ -175,18 +191,7 @@ export default function Dashboard() {
   }
 
 
-  useEffect (() => { 
-    // pegar da api
-    // getData(`/materias`, setData, setLoading);
-
-    lateQuestCalculus(result)
-    questsDeliveredByGroup(result)
-    questsNotDeliveredByGroup(result)
-
-    setDiffData({new: dataQuestsDelivered, old: dataQuestsnotDelivered})
-    console.log(diffData)
-  }, [])
-
+ 
 
   return (
     <>

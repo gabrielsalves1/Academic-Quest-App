@@ -1,101 +1,31 @@
-@import "../../../global.scss";
+.title {
+  font-size: 32px;
+  margin: 32px 0;
+}
 
+.projects {
+  width: 70%;
+}
 
-.questSchedule {
+.menuClassAndProject {
   display: flex;
-  flex-direction: row;
-  margin-bottom: 10px;
   justify-content: space-between;
   align-items: center;
-}
-
-.chartBox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  padding-left: 15px;
-  padding-right: 15px;
-  border-radius: 24px;
-  background-color: #fff;
-  margin: 10px;
-  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.25); 
-}
-
-.chartDiffBox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-  height: 60%;
-  border-radius: 24px;
-  background-color: #fff;
-  margin: 10px;
-  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.25);
-  
-}
-
-.boxQuestSchedule  {
-  height: 30%;
-  border-radius: 24px;
-  background-color: #fff;
-  margin: 10px;
-  padding-left: 36px;
-  padding-right: 36px;
-  padding-top: 36px;
-  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.25);
-}
-
-.boxQuestCount  {
-  border-radius: 24px;
-  background-color: #fff;
-  margin: 10px;
-  padding: 35px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.25);
-}
-
-.containerDashboard {
-  background-color: #f2f4f7;
   width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 15px;
+  margin: 16px 0;
 }
 
-.questLegend {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  padding-bottom: 5px;
-  margin-top: 30px;
+.selectForm {
+  width: 250px;
 }
 
-.countFontSize {
-  font-size: 150px;
-  font-weight: bold;
-  color: #FFC75F;
-}
+@media only screen and (max-device-width: 900px) {
+  .menuClassAndProject {
+    flex-direction: column-reverse;
+  }
 
-.colorYellow {
-  color: #FFC75F;
-  font-size: 20px;
-  font-weight: 600;
-  display: flex;
-  align-content: flex-end;
-  margin-top: 110px;
-}
-
-.boxCount {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  align-items: center;
+  .selectForm {
+    width: 200px;
+    margin: 8px 8px;
+  }
 }
