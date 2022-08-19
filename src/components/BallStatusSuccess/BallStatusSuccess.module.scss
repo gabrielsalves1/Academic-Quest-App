@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;600&display=swap');
+@import "../../global.scss";
+
+input, select, option {
+  font-family: Cascadia Mono, Consolas, 'Courier New', monospace !important;
+  font-weight: lighter;
+}
+
+
+.configStatusSuccess {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #24C28C;
+}
