@@ -21,11 +21,8 @@ import EditProject from '../pages/Admin/EditProject';
 import HomeStudent from '../pages/Student/HomeStudent';
 import ProjectsStudent from '../pages/Student/ProjectsStudent';
 import TasksStudent from '../pages/Student/TasksStudent';
-<<<<<<< Updated upstream
 import Dashboard from '../pages/Admin/Dashboard';
 import ViewDashboard from '../pages/Admin/ViewDashboard';
-=======
->>>>>>> Stashed changes
 
 export default function Routes() {
   const [ tokenIsValid, setTokenIsValid ] = useState(false);
