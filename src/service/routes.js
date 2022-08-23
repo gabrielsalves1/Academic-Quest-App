@@ -20,9 +20,9 @@ import ViewProject from '../pages/Admin/ViewProject';
 import EditProject from '../pages/Admin/EditProject';
 import HomeStudent from '../pages/Student/HomeStudent';
 import ProjectsStudent from '../pages/Student/ProjectsStudent';
+import TasksStudent from '../pages/Student/TasksStudent';
 import Dashboard from '../pages/Admin/Dashboard';
 import ViewDashboard from '../pages/Admin/ViewDashboard';
-import TasksStudent from '../pages/Student/TasksStudent';
 
 export default function Routes() {
   const [ tokenIsValid, setTokenIsValid ] = useState(false);
