@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: 'https://ms-academicquest.herokuapp.com',
+  baseURL: 'http://3.237.51.217:80/',
 });
 
 api.interceptors.request.use(

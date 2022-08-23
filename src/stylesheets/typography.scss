@@ -1,0 +1,266 @@
+
+
+//Line Height
+//Regra exemplo: o meu line height é 100% do tamanho do meu fontsize
+$line-height-light: 100%;
+$line-height-medium: 120%;
+$line-height-distant: 150%;
+$line-height-superdistant: 200%;
+
+.lineHeightLight {
+  line-height: $line-height-light !important;
+}
+.lineHeightMedium {
+  line-height: $line-height-medium !important;
+}
+.lineHeightDistant {
+  line-height: $line-height-distant !important;
+}
+.lineHeightSuperdistant {
+  line-height: $line-height-superdistant !important;
+}
+
+
+//Font Wheight
+$font-weight-bold: 700;
+$font-weight-medium: 600;
+$font-weight-regular: 500;
+$font-weight-light: 400; //normal
+$font-weight-lightest: 300;
+
+
+.fontWeightBold {
+  font-weight: $font-weight-bold !important; //700
+}
+.fontWeightMedium {
+  font-weight: $font-weight-medium !important; //600
+}
+.fontWeightRegular {
+  font-weight: $font-weight-regular !important;//500
+}
+.fontWeightLight {
+  font-weight: $font-weight-light !important; //400 - normal
+}
+.fontWeightLightest {
+  font-weight: $font-weight-lightest !important; //300
+}
+
+
+//font Size
+$font-size-xxxs: 10px; 
+$font-size-xxs: 12px; 
+$font-size-xs: 14px; 
+$font-size-s: 16px; 
+$font-size-m: 18px; 
+$font-size-l: 24px; 
+$font-size-xl: 36px; 
+$font-size-xxl: 48px; 
+$font-size-xxxl: 64px; 
+
+.fontSizeXxxs {
+  font-size: $font-size-xxxs !important; //10px
+}
+.fontSizeXxs {
+  font-size: $font-size-xxs !important; //12px
+}
+.fontSizeXs {
+  font-size: $font-size-xs !important; //14px
+}
+.fontSizeS {
+  font-size: $font-size-s !important; //16px
+}
+.fontSizeM {
+  font-size: $font-size-m !important; //18px
+}
+.fontSizeL {
+  font-size: $font-size-l !important; //24px
+}
+.fontSize32 {
+  font-size: 32px !important; //32px
+}
+.fontSizeXl {
+  font-size: $font-size-xl !important; //36px
+}
+.fontSizeXxl {
+  font-size: $font-size-xxl !important; //48px
+}
+.fontSizeXxl {
+  font-size: $font-size-xxxl !important; //64px
+}
+
+$letter-spacing-025: 0.25px;
+$letter-spacing-01: 0.1px;
+$letter-spacing-015: 0.15px;
+$letter-spacing-04: 0.4px;
+$letter-spacing-05: 0.5px;
+$letter-spacing-109: 1.09975px;
+$letter-spacing-125: 1.25px;
+$letter-spacing-15: 1.5px;
+
+.letterSpacing025 {
+  letter-spacing: $letter-spacing-025 !important; 
+}
+
+.letterSpacing015 {
+  letter-spacing: $letter-spacing-015 !important; 
+}
+
+.letterSpacing01 {
+  letter-spacing: $letter-spacing-01 !important; 
+}
+.letterSpacing04 {
+  letter-spacing: $letter-spacing-04 !important; 
+}
+.letterSpacing05 {
+  letter-spacing: $letter-spacing-05 !important; 
+}
+.letterSpacing125 {
+  letter-spacing: $letter-spacing-125 !important; 
+}
+.letterSpacing15 {
+  letter-spacing: $letter-spacing-15 !important; 
+}
+
+
+.capitalize {
+  text-transform: capitalize !important;
+}
+
+.uppercase {
+  text-transform: uppercase !important;
+}
+
+.textAlignCenter {
+  text-align: center !important;
+}
+
+.textAlignRight {
+  text-align: right !important;
+}
+
+.lowercase {
+  text-transform: lowercase !important;
+}
+
+.textTransformNone {
+  text-transform: none !important;
+}
+
+.wordBreak {
+  word-break: break-word !important;
+}
+
+.title1 {
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 120px !important;
+  line-height: 240px !important;
+  letter-spacing: 4px !important;
+}
+
+
+.subtitle1 {
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 16px;
+  line-height: 120%;
+  letter-spacing: 0.15px !important;
+  color: #09081A !important;
+}
+
+.subtitle2 {
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  line-height: 150% !important;
+  letter-spacing: 0.1px !important;
+  color: #09081A;
+}
+
+.subtitle3 {
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 24px !important;
+  line-height: 120% !important;
+  letter-spacing: 0.15px !important;
+  color: #09081A !important;
+}
+
+.subtitle4 {
+  font-style: normal !important;
+  font-weight: 500 !important;
+  line-height: 150% !important;
+  letter-spacing: 0.1px !important;
+  color: #09081A;
+}
+
+.subtitle5 {
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 18px !important;
+  line-height: 30px !important;
+  letter-spacing: 5% !important;
+  color: #09081A;
+  text-align: center;
+}
+
+.subtitle6 {
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  line-height: 30px !important;
+  letter-spacing: 5% !important;
+}
+
+.subtitle7 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 200%;
+}
+
+.subtitle8 {
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 150% !important;
+  letter-spacing: 0.15px !important;
+  color: #09081A !important;
+}
+
+.subtitle9 {
+  font-style: normal !important;
+  font-size: 12px !important;
+  line-height: 160% !important;
+  letter-spacing: 0.15px !important;
+  color: #09081A !important;
+}
+
+.subtitle10 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 1.25px;
+}
+
+.body1 {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+
+.body2 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0.25px;
+}
+
+.textAlignCenter {
+  text-align: center;
+}
+

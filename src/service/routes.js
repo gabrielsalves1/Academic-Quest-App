@@ -20,6 +20,8 @@ import ViewProject from '../pages/Admin/ViewProject';
 import EditProject from '../pages/Admin/EditProject';
 import HomeStudent from '../pages/Student/HomeStudent';
 import ProjectsStudent from '../pages/Student/ProjectsStudent';
+import Dashboard from '../pages/Admin/Dashboard';
+import ViewDashboard from '../pages/Admin/ViewDashboard';
 
 export default function Routes() {
   const [ tokenIsValid, setTokenIsValid ] = useState(false);
@@ -64,6 +66,8 @@ export default function Routes() {
               <Route exact path="/view-project/:idProject" element={<ViewProject/>}/>
               <Route exact path="/edit-group/:idGroup/subject/:idSubject" element={<EditGroup/>}/>
               <Route exact path="/edit-project/:idProject" element={<EditProject/>}/>
+              <Route exact path="/dashboard" element={<Dashboard/>}/>
+              <Route exact path="/view-dashboard/:idProject" element={<ViewDashboard/>}/>
             </>
           )}
          
