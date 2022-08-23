@@ -22,6 +22,7 @@ import HomeStudent from '../pages/Student/HomeStudent';
 import ProjectsStudent from '../pages/Student/ProjectsStudent';
 import Dashboard from '../pages/Admin/Dashboard';
 import ViewDashboard from '../pages/Admin/ViewDashboard';
+import TasksStudent from '../pages/Student/TasksStudent';
 
 export default function Routes() {
   const [ tokenIsValid, setTokenIsValid ] = useState(false);
@@ -75,6 +76,7 @@ export default function Routes() {
             <>
               <Route exact path="/" element={<HomeStudent/>}/>
               <Route exact path="/projects" element={<ProjectsStudent/>}/>
+              <Route exact path="/project/:idProject/group/:idGroup/tasks" element={<TasksStudent/>}/>
             </>
           )}
         </Route>

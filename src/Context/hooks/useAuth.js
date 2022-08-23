@@ -14,6 +14,7 @@ export default function useAuth() {
       sessionStorage.setItem('token', res.data.access_token);
       sessionStorage.setItem('role', JSON.stringify(res.data.role).replace(/"/g, ''));
       sessionStorage.setItem('userFirstName', JSON.stringify(res.data.userFirtsName).replace(/"/g, ''));
+      sessionStorage.setItem('idUser', res.data.id)
 
       history.push('/');
     }
