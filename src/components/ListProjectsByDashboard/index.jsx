@@ -35,7 +35,7 @@ export default function ListProjects(props) {
               return (
                 <li className={style.project} key={project.id}>
                   <LinkButton to={`/view-dashboard/${project.id}`} classStyle="purple">
-                    {project.nome}
+                  Dashboard {project.nome}
                   </LinkButton>
                   <span className={style.finished}>Concluído</span>
                   <LinkButton to={`/project/${project.id}/quest-management`}>
@@ -47,7 +47,7 @@ export default function ListProjects(props) {
               return (
                 <li className={style.project} key={project.id}>
                   <LinkButton to={`/view-dashboard/${project.id}`} classStyle="purple">
-                    {project.nome}
+                    Dashboard {project.nome}
                   </LinkButton>
                   <span className={style.active}>{project.status}</span>
                   <LinkButton to={`/project/${project.id}/quest-management`}>
