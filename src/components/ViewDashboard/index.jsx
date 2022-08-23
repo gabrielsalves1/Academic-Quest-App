@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom";
 import style from "./ViewDashboard.module.scss";
 import { Chart } from "react-google-charts";
 import _ from "lodash"
-import { getData } from "../../../service/requests";
-import BallStatusDanger from "../../../components/BallStatusDanger";
-import BallStatusSuccess from "../../../components/BallStatusSuccess";
+import { getData } from "../../service/requests";
+import BallStatusDanger from "../BallStatusDanger";
+import BallStatusSuccess from "../BallStatusSuccess";
 
-export default function Dashboard() {
+export default function ViewDashboard(props) {
   const [ loading, setLoading ] = useState();
   const [ project, setProject ] = useState();
   const { idProject } = useParams();
@@ -27,26 +27,29 @@ export default function Dashboard() {
 
 
   useEffect(() => {
-    getData(`dashboard/${idProject}`, setProject, setLoading);
+    getData(`/dashboard/${props}`, setProject, setLoading);
   }, [idProject]);
 
-  useEffect(() => {
-    lateQuestCalculus()
-    questsDeliveredByGroup()
-    questsNotDeliveredByGroup()
-  }, [project]);
+  // useEffect(() => {
+  //   lateQuestCalculus()
+  //   questsDeliveredByGroup()
+  //   questsNotDeliveredByGroup()
+  // }, [props.project]);
   
  
   const lateQuestCalculus = () => {
+    console.log(project)
     setCount(0)
     let num = 0;
   
-    project?.result.tarefas.map((tarefa)  => {
-      if (tarefa.status === null) {
-          num+= 1
-      }
-    })
-    setCount(num)
+    // props.result.tarefas.map((tarefa)  => {
+    //   tarefa.tarefasGrupo.forEach((tarefaGrupo) => {
+    //     {if (tarefaGrupo.status === "ENTREGUE") {
+    //       num+= 1
+    //     }}
+    //   })
+    // })
+    // setCount(num)
   }
 
   const groupBy_QuestsDeliveredByGroup = (dataEntregues) => {
@@ -63,16 +66,12 @@ export default function Dashboard() {
 
   const questsDeliveredByGroup = () => {
     const array = [];
-
-    project?.result.tarefas.map((tarefa)  => {
-      const tarefaGrupo = tarefa?.tarefasGrupos
-
-      tarefaGrupo.forEach((tarefa_grupo) => {
-        if(tarefa.status === "ENTREGUE"  || tarefa.status === "CORRIGIDA") {
-          array.push(tarefa) 
+    result["result"]["tarefas"].map((tarefa)  => {
+      tarefa["tarefasGrupo"].map((tarefaGrupo) => {
+        if(tarefaGrupo["status"] === "ENTREGUE"  || tarefaGrupo.status === "CORRIGIDA") {
+          array.push(tarefaGrupo) 
         }
       })
-   
     })
     setDataEntregues(groupBy_QuestsDeliveredByGroup(array))
   }
@@ -92,17 +91,15 @@ export default function Dashboard() {
 
   const questsNotDeliveredByGroup = () => {
     const arrayNot = [];
-
-    project?.result.tarefas.map((tarefa)  => {
-      const tarefaGrupo = tarefa?.tarefasGrupos
-      tarefaGrupo.forEach((tarefa_grupo) => {
-        if(tarefa_grupo.status === "PENDENTE") {
-          arrayNot.push(tarefa_grupo) 
+    result["result"]["tarefas"].map((tarefa)  => {
+      tarefa["tarefasGrupo"].map((tarefaGrupo) => {
+        if(tarefaGrupo["status"] === "PENDENTE") {
+          arrayNot.push(tarefaGrupo) 
         }
       })
 
     })
-
+    
     setDataNaoEntregues(groupBy_QuestsNotDeliveredByGroup(arrayNot))
   }
 
@@ -224,13 +221,13 @@ export default function Dashboard() {
   }
   }
 
+  
+
   return (
     <>
     <div className={style.containerDashboard}>
-      {project?.result.tarefas.map((tarefa)  => {
-        console.log(tarefa)
-        {if (tarefa.status === "PENDENTE") {
-          const tarefaGrupo = tarefa?.tarefasGrupos
+      {result["result"]["tarefas"].map((tarefa)  => {
+        {if (tarefa.status == "aberta") {
           const options = {
             title: tarefa.nomeTarefa,
             colors: ["#845EC2", "#D65DB1", "#5D8DD6"]
@@ -241,7 +238,7 @@ export default function Dashboard() {
               <Chart
                 chartType="PieChart"
                 options={options}
-                data={groupByStatus(tarefaGrupo)}
+                data={groupByStatus(tarefa.tarefasGrupo)}
                 width={"500px"}
                 height={"300px"}
               /> 
@@ -256,7 +253,7 @@ export default function Dashboard() {
       })}
 
       <ul className={style.boxQuestSchedule}>
-        {project?.result.tarefas.map((tarefa)  => {
+        {result["result"]["tarefas"].map((tarefa)  => {
 
           return (
             <li key={tarefa.id} className={style.questSchedule}>

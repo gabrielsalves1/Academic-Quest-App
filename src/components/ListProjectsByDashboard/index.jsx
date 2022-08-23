@@ -5,6 +5,7 @@ import style from "./ListProjectsByDashboard.module.scss";
 
 import { getData } from "../../service/requests";
 import LinkButton from "../LinkButton";
+import ViewDashboard from "../ViewDashboard";
 
 export default function ListProjects(props) {
   const [ loading, setLoading ] = useState();
@@ -26,6 +27,7 @@ export default function ListProjects(props) {
                     Dashboard {project.nome}
                   </LinkButton>
                   <span className={style.active}>Ativo</span>
+                  
                   <LinkButton to={`/project/${project.id}/quest-management`}>
                     Gerenciar Quest <BsPencil className={style.icon}/>
                   </LinkButton>
