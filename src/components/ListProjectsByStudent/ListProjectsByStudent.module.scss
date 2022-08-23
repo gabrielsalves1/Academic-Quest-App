@@ -6,11 +6,21 @@
   align-items: center;
   border: 2px solid $color-gray;
   border-bottom: 0;
-  height: 80px;
+  height: 120px;
 }
 
 .project:last-child {
   border-bottom: 2px solid $color-gray;
+}
+
+.infoProject {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoText {
+  font-size: 18px;
+  margin: 4px;
 }
 
 .active {
@@ -39,10 +49,6 @@
   font-weight: bold;
   color: $color-white;
   height: 30px;
-}
-
-.icon {
-  margin: 0 5px;
 }
 
 @media only screen and (max-device-width: 900px) {

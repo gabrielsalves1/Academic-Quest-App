@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { Table, Spinner } from "react-bootstrap";
-import { RiEye2Line } from "react-icons/ri";
 import style from "./TableTask.module.scss";
 
 import { getData } from "../../service/requests";
+import StylizedLink from "../StylizedLink";
 
 export default function TableTask(props) {
   const [ loading, setLoading ] = useState();
@@ -37,9 +36,9 @@ export default function TableTask(props) {
               <td>{group.nota !== null ? group.nota : " - "}</td>
               <td>{group.dataEntrega ? new Date(Date.parse(group.dataEntrega)).toLocaleDateString() : " - "}</td>
               <td>
-                <Link to={`/project/${props.idProject}/view-task/${props.idQuest}/task-group/${group.id}`}>
-                  <RiEye2Line className={style.icon}/>
-                </Link>
+                <StylizedLink to={`/project/${props.idProject}/view-task/${props.idQuest}/task-group/${group.id}`}>
+                  Visualizar
+                </StylizedLink>
               </td>
             </tr>
           ))}

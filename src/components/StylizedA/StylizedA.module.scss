@@ -1,0 +1,11 @@
+@import "../../global.scss";
+
+.stylizedA {
+  display: inline-block;
+  color: $color-purple;
+  margin: 10px;
+}
+
+.stylizedA:hover {
+  color: $color-purple-dark;
+}

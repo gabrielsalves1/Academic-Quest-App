@@ -6,12 +6,12 @@ import logo from '../../../assets/img/logo-academic-quest.png';
 import Container from "../../../components/Container";
 import About from "../../../components/About";
 import LinkButton from "../../../components/LinkButton";
-import StylizedLink from "../../../components/StylizedLink";
+import StylizedA from "../../../components/StylizedA";
 
 export default function Home() {
   return (
     <Container classStyle="containerAlignCenter">
-      <h2 className={style.title}>Bem vindo ao Academic Quest</h2>
+      <h2 className={style.title}>Bem-vindo ao Academic Quest!</h2>
 
       <div className={style.links}>
         <LinkButton to="/projects">
@@ -31,7 +31,7 @@ export default function Home() {
       <div className={style.usefulLinks}>
         <h3 className={style.titleSecondary}>Links úteis</h3>
 
-        <StylizedLink href="#about">Sobre o Academic Quest</StylizedLink>
+        <StylizedA href="#about">Sobre o Academic Quest</StylizedA>
       </div>
       
       <About/>

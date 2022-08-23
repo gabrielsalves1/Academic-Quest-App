@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
-import { BsPencil } from "react-icons/bs";
 import style from "./ListProjectsByStudent.module.scss";
 
 import { getData } from "../../service/requests";
@@ -11,36 +10,40 @@ export default function ListProjects(props) {
   const [ projects, setProjects ] = useState();
 
   useEffect(() => {
-    getData(`/projetos/materia/${props.subjectId}`, setProjects, setLoading);
-  }, [props.subjectId]);
+    getData('/aluno/projetosGrupo/3', setProjects, setLoading);
+  }, [])
 
   return (
     <>
       { loading ? (
         <ul>
           { projects?.map((project) => {
-            if(project.status === "EM_ANDAMENTO") {
+            if(project.statusProjeto === "EM_ANDAMENTO") {
               return (
                 <li className={style.project} key={project.id}>
                   <LinkButton to={`/view-project/${project.id}`} classStyle="purple">
-                    Projeto {project.nome}
+                    {project.nomeProjeto}
                   </LinkButton>
                   <span className={style.active}>Ativo</span>
-                  <LinkButton to={`/project/${project.id}/quest-management`}>
-                    Gerenciar Quest <BsPencil className={style.icon}/>
-                  </LinkButton>
+                  <span className={style.infoText}>Nota: {project.notaProjeto}</span>
+                  <div className={style.infoProject}>
+                    <span className={style.infoText}>Matéria: {project.nomeMateria}</span>
+                    <span className={style.infoText}>Grupo: {project.nomeGrupo}</span>
+                  </div>
                 </li>
               );
-            } else if(project.status === "CONCLUIDO") {
+            } else if(project.statusProjeto === "CONCLUIDO") {
               return (
                 <li className={style.project} key={project.id}>
                   <LinkButton to={`/view-project/${project.id}`} classStyle="purple">
-                    {project.nome}
+                    {project.nomeProjeto}
                   </LinkButton>
                   <span className={style.finished}>Concluído</span>
-                  <LinkButton to={`/project/${project.id}/quest-management`}>
-                    Gerenciar Quest <BsPencil className={style.icon}/>
-                  </LinkButton>
+                  <span className={style.infoText}>Nota: {project.notaProjeto}</span>
+                  <div className={style.infoProject}>
+                    <span className={style.infoText}>Matéria: {project.nomeMateria}</span>
+                    <span className={style.infoText}>Grupo: {project.nomeGrupo}</span>
+                  </div>
                 </li>
               );
             } else {
@@ -50,9 +53,11 @@ export default function ListProjects(props) {
                     {project.nome}
                   </LinkButton>
                   <span className={style.active}>{project.status}</span>
-                  <LinkButton to={`/project/${project.id}/quest-management`}>
-                    Gerenciar Quest <BsPencil className={style.icon}/>
-                  </LinkButton>
+                  <span className={style.infoText}>Nota: {project.notaProjeto}</span>
+                  <div className={style.infoProject}>
+                    <span className={style.infoText}>Matéria: {project.nomeMateria}</span>
+                    <span className={style.infoText}>Grupo: {project.nomeGrupo}</span>
+                  </div>
                 </li>
               );
             }}
