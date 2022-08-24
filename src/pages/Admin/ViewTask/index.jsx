@@ -9,6 +9,9 @@ import api from "../../../service/api";
 import history from "../../../service/history";
 import LinkButton from "../../../components/LinkButton";
 import StylizedButton from "../../../components/StylizedButton";
+import ChatButton from "../../../components/ChatButton";
+import MessageBalloonSent from "../../../components/MessageBalloonSent";
+import MessageBalloonIncoming from "../../../components/MessageBalloonIncoming";
 import Container from "../../../components/Container";
 import { getData } from "../../../service/requests";
 
@@ -45,9 +48,10 @@ export default function ViewTask() {
   }
 
   return (
-    <Container classStyle="containerJustifyCenter">
+    <>
+    <div className={style.box}>
       { loading ? (
-      <div className={style.form}>
+      <div className={style.formHalf}>
         <h1 className={style.title}>{taskGroup?.nomeGrupo}</h1>
 
         <div className={style.menuNameAndDate}>
@@ -84,6 +88,30 @@ export default function ViewTask() {
         </Form>
       </div>
       ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
-    </Container>
+
+      <div className={style.containerChat}>
+        <h1 className={style.title}>Chat</h1>
+        <div className={style.chatBox} >
+
+          
+            <MessageBalloonSent message="Oi, professor" />
+            <MessageBalloonIncoming message="Oi, Aluno" />
+            <MessageBalloonSent message="Oi, professor" />
+            <MessageBalloonIncoming message="Oi, Aluno" />
+
+       
+        <Form onSubmit = { handleSubmit(onSubmit) }>
+          <Form.Group>
+            <Form.Control as="textarea" name="mensagem"  className={style.chatInputArea}/>
+          </Form.Group>
+          <div>
+            <ChatButton className={style.chatButton} type="submit"> X </ChatButton>
+          </div>
+        </Form>
+        </div>
+      </div>
+    </div>
+
+    </>
   );
 }

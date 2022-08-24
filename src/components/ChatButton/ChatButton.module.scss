@@ -1,0 +1,29 @@
+@import "../../global.scss";
+
+.buttonForm {
+  background-color: $color-purple;
+  border: none;
+  width: 150px;
+  margin: 10px 0;
+}
+
+.buttonForm:focus, .buttonForm:active {
+  outline: none;
+  background-color: $color-purple-dark;
+}
+
+.buttonForm:hover {
+  background-color: $color-purple-dark;
+}
+
+.chatButton{
+  position: absolute;
+  bottom: 28px;
+  width: 36px;
+  height: 36px;
+  right: 13px;
+  border-radius: 24px;
+  border-color: none;
+  background-color: #845EC2;
+  outline: none;
+}
