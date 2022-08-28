@@ -27,7 +27,7 @@ export default function Dashboard() {
 
 
   useEffect(() => {
-    getData(`dashboard/${idProject}`, setProject, setLoading);
+    getData(`/dashboard/${idProject}`, setProject, setLoading);
   }, [idProject]);
 
   useEffect(() => {
