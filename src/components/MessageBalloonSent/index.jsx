@@ -4,13 +4,14 @@ import style from "./MessageBalloonSent.module.scss";
 
 export default function MessageBalloonSent(props) {
   return (
-    // <Button type={props.type} className={style.chatButton} onClick={props.onClick}>
-    //   {props.children}
-    // </Button>
-
+    <>
     <div className={style.boxMessage}>
-      {props.message}
-     
+      <span className={style.nickName}>{props.nickName}</span>
+      <div className={style.balloon}>
+        {props.message}
+      </div>
     </div>
+    </>
+    
   );
 }

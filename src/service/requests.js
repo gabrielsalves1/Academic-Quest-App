@@ -110,3 +110,19 @@ export function postGroupGradeByProject(data, idProject) {
       console.log(err);
     });
 }
+export function postMessageChat(data, redirect) {
+
+  api.post('/chats', data, {
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then((res) => {
+      if (res.status === 201) {
+        history.push(redirect);
+
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
+
+
+}
