@@ -10,7 +10,8 @@ export default function ListProjects(props) {
   const [ projects, setProjects ] = useState();
 
   useEffect(() => {
-    getData('/aluno/projetosGrupo/3', setProjects, setLoading);
+    const idUser = sessionStorage.getItem('idUser')
+    getData(`/aluno/projetosGrupo/${idUser}`, setProjects, setLoading);
   }, [])
 
   return (
@@ -20,8 +21,8 @@ export default function ListProjects(props) {
           { projects?.map((project) => {
             if(project.statusProjeto === "EM_ANDAMENTO") {
               return (
-                <li className={style.project} key={project.id}>
-                  <LinkButton to={`/view-project/${project.id}`} classStyle="purple">
+                <li className={style.project} key={project.projetoId}>
+                  <LinkButton to={`/project/${project.projetoId}/group/${project.grupoId}/tasks`} classStyle="purple">
                     {project.nomeProjeto}
                   </LinkButton>
                   <span className={style.active}>Ativo</span>
@@ -34,8 +35,8 @@ export default function ListProjects(props) {
               );
             } else if(project.statusProjeto === "CONCLUIDO") {
               return (
-                <li className={style.project} key={project.id}>
-                  <LinkButton to={`/view-project/${project.id}`} classStyle="purple">
+                <li className={style.project} key={project.projetoId}>
+                  <LinkButton to={`/project/${project.projetoId}/group/${project.grupoId}/tasks`} classStyle="purple">
                     {project.nomeProjeto}
                   </LinkButton>
                   <span className={style.finished}>Concluído</span>
@@ -48,8 +49,8 @@ export default function ListProjects(props) {
               );
             } else {
               return (
-                <li className={style.project} key={project.id}>
-                  <LinkButton to={`/view-project/${project.id}`} classStyle="purple">
+                <li className={style.project} key={project.projetoId}>
+                  <LinkButton to={`/project/${project.projetoId}/group/${project.grupoId}/tasks`} classStyle="purple">
                     {project.nome}
                   </LinkButton>
                   <span className={style.active}>{project.status}</span>

@@ -3,11 +3,11 @@
   margin: 32px 0;
 }
 
-.projects {
+.tasks {
   width: 70%;
 }
 
-.menuProject {
+.menuTasks {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,10 +20,8 @@
 }
 
 @media only screen and (max-device-width: 900px) {
-  .menuProject {
+  .menuClassAndProject {
     flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
   }
 
   .selectForm {
