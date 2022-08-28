@@ -4,8 +4,8 @@ import style from "./ChatButton.module.scss";
 
 export default function ChatButton(props) {
   return (
-    <Button type={props.type} className={style.chatButton} onClick={props.onClick}>
+    <button type={props.type} onClick={props.onClick}>
       {props.children}
-    </Button>
+    </button>
   );
 }

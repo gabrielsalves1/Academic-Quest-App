@@ -14,6 +14,7 @@ import MessageBalloonSent from "../../../components/MessageBalloonSent";
 import MessageBalloonIncoming from "../../../components/MessageBalloonIncoming";
 import Container from "../../../components/Container";
 import { getData } from "../../../service/requests";
+import { RiSendPlane2Fill } from "react-icons/ri";
 
 export default function ViewTask() {
   const [ loading, setLoading ] = useState();
@@ -93,21 +94,25 @@ export default function ViewTask() {
         <h1 className={style.title}>Chat</h1>
         <div className={style.chatBox} >
 
-          
-            <MessageBalloonSent message="Oi, professor" />
+          <div className={style.marginTopChat}>
+            <MessageBalloonSent message="Oi, professor. Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos." />
+          </div>
+          <div className={style.marginTopChat}>
             <MessageBalloonIncoming message="Oi, Aluno" />
-            <MessageBalloonSent message="Oi, professor" />
-            <MessageBalloonIncoming message="Oi, Aluno" />
+          </div>
+          <div className={style.displayFlexRow}>
+            <>
+              <Form.Group>
+                <Form.Control as="textarea" name="mensagem"  className={style.chatInputArea}/>
+              </Form.Group>
+            </>
+            <div className={style.boxBtnSend}>
+              <RiSendPlane2Fill type="submit" className={style.icon}/>
+            </div>
+
 
        
-        <Form onSubmit = { handleSubmit(onSubmit) }>
-          <Form.Group>
-            <Form.Control as="textarea" name="mensagem"  className={style.chatInputArea}/>
-          </Form.Group>
-          <div>
-            <ChatButton className={style.chatButton} type="submit"> X </ChatButton>
           </div>
-        </Form>
         </div>
       </div>
     </div>

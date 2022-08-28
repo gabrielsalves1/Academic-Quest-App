@@ -10,10 +10,12 @@
 .buttonForm:focus, .buttonForm:active {
   outline: none;
   background-color: $color-purple-dark;
+  border-color: none !important;
 }
 
 .buttonForm:hover {
   background-color: $color-purple-dark;
+  border-color: $color-purple-dark !important;
 }
 
 .chatButton{
@@ -23,7 +25,14 @@
   height: 36px;
   right: 13px;
   border-radius: 24px;
-  border-color: none;
+  border-color: none !important;
   background-color: #845EC2;
   outline: none;
+}
+
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: $color-purple-dark;
+  border-color: none;
 }

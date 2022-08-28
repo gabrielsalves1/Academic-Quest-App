@@ -65,6 +65,15 @@ $color-black: #000;
   max-height: 200px;
 }
 
+.inputFormChat {
+  border: 2px solid $color-gray;
+  border-radius: 5px;
+  margin: 10px 0;
+  max-height: 200px;
+  max-width: 90%;
+}
+
+
 .inputForm:focus {
   border-color: $color-purple-light;
   -webkit-box-shadow: none;
