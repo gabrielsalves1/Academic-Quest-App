@@ -12,7 +12,7 @@ export default function ListQuestsByStudent() {
   const [ tasks, setTasks ] = useState();
 
   useEffect(() => {
-    getData(`aluno/tarefas/projetoGrupo/${idProject}/${idGroup}`, setTasks, setLoading);
+    getData(`/aluno/tarefas/projetoGrupo/${idProject}/${idGroup}`, setTasks, setLoading);
   }, [idProject, idGroup])
 
   return (
@@ -22,8 +22,8 @@ export default function ListQuestsByStudent() {
           { tasks?.map((task) => {
             if(task.statusTarefa === "PENDENTE") {
               return (
-                <li className={style.task} key={task.projetoId}>
-                  <LinkButton to={`/project/${task.projetoId}/group/${task.grupoId}/tasks`} classStyle="purple">
+                <li className={style.task} key={task.tarefaGrupoId}>
+                  <LinkButton to={`/view-task/${task.tarefaGrupoId}`} classStyle="purple">
                     {task.nomeTarefa}
                   </LinkButton>
                   <span className={style.active}>Ativo</span>
@@ -32,8 +32,8 @@ export default function ListQuestsByStudent() {
               );
             } else if(task.statusTarefa === "CONCLUIDO") {
               return (
-                <li className={style.task} key={task.projetoId}>
-                  <LinkButton to={`/project/${task.projetoId}/group/${task.grupoId}/tasks`} classStyle="purple">
+                <li className={style.task} key={task.tarefaGrupoId}>
+                  <LinkButton to={`/view-task/${task.tarefaGrupoId}`} classStyle="purple">
                     {task.nomeTarefa}
                   </LinkButton>
                   <span className={style.finished}>Concluído</span>
@@ -42,8 +42,8 @@ export default function ListQuestsByStudent() {
               );
             } else {
               return (
-                <li className={style.task} key={task.projetoId}>
-                  <LinkButton to={`/project/${task.projetoId}/group/${task.grupoId}/tasks`} classStyle="purple">
+                <li className={style.task} key={task.tarefaGrupoId}>
+                  <LinkButton to={`/view-task/${task.tarefaGrupoId}`} classStyle="purple">
                     {task.nomeTarefa}
                   </LinkButton>
                   <span className={style.active}>{task.statusTarefa}</span>

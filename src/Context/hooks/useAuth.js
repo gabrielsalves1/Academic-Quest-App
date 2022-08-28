@@ -28,7 +28,7 @@ export default function useAuth() {
   }
 
   function recoverUser(token) {
-    axios.get(`https://ms-academicquest.herokuapp.com/verificar/token/${token}`)
+    axios.get(`http://3.237.51.217:80/verificar/token/${token}`)
     .then(res => {
       if(res.status === 200) {
         return true;
