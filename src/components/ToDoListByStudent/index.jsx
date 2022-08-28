@@ -10,8 +10,9 @@ export default function ToDoListByStudent() {
   const [toDo, setToDo] = useState();
   
   useEffect(() => {
-    getData("/aluno/tarefasPendentes/3", setToDo, setLoading);
-  }, [3]);
+    const idUser = sessionStorage.getItem('idUser')
+    getData(`/aluno/tarefasPendentes/${idUser}`, setToDo, setLoading);
+  }, []);
 
   return (
     <>

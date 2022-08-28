@@ -1,6 +1,6 @@
 @import "../../global.scss";
 
-.project {
+.task {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -9,11 +9,11 @@
   height: 120px;
 }
 
-.project:last-child {
+.task:last-child {
   border-bottom: 2px solid $color-gray;
 }
 
-.infoProject {
+.infoTask {
   display: flex;
   flex-direction: column;
 }
@@ -56,18 +56,10 @@
     visibility: hidden;
   }
 
-  .project {
-    justify-content: center;
-    align-items: center;
+  .task {
     flex-direction: column;
     height: 160px;
   }
-
-  .infoProject {
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-  }  
 
   .active, .finished {
     width: 50%;
