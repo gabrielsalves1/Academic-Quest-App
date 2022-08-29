@@ -12,7 +12,7 @@ export default function ListQuestsByStudent() {
   const [ tasks, setTasks ] = useState();
 
   useEffect(() => {
-    getData(`/aluno/tarefas/projetoGrupo/${idProject}/${idGroup}`, setTasks, setLoading);
+    getData(`/aluno/tarefas/projetoGrupo/${idGroup}/${idProject}`, setTasks, setLoading);
   }, [idProject, idGroup])
 
   return (

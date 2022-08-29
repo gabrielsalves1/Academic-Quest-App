@@ -39,7 +39,7 @@ export default function ToDoListByStudent() {
                     <td>{toDo.nomeAtividade}</td>
                     <td>{new Date(Date.parse(toDo.dataEntregaAtividade)).toLocaleDateString()}</td>
                     <td>
-                    <StylizedLink to={`/tarefaGrupo/${toDo.idTarefaGrupo}`}>
+                    <StylizedLink to={`/view-task/${toDo.idTarefaGrupo}`}>
                         Visualizar
                     </StylizedLink>
                     </td>

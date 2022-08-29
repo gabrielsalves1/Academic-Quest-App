@@ -8,7 +8,7 @@ import style from "./CreateQuest.module.scss";
 import Container from "../../../components/Container";
 import StylizedButton from "../../../components/StylizedButton";
 import LinkButton from "../../../components/LinkButton";
-import { postQuest } from "../../../service/requests";
+import { postDataFile } from "../../../service/requests";
 
 export default function CreateQuest() {
   const { idProject } = useParams();
@@ -28,7 +28,7 @@ export default function CreateQuest() {
     formData.append('descricao', data["descricao"])
     formData.append('dataEntrega', data["dataEntrega"])
     
-    postQuest(formData, idProject, setUploadPercentage);
+    postDataFile('/tarefas', formData, `/project/${idProject}/quest-management`, setUploadPercentage);
   }
 
   return (
