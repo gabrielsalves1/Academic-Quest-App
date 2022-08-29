@@ -5,7 +5,7 @@ import { Form } from "react-bootstrap";
 import AsyncSelect from 'react-select/async';
 import style from "./CreateGroup.module.scss";
 
-import { getClasses, getData, postGroup } from "../../../service/requests";
+import { getClasses, getData, postData } from "../../../service/requests";
 import Container from "../../../components/Container";
 import LinkButton from "../../../components/LinkButton";
 import StylizedButton from "../../../components/StylizedButton";
@@ -26,7 +26,7 @@ export default function CreateGroup() {
     data['materiaId'] = selectSubject;
     data['alunoLiderId'] = leadMember;
 
-    postGroup(data);
+    postData('/groups', data, '/groups');
   }
 
   useEffect(() => {

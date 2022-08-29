@@ -19,6 +19,47 @@ export async function getData(url, setData, setLoading) {
   return setData(response.data);
 }
 
+export function postData(url, data, redirect) {
+  api.post(url, data, {
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then((res) => {
+      if (res.status === 201) {
+        history.push(redirect);
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
+}
+
+export function postDataFile(url, formData, redirect, setUploadPercentage) {
+  const options = {
+    onUploadProgress: (progressEvent) => {
+      const { loaded, total } = progressEvent;
+      let percent = Math.floor((loaded * 100) / total);
+
+      if (percent < 100) {
+        setUploadPercentage(percent);
+      }
+    }
+  }
+
+  api.post(url, formData, options, {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then((res) => {
+    setUploadPercentage(100);
+
+    if (res.status === 201) {
+      history.push(redirect);
+    }
+  }).catch((err) => {
+    console.log(err);
+  });
+}
+
 export function putData(data, url, redirect) {
   api.put(url, data, {
     headers: { 'Content-Type': 'application/json' }
@@ -39,74 +80,9 @@ export function postLogin(formData, handleLogin, setMsgError) {
       Authorization: 'Basic ' + window.btoa('academicquest:ricardosilvagostadexbox')
     }
   })
-    .then((res) => {
-      handleLogin(res);
-    }).catch((err) => {
-      setMsgError("E-mail ou senha inválido, verifique e tente novamente.");
-    });
-}
-
-export function postGroup(data) {
-  api.post('/grupos', data, {
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-    .then((res) => {
-      if (res.status === 201) {
-        history.push('/groups');
-      }
-    }).catch((err) => {
-      console.log(err);
-    });
-}
-
-export function postProject(data) {
-  api.post('/projetos', data, {
-    headers: { 'Content-Type': 'application/json' }
-  })
-    .then((res) => {
-      if (res.status === 201) {
-        history.push('/projects');
-      }
-    }).catch((err) => {
-      console.log(err);
-    });
-}
-
-export function postQuest(formData, idProject, setUploadPercentage) {
-  const options = {
-    onUploadProgress: (progressEvent) => {
-      const { loaded, total } = progressEvent;
-      let percent = Math.floor((loaded * 100) / total);
-
-      if (percent < 100) {
-        setUploadPercentage(percent);
-      }
-    }
-  }
-
-  api.post('/tarefas', formData, options, {
-    headers: { 'Content-Type': 'application/json' }
-  })
-    .then((res) => {
-      setUploadPercentage(100);
-
-      if (res.status === 201) {
-        history.push(`/project/${idProject}/quest-management`);
-      }
-    }).catch((err) => {
-      console.log(err);
-    });
-}
-
-export function postGroupGradeByProject(data, idProject) {
-  api.post(`/projetos/avaliar/${idProject}`, data, {
-    headers: { 'Content-Type': 'application/json' }
-  })
-    .then((res) => {
-      console.log(res);
-    }).catch((err) => {
-      console.log(err);
-    });
+  .then((res) => {
+    handleLogin(res);
+  }).catch((err) => {
+    setMsgError("E-mail ou senha inválido, verifique e tente novamente.");
+  });
 }
