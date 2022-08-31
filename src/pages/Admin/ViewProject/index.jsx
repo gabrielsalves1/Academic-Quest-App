@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 import style from "./ViewProject.module.scss";
 
-import { getData, postGroupGradeByProject } from "../../../service/requests";
+import { getData, postData, postGroupGradeByProject } from "../../../service/requests";
 import Container from "../../../components/Container";
 import StylizedButton from "../../../components/StylizedButton";
 import LinkButton from "../../../components/LinkButton";
@@ -18,7 +18,7 @@ export default function ViewProject() {
   }, [idProject]);
 
   const onSubmit = data => {
-    postGroupGradeByProject(data, idProject);
+    postData(`/projetos/avaliar/${idProject}`, data);
   }
 
   return (

@@ -1,6 +1,5 @@
 {
   "name": "academic-quest-app",
-  "homepage": "/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -50,5 +49,17 @@
     "@testing-library/user-event": "^14.1.0",
     "jest-watch-typeahead": "^0.6.5",
     "sass": "^1.50.0"
+  },
+  "description": "Efetue a instalação do NodeJS.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielsalves1/Academic-Quest-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielsalves1/Academic-Quest-App/issues"
   }
 }

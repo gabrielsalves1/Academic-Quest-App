@@ -20,6 +20,8 @@ import ViewProject from '../pages/Admin/ViewProject';
 import EditProject from '../pages/Admin/EditProject';
 import HomeStudent from '../pages/Student/HomeStudent';
 import ProjectsStudent from '../pages/Student/ProjectsStudent';
+import TasksStudent from '../pages/Student/TasksStudent';
+import ViewTaskStudent from '../pages/Student/ViewTaskStudent';
 import Dashboard from '../pages/Admin/Dashboard';
 import ViewDashboard from '../pages/Admin/ViewDashboard';
 
@@ -75,6 +77,8 @@ export default function Routes() {
             <>
               <Route exact path="/" element={<HomeStudent/>}/>
               <Route exact path="/projects" element={<ProjectsStudent/>}/>
+              <Route exact path="/project/:idProject/group/:idGroup/tasks" element={<TasksStudent/>}/>
+              <Route exact path="/view-task/:idTaskGroup" element={<ViewTaskStudent/>}/>
             </>
           )}
         </Route>

@@ -1,22 +1,27 @@
 import React from "react";
-import { Image } from "react-bootstrap";
 import style from "./HomeStudent.module.scss";
 
-import logo from '../../../assets/img/logo-academic-quest.png';
 import Container from "../../../components/Container";
 import About from "../../../components/About";
 import ToDoListByStudent from "../../../components/ToDoListByStudent";
 import LinkButton from "../../../components/LinkButton";
 import StylizedA from "../../../components/StylizedA";
+import { useEffect } from "react";
+import { useState } from "react";
 
 export default function HomeStudent() {
+  const [ username, setUsername ] = useState();
+
+  useEffect(() => {
+    setUsername(sessionStorage.getItem('userFirstName'));
+  }, [])
+
   return (
     <Container classStyle="containerAlignCenter">
-      <h2 className={style.title}>Aluno, bem-vindo ao Academic Quest!</h2>
+      <h2 className={style.title}>{username}, bem-vindo ao Academic Quest!</h2>
 
       <div className={style.links}>
         <LinkButton to="/projects">
-          <Image fluid src={logo} className={style.logo}/>
           Projetos
         </LinkButton>
       </div>

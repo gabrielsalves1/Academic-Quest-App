@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 import AsyncSelect from "react-select/async";
 import style from "./CreateProject.module.scss";
 
-import { getClasses, getData, postProject } from "../../../service/requests";
+import { getClasses, getData, postData } from "../../../service/requests";
 import Container from "../../../components/Container";
 import LinkButton from "../../../components/LinkButton";
 import StylizedButton from "../../../components/StylizedButton";
@@ -19,7 +19,7 @@ export default function CreateProject() {
   const onSubmit = data => {
     data['materiaId'] = selectSubject;
 
-    postProject(data);
+    postData('/projetos', data, '/projects');
   }
 
   return (
