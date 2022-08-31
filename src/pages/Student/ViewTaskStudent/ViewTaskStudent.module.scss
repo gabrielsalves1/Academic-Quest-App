@@ -12,6 +12,23 @@
   align-items: center;
 }
 
+.menuDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menuSide {
+  width: 50%;
+}
+
+.uploadStudent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .title {
   display: flex;
   justify-content: center;
@@ -25,6 +42,11 @@
   align-items: center;
   font-size: 20px;
   margin: 10px 0;
+}
+
+.text {
+  font-size: 14px;
+  margin: 10px 15px;
 }
 
 .icon {

@@ -17,10 +17,14 @@
   justify-content: space-between;
 }
 
+.text {
+  font-size: 14px;
+}
+
 .icon {
   width: 20px;
   height: 20px;
-  margin: 5px;
+  margin: 0 5px;
 }
 
 @media only screen and (max-device-width: 900px) {

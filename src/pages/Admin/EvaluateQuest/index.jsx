@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { BsDownload } from "react-icons/bs";
+import { BsDownload, BsFillFileEarmarkMedicalFill } from "react-icons/bs";
 import Spinner from 'react-bootstrap/Spinner'; 
 import style from "./EvaluateQuest.module.scss";
 
@@ -43,10 +43,14 @@ export default function EvaluateQuest() {
               <span className={style.taskItem}>Data de Entrega: {new Date(Date.parse(task.dataEntrega)).toLocaleDateString()}</span>
             </div>
 
-            <StylizedButton onClick={() => { Base64ToPdf(task.nomeArquivo, task.upload, task.formato) }}>Baixar Arquivo<BsDownload className={style.icon}/></StylizedButton>
+            <div className={style.questInfo}>
+              <StylizedButton onClick={() => { Base64ToPdf(task.nomeArquivo, task.upload, task.formato) }}>Baixar Arquivo<BsDownload className={style.icon}/></StylizedButton>
+              { task.nomeArquivo &&
+                <span className={style.text}>{task.nomeArquivo} <BsFillFileEarmarkMedicalFill className={style.icon}/></span>
+              }
+            </div>
           </section>
         ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
-      
       <TableTask idProject={idProject} idQuest={idQuest}/>
     </Container>
   );
