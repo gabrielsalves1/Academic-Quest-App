@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Form, ProgressBar } from "react-bootstrap";
-import { BsUpload } from "react-icons/bs";
+import { BsUpload, BsFillFileEarmarkMedicalFill } from "react-icons/bs";
 import style from "./CreateQuest.module.scss";
 
 import Container from "../../../components/Container";
@@ -56,7 +56,11 @@ export default function CreateQuest() {
           </Form.Group>
 
           <Form.Group controlId="formFile" className="mt-2 mb-2" htmlFor='file'>
-            <Form.Label className={style.inputFile}>Carregar arquivo<BsUpload className={style.icon}/></Form.Label>
+            { file &&
+              <span className={style.text}>{file?.name} <BsFillFileEarmarkMedicalFill className={style.icon}/></span>
+            }
+            
+            <Form.Label className={style.inputFile}>Adicionar<BsUpload className={style.icon}/></Form.Label>
             <Form.Control type="file" name="file" onChange={(e) => {
               handleFile(e)
             }}/>

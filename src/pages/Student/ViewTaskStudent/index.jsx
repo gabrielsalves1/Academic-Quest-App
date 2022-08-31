@@ -3,9 +3,8 @@ import style from "./ViewTaskStudent.module.scss";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Form, Spinner, ProgressBar } from "react-bootstrap";
-import { BsDownload, BsUpload } from "react-icons/bs";
+import { BsDownload, BsUpload, BsFillFileEarmarkMedicalFill } from "react-icons/bs";
 
-import api from "../../../service/api";
 import LinkButton from "../../../components/LinkButton";
 import StylizedButton from "../../../components/StylizedButton";
 import Container from "../../../components/Container";
@@ -24,7 +23,7 @@ export default function ViewTask() {
   }, [idTaskGroup]);
 
   const handleFile = (e) => {
-    setFile(e.target.files[0])
+    setFile(e.target.files[0]);
   }
 
   const onSubmit = data => {
@@ -49,9 +48,9 @@ export default function ViewTask() {
       { loading ? (
         <div className={style.form}>
           <h1 className={style.title}>{taskGroup?.nomeGrupo}</h1>
+          <h3 className={style.titleSecundary}>{taskGroup?.nomeTarefa}</h3>
         
           <div className={style.menuNameAndDate}>
-            <h3 className={style.titleSecundary}>{taskGroup?.nomeTarefa}</h3>
         
             <div>
               <h3 className={style.titleSecundary}>Data de Entrega</h3>
@@ -61,33 +60,49 @@ export default function ViewTask() {
             </div>
         
             { taskGroup?.upload &&
-              <StylizedButton onClick={() => { Base64ToPdf(taskGroup?.upload["titulo"], taskGroup?.upload["arquivoUpload"], taskGroup?.upload["formato"]) }}>
-                Baixar Arquivo<BsDownload className={style.icon}/>
-              </StylizedButton>
+              <div className={style.uploadStudent}>
+                <StylizedButton onClick={() => { Base64ToPdf(taskGroup?.upload["titulo"], taskGroup?.upload["arquivoUpload"], taskGroup?.upload["formato"]) }}>
+                  Baixar Arquivo<BsDownload className={style.icon}/>
+                </StylizedButton>
+                
+                <span className={style.text}>{taskGroup?.upload.titulo} <BsFillFileEarmarkMedicalFill className={style.icon}/></span>
+              </div>
             }
           </div>
           
           <Form onSubmit = { handleSubmit(onSubmit) }>
-            <Form.Group>
-              <Form.Label htmlFor='consideration'>Considerações do trabalho</Form.Label>
-              <Form.Control defaultValue={taskGroup?.consideracoes} as="textarea" name="consideration" className={style.inputArea} readOnly/>
-              {errors.name && <span>Esse campo é obrigatório.</span>}
-            </Form.Group>
-            
-            <Form.Group>
-              <Form.Label htmlFor='note'>Nota</Form.Label>
-              <Form.Control defaultValue={taskGroup?.nota} name="note" className={style.inputForm} readOnly/>
-              {errors.name && <span>Esse campo é obrigatório.</span>}
-            </Form.Group>
-          
-            <Form.Group controlId="formFile" className="mt-2 mb-2" htmlFor='file'>
-              <Form.Label className={style.inputFile}>Carregar arquivo<BsUpload className={style.icon}/></Form.Label>
-              <Form.Control type="file" name="file" onChange={(e) => {
-                handleFile(e)
-              }}/>
-              { uploadPercentage > 0 && <ProgressBar now={uploadPercentage} label={`${uploadPercentage}%`} animated />}
-            </Form.Group>
-            
+            <div className={style.menuDiv}>
+              <div className={style.menuSide}>
+                <Form.Group>
+                  <Form.Label htmlFor='consideration'>Considerações do trabalho</Form.Label>
+                  <Form.Control defaultValue={taskGroup?.consideracoes} as="textarea" name="consideration" className={style.inputArea} readOnly/>
+                  {errors.name && <span>Esse campo é obrigatório.</span>}
+                </Form.Group>
+
+                <Form.Group>
+                  <Form.Label htmlFor='note'>Nota</Form.Label>
+                  <Form.Control defaultValue={taskGroup?.nota} name="note" className={style.inputForm} readOnly/>
+                  {errors.name && <span>Esse campo é obrigatório.</span>}
+                </Form.Group>
+              </div>
+
+              <div className={style.menuSide}>
+                <div className={style.uploadStudent}>
+                  { file &&
+                    <span className={style.text}>{file?.name} <BsFillFileEarmarkMedicalFill className={style.icon}/></span>
+                  }
+
+                  <Form.Group controlId="formFile" className="mt-2 mb-2" htmlFor='file'>
+                    <Form.Label className={style.inputFile}>Adicionar<BsUpload className={style.icon}/></Form.Label>
+                    <Form.Control type="file" name="file" onChange={(e) => {
+                      handleFile(e)
+                    }}/>
+                    { uploadPercentage > 0 && <ProgressBar now={uploadPercentage} label={`${uploadPercentage}%`} animated />}
+                  </Form.Group>
+                </div>
+              </div>
+            </div>
+
             <div className={style.menuForm}>
               <LinkButton to={`/projects`}>Voltar</LinkButton>
             

@@ -11,7 +11,10 @@
   background-color: #fff;
   color: $color-purple;
   margin: 5px;
-  width: 150px;
+  width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .linkPurple {
@@ -25,7 +28,10 @@
   border-radius: 5px;
   color: #fff;
   margin: 5px;
-  width: 150px;
+  width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .linkPurple:hover {

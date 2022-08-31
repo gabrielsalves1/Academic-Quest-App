@@ -3,7 +3,7 @@ import style from "./ViewTask.module.scss";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Form, Spinner } from "react-bootstrap";
-import { BsDownload } from "react-icons/bs";
+import { BsDownload, BsFillFileEarmarkMedicalFill } from "react-icons/bs";
 
 import api from "../../../service/api";
 import history from "../../../service/history";
@@ -49,10 +49,9 @@ export default function ViewTask() {
       { loading ? (
       <div className={style.form}>
         <h1 className={style.title}>{taskGroup?.nomeGrupo}</h1>
+        <h3 className={style.titleSecundary}>Quest {taskGroup?.nomeTarefa}</h3>
 
         <div className={style.menuNameAndDate}>
-          <h3 className={style.titleSecundary}>Quest {taskGroup?.nomeTarefa}</h3>
-
           <div>
             <h3 className={style.titleSecundary}>Data de Entrega</h3>
             <span className={style.titleSecundary}>
@@ -60,7 +59,14 @@ export default function ViewTask() {
             </span>
           </div>
 
-          <StylizedButton onClick={() => { Base64ToPdf(taskGroup?.upload["titulo"], taskGroup?.upload["arquivoUpload"], taskGroup?.upload["formato"]) }}>Baixar Arquivo<BsDownload className={style.icon}/></StylizedButton>
+          { taskGroup?.upload &&
+            <div className={style.uploadStudent}>
+              <span className={style.text}>{taskGroup?.upload.titulo} <BsFillFileEarmarkMedicalFill className={style.icon}/></span>
+              <StylizedButton onClick={() => { Base64ToPdf(taskGroup?.upload["titulo"], taskGroup?.upload["arquivoUpload"], taskGroup?.upload["formato"]) }}>
+                Baixar Arquivo<BsDownload className={style.icon}/>
+              </StylizedButton>
+            </div>
+          }
         </div>
         
         <Form onSubmit = { handleSubmit(onSubmit) }>

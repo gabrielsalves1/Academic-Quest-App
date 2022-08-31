@@ -7,13 +7,19 @@ import style from './NavigationBar.module.scss';
 
 import { Context } from "../../Context/AuthContext";
 import LinkButton from "../LinkButton";
+import { useEffect } from "react";
 
 export default function NavigationBar() {
   const { handleLogout } = useContext(Context);
+  const [role, setRole] = useState();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    setRole(sessionStorage.getItem('role'));
+  }, [])
 
   return (
     <Navbar collapseOnSelect fixed="top" expand="lg" className={style.nav}>
@@ -28,9 +34,19 @@ export default function NavigationBar() {
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body className={style.navLinks}>
-              <LinkButton to="/projects">Projetos</LinkButton><br/>
-              <LinkButton to="/groups">Grupos</LinkButton>
-              <LinkButton to="/dashboard">Dashboard</LinkButton>
+              
+              { role === "PROFESSOR" ? (
+                <>
+                  <LinkButton to="/projects">Projetos</LinkButton><br/>
+                  <LinkButton to="/groups">Grupos</LinkButton><br/>
+                  <LinkButton to="/dashboard">Dashboard</LinkButton>
+                </>
+              ) : (
+                <>
+                  <LinkButton to="/projects">Projetos</LinkButton><br/>
+                </>
+              )}
+              
             </Offcanvas.Body>
           </Offcanvas>
 

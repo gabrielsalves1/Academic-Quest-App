@@ -26,6 +26,8 @@ export function postData(url, data, redirect) {
     .then((res) => {
       if (res.status === 201) {
         history.push(redirect);
+      } else if(res.status === 200) {
+        window.location.reload();
       }
     }).catch((err) => {
       console.log(err);
@@ -54,6 +56,8 @@ export function postDataFile(url, formData, redirect, setUploadPercentage) {
 
     if (res.status === 201) {
       history.push(redirect);
+    } else if(res.status === 200) {
+      window.location.reload();
     }
   }).catch((err) => {
     console.log(err);
