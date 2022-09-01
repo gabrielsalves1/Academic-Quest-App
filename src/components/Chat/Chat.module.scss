@@ -28,6 +28,7 @@
   height: 500px;
   background: #FFFFFF;
   overflow-y: scroll;
+  border-radius: 24px;
 }
 
 .chatInputArea{
@@ -36,7 +37,7 @@
   background: #F2F4F7;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
   border-radius: 24px;
-  width: 125%;
+  width: 150%;
   margin: 20px;
 }
 
@@ -60,7 +61,7 @@
 .boxBtnSend {
   position: absolute;
   bottom: 10px;
-  right: -53%;
+  right: -90%;
   display: flex;
   align-items: flex-end;
   margin-right: 15px;
@@ -73,4 +74,18 @@
   border: none;
   width: 20px;
   height: 20px;
+}
+
+.boxWithoutMsg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+.textWithoutMsg {
+  color: #9CA3AF;
+  font-size: 20px;
+  font-weight: normal;
+  margin-left: 10px;
 }
