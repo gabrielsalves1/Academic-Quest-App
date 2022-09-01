@@ -12,6 +12,5 @@ export default function MessageBalloonSent(props) {
       </div>
     </div>
     </>
-    
   );
 }

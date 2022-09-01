@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "react-bootstrap";
 import style from "./Chat.module.scss";
 import ChatButton from "../ChatButton";
 import MessageBalloonSent from "../MessageBalloonSent";
@@ -23,9 +22,17 @@ import { RiSendPlane2Fill } from "react-icons/ri";
 export default function Chat(props) {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [ messages, setMessages ] = useState(props.messages.chats);
+  const [ idUser, setIdUser ] = useState(sessionStorage.getItem('idUser'));
+  const [ user, setUser ] = useState();
+  const [ loading, setLoading ] = useState();
+  
 
-  const idUser = sessionStorage.getItem('idUser')
 
+  useEffect(() => {
+    getData(`/users/${idUser}`, setUser, setLoading);
+  }, [idUser]);
+
+  
   const onSubmit = message => {
     const msg = message
     const data = {
@@ -41,37 +48,48 @@ export default function Chat(props) {
 
   return (
     <>
+      {loading ? (
         <div className={style.containerChat}>
-            <div className={style.chatBox} >
-              <div id="scroll" className={style.chatBoxScroll}>
-                {(messages.length > 0 ) ? (
-                  messages.map((msg) => {
-                    return (
-                      <div key={msg.id} className={style.marginTopChat}>
-                        <MessageBalloonSent message={msg.mensagem} nickName={msg.primeiroNome + ' ' + msg.segundoNome}/>
-                      </div>
-                    )
-                  })
-                ) : 
-                (<div className={style.boxWithoutMsg}>
-                  <span className={style.textWithoutMsg}> Não há mensagens!</span>
-                </div>)}
+        <div className={style.chatBox} >
+          <div id="scroll" className={style.chatBoxScroll}>
+            {(messages.length > 0 ) ? (
+              messages.map((msg) => {
+                if (msg.primeiroNome === user.firstName && msg.segundoNome === user.lastName) {
+                  return (
+                    <div key={msg.id} className={style.marginTopChat}>
+                      <MessageBalloonSent message={msg.mensagem} nickName={msg.primeiroNome + ' ' + msg.segundoNome}/>
+                    </div>
+                  )
+                } else {
+                  return (
+                    <div key={msg.id} className={style.marginTopChat}>
+                      <MessageBalloonIncoming message={msg.mensagem} nickName={msg.primeiroNome + ' ' + msg.segundoNome}/>
+                    </div>
+                  )
+                }
+              })
+            ) : 
+            (<div className={style.boxWithoutMsg}>
+              <span className={style.textWithoutMsg}> Não há mensagens!</span>
+            </div>)}
+          </div>
+        
+          <Form onSubmit = { handleSubmit(onSubmit) }>
+            <div className={style.displayFlexRow}>
+              <>
+                <Form.Group>
+                  <Form.Control as="textarea" name="mensagem"  {...register("mensagem", { required: true })} className={style.chatInputArea}/>
+                </Form.Group>
+              </>
+              <div className={style.boxBtnSend}>
+                <button type="submit" className={style.button}><RiSendPlane2Fill className={style.icon}/></button>
               </div>
-            
-              <Form onSubmit = { handleSubmit(onSubmit) }>
-                <div className={style.displayFlexRow}>
-                  <>
-                    <Form.Group>
-                      <Form.Control as="textarea" name="mensagem"  {...register("mensagem", { required: true })} className={style.chatInputArea}/>
-                    </Form.Group>
-                  </>
-                  <div className={style.boxBtnSend}>
-                    <button type="submit" className={style.button}><RiSendPlane2Fill className={style.icon}/></button>
-                  </div>
-                </div>
-              </Form>
             </div>
+          </Form>
         </div>
+      </div>
+      )  :
+       (<Spinner className={style.loading} animation="border" variant="primary" />)}
     </>
   );
 }
