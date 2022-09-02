@@ -100,10 +100,9 @@ export default function ViewTask() {
 
       { loading ? (
          <Chat idTaskGroup={idTaskGroup} idProject={idProject} idQuest={idQuest} messages={taskGroup}/>
-      ) : ("")}
+      ) : (<Spinner className={style.loading} animation="border" variant="primary" />)}
      
     </div>
-
     </>
   );
 }

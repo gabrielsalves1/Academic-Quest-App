@@ -15,7 +15,6 @@ import LinkButton from "../LinkButton";
 import StylizedButton from "../StylizedButton";
 
 
-import Container from "../Container";
 import { getData, postMessageChat } from "../../service/requests";
 import { RiSendPlane2Fill } from "react-icons/ri";
 
@@ -23,16 +22,7 @@ export default function Chat(props) {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [ messages, setMessages ] = useState(props.messages.chats);
   const [ idUser, setIdUser ] = useState(sessionStorage.getItem('idUser'));
-  const [ user, setUser ] = useState();
-  const [ loading, setLoading ] = useState();
-  
-
-
-  useEffect(() => {
-    getData(`/users/${idUser}`, setUser, setLoading);
-  }, [idUser]);
-
-  
+ 
   const onSubmit = message => {
     const msg = message
     const data = {
@@ -40,21 +30,29 @@ export default function Chat(props) {
       "tarefaGrupoId": props.idTaskGroup,
       "userId": idUser
     }
-
-    postMessageChat(data, `/project/${props.idProject}/view-task/${props.idQuest}/task-group/${props.idTaskGroup}`)
+    
+    postMessageChat(data, window.location.href)
   }
+  
+  // setTimeout(() => {
+  //   document.location.reload(true)
+  //   console.log("atttttt")
+  // }, "9000")
 
-
+  // window.scrollTo(0,document.body.scrollHeight);
+  // document.getElementById('messages').scrollIntoView({ behavior: 'smooth', block: 'end' });
 
   return (
     <>
-      {loading ? (
+      {idUser ? (
+
         <div className={style.containerChat}>
         <div className={style.chatBox} >
           <div id="scroll" className={style.chatBoxScroll}>
             {(messages.length > 0 ) ? (
               messages.map((msg) => {
-                if (msg.primeiroNome === user.firstName && msg.segundoNome === user.lastName) {
+               
+                if (msg.idUser === parseInt(idUser) ) {
                   return (
                     <div key={msg.id} className={style.marginTopChat}>
                       <MessageBalloonSent message={msg.mensagem} nickName={msg.primeiroNome + ' ' + msg.segundoNome}/>
