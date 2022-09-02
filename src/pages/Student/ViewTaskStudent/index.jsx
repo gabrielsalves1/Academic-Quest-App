@@ -9,11 +9,12 @@ import LinkButton from "../../../components/LinkButton";
 import StylizedButton from "../../../components/StylizedButton";
 import Container from "../../../components/Container";
 import { getData, postDataFile } from "../../../service/requests";
+import Chat from "../../../components/Chat";
 
 export default function ViewTask() {
   const [ loading, setLoading ] = useState();
-  const { idTaskGroup } = useParams();
-  const { handleSubmit, formState: { errors } } = useForm();
+  const { idProject, idQuest, idTaskGroup } = useParams();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const [ taskGroup, setTaskGroup ] = useState();
   const [ file, setFile ] = useState();
   const [ uploadPercentage, setUploadPercentage ] = useState();
@@ -44,9 +45,10 @@ export default function ViewTask() {
   }
 
   return (
-    <Container classStyle="containerJustifyCenter">
+    <>
+    <div className={style.box}>
       { loading ? (
-        <div className={style.form}>
+        <div className={style.formHalf}>
           <h1 className={style.title}>{taskGroup?.nomeGrupo}</h1>
           <h3 className={style.titleSecundary}>{taskGroup?.nomeTarefa}</h3>
         
@@ -111,6 +113,11 @@ export default function ViewTask() {
           </Form>
         </div>
       ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
-    </Container>
+
+      { loading ? (
+         <Chat idTaskGroup={idTaskGroup} idProject={idProject} idQuest={idQuest} messages={taskGroup}/>
+      ) : (<Spinner className={style.loading} animation="border" variant="primary" />)}
+    </div>
+    </>
   );
 }
