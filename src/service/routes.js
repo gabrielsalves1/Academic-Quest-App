@@ -3,6 +3,7 @@ import { Routes as RoutesSwitch, Route, Navigate, Outlet, useLocation } from 're
 
 import { Context } from "../Context/AuthContext";
 import NavigationBar from '../components/Navbar';
+import Sidebar from '../components/Sidebar';
 import Login from '../pages/Login';
 import Page404 from '../pages/Page404';
 import Home from '../pages/Admin/Home';
@@ -45,7 +46,7 @@ export default function Routes() {
 
   return (
     <>
-      {pathname !== '/login' && <NavigationBar />}
+      {pathname !== '/login' && <Sidebar />}
 
       <RoutesSwitch>
         <Route exact path="/login" element={<Login/>} />
