@@ -1,5 +1,15 @@
 @import "../../global.scss"; 
 
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration:none !important;
+  cursor:pointer;  
+}
+
 .sidebarClosed {
   position: absolute;
   width: 130px;
@@ -32,8 +42,8 @@
 
 
 .iconStyle {
-  width: 42px;
-  height: 42px;
+  width: 30px;
+  height: 30px;
   color: #D65DB1;
   margin-top: 15px;
   cursor: pointer;
@@ -57,9 +67,6 @@
   background: #FFFFFF;
   border-radius: 8px;
   margin-bottom: 15px;
-  display: flex;
-  justify-content: start;
-  align-items: center;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
   padding: 10px;
 }
@@ -68,6 +75,17 @@
   outline: none;
   margin-left: 15px;
   color: #FF6F91;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;  
+  letter-spacing: 0.065em;
+}
+
+.nameMenuHome {
+  outline: none;
+  margin-left: 15px;
+  color: #FFC75F;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -95,6 +113,14 @@
   font-size: 16px;
   line-height: 150%;  
   letter-spacing: 0.065em;
+  
+}
+
+.iconMenuHome {
+  color: #FFC75F;
+  width: 26px;
+  height: 26px;
+  cursor: pointer; 
 }
 .containerLittleBoxMenu {
   margin-top: 40px;
@@ -124,11 +150,14 @@
   cursor: pointer;
 }
 
-a {
-  text-decoration: none;
+
+
+.sair {
+  margin-top: 230px;
+  color: #656565;
 }
 
-a:hover {
-  text-decoration:none !important;
-  cursor:pointer;  
+.iconSair {
+  margin-left: 10px;
+  color: #656565;
 }

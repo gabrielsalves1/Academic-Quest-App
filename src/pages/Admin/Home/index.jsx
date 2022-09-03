@@ -29,16 +29,6 @@ export default function Home() {
           Relatórios
         </LinkButton>
       </div>
-
-      <div className={style.usefulLinks}>
-        <h3 className={style.titleSecondary}>Links úteis</h3>
-
-        <StylizedA href="#toDoList">Tarefas Entregues pelos Alunos</StylizedA>
-        <StylizedA href="#about">Sobre o Academic Quest</StylizedA>
-      </div>
-      
-      <ToDoList/>
-      <About/>
     </Container>
   );
 }
