@@ -15,12 +15,17 @@ export default function ViewTask() {
   const { idTaskGroup } = useParams();
   const { handleSubmit, formState: { errors } } = useForm();
   const [ taskGroup, setTaskGroup ] = useState();
+  const [ task, setTask ] = useState();
   const [ file, setFile ] = useState();
   const [ uploadPercentage, setUploadPercentage ] = useState();
 
   useEffect(() => {
     getData(`/tarefa/grupo/id/${idTaskGroup}`, setTaskGroup, setLoading);
   }, [idTaskGroup]);
+  
+  useEffect(() => {
+    getData(`/tarefas/${taskGroup?.idTarefa}`, setTask, setLoading);
+  }, [taskGroup]);
 
   const handleFile = (e) => {
     setFile(e.target.files[0]);
@@ -47,11 +52,31 @@ export default function ViewTask() {
     <Container classStyle="containerJustifyCenter">
       { loading ? (
         <div className={style.form}>
+          { task && 
+            <div className={style.quest}>
+              <h1 className={style.title}>Informações da tarefa</h1>
+
+              <section className={style.questSection}>
+                <div className={style.questInfo}>
+                  <h2 className={style.taskItem}>{task?.nome}</h2>
+                  <p className={style.taskItem}>Descrição: {task?.descricao}</p>
+                  <span className={style.taskItem}>Data de Entrega: {new Date(Date.parse(task?.dataEntrega)).toLocaleDateString()}</span>
+                </div>
+
+                <div className={style.questInfo}>
+                  <StylizedButton onClick={() => { Base64ToPdf(task?.nomeArquivo, task?.upload, task?.formato) }}>Baixar Arquivo<BsDownload className={style.icon}/></StylizedButton>
+                  { task.nomeArquivo &&
+                    <span className={style.text}>{task.nomeArquivo} <BsFillFileEarmarkMedicalFill className={style.icon}/></span>
+                  }
+                </div>
+              </section>
+            </div>
+          }
+
           <h1 className={style.title}>{taskGroup?.nomeGrupo}</h1>
           <h3 className={style.titleSecundary}>{taskGroup?.nomeTarefa}</h3>
         
           <div className={style.menuNameAndDate}>
-        
             <div>
               <h3 className={style.titleSecundary}>Data de Entrega</h3>
               <span className={style.titleSecundary}>

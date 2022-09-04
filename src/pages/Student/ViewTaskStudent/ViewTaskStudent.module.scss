@@ -23,6 +23,32 @@
   width: 50%;
 }
 
+.quest {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.questSection {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid $color-gray;
+  border-radius: 5px;
+  width: 60%;
+  padding: 50px;
+  margin: 20px 0;
+}
+
+.questInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 25px;
+}
+
 .uploadStudent {
   display: flex;
   align-items: center;
