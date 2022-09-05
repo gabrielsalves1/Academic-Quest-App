@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "react-bootstrap";
 import style from "./Chat.module.scss";
 import ChatButton from "../ChatButton";
 import MessageBalloonSent from "../MessageBalloonSent";
@@ -16,40 +15,63 @@ import LinkButton from "../LinkButton";
 import StylizedButton from "../StylizedButton";
 
 
-import Container from "../Container";
 import { getData, postMessageChat } from "../../service/requests";
 import { RiSendPlane2Fill } from "react-icons/ri";
 
 export default function Chat(props) {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [ messages, setMessages ] = useState(props.messages.chats);
-
-
+  const [ idUser, setIdUser ] = useState(sessionStorage.getItem('idUser'));
+ 
   const onSubmit = message => {
     const msg = message
     const data = {
       "mensagem": msg.mensagem,
       "tarefaGrupoId": props.idTaskGroup,
-      "userId": sessionStorage.setItem('idUser', res.data.id)
+      "userId": idUser
     }
-
-    postMessageChat(data, `/project/${props.idProject}/view-task/${props.idQuest}/task-group/${props.idTaskGroup}`)
+    
+    postMessageChat(data, window.location.href)
   }
+  
+  // setTimeout(() => {
+  //   document.location.reload(true)
+  //   console.log("atttttt")
+  // }, "9000")
+
+  // window.scrollTo(0,document.body.scrollHeight);
+  // document.getElementById('messages').scrollIntoView({ behavior: 'smooth', block: 'end' });
 
   return (
-    <div className={style.containerChat}>
+    <>
+      {idUser ? (
+
+        <div className={style.containerChat}>
         <div className={style.chatBox} >
-          <div className={style.chatBoxScroll}>
-            {messages?.map((msg) => {
-                console.log(msg.mensagem)
-              return (
-                <div className={style.marginTopChat}>
-                  <MessageBalloonSent message={msg.mensagem} nickName={msg.primeiroNome + ' ' + msg.segundoNome}/>
-                </div>
-              )
-            })}
+          <div id="scroll" className={style.chatBoxScroll}>
+            {(messages.length > 0 ) ? (
+              messages.map((msg) => {
+               
+                if (msg.idUser === parseInt(idUser) ) {
+                  return (
+                    <div key={msg.id} className={style.marginTopChat}>
+                      <MessageBalloonSent message={msg.mensagem} nickName={msg.primeiroNome + ' ' + msg.segundoNome}/>
+                    </div>
+                  )
+                } else {
+                  return (
+                    <div key={msg.id} className={style.marginTopChat}>
+                      <MessageBalloonIncoming message={msg.mensagem} nickName={msg.primeiroNome + ' ' + msg.segundoNome}/>
+                    </div>
+                  )
+                }
+              })
+            ) : 
+            (<div className={style.boxWithoutMsg}>
+              <span className={style.textWithoutMsg}> Não há mensagens!</span>
+            </div>)}
           </div>
-         
+        
           <Form onSubmit = { handleSubmit(onSubmit) }>
             <div className={style.displayFlexRow}>
               <>
@@ -64,5 +86,8 @@ export default function Chat(props) {
           </Form>
         </div>
       </div>
+      )  :
+       (<Spinner className={style.loading} animation="border" variant="primary" />)}
+    </>
   );
 }
