@@ -29,7 +29,8 @@ export default function EvaluateQuest() {
   }
 
   return (
-    <Container classStyle="containerAlignCenter">
+    
+    <Container id="EvaluateQuest" classStyle="containerDirectionRow">
       <div className={style.backButton}>
         <LinkButton to={`/project/${idProject}/quest-management`}>Voltar</LinkButton>
       </div>

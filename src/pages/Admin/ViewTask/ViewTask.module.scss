@@ -2,6 +2,7 @@
 
 .menuNameAndDate {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   padding: 16px;
 }
@@ -22,11 +23,12 @@
 
 .questSection {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   border: 2px solid $color-gray;
   border-radius: 5px;
-  width: 60%;
+  width: 90%;
   padding: 50px;
   margin: 20px 0;
 }
@@ -70,6 +72,16 @@
   height: 20px;
   margin: 0 5px;
 }
+
+.box {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 92vh;
+  width: 90%;
+}
+
 
 @media only screen and (max-device-width: 900px) {
   .menuNameAndDate {

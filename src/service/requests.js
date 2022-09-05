@@ -77,6 +77,22 @@ export function putData(data, url, redirect) {
     });
 }
 
+export function postMessageChat(data, redirect) {
+
+  api.post('/chats', data, {
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then((res) => {
+      if (res.status === 201) {
+        history.push(redirect);
+
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
+}
+
+
 export function postLogin(formData, handleLogin, setMsgError) {
   api.post('/oauth/token', formData, {
     headers: {
