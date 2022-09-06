@@ -27,6 +27,7 @@ export default function CreateQuest() {
     formData.append('projetoId', idProject)
     formData.append('descricao', data["descricao"])
     formData.append('dataEntrega', data["dataEntrega"])
+    console.log("GORDAO MISERAVEL PARA DE ME PEDIR COISAS", data["dataEntrega"]);
     
     postDataFile('/tarefas', formData, `/project/${idProject}/quest-management`, setUploadPercentage);
   }

@@ -35,7 +35,7 @@ export default function ToDoList() {
                     <td>{toDo.nomeTarefa}</td>
                     <td>{toDo.nomeGrupo}</td>
                     <td>{toDo.statusTarefaGrupo}</td>
-                    <td>{new Date(Date.parse(toDo.dataEntrega)).toLocaleDateString()}</td>
+                    <td>{new Date(Date.parse(toDo.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'})}</td>
                     <td>
                     <StylizedLink to={`/project/${toDo.idProjeto}/view-task/${toDo.idTarefa}/task-group/${toDo.id}`}>
                         Visualizar
