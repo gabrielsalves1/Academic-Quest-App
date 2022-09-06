@@ -12,7 +12,7 @@ import StylizedButton from "../../../components/StylizedButton";
 import Chat from "../../../components/Chat";
 
 import Container from "../../../components/Container";
-import { getData, postMessageChat } from "../../../service/requests";
+import { getData, postMessageChat, putData } from "../../../service/requests";
 import { RiSendPlane2Fill } from "react-icons/ri";
 
 export default function ViewTask() {
@@ -31,17 +31,7 @@ export default function ViewTask() {
   }, [idQuest]);
 
   const onSubmit = data => {
-    console.log(data)
-    api.put(`/tarefa/grupo/${idTaskGroup}`, data, {
-      headers: {'Content-Type': 'application/json'}
-    })
-    .then((res) => {
-      if(res.status === 200) {
-        history.push(`/project/${idProject}/evaluate-quest/${idQuest}`);
-      }
-    }).catch((err) => {
-      console.log(err)
-    })
+    putData(data, `/tarefa/grupo/${idTaskGroup}`, `/project/${idProject}/evaluate-quest/${idQuest}`);
   }
 
  

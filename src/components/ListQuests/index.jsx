@@ -28,7 +28,7 @@ export default function ListQuests(props) {
           { quests?.map((quest) => {
             const date = new Date(Date.parse(quest.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'});
 
-            if(date <= today) {
+            if(date >= today) {
               return (
                 <li className={style.quest} key={quest.id}>
                   <LinkButton to={`/project/${props.idProject}/evaluate-quest/${quest.id}`}>{quest.nome}</LinkButton>

@@ -38,7 +38,6 @@ export default function ViewDashboard(props) {
   
  
   const lateQuestCalculus = () => {
-    console.log(project)
     setCount(0)
     let num = 0;
   
