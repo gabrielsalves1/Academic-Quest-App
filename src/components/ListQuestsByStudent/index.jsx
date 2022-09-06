@@ -27,7 +27,7 @@ export default function ListQuestsByStudent() {
                     {task.nomeTarefa}
                   </LinkButton>
                   <span className={style.active}>Ativo</span>
-                  <span className={style.infoText}>Data de Entrega: {new Date(Date.parse(task.dataEntrega)).toLocaleDateString()}</span>
+                  <span className={style.infoText}>Data de Entrega: {new Date(Date.parse(task.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'})}</span>
                 </li>
               );
             } else if(task.statusTarefa === "CONCLUIDO") {
@@ -37,7 +37,7 @@ export default function ListQuestsByStudent() {
                     {task.nomeTarefa}
                   </LinkButton>
                   <span className={style.finished}>Concluído</span>
-                  <span className={style.infoText}>Data de Entrega: {new Date(Date.parse(task.dataEntrega)).toLocaleDateString()}</span>
+                  <span className={style.infoText}>Data de Entrega: {new Date(Date.parse(task.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'})}</span>
                 </li>
               );
             } else {
@@ -47,7 +47,7 @@ export default function ListQuestsByStudent() {
                     {task.nomeTarefa}
                   </LinkButton>
                   <span className={style.active}>{task.statusTarefa}</span>
-                  <span className={style.infoText}>Data de Entrega: {new Date(Date.parse(task.dataEntrega)).toLocaleDateString()}</span>
+                  <span className={style.infoText}>Data de Entrega: {new Date(Date.parse(task.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'})}</span>
                 </li>
               );
             }}

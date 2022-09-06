@@ -34,7 +34,7 @@ export default function TableTask(props) {
               <td>{group.nomeGrupo}</td>
               <td>{group.statusTarefaGrupo}</td>
               <td>{group.nota !== null ? group.nota : " - "}</td>
-              <td>{group.dataEntrega ? new Date(Date.parse(group.dataEntrega)).toLocaleDateString() : " - "}</td>
+              <td>{group.dataEntrega ? new Date(Date.parse(group.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'}) : " - "}</td>
               <td>
                 <StylizedLink to={`/project/${props.idProject}/view-task/${props.idQuest}/task-group/${group.id}`}>
                   Visualizar

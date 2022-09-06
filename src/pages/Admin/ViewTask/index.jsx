@@ -67,7 +67,7 @@ export default function ViewTask() {
           <div>
             <h3 className={style.titleSecundary}>Data de Entrega</h3>
             <span className={style.titleSecundary}>
-              {taskGroup?.dataEntrega ? new Date(Date.parse(taskGroup.dataEntrega)).toLocaleDateString() : " - "}
+              {taskGroup?.dataEntrega ? new Date(Date.parse(taskGroup.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'}) : " - "}
             </span>
           </div>
 

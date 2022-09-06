@@ -62,7 +62,7 @@ export default function ViewTask() {
                 <div className={style.questInfo}>
                   <h2 className={style.taskItem}>{task?.nome}</h2>
                   <p className={style.taskItem}>Descrição: {task?.descricao}</p>
-                  <span className={style.taskItem}>Data de Entrega: {new Date(Date.parse(task?.dataEntrega)).toLocaleDateString()}</span>
+                  <span className={style.taskItem}>Data de Entrega: {new Date(Date.parse(task?.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'})}</span>
                 </div>
 
                 <div className={style.questInfo}>
@@ -82,7 +82,7 @@ export default function ViewTask() {
             <div>
               <h3 className={style.titleSecundary}>Data de Entrega</h3>
               <span className={style.titleSecundary}>
-                {taskGroup?.dataEntrega ? new Date(Date.parse(taskGroup.dataEntrega)).toLocaleDateString() : " - "}
+                {taskGroup?.dataEntrega ? new Date(Date.parse(taskGroup.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'}) : " - "}
               </span>
             </div>
         

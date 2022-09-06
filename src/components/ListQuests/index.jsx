@@ -9,7 +9,7 @@ export default function ListQuests(props) {
   const [ loading, setLoading ] = useState();
   const [ quests, setQuests ] = useState();
   const timeElapsed = Date.now();
-  const today = new Date(timeElapsed);
+  const today = new Date(timeElapsed).toLocaleDateString('pt-BR', {timeZone: 'UTC'});
 
   useEffect(() => {
     getData(`/tarefas/projeto/${props.idProject}`, setQuests, setLoading);
@@ -26,16 +26,17 @@ export default function ListQuests(props) {
       { loading ? (
         <ul>
           { quests?.map((quest) => {
-            const date = new Date(Date.parse(quest.dataEntrega));
-            if(date < today) {
+            const date = new Date(Date.parse(quest.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'});
+
+            if(date <= today) {
               return (
                 <li className={style.quest} key={quest.id}>
                   <LinkButton to={`/project/${props.idProject}/evaluate-quest/${quest.id}`}>{quest.nome}</LinkButton>
                   <span className={style.date}>
                     Data de Entrega <br/>
-                    {date.toLocaleDateString()}
+                    {date}
                   </span>
-                  <span className={style.finished}>Finalizado</span>
+                  <span className={style.active}>Ativo</span>
                 </li>
               );
             } else {
@@ -44,9 +45,9 @@ export default function ListQuests(props) {
                   <LinkButton to={`/project/${props.idProject}/evaluate-quest/${quest.id}`}>{quest.nome}</LinkButton>
                   <span className={style.date}>
                     Data de Entrega <br/>
-                    {date.toLocaleDateString()}  
+                    {date}
                   </span>
-                  <span className={style.active}>Ativo</span>
+                  <span className={style.finished}>Finalizado</span>
                 </li>
               );
             }}

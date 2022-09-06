@@ -1,5 +1,6 @@
 import api from "./api";
 import history from './history';
+import { toast } from 'react-toastify';
 
 export async function getClasses() {
   const response = await api.get('/turmas');
@@ -15,7 +16,6 @@ export async function getClasses() {
 export async function getData(url, setData, setLoading) {
   const response = await api.get(url);
   setLoading(true);
-  console.log(response.data);
   return setData(response.data);
 }
 
@@ -24,13 +24,14 @@ export function postData(url, data, redirect) {
     headers: { 'Content-Type': 'application/json' }
   })
     .then((res) => {
+      toast.success('Salvo com sucesso!');
       if (res.status === 201) {
         history.push(redirect);
       } else if(res.status === 200) {
         window.location.reload();
       }
     }).catch((err) => {
-      console.log(err);
+      toast.error("Erro na requisição.");
     });
 }
 
@@ -53,6 +54,7 @@ export function postDataFile(url, formData, redirect, setUploadPercentage) {
   })
   .then((res) => {
     setUploadPercentage(100);
+    toast.success('Salvo com sucesso!');
 
     if (res.status === 201) {
       history.push(redirect);
@@ -60,7 +62,7 @@ export function postDataFile(url, formData, redirect, setUploadPercentage) {
       window.location.reload();
     }
   }).catch((err) => {
-    console.log(err);
+    toast.error("Erro na requisição.");
   });
 }
 
@@ -69,11 +71,13 @@ export function putData(data, url, redirect) {
     headers: { 'Content-Type': 'application/json' }
   })
     .then((res) => {
+      toast.success('Salvo com sucesso!');
+
       if (res.status === 200) {
         history.push(redirect);
       }
     }).catch((err) => {
-      console.log(err);
+      toast.error("Erro na requisição.");
     });
 }
 
@@ -83,12 +87,13 @@ export function postMessageChat(data, redirect) {
     headers: { 'Content-Type': 'application/json' }
   })
     .then((res) => {
+      toast.success('Enviado com sucesso!');
+
       if (res.status === 201) {
         history.push(redirect);
-
       }
     }).catch((err) => {
-      console.log(err);
+      toast.error("Erro na requisição.");
     });
 }
 

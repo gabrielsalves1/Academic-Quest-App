@@ -41,7 +41,7 @@ export default function EvaluateQuest() {
             <div className={style.questInfo}>
               <h2 className={style.taskItem}>{task.nome}</h2>
               <p className={style.taskItem}>Descrição: {task.descricao}</p>
-              <span className={style.taskItem}>Data de Entrega: {new Date(Date.parse(task.dataEntrega)).toLocaleDateString()}</span>
+              <span className={style.taskItem}>Data de Entrega: {new Date(Date.parse(task.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'})}</span>
             </div>
 
             <div className={style.questInfo}>
