@@ -33,14 +33,6 @@ export default function Chat(props) {
     
     postMessageChat(data, window.location.href)
   }
-  
-  // setTimeout(() => {
-  //   document.location.reload(true)
-  //   console.log("atttttt")
-  // }, "9000")
-
-  // window.scrollTo(0,document.body.scrollHeight);
-  // document.getElementById('messages').scrollIntoView({ behavior: 'smooth', block: 'end' });
 
   return (
     <>
