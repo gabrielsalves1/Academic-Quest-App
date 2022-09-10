@@ -23,10 +23,10 @@ export default function CreateQuest() {
   const onSubmit = data => {
     let formData = new FormData();
     formData.append('arquivoUpload', file);
-    formData.append('nome', data["nome"])
-    formData.append('projetoId', idProject)
-    formData.append('descricao', data["descricao"])
-    formData.append('dataEntrega', data["dataEntrega"])
+    formData.append('nome', data["nome"]);
+    formData.append('projetoId', idProject);
+    formData.append('descricao', data["descricao"]);
+    formData.append('dataEntrega', data["dataEntrega"]);
     
     postDataFile('/tarefas', formData, `/project/${idProject}/quest-management`, setUploadPercentage);
   }

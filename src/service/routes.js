@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Routes as RoutesSwitch, Route, Navigate, Outlet, useLocation } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
 
+import { ToastContainer} from 'react-toastify';
 import { Context } from "../Context/AuthContext";
 import NavigationBar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
@@ -85,6 +87,8 @@ export default function Routes() {
           )}
         </Route>
       </RoutesSwitch>
+
+      <ToastContainer/>
     </>
   );
 }

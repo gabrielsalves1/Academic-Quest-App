@@ -26,7 +26,7 @@ export default function CreateGroup() {
     data['materiaId'] = selectSubject;
     data['alunoLiderId'] = leadMember;
 
-    postData('/groups', data, '/groups');
+    postData('/grupos', data, '/groups');
   }
 
   useEffect(() => {

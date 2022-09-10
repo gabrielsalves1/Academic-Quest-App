@@ -23,7 +23,6 @@ export default function EditGroup() {
   const onSubmit = data => {
     data['listaAlunosId'] = membersId;
     data['alunoLiderId'] = leadMember;
-    console.log(data);
 
     putData(data, `/grupos/${group.id}`, `/view-group/${group.id}/subject/${group.materiaId}`);
   }

@@ -1,5 +1,4 @@
 .containerJustifyCenter {
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -8,9 +7,10 @@
 }
 
 .containerAlignCenter {
-  display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 92vh;
   width: 90%;
 }
+
+

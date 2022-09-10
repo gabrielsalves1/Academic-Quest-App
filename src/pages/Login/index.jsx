@@ -4,6 +4,7 @@ import { Form, Image } from "react-bootstrap";
 import style from "./Login.module.scss";
 
 import logo from '../../assets/img/logo-academic-quest.png';
+import novoLogo from '../../assets/img/logo-academic-quest.svg';
 import { Context } from "../../Context/AuthContext";
 import { postLogin } from "../../service/requests";
 import Container from "../../components/Container";
@@ -24,28 +25,35 @@ export default function Login() {
   }
 
   return (
-    <Container classStyle="containerJustifyCenter">
-      <Image fluid src={logo} className={style.logo}/>
-      <h2 className={style.title}>Entrar no Academic Quest</h2>
+    <>
+    <div className={style.containerLogin}>
+      <div className={style.boxLogo}>
+        <Image fluid src={novoLogo} className={style.novoLogoStyle}/>
 
-      <Form onSubmit = { handleSubmit(onSubmit) } className={style.form}>
-        <Form.Group>
-          <Form.Label htmlFor="username">E-mail</Form.Label>
-          <Form.Control name="username" {...register("username", { required: true })}
-            placeholder="E-mail" className={style.inputForm}/>
-          {errors.username && <span className={style.error}>Esse campo é obrigatório.</span>}
-        </Form.Group>
+       <span className={style.madeBy}>Made By Os Fumacas&Co 😎</span> 
+      </div>
+      
+      <div className={style.boxLogin}>
+        <Form onSubmit = { handleSubmit(onSubmit) } className={style.formLogin}>
+          <Form.Group>
+            <Form.Label htmlFor="username" className={style.fontPlaceholder}>E-mail</Form.Label>
+            <Form.Control name="username" {...register("username", { required: true })}
+              placeholder="E-mail" className={style.inputFormLogin}/>
+            {errors.username && <span className={style.error}>Esse campo é obrigatório.</span>}
+          </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="password">Senha</Form.Label>
-          <Form.Control type="password" name="password" {...register("password", { required: true })}
-            placeholder="Senha" className={style.inputForm}/>
-          {errors.password && <span className={style.error}>Esse campo é obrigatório.</span>}
-        </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor="password" className={style.fontPlaceholder}>Senha</Form.Label>
+            <Form.Control type="password" name="password" {...register("password", { required: true })}
+              placeholder="Senha" className={style.inputFormLogin}/>
+            {errors.password && <span className={style.error}>Esse campo é obrigatório.</span>}
+          </Form.Group>
 
-        {msgError && <span className={style.error}>{msgError} <br/></span>}
-        <StylizedButton type="submit">Entrar</StylizedButton>
-      </Form>
-    </Container>
+          {msgError && <span className={style.error}>{msgError} <br/></span>}
+          <button type="submit" className={style.btnLogin}>Entrar</button>
+        </Form>
+      </div>
+    </div>
+    </>
   );
 }

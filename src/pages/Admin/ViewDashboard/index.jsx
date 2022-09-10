@@ -228,7 +228,6 @@ export default function Dashboard() {
     <>
     <div className={style.containerDashboard}>
       {project?.result.tarefas.map((tarefa)  => {
-        console.log(tarefa)
         {if (tarefa.status === "PENDENTE") {
           const tarefaGrupo = tarefa?.tarefasGrupos
           const options = {
