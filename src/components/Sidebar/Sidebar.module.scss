@@ -10,7 +10,27 @@ a:hover {
   cursor:pointer;  
 }
 
+.userRole {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.065em;
+  color: #C8C8C8;
+}
+
+.userFirstName {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 150%;
+  color: #656565;
+}
+
 .sidebarClosed {
+  font-family: 'Inter', sans-serif;
   position: absolute;
   width: 130px;
   height: 100vh;
@@ -20,11 +40,14 @@ a:hover {
   display: flex;
   align-items: center;
   flex-direction: column;
+  
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 .sidebarOpen {
+  font-family: 'Inter', sans-serif;
   position: absolute;
-  width: 330px;
+  width: 280px;
   height: 100vh;
   left: 0px;
   top: 0px;
@@ -32,6 +55,7 @@ a:hover {
   display: flex;
   align-items: center;
   flex-direction: column;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -42,11 +66,28 @@ a:hover {
 
 
 .iconStyle {
-  width: 30px;
-  height: 30px;
-  color: #D65DB1;
-  margin-top: 15px;
+  width: 46px;
+  height: 46px;
+  color: #EE5C4D;
+
   cursor: pointer;
+}
+
+.boxHeader{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 90%;
+  margin-top: 25px;
+}
+
+.boxName{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin-top: 50px;
 }
 
 .littleBoxMenu {
@@ -62,13 +103,15 @@ a:hover {
 }
 
 .boxMenu {
+  display: flex;
+  justify-content: start;
+  align-items: center;
   width: 208px;
   height: 50px;
   background: #FFFFFF;
   border-radius: 8px;
   margin-bottom: 15px;
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
-  padding: 10px;
+  padding-left: 20px;
 }
 
 .nameMenuGrid {
@@ -123,7 +166,7 @@ a:hover {
   cursor: pointer; 
 }
 .containerLittleBoxMenu {
-  margin-top: 40px;
+  margin-top: 50px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -150,14 +193,35 @@ a:hover {
   cursor: pointer;
 }
 
-
+.divCenter {
+  margin-top: 30px;
+}
 
 .sair {
-  margin-top: 230px;
+  position: absolute;
+  bottom: 10px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: 0.065em;
   color: #656565;
+  cursor: pointer;
 }
 
 .iconSair {
   margin-left: 10px;
   color: #656565;
+}
+
+.academicQuest {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 100%;
+  text-align: center;
+  letter-spacing: 0.065em;
+  color: #ED3F7C;
 }
