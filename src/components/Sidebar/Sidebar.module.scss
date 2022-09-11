@@ -115,6 +115,7 @@ a:hover {
 }
 
 .nameMenuGrid {
+  font-family: 'Inter';
   outline: none;
   margin-left: 15px;
   color: #FF6F91;
@@ -138,6 +139,7 @@ a:hover {
 }
 
 .nameMenuFolder {
+  font-family: 'Inter';
   outline: none;
   margin-left: 15px;
   color: #845EC2;
@@ -149,6 +151,7 @@ a:hover {
 }
 
 .nameMenuGroup {
+  font-family: 'Inter';
   outline: none;
   margin-left: 15px;
   color: #FF9671;
@@ -160,8 +163,20 @@ a:hover {
   
 }
 
-.iconMenuHome {
+.nameMenuTask{
   font-family: 'Inter';
+  outline: none;
+  margin-left: 15px;
+  color: #5E8CC2;;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;  
+  letter-spacing: 0.065em;
+  
+}
+
+.iconMenuHome {
   color: #FFC75F;
   width: 26px;
   height: 26px;
@@ -192,6 +207,13 @@ a:hover {
   width: 26px;
   height: 26px;
   color: #FF9671;
+  cursor: pointer;
+}
+
+.iconMenuTask {
+  width: 26px;
+  height: 26px;
+  color: #5E8CC2;
   cursor: pointer;
 }
 

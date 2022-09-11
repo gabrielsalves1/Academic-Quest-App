@@ -11,16 +11,23 @@
 }
 
 .titleSecondary {
+  font-family: 'Inter';
   margin: 40px;
+  font-style: normal;
+  font-weight: 600;
   font-size: 24px;
+  line-height: 150%;
+  color: #000000;
 }
 
 .text {
+  font-family: 'Inter';
   margin: 40px;
   font-size: 20px;
 }
 
 .textAlign {
+  font-family: 'Inter';
   margin: 15px;
   font-size: 16px;
   font-weight: lighter;
@@ -33,6 +40,7 @@
 }
 
 .header {
+  font-family: 'Inter';
   border: solid 2px $color-gray;
   border-collapse: collapse;
   font-weight: bold;
