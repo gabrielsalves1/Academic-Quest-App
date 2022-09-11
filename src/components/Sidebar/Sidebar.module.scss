@@ -32,7 +32,7 @@ a:hover {
 .sidebarClosed {
   font-family: 'Inter', sans-serif;
   position: absolute;
-  width: 130px;
+  width: 120px;
   height: 100vh;
   left: 0px;
   top: 0px;
@@ -126,6 +126,7 @@ a:hover {
 }
 
 .nameMenuHome {
+  font-family: 'Inter';
   outline: none;
   margin-left: 15px;
   color: #FFC75F;
@@ -160,6 +161,7 @@ a:hover {
 }
 
 .iconMenuHome {
+  font-family: 'Inter';
   color: #FFC75F;
   width: 26px;
   height: 26px;

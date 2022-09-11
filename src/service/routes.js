@@ -4,7 +4,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { ToastContainer} from 'react-toastify';
 import { Context } from "../Context/AuthContext";
-import NavigationBar from '../components/Navbar';
+import ViewDashboardAluno from '../components/ToDoListByStudent/'; 
+import About from '../components/About/'; 
 import Sidebar from '../components/Sidebar';
 import Login from '../pages/Login';
 import Page404 from '../pages/Page404';
@@ -73,6 +74,7 @@ export default function Routes() {
               <Route exact path="/edit-group/:idGroup/subject/:idSubject" element={<EditGroup/>}/>
               <Route exact path="/edit-project/:idProject" element={<EditProject/>}/>
               <Route exact path="/dashboard" element={<Dashboard/>}/>
+              <Route exact path="/sobre" element={<About/>}/>
               <Route exact path="/view-dashboard/:idProject" element={<ViewDashboard/>}/>
             </>
           )}
@@ -83,6 +85,8 @@ export default function Routes() {
               <Route exact path="/projects" element={<ProjectsStudent/>}/>
               <Route exact path="/project/:idProject/group/:idGroup/tasks" element={<TasksStudent/>}/>
               <Route exact path="/view-task/:idTaskGroup" element={<ViewTaskStudent/>}/>
+              <Route exact path="/dashboard-aluno" element={<ViewDashboardAluno/>}/>
+              <Route exact path="/sobre" element={<About/>}/>
             </>
           )}
         </Route>

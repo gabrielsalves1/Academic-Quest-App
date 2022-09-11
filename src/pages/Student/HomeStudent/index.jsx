@@ -18,23 +18,11 @@ export default function HomeStudent() {
 
   return (
     <Container classStyle="containerAlignCenter">
-      <h2 className={style.title}>{username}, bem-vindo ao Academic Quest!</h2>
-
       <div className={style.links}>
         <LinkButton to="/projects">
           Projetos
         </LinkButton>
       </div>
-
-      <div className={style.usefulLinks}>
-        <h3 className={style.titleSecondary}>Links úteis</h3>
-
-        <StylizedA href="#toDoList">Tarefas Pendentes</StylizedA>
-        <StylizedA href="#about">Sobre o Academic Quest</StylizedA>
-      </div>
-      
-      <ToDoListByStudent/>
-      <About/>
     </Container>
   );
 }
