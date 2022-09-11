@@ -6,18 +6,19 @@ import { getClasses, getData } from "../../../service/requests";
 import LinkButton from "../../../components/LinkButton";
 import ListSubject from "../../../components/ListSubject";
 import Container from "../../../components/Container";
+import StatusBarGreen from "../../../components/StatusBarGreen";
 
 export default function Projects() {
   const [ loading, setLoading ] = useState();
   const [ subjects, setSubjects ] = useState();
 
   return (
-    <Container classStyle="containerAlignCenter">
+    <Container classStyle="hide">
       <h1 className={style.title}>Projetos</h1>
 
       <div className={style.projects}>
         <div className={style.menuClassAndProject}>
-        <LinkButton to="/">Página inicial</LinkButton>
+       
         <AsyncSelect 
           cacheOptions
           loadOptions={getClasses}

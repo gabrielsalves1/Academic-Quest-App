@@ -7,7 +7,7 @@ $color-purple: #6558f5;
 $color-purple-dark: #4c3ee2;
 $color-purple-light: #aea8ee;
 $color-gray: #c3cfd9;
-$color-gray-thin: #f2f2f2;
+$color-gray-thin: #F2F4F7;
 $color-gray-light: #d8e5f0;
 $color-gray-dark: #484c4e;
 $color-green: #1aae9f;
@@ -126,4 +126,8 @@ input[type="file"] {
   min-height: 120px;
   height: 120px;
   margin-bottom: 20px;
+}
+
+.cursorPointer {
+  cursor: pointer;
 }

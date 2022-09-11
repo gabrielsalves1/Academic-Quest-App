@@ -45,6 +45,27 @@
   margin: 0 5px;
 }
 
+.containerProjetos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 210px;
+}
+
+.boxForLayout {
+  min-width: 450px;
+  min-height: 66px;
+  margin-bottom: 10px;
+}
+.boxStatus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 10px;
+}
+
 @media only screen and (max-device-width: 900px) {
   .titles {
     visibility: hidden;

@@ -15,9 +15,26 @@
   margin: 16px 0;
 }
 
-.selectForm {
-  width: 250px;
+.css-1o1tv0d-control  {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 12px;
+
+  position: absolute;
+  width: 438px;
+  height: 57px;
+  left: 245px;
+  top: 110px;
+
+  /* gray/50 */
+  background: #F9FAFB;
+
+  /* gray/300 */
+  border: 1px solid #D1D5DB !important;
+  border-radius: 16px;
 }
+
 
 @media only screen and (max-device-width: 900px) {
   .menuClassAndProject {
