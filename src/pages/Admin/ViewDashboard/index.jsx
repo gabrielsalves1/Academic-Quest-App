@@ -119,111 +119,6 @@ export default function Dashboard() {
     return [ ["status", "qtd grupos"], ...result,]
   }
 
-
-  const result = 
-  {
-    "result" : { 
-    "id": 12,
-    "projeto" : "TCC1",
-    "statusProjeto" : "EM_ANDAMENTO",
-    "tarefas" : 
-      [
-        {
-          "nomeTarefa" : "Introdução",
-          "dataEntrega" : "20/09/2022",
-          "status":  "aberta",
-          "tarefasGrupo" : [
-            { 
-              "id": 1,
-              "nomeGrupo" : "Fumacas",
-              "status" : "PENDENTE"
-            },
-            { "id": 2,
-              "nomeGrupo" : "Boston Dynamics",
-              "status" : "ENTREGUE"
-            },
-            { 
-              "id": 3,
-              "nomeGrupo" : "Paola",
-              "status" : "ENTREGUE"
-            },
-            { "id": 4,
-              "nomeGrupo" : "Paola",
-              "status" : "PENDENTE"
-            },
-            { "id": 5,
-              "nomeGrupo" : "Os Nadas",
-              "status" : "ENTREGUE"
-            },
-            { 
-              "id": 6,
-              "nomeGrupo" : "Paola",
-              "status" : "ENTREGUE"
-            },
-          ]
-        },
-        {
-          "nomeTarefa" : "Cronograma",
-          "dataEntrega" : "20/10/2022",
-          "status":  "fechada",
-          "tarefasGrupo" : [
-            { 
-              "id": 1,
-              "nomeGrupo" : "Fumacas",
-              "status" : "CORRIGIDA"
-            },
-            { "id": 2,
-              "nomeGrupo" : "Boston Dynamics",
-              "status" : "ENTREGUE"
-            },
-            { 
-              "id": 3,
-              "nomeGrupo" : "Paola",
-              "status" : "ENTREGUE"
-            },
-            { "id": 4,
-              "nomeGrupo" : "Paola",
-              "status" : "PENDENTE"
-            },
-            { "id": 5,
-              "nomeGrupo" : "Os Nadas",
-              "status" : "ENTREGUE"
-            }
-                ]
-        },
-        {
-          "nomeTarefa" : "Criação do protótipo front-end baixa fidelidade",
-          "dataEntrega" : "20/11/2022",
-          "status":  "aberta",
-          "tarefasGrupo" : [
-            { 
-              "id": 1,
-              "nomeGrupo" : "Fumacas",
-              "status" : "ENTREGUE"
-            },
-            { "id": 2,
-              "nomeGrupo" : "Boston Dynamics",
-              "status" : "PENDENTE"
-            },
-            { 
-              "id": 3,
-              "nomeGrupo" : "Paola",
-              "status" : "PENDENTE"
-            },
-            { "id": 4,
-              "nomeGrupo" : "Paola",
-              "status" : "CORRIGIDA"
-            },
-            { "id": 5,
-              "nomeGrupo" : "Os Nadas",
-              "status" : "PENDENTE"
-            }
-            ]
-        },
-      ]
-  }
-  }
-
   return (
     <>
     <div className={style.containerDashboard}>
@@ -254,6 +149,15 @@ export default function Dashboard() {
         }}
       })}
 
+      <ul className={style.boxQuestCount}>
+        <li className={style.justifyContentCenter}>
+          <span className={style.subtitle5}>Quests entregues esperando nota</span>
+        </li>
+        <li className={style.boxCount}>
+          <span className={style.countFontSize}>{count}</span><span className={style.colorYellow}>quests</span>
+        </li>
+      </ul>
+
       <ul className={style.boxQuestSchedule}>
         {project?.result.tarefas.map((tarefa)  => {
 
@@ -267,15 +171,6 @@ export default function Dashboard() {
         <li className={style.questLegend}>
           <span><BallStatusSuccess/></span><span className={style.subtitle5}>Aberta</span>
           <span><BallStatusDanger/></span><span className={style.subtitle5}>Fechada</span>
-        </li>
-      </ul>  
-
-      <ul className={style.boxQuestCount}>
-        <li className={style.justifyContentCenter}>
-          <span className={style.subtitle5}>Quests entregues esperando nota</span>
-        </li>
-        <li className={style.boxCount}>
-          <span className={style.countFontSize}>{count}</span><span className={style.colorYellow}>quests</span>
         </li>
       </ul>
 
