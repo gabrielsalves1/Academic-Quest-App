@@ -1,18 +1,25 @@
 .article {
+  font-family: 'Inter', sans-serif;
+  color:black;
   background-size: 90px;
-  background-image: url("../../assets/img/logo-academic-quest.png");
+  background-image: url("../../assets/img/logo-academic-quest.svg");
   background-repeat: no-repeat;
-  background-position: top 30px right;
+  background-position: top 10px right;
   margin-bottom: 30px;
+  width: 50%;
 }
 
 .titleSecondary {
+  font-family: 'Inter', sans-serif;
+  color:black;
   margin: 40px;
   font-size: 24px;
+  font-weight: 600;
 }
 
 .textAlign {
-  margin: 15px;
+  font-family: 'Inter', sans-serif;
+  color:black;
   font-size: 16px;
   font-weight: lighter;
 }
