@@ -46,7 +46,7 @@ export default function ToDoList() {
               }
             </tbody>
           </Table>
-          ) : ( <span className={style.text}>Não há tarefas entregues pelos alunos pendentes de correção</span>) }
+          ) : ( <span className={style.text}>Não há tarefas entregues pelos alunos pendentes de correção.</span>) }
         </div>
       ) :  (<Spinner className={style.loading} animation="border" variant="primary" />)}
     </>
