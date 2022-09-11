@@ -113,10 +113,16 @@ export default function Sidebar() {
             </>
           ) : 
           (
-            <a  href='/projects' className={style.boxMenu}>
-              <FaFolder className={style.iconMenuFolder} />
-              <span className={style.nameMenuFolder}>Projetos</span>
-            </a>
+            <>
+              <a  href='/projects' className={style.boxMenu}>
+                <FaFolder className={style.iconMenuFolder} />
+                <span className={style.nameMenuFolder}>Projetos</span>
+              </a>
+              <a href='/dashboard-aluno' className={style.boxMenu}>
+                <BsBarChartFill className={style.iconMenuGrid} />
+                <span className={style.nameMenuGrid}>Dashboard</span>
+              </a>
+            </>
           ) }
           </div>
         </div>
