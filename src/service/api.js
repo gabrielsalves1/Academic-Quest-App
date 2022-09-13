@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: 'http://3.237.51.217:80',
+  baseURL: 'https://academicquest.com.br',
 });
 
 api.interceptors.request.use(
