@@ -28,7 +28,7 @@ export default function useAuth() {
   }
 
   function recoverUser(token) {
-    axios.get(`http://3.237.51.217:80/verificar/token/${token}`)
+    axios.get(`https://academicquest.com.br/verificar/token/${token}`)
     .then(res => {
       if(res.status === 200) {
         return true;
