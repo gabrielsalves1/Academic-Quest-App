@@ -12,6 +12,7 @@ export default function Projects() {
   const [ loading, setLoading ] = useState();
   const [ subjects, setSubjects ] = useState();
 
+
   return (
     <Container classStyle="hide">
       <h1 className={style.title}>Projetos</h1>
@@ -28,11 +29,12 @@ export default function Projects() {
           defaultOptions
           theme={(theme) => ({
             ...theme,
-            borderRadius: 5,
+            borderRadius: 16,
+            width: '500px',
             colors: {
               ...theme.colors,
-              primary: '#aea8ee',
-              neutral20: '#c3cfd9',
+              primary: '#845EC2',
+              neutral20: '#D1D5DB',
             },
           })}
           className={style.selectForm}
