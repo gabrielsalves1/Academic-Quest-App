@@ -47,7 +47,7 @@ export default function EditProject() {
           <div className={style.menuForm}>
             <LinkButton to={`/view-project/${project?.id}`}>Voltar</LinkButton>
 
-            <StylizedButton type="submit">Criar</StylizedButton>
+            <StylizedButton type="submit">Salvar</StylizedButton>
           </div>
         </Form>
       ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }

@@ -1,30 +1,84 @@
 @import "../../../global.scss";
 
-.title {
+.subtitle {
+  font-family: 'Inter';
   font-size: 24px;
+  font-weight: 400;
   margin: 10px;
+}
+.title {
+  font-family: 'Inter';
+  font-size: 24px;
+  font-weight: 600;
+  margin: 10px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.textBody {
+  font-family: 'Inter';
+  font-size: 22px;
+  font-weight: 300;
+
+}
+
+.status {
+  font-family: 'Inter';
+  font-size: 17px;
+  font-weight: 300;
+
 }
 
 .menuForm {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 80%;
+  margin-bottom: 30px;
+
 }
 
 .questSection {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid $color-gray;
-  border-radius: 5px;
-  padding: 50px;
-  margin: 20px 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 25px;
+  width: 700px;
+  height: auto;
+  background: #F9FAFB;
+  border: 1px solid #D1D5DB;
+  border-radius: 16px;
 }
 
+.containerViewProject {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 12px;
+  width: 100%;
+  height: 182px;
+  background: #F9FAFB;
+  border: 1px solid #D1D5DB;
+  border-radius: 16px;
+}
 .questInfo {
   display: flex;
   flex-direction: column;
   margin-right: 25px;
+}
+
+.questStatus {
+  display: flex;
+  flex-direction: column;
+  margin-left: 75%;
+  margin-top: 20px;
+}
+
+.iconComeBack {
+  color: #6B7280;
+  width: 24.72px;
+  height: 24.72px;
+  cursor: pointer;
 }
 
 @media only screen and (max-device-width: 900px) {

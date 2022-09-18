@@ -7,6 +7,7 @@ import { getData, postData, postGroupGradeByProject } from "../../../service/req
 import Container from "../../../components/Container";
 import StylizedButton from "../../../components/StylizedButton";
 import LinkButton from "../../../components/LinkButton";
+import { FiArrowLeft } from "react-icons/fi";
 
 export default function ViewProject() {
   const [ loading, setLoading ] = useState();
@@ -22,34 +23,39 @@ export default function ViewProject() {
   }
 
   return (
-    <Container classStyle="containerJustifyCenter">
+    <Container className={style.containerViewProject}>
+      <div className={style.menuForm}>
+        <a href="/projects">
+          <FiArrowLeft className={style.iconComeBack} />
+        </a>
+      </div>
+   
       { loading ? (
+        
         <section className={style.questSection}>
+          
           <div className={style.questInfo}>
-            <h1 className={style.title}>Projeto: {project?.nome}</h1>
-            <h2 className={style.title}>Matéria: {project?.materia}</h2>
-            <h2 className={style.title}>Descrição: {project?.descricao}</h2>
+            <h1 className={style.title}> {project?.nome}</h1>
+            <h2 className={style.subtitle}>Matéria:  <span className={style.textBody}>{project?.materia}</span></h2>
+            <h2 className={style.subtitle}>Descrição:  <span className={style.textBody}>{project?.descricao}</span></h2>
           </div>
 
-          <div className={style.questInfo}>
+          <div className={style.questStatus}>
             {project?.status === "EM_ANDAMENTO" &&
-              <h3 className={style.title}>Em andamento</h3>
+              <h3 className={style.status}>Em andamento</h3>
             }
             
             {project?.status === "CONCLUIDO" &&
-              <h3 className={style.title}>Concluído</h3>
+              <h3 className={style.status}>Concluído</h3>
             }
             
             <StylizedButton type="submit"  onClick={() => {onSubmit("")}}>Atribuir Nota</StylizedButton>
+            <LinkButton to={`/edit-project/${project?.id}`} classStyle="purple">Editar</LinkButton>
           </div>
         </section>
       ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
 
-      <div className={style.menuForm}>
-        <LinkButton to="/projects">Voltar</LinkButton>
-
-        <LinkButton to={`/edit-project/${project?.id}`} classStyle="purple">Editar</LinkButton>
-      </div>
+      
     </Container>
   );
 }
