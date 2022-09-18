@@ -3,11 +3,12 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Image } from "react-bootstrap";
 import { HiChevronDoubleRight, HiChevronDoubleLeft } from "react-icons/hi";
 import { BsBarChartFill } from "react-icons/bs";
-import { FaFolder } from "react-icons/fa";
+import { FaFolder, FaTasks } from "react-icons/fa";
 import { HiUserGroup } from "react-icons/hi";
 import { AiFillHome } from "react-icons/ai";
 import { MdLogout } from "react-icons/md";
 import style from './Sidebar.module.scss';
+
 
 import { Context } from "../../Context/AuthContext";
 import iconLogo from '../../assets/img/icon-academic-quest.svg';
@@ -55,6 +56,9 @@ export default function Sidebar() {
               <a  href='/groups' className={style.littleBoxMenu}>
                 <HiUserGroup className={style.iconMenuGroup} />
               </a>
+              <a  href='/to-do-list' className={style.littleBoxMenu}>
+                <FaTasks className={style.iconMenuTask} />
+              </a>
             </div>
           ) : (
             <div className={style.containerLittleBoxMenu}>
@@ -62,7 +66,7 @@ export default function Sidebar() {
                 <FaFolder className={style.iconMenuFolder} />
               </a>
               <a href='/dashboard-aluno' className={style.littleBoxMenu}>
-                <BsBarChartFill className={style.iconMenuGrid} />
+                <FaTasks className={style.iconMenuTask} />
               </a>
             </div>
           )}
@@ -110,6 +114,10 @@ export default function Sidebar() {
                 <HiUserGroup className={style.iconMenuGroup} />
                 <span className={style.nameMenuGroup}>Grupos</span>
               </a>
+              <a  href='/to-do-list' className={style.boxMenu}>
+                <FaTasks className={style.iconMenuTask} />
+                <span className={style.nameMenuTask}>Tarefas Entregues</span>
+              </a>
             </>
           ) : 
           (
@@ -119,8 +127,8 @@ export default function Sidebar() {
                 <span className={style.nameMenuFolder}>Projetos</span>
               </a>
               <a href='/dashboard-aluno' className={style.boxMenu}>
-                <BsBarChartFill className={style.iconMenuGrid} />
-                <span className={style.nameMenuGrid}>Dashboard</span>
+                <FaTasks className={style.iconMenuTask} />
+                <span className={style.nameMenuTask}>Tarefas pendentes</span>
               </a>
             </>
           ) }

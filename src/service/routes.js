@@ -7,6 +7,7 @@ import { Context } from "../Context/AuthContext";
 import ViewDashboardAluno from '../components/ToDoListByStudent/'; 
 import About from '../components/About/'; 
 import Sidebar from '../components/Sidebar';
+import ToDoList from '../components/ToDoList';
 import Login from '../pages/Login';
 import Page404 from '../pages/Page404';
 import Home from '../pages/Admin/Home';
@@ -76,6 +77,7 @@ export default function Routes() {
               <Route exact path="/dashboard" element={<Dashboard/>}/>
               <Route exact path="/sobre" element={<About/>}/>
               <Route exact path="/view-dashboard/:idProject" element={<ViewDashboard/>}/>
+              <Route exact path="/to-do-list" element={<ToDoList/>}/>
             </>
           )}
          

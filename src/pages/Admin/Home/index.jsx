@@ -2,10 +2,7 @@ import React, { useState, useEffect } from "react";
 import style from "./Home.module.scss";
 
 import Container from "../../../components/Container";
-import About from "../../../components/About";
 import LinkButton from "../../../components/LinkButton";
-import StylizedA from "../../../components/StylizedA";
-import ToDoList from "../../../components/ToDoList";
 
 export default function Home() {
   const [ username, setUsername ] = useState();
