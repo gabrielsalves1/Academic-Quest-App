@@ -45,6 +45,8 @@ export default function ViewTask() {
   }
 
   return (
+    // Adicionar informações da tarefa da variável "task"
+
     <>
     <div className={style.box}>
       { loading ? (
