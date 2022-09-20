@@ -3,7 +3,7 @@ import style from "./StatusBarGray.module.scss";
 
 export default function StatusBarGray(props) {
   return (
-    <div className={style.statusBarGray}>
+    <div className={props.classStyle == "slim" ? style.statusBarGraySlim : style.statusBarGray}>
       {props.children}
     </div>
   );
