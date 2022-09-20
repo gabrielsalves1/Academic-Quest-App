@@ -5,7 +5,7 @@ import style from "./Projects.module.scss";
 import { getClasses, getData } from "../../../service/requests";
 import LinkButton from "../../../components/LinkButton";
 import ListSubject from "../../../components/ListSubject";
-import Container from "../../../components/Container";
+import NewContainer from "../../../components/NewContainer";
 import StatusBarGreen from "../../../components/StatusBarGreen";
 
 export default function Projects() {
@@ -14,7 +14,7 @@ export default function Projects() {
 
 
   return (
-    <Container classStyle="hide">
+    <NewContainer>
       <h1 className={style.title}>Projetos</h1>
 
       <div className={style.projects}>
@@ -49,6 +49,6 @@ export default function Projects() {
             getProjects={true}/>
         }
       </div>
-    </Container>
+    </NewContainer>
   );
 }
