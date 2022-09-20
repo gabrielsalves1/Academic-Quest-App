@@ -36,7 +36,7 @@ export default function Chat(props) {
 
   return (
     <>
-      {idUser ? (
+      {messages ? (
 
         <div className={style.containerChat}>
         <div className={style.chatBox} >
