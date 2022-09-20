@@ -4,10 +4,12 @@ import { Spinner } from "react-bootstrap";
 import style from "./ViewProject.module.scss";
 
 import { getData, postData, postGroupGradeByProject } from "../../../service/requests";
-import Container from "../../../components/Container";
+import NewContainer from "../../../components/NewContainer";
 import StylizedButton from "../../../components/StylizedButton";
 import LinkButton from "../../../components/LinkButton";
 import ComeBackButtonIcon from "../../../components/ComeBackButtonIcon";
+import StatusBarGreen from "../../../components/StatusBarGreen";
+import StatusBarGray from "../../../components/StatusBarGray";
 
 export default function ViewProject() {
   const [ loading, setLoading ] = useState();
@@ -23,12 +25,20 @@ export default function ViewProject() {
   }
 
   return (
-    <Container className={style.containerViewProject}>
+    <NewContainer>
+ 
       <ComeBackButtonIcon url="/projects"> </ComeBackButtonIcon>
    
       { loading ? (
         
         <section className={style.questSection}>
+           {project?.status === "EM_ANDAMENTO" &&
+             <StatusBarGreen classStyle="slim">Ativo</StatusBarGreen>  
+            }
+            
+            {project?.status === "CONCLUIDO" &&
+              <StatusBarGray classStyle="slim">Concluído</StatusBarGray>
+            }
           
           <div className={style.questInfo}>
             <h1 className={style.title}> {project?.nome}</h1>
@@ -37,21 +47,12 @@ export default function ViewProject() {
           </div>
 
           <div className={style.questStatus}>
-            {project?.status === "EM_ANDAMENTO" &&
-              <h3 className={style.status}>Em andamento</h3>
-            }
-            
-            {project?.status === "CONCLUIDO" &&
-              <h3 className={style.status}>Concluído</h3>
-            }
-            
-            <StylizedButton type="submit"  onClick={() => {onSubmit("")}}>Atribuir Nota</StylizedButton>
             <LinkButton to={`/edit-project/${project?.id}`} classStyle="purple">Editar</LinkButton>
+            <StylizedButton type="submit"  onClick={() => {onSubmit("")}}>Atribuir Nota</StylizedButton>
           </div>
         </section>
       ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
 
-      
-    </Container>
+    </NewContainer>
   );
 }
