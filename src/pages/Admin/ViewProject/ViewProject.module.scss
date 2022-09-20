@@ -29,14 +29,7 @@
 
 }
 
-.menuForm {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
-  margin-bottom: 30px;
 
-}
 
 .questSection {
   display: flex;
@@ -74,12 +67,7 @@
   margin-top: 20px;
 }
 
-.iconComeBack {
-  color: #6B7280;
-  width: 24.72px;
-  height: 24.72px;
-  cursor: pointer;
-}
+
 
 @media only screen and (max-device-width: 900px) {
   .questInfo {

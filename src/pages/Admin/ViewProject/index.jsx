@@ -7,7 +7,7 @@ import { getData, postData, postGroupGradeByProject } from "../../../service/req
 import Container from "../../../components/Container";
 import StylizedButton from "../../../components/StylizedButton";
 import LinkButton from "../../../components/LinkButton";
-import { FiArrowLeft } from "react-icons/fi";
+import ComeBackButtonIcon from "../../../components/ComeBackButtonIcon";
 
 export default function ViewProject() {
   const [ loading, setLoading ] = useState();
@@ -24,11 +24,7 @@ export default function ViewProject() {
 
   return (
     <Container className={style.containerViewProject}>
-      <div className={style.menuForm}>
-        <a href="/projects">
-          <FiArrowLeft className={style.iconComeBack} />
-        </a>
-      </div>
+      <ComeBackButtonIcon url="/projects"> </ComeBackButtonIcon>
    
       { loading ? (
         
