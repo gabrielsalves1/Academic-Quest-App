@@ -17,6 +17,7 @@ import { RiSendPlane2Fill } from "react-icons/ri";
 
 export default function ViewTask() {
   const [ loading, setLoading ] = useState();
+  const [ loadingTask, setLoadingTask ] = useState();
   const { idProject, idQuest, idTaskGroup } = useParams();
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [ taskGroup, setTaskGroup ] = useState();
@@ -27,7 +28,7 @@ export default function ViewTask() {
   }, [idTaskGroup]);
 
   useEffect(() => {
-    getData(`/tarefas/${idQuest}`, setTask, setLoading);
+    getData(`/tarefas/${idQuest}`, setTask, setLoadingTask);
   }, [idQuest]);
 
   const onSubmit = data => {
@@ -89,7 +90,7 @@ export default function ViewTask() {
       ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
 
       { loading ? (
-         <Chat idTaskGroup={idTaskGroup} idProject={idProject} idQuest={idQuest} messages={taskGroup}/>
+         <Chat idTaskGroup={idTaskGroup} idProject={idProject} idQuest={idQuest} messages={taskGroup.chats}/>
       ) : ("")}
      
     </div>
