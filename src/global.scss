@@ -1,6 +1,9 @@
 @import "./stylesheets/typography.scss";
 @import "./stylesheets/layout.scss";
 
+body {
+  font-family: 'Inter', sans-serif !important;
+}
 
 $color-white: #fff;
 $color-purple: #845EC2;
@@ -43,8 +46,8 @@ $color-black: #000;
   font-weight: bold;
   border-radius: 5px;
   margin-top: 32px;
-  padding: 50px;
-  width: 90%;
+
+  width: 100%;
 }
 
 

@@ -10,6 +10,8 @@ import LinkButton from "../../../components/LinkButton";
 import ComeBackButtonIcon from "../../../components/ComeBackButtonIcon";
 import StatusBarGreen from "../../../components/StatusBarGreen";
 import StatusBarGray from "../../../components/StatusBarGray";
+import BoxResult from "../../../components/BoxResult";
+import BoxFlexDirectionColumn from "../../../components/BoxFlexDirectionColumn";
 
 export default function ViewProject() {
   const [ loading, setLoading ] = useState();
@@ -28,30 +30,38 @@ export default function ViewProject() {
     <NewContainer>
  
       <ComeBackButtonIcon url="/projects"> </ComeBackButtonIcon>
-   
-      { loading ? (
+      <BoxResult>
+        <BoxFlexDirectionColumn>
         
-        <section className={style.questSection}>
-           {project?.status === "EM_ANDAMENTO" &&
-             <StatusBarGreen classStyle="slim">Ativo</StatusBarGreen>  
-            }
-            
-            {project?.status === "CONCLUIDO" &&
-              <StatusBarGray classStyle="slim">Concluído</StatusBarGray>
-            }
+        { loading ? (
+      
+        <>
+         {project?.status === "EM_ANDAMENTO" &&
+           <StatusBarGreen classStyle="slim">Ativo</StatusBarGreen>  
+          }
           
-          <div className={style.questInfo}>
-            <h1 className={style.title}> {project?.nome}</h1>
-            <h2 className={style.subtitle}>Matéria:  <span className={style.textBody}>{project?.materia}</span></h2>
-            <h2 className={style.subtitle}>Descrição:  <span className={style.textBody}>{project?.descricao}</span></h2>
-          </div>
+          {project?.status === "CONCLUIDO" &&
+            <StatusBarGray classStyle="slim">Concluído</StatusBarGray>
+          }
+        
+        
+          <h1 className={style.title}> {project?.nome}</h1>
+          <h2 className={style.subtitle}>Matéria:  <span className={style.textBody}>{project?.materia}</span></h2>
+          <h2 className={style.subtitle}>Descrição:  <span className={style.textBody}>{project?.descricao}</span></h2>
+       
 
-          <div className={style.questStatus}>
-            <LinkButton to={`/edit-project/${project?.id}`} classStyle="purple">Editar</LinkButton>
-            <StylizedButton type="submit"  onClick={() => {onSubmit("")}}>Atribuir Nota</StylizedButton>
-          </div>
-        </section>
-      ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
+        <div className={style.questStatus}>
+          <LinkButton to={`/edit-project/${project?.id}`} classStyle="purple">Editar</LinkButton>
+          <StylizedButton type="submit"  onClick={() => {onSubmit("")}}>Atribuir Nota</StylizedButton>
+        </div>
+        </>
+
+    ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
+      
+        </BoxFlexDirectionColumn>
+      </BoxResult>
+   
+      
 
     </NewContainer>
   );

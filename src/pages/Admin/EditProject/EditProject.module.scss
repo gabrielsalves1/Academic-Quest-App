@@ -1,16 +1,21 @@
 @import "../../../global.scss";
 
 .title {
+  font-family: "Inter" ;
+  font-family: 500;
   font-size: 32px;
   margin: 16px 0;
+  text-align: center;
 }
 
 .titleSecondary {
+  font-family: "Inter";
   font-size: 24px;
   margin: 16px 0;
 }
 
 .menuForm {
+  font-family: "Inter";
   display: flex;
   justify-content: space-between;
   align-items: center;
