@@ -11,9 +11,10 @@ import LinkButton from "../../../components/LinkButton";
 import StylizedButton from "../../../components/StylizedButton";
 import Chat from "../../../components/Chat";
 
-import Container from "../../../components/Container";
+import NewContainer from "../../../components/NewContainer";
 import { getData, postMessageChat, putData } from "../../../service/requests";
 import { RiSendPlane2Fill } from "react-icons/ri";
+import ComeBackButtonIcon from "../../../components/ComeBackButtonIcon";
 
 export default function ViewTask() {
   const [ loading, setLoading ] = useState();
@@ -46,40 +47,32 @@ export default function ViewTask() {
 
   return (
     <>
+    <ComeBackButtonIcon url={`/project/${idProject}/evaluate-quest/${idQuest}`}> </ComeBackButtonIcon>
     <div className={style.box}>
       { loading ? (
       <div className={style.formHalf}>
         <h1 className={style.title}>{taskGroup?.nomeGrupo}</h1>
 
         <div className={style.menuNameAndDate}>
-          <h3 className={style.titleSecundary}>Quest {taskGroup?.nomeTarefa}</h3>
-
-          <div>
-            <h3 className={style.titleSecundary}>Data de Entrega</h3>
-            <span className={style.titleSecundary}>
-              {taskGroup?.dataEntrega ? new Date(Date.parse(taskGroup.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'}) : " - "}
-            </span>
-          </div>
-
-          <StylizedButton onClick={() => { Base64ToPdf(taskGroup?.upload["titulo"], taskGroup?.upload["arquivoUpload"], taskGroup?.upload["formato"]) }}>Baixar Arquivo<BsDownload className={style.icon}/></StylizedButton>
+          <p className={style.titleSecundary}>Quest: <span className={style.text}>{taskGroup?.nomeTarefa}</span> </p>
+          <p className={style.titleSecundary}>Data de Entrega: <span className={style.text}>{taskGroup?.dataEntrega ? new Date(Date.parse(taskGroup.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'}) : "não entregue"}</span> </p>
         </div>
+          <StylizedButton onClick={() => { Base64ToPdf(taskGroup?.upload["titulo"], taskGroup?.upload["arquivoUpload"], taskGroup?.upload["formato"]) }}>Baixar Arquivo<BsDownload className={style.icon}/></StylizedButton>
         
         <Form onSubmit = { handleSubmit(onSubmit) }>
           <Form.Group>
-            <Form.Label htmlFor='consideration'>Considerações do trabalho</Form.Label>
+            <Form.Label className={style.titleTertiary} htmlFor='consideration'>Considerações do trabalho</Form.Label>
             <Form.Control as="textarea" name="consideration" {...register("consideracoes", { required: true })} className={style.inputArea}/>
             {errors.name && <span>Esse campo é obrigatório.</span>}
           </Form.Group>
           
           <Form.Group>
-            <Form.Label htmlFor='note'>Nota</Form.Label>
+            <Form.Label className={style.titleTertiary} htmlFor='note'>Nota</Form.Label>
             <Form.Control name="note" {...register("nota", { required: true })} className={style.inputForm}/>
             {errors.name && <span>Esse campo é obrigatório.</span>}
           </Form.Group>
 
           <div className={style.menuForm}>
-            <LinkButton to={`/project/${idProject}/evaluate-quest/${idQuest}`}>Voltar</LinkButton>
-
             <StylizedButton type="submit">Aplicar</StylizedButton>
           </div>
         </Form>
