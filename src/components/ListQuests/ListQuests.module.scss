@@ -47,6 +47,25 @@
   color: $color-white;
 }
 
+.containerQuests {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.boxStatus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 10px;
+}
+
+.boxBtn {
+  margin: 10px;
+
+}
 @media only screen and (max-device-width: 900px) {
   .quest {
     flex-direction: column;
