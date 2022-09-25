@@ -18,7 +18,7 @@ export default function GroupQuestContainer(props) {
     <div className={style.container}>
      { loading ? (
       taskGroups.map( (group) => (
-        <BoxGroupQuest url={`/project/${props.idProject}/view-task/${props.idQuest}/task-group/${group.id}`}>
+        <BoxGroupQuest key={group.id} url={`/project/${props.idProject}/view-task/${props.idQuest}/task-group/${group.id}`}>
          {group} 
         </BoxGroupQuest>
         ))
