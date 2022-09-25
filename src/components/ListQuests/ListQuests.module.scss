@@ -52,24 +52,19 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
+  min-height: 46px;
 }
 
 .boxStatus {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
   margin-left: 10px;
+  min-height: 137px;
 }
 
 .boxBtn {
   margin: 10px;
-}
-
-.boxForLayout {
-  min-width: 450px;
-  min-height: 66px;
-  margin-bottom: 10px;
 }
 
 @media only screen and (max-device-width: 900px) {
