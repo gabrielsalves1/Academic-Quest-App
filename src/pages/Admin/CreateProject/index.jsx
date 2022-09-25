@@ -5,11 +5,13 @@ import AsyncSelect from "react-select/async";
 import style from "./CreateProject.module.scss";
 
 import { getClasses, getData, postData } from "../../../service/requests";
-import Container from "../../../components/Container";
+import NewContainer from "../../../components/NewContainer";
 import ComeBackButtonIcon from "../../../components/ComeBackButtonIcon";
 import StylizedButton from "../../../components/StylizedButton";
 import ListSubject from "../../../components/ListSubject";
-import { FiArrowLeft } from "react-icons/fi";
+import BoxResult from "../../../components/BoxResult";
+import BoxFlexDirectionColumn from "../../../components/BoxFlexDirectionColumn";
+
 
 export default function CreateProject() {
   const [ loading, setLoading ] = useState();
@@ -24,8 +26,9 @@ export default function CreateProject() {
   }
 
   return (
-    <Container classStyle="containerJustifyCenter">
+    <NewContainer classStyle="containerJustifyCenter">
      <ComeBackButtonIcon url="/projects"> </ComeBackButtonIcon>
+     
       <h2 className={style.title}>Criar Projeto</h2>
 
       <Form onSubmit = { handleSubmit(onSubmit) } className={style.form}>
@@ -59,6 +62,8 @@ export default function CreateProject() {
 
         { selectSubject &&
           <>
+          <BoxResult>
+          <BoxFlexDirectionColumn>
             <Form.Group>
               <Form.Label htmlFor='name'>Nome</Form.Label>
               <Form.Control name="name" {...register("nome", { required: true })} className={style.inputForm}/>
@@ -71,9 +76,11 @@ export default function CreateProject() {
               {errors.description && <span className={style.error}>Esse campo é obrigatório.</span>}
             </Form.Group>
             <StylizedButton type="submit">Criar</StylizedButton>
+           </BoxFlexDirectionColumn>
+          </BoxResult>
           </>
         }
       </Form>
-    </Container>
+    </NewContainer>
   );
 }
