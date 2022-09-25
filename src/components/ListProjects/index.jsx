@@ -5,6 +5,9 @@ import style from "./ListProjects.module.scss";
 
 import { getData } from "../../service/requests";
 import LinkButton from "../LinkButton";
+import StatusBarGreen from "../StatusBarGreen";
+import StatusBarGray from "../StatusBarGray";
+import BoxChild from "../BoxChild";
 
 export default function ListProjects(props) {
   const [ loading, setLoading ] = useState();
@@ -17,49 +20,44 @@ export default function ListProjects(props) {
   return (
     <>
       { loading ? (
-        <ul>
-          { projects?.map((project) => {
-            if(project.status === "EM_ANDAMENTO") {
-              return (
-                <li className={style.project} key={project.id}>
-                  <LinkButton to={`/view-project/${project.id}`} classStyle="purple">
-                    {project.nome}
-                  </LinkButton>
-                  <span className={style.active}>Ativo</span>
-                  <LinkButton to={`/project/${project.id}/quest-management`}>
-                    Gerenciar Quest <BsPencil className={style.icon}/>
-                  </LinkButton>
-                </li>
-              );
-            } else if(project.status === "CONCLUIDO") {
-              return (
-                <li className={style.project} key={project.id}>
-                  <LinkButton to={`/view-project/${project.id}`} classStyle="purple">
-                    {project.nome}
-                  </LinkButton>
-                  <span className={style.finished}>Concluído</span>
-                  <LinkButton to={`/project/${project.id}/quest-management`}>
-                    Gerenciar Quest <BsPencil className={style.icon}/>
-                  </LinkButton>
-                </li>
-              );
-            } else {
-              return (
-                <li className={style.project} key={project.id}>
-                  <LinkButton to={`/view-project/${project.id}`} classStyle="purple">
-                    {project.nome}
-                  </LinkButton>
-                  <span className={style.active}>{project.status}</span>
-                  <LinkButton to={`/project/${project.id}/quest-management`}>
-                    Gerenciar Quest <BsPencil className={style.icon}/>
-                  </LinkButton>
-                </li>
-              );
-            }}
-            )
-          }
-        </ul>
+        <div className={style.containerProjetos}>
+          <div className={style.boxStatus}>
+            <StatusBarGreen>Ativos</StatusBarGreen>  
+              { projects?.map((project) => {
+                if(project.status === "EM_ANDAMENTO") {
+                  return (
+                    <BoxChild urlProject={`/view-project/${project.id}`} urlConfigProject={`/project/${project.id}/quest-management`}>
+                      {project.nome}
+                    </BoxChild>
+                  );
+                }  else {
+                    return (
+                      <div className={style.boxForLayout}></div>
+                    )
+                }
+              })}
+          </div>
+          <div className={style.boxStatus}>
+            <StatusBarGray>Finalizados</StatusBarGray>  
+              { projects?.map((project) => {
+                if(project.status === "CONCLUIDO") {
+                  return (
+                    <BoxChild urlProject={`/view-project/${project.id}`} urlConfigProject={`/project/${project.id}/quest-management`}>
+                      {project.nome}
+                    </BoxChild>
+                  );
+                } else {
+                    return (
+                      <div className={style.boxForLayout}></div>
+                    )
+                }
+              })}
+          </div>
+        
+        </div>
       ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
+
+       
     </>
   );
 }

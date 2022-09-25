@@ -1,13 +1,16 @@
 @import "./stylesheets/typography.scss";
 @import "./stylesheets/layout.scss";
 
+body {
+  font-family: 'Inter', sans-serif !important;
+}
 
 $color-white: #fff;
-$color-purple: #6558f5;
-$color-purple-dark: #4c3ee2;
-$color-purple-light: #aea8ee;
+$color-purple: #845EC2;
+$color-purple-dark: #6B42AE;
+$color-purple-light: #b594e9;
 $color-gray: #c3cfd9;
-$color-gray-thin: #f2f2f2;
+$color-gray-thin: #F2F4F7;
 $color-gray-light: #d8e5f0;
 $color-gray-dark: #484c4e;
 $color-green: #1aae9f;
@@ -43,8 +46,8 @@ $color-black: #000;
   font-weight: bold;
   border-radius: 5px;
   margin-top: 32px;
-  padding: 50px;
-  width: 90%;
+
+  width: 100%;
 }
 
 
@@ -76,8 +79,8 @@ $color-black: #000;
 
 
 .inputForm {
-  border: 2px solid $color-gray;
-  border-radius: 5px;
+  border: 1px solid #D1D5DB;
+  border-radius: 8px;
   margin: 10px 0;
   max-height: 200px;
 }
@@ -111,9 +114,11 @@ input[type="file"] {
 }
 
 .inputFile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 5px;
   width: 140px;
-  border: 2px solid $color-gray;
   border-radius: 5px;
   color: $color-purple;
   text-align: center;
@@ -126,4 +131,13 @@ input[type="file"] {
   min-height: 120px;
   height: 120px;
   margin-bottom: 20px;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}
+
+.form-label {
+  font-family: "Inter", sans-serif !important;
+  font-size: 16px;
 }

@@ -1,0 +1,66 @@
+@import "../../global.scss";
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration:none !important;
+  cursor:pointer;  
+}
+
+.boxChild {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 450px;
+  height: 66px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+  border-radius: 24px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #000000;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.icon {
+  width: 24.72px;
+  height: 24.72px;
+  cursor: pointer;
+  color:#6B7280;
+}
+
+.config {
+  width:50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
+  line-height: 120%;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 14px;
+}
+
+@media only screen and (max-device-width: 900px) {
+  .boxChild {
+    width: 100%;
+  }
+}

@@ -1,8 +1,11 @@
 @import "../../../global.scss";
 
 .title {
+  font-family: 'Inter';
   font-size: 32px;
   margin: 16px 0;
+  font-weight: 600;
+  text-align: center;
 }
 
 .menuForm {
@@ -11,6 +14,12 @@
   align-items: center;
 }
 
+.label { 
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  margin: 0 0 8px 0;
+  text-align: center;
+}
 .selectForm {
   margin: 20px 0;
   width: 100%;

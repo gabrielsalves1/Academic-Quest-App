@@ -1,0 +1,13 @@
+.BoxFlexDirectionColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+}
+
+@media screen and (max-width: 900px) {
+  .BoxFlexDirectionColumn {
+    width: 100%;
+  }
+}
+  

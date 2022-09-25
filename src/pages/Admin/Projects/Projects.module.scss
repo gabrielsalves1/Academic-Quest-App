@@ -1,27 +1,43 @@
 .title {
+  font-family: "Inter";
+  font-weight: 600;
   font-size: 32px;
   margin: 32px 0;
+  text-align: center;
 }
 
 .projects {
-  width: 70%;
+  width: 100%;
 }
 
 .menuClassAndProject {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  margin: 40px;
   width: 100%;
-  margin: 16px 0;
 }
 
-.selectForm {
-  width: 250px;
+.css-1o1tv0d-control  {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 12px;
+  position: absolute;
+  width: 100%;
+  height: 57px;
+  left: 245px;
+  top: 110px;
+  background: #F9FAFB;
+  border: 1px solid #D1D5DB !important;
+  border-radius: 16px;
+  margin-right: 50px !important;
 }
+
 
 @media only screen and (max-device-width: 900px) {
   .menuClassAndProject {
-    flex-direction: column-reverse;
+    margin: 0px;
   }
 
   .selectForm {

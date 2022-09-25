@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import "../../global.scss";
 
 input, select, option {
-  font-family: Cascadia Mono, Consolas, 'Courier New', monospace !important;
+  font-family: 'Inter', sans-serif;
   font-weight: lighter;
 }
 
@@ -11,7 +11,7 @@ input, select, option {
   align-items: center;
   justify-content: center;
   background-color: $color-gray-thin;
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: lighter;
   min-height: 100vh;
   width: 100%;

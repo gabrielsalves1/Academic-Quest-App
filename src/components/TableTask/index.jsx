@@ -4,6 +4,7 @@ import style from "./TableTask.module.scss";
 
 import { getData } from "../../service/requests";
 import StylizedLink from "../StylizedLink";
+import BoxGroupQuest from "../BoxGroupQuest";
 
 export default function TableTask(props) {
   const [ loading, setLoading ] = useState();
@@ -30,17 +31,20 @@ export default function TableTask(props) {
           </thead>
           <tbody>
           { taskGroups?.map((group) => (
-            <tr className={style.line} key={group.id}>
-              <td>{group.nomeGrupo}</td>
-              <td>{group.statusTarefaGrupo}</td>
-              <td>{group.nota !== null ? group.nota : " - "}</td>
-              <td>{group.dataEntrega ? new Date(Date.parse(group.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'}) : " - "}</td>
-              <td>
-                <StylizedLink to={`/project/${props.idProject}/view-task/${props.idQuest}/task-group/${group.id}`}>
-                  Visualizar
-                </StylizedLink>
-              </td>
-            </tr>
+            <BoxGroupQuest>
+             {group} 
+            </BoxGroupQuest>
+            // <tr className={style.line} key={group.id}>
+            //   <td>{group.nomeGrupo}</td>
+            //   <td>{group.statusTarefaGrupo}</td>
+            //   <td>{group.nota !== null ? group.nota : " - "}</td>
+            //   <td>{group.dataEntrega ? new Date(Date.parse(group.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'}) : " - "}</td>
+            //   <td>
+            //     <StylizedLink to={`/project/${props.idProject}/view-task/${props.idQuest}/task-group/${group.id}`}>
+            //       Visualizar
+            //     </StylizedLink>
+            //   </td>
+            // </tr>
           ))}
           </tbody>
         </Table>

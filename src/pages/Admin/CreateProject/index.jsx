@@ -5,10 +5,13 @@ import AsyncSelect from "react-select/async";
 import style from "./CreateProject.module.scss";
 
 import { getClasses, getData, postData } from "../../../service/requests";
-import Container from "../../../components/Container";
-import LinkButton from "../../../components/LinkButton";
+import NewContainer from "../../../components/NewContainer";
+import ComeBackButtonIcon from "../../../components/ComeBackButtonIcon";
 import StylizedButton from "../../../components/StylizedButton";
 import ListSubject from "../../../components/ListSubject";
+import BoxResult from "../../../components/BoxResult";
+import BoxFlexDirectionColumn from "../../../components/BoxFlexDirectionColumn";
+
 
 export default function CreateProject() {
   const [ loading, setLoading ] = useState();
@@ -23,7 +26,9 @@ export default function CreateProject() {
   }
 
   return (
-    <Container classStyle="containerJustifyCenter">
+    <NewContainer classStyle="containerJustifyCenter">
+     <ComeBackButtonIcon url="/projects"> </ComeBackButtonIcon>
+     
       <h2 className={style.title}>Criar Projeto</h2>
 
       <Form onSubmit = { handleSubmit(onSubmit) } className={style.form}>
@@ -36,7 +41,7 @@ export default function CreateProject() {
         }}
         theme={(theme) => ({
           ...theme,
-          borderRadius: 5,
+          borderRadius: 10,
           colors: {
             ...theme.colors,
             primary: '#aea8ee',
@@ -48,7 +53,7 @@ export default function CreateProject() {
 
         { loading &&
           <Form.Group>
-            <Form.Label className={style.label} htmlFor="subject">Matéria</Form.Label>
+            <Form.Label className={style.label} htmlFor="subject">Matérias</Form.Label>
             <ListSubject 
               subjects={subjects}
               setSelectSubject={setSelectSubject}/>
@@ -57,6 +62,8 @@ export default function CreateProject() {
 
         { selectSubject &&
           <>
+          <BoxResult>
+          <BoxFlexDirectionColumn>
             <Form.Group>
               <Form.Label htmlFor='name'>Nome</Form.Label>
               <Form.Control name="name" {...register("nome", { required: true })} className={style.inputForm}/>
@@ -68,15 +75,12 @@ export default function CreateProject() {
               <Form.Control as="textarea" name="description" {...register("descricao", { required: true })} className={style.inputForm}/>
               {errors.description && <span className={style.error}>Esse campo é obrigatório.</span>}
             </Form.Group>
+            <StylizedButton type="submit">Criar</StylizedButton>
+           </BoxFlexDirectionColumn>
+          </BoxResult>
           </>
         }
-
-        <div className={style.menuForm}>
-          <LinkButton to="/projects">Voltar</LinkButton>
-
-          <StylizedButton type="submit">Criar</StylizedButton>
-        </div>
       </Form>
-    </Container>
+    </NewContainer>
   );
 }

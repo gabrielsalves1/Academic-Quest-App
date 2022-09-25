@@ -4,6 +4,9 @@ import style from "./ListQuests.module.scss";
 
 import LinkButton from "../LinkButton";
 import { getData } from "../../service/requests";
+import StatusBarGreen from "../StatusBarGreen";
+import StatusBarGray from "../StatusBarGray";
+import BoxChildQuest from "../BoxChildQuest";
 
 export default function ListQuests(props) {
   const [ loading, setLoading ] = useState();
@@ -17,47 +20,45 @@ export default function ListQuests(props) {
 
   return (
     <>
-      <div className={style.menuCreateQuest}>
-        <LinkButton to="/projects">Voltar</LinkButton>
-
-        <LinkButton to={`/project/${props.idProject}/create-quest`} classStyle="purple">Criar Quest</LinkButton>
-      </div>
-
+    
       { loading ? (
-        <ul>
-          { quests?.map((quest) => {
-            const date = new Date(Date.parse(quest.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'});
+        <div className={style.containerQuests}>
+          <div className={style.boxStatus}>
+            <StatusBarGreen>Ativos</StatusBarGreen>  
+            { quests?.map((quest) => {
+              const date = new Date(Date.parse(quest.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'});
 
-            if(date >= today) {
-              return (
-                <li className={style.quest} key={quest.id}>
-                  <LinkButton to={`/project/${props.idProject}/evaluate-quest/${quest.id}`}>{quest.nome}</LinkButton>
-                  <span className={style.date}>
-                    Data de Entrega <br/>
-                    {date}
-                  </span>
-                  <span className={style.active}>Ativo</span>
-                </li>
-              );
-            } else {
-              return (
-                <li className={style.quest} key={quest.id}>
-                  <LinkButton to={`/project/${props.idProject}/evaluate-quest/${quest.id}`}>{quest.nome}</LinkButton>
-                  <span className={style.date}>
-                    Data de Entrega <br/>
-                    {date}
-                  </span>
-                  <span className={style.finished}>Finalizado</span>
-                </li>
-              );
-            }}
-          )}
+              if(date >= today) {
+                return (
+                  <BoxChildQuest urlQuest={`/project/${props.idProject}/evaluate-quest/${quest.id}`} dataEntrega={date}>
+                    {quest.nome}
+                  </BoxChildQuest>
+                );
+              }}
+            )}
+          </div>
+          <div className={style.boxStatus}>
+            <StatusBarGray>Finalizados</StatusBarGray>  
+            { quests?.map((quest) => {
+              const date = new Date(Date.parse(quest.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'});
 
+              if(date < today) {
+                return (
+                  <BoxChildQuest urlQuest={`/project/${props.idProject}/evaluate-quest/${quest.id}`} dataEntrega={date}>
+                    {quest.nome}
+                  </BoxChildQuest>
+                );
+              }}
+            )}
+          </div>
           { quests.length === 0 &&
             <span className={style.withoutDataError}>Não há nenhuma quest cadastrada para o projeto.</span>
           }
-        </ul>
+        </div>
       ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
+      <div className={style.boxBtn}>
+        <LinkButton to={`/project/${props.idProject}/create-quest`} classStyle="purple">Criar Quest</LinkButton>
+      </div>
     </>
   );
 }

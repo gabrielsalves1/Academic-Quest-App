@@ -4,11 +4,15 @@ import { BsDownload, BsFillFileEarmarkMedicalFill } from "react-icons/bs";
 import Spinner from 'react-bootstrap/Spinner'; 
 import style from "./EvaluateQuest.module.scss";
 
-import LinkButton from "../../../components/LinkButton";
-import TableTask from "../../../components/TableTask";
-import Container from "../../../components/Container";
+import ComeBackButtonIcon from "../../../components/ComeBackButtonIcon";
+import GroupQuestContainer from "../../../components/GroupQuestContainer";
+import NewContainer from "../../../components/NewContainer";
 import StylizedButton from "../../../components/StylizedButton";
 import { getData } from "../../../service/requests";
+import BoxResult from "../../../components/BoxResult";
+import BoxFlexDirectionColumn from "../../../components/BoxFlexDirectionColumn";
+import StatusBarGreen from "../../../components/StatusBarGreen";
+import StatusBarGray from "../../../components/StatusBarGray";
 
 export default function EvaluateQuest() {
   const [ loading, setLoading ] = useState();
@@ -29,20 +33,20 @@ export default function EvaluateQuest() {
   }
 
   return (
-    
-    <Container id="EvaluateQuest" classStyle="containerDirectionRow">
-      <div className={style.backButton}>
-        <LinkButton to={`/project/${idProject}/quest-management`}>Voltar</LinkButton>
-      </div>
-      <h1 className={style.title}>Avaliar Quest</h1>
+    <NewContainer id="EvaluateQuest" classStyle="containerDirectionRow">
 
-      { loading ? (
-          <section className={style.questSection}>
-            <div className={style.questInfo}>
-              <h2 className={style.taskItem}>{task.nome}</h2>
-              <p className={style.taskItem}>Descrição: {task.descricao}</p>
-              <span className={style.taskItem}>Data de Entrega: {new Date(Date.parse(task.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'})}</span>
-            </div>
+      <ComeBackButtonIcon url={`/project/${idProject}/quest-management`}> </ComeBackButtonIcon>
+      <h1 className={style.title}>Avaliar Quest</h1>
+        <BoxResult>
+          <BoxFlexDirectionColumn>
+      
+           { loading ? (
+            <>
+              <h1 className={style.title}> {task?.nome}</h1>
+              <h2 className={style.subtitle}>Descrição:  <span className={style.textBody}>{task?.descricao}</span></h2>
+              <h2 className={style.subtitle}>Data de Entrega:  <span className={style.textBody}>{new Date(Date.parse(task?.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'})}</span></h2>
+           
+              
 
             <div className={style.questInfo}>
               <StylizedButton onClick={() => { Base64ToPdf(task.nomeArquivo, task.upload, task.formato) }}>Baixar Arquivo<BsDownload className={style.icon}/></StylizedButton>
@@ -50,9 +54,13 @@ export default function EvaluateQuest() {
                 <span className={style.text}>{task.nomeArquivo} <BsFillFileEarmarkMedicalFill className={style.icon}/></span>
               }
             </div>
-          </section>
-        ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
-      <TableTask idProject={idProject} idQuest={idQuest}/>
-    </Container>
+            
+            </>
+              
+            ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
+          </BoxFlexDirectionColumn>
+        </BoxResult>
+      <GroupQuestContainer idProject={idProject} idQuest={idQuest}/>
+    </NewContainer>
   );
 }

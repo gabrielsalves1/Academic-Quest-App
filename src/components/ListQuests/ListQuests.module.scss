@@ -47,6 +47,26 @@
   color: $color-white;
 }
 
+.containerQuests {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  min-height: 46px;
+}
+
+.boxStatus {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10px;
+  min-height: 137px;
+}
+
+.boxBtn {
+  margin: 10px;
+}
+
 @media only screen and (max-device-width: 900px) {
   .quest {
     flex-direction: column;
@@ -62,5 +82,20 @@
 
   .active, .finished {
     width: 50%;
+  }
+
+  .containerQuests {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 46px;
+  }
+
+  .boxStatus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    width: 100%;
   }
 }

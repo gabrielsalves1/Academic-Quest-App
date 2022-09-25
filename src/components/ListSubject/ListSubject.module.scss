@@ -9,31 +9,48 @@
 }
 
 .subjectItem, .subjectItemActive {
+  font-family: 'Inter';
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  width: 400px;
-  border: solid 2px $color-gray;
-  border-radius: 5px;
+  font-weight: 400;
   padding: 5px;
   margin: 10px;
+  width: 450px;
+  height: 66px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+  border-radius: 24px;
   cursor: pointer;
+  text-transform: uppercase;
+}
+
+.boxForLayout {
+  min-width: 450px;
+  min-height: 66px;
+  margin-bottom: 10px;
 }
 
 .subjectItemActive {
-  border: solid 2px $color-purple-light;
+  border: solid 1px $color-purple-light;
 }
 
 @media only screen and (max-device-width: 900px) {
   .listSubject {
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
+    margin: 0;
   }
 
   .subject {
     display: flex;
     justify-content: center;
+    width: 100%;
+  }
+
+  .subjectItem, .subjectItemActive { 
     width: 90%;
+    height: 35px;
   }
 }
