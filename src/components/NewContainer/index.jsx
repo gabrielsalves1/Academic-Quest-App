@@ -4,7 +4,7 @@ import style from "./NewContainer.module.scss";
 export default function NewContainer(props) {
   return (
     <div className={style.newContainer}>
-      <div>
+      <div className={style.newContainerChild}>
         { props.children }
       </div>
     </div>

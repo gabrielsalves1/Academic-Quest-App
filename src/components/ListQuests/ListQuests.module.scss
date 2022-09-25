@@ -83,4 +83,19 @@
   .active, .finished {
     width: 50%;
   }
+
+  .containerQuests {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 46px;
+  }
+
+  .boxStatus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    width: 100%;
+  }
 }

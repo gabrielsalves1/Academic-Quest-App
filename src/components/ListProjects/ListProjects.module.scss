@@ -58,6 +58,7 @@
   min-height: 66px;
   margin-bottom: 10px;
 }
+
 .boxStatus {
   display: flex;
   flex-direction: column;
@@ -78,5 +79,17 @@
 
   .active, .finished {
     width: 50%;
+  }
+
+  .containerProjetos {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .boxStatus {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    width: 100%;
   }
 }

@@ -4,3 +4,9 @@
   align-items: center;
   width: 90%;
 }
+
+@media only screen and (max-device-width: 900px) {
+  .BoxFlexDirectionRow {
+    width: 100%;
+  }
+}

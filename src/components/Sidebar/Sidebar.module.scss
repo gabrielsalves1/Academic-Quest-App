@@ -40,7 +40,6 @@ a:hover {
   display: flex;
   align-items: center;
   flex-direction: column;
-  
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
 }
 
@@ -248,4 +247,13 @@ a:hover {
   text-align: center;
   letter-spacing: 0.065em;
   color: #ED3F7C;
+}
+
+@media only screen and (max-device-width: 900px) {
+  .sidebarClosed {
+    display: none;
+  }
+  .sidebarOpen {
+    display: none;
+  }
 }

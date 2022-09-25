@@ -12,7 +12,9 @@
 
 .menuClassAndProject {
   display: flex;
+  justify-content: center;
   align-items: center;
+  margin: 40px;
   width: 100%;
 }
 
@@ -35,7 +37,7 @@
 
 @media only screen and (max-device-width: 900px) {
   .menuClassAndProject {
-    flex-direction: column-reverse;
+    margin: 0px;
   }
 
   .selectForm {

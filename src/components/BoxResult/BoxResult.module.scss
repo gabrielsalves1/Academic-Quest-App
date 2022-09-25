@@ -8,3 +8,9 @@
   border: 1px solid #D1D5DB;
   border-radius: 16px;
 }
+
+@media only screen and (max-device-width: 900px) {
+  .boxResult {
+    width: 90%;
+  }
+}

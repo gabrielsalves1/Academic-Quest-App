@@ -77,4 +77,11 @@
   .questSection {
     padding: 5px;
   }
+
+  .questStatus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left:0;
+  }
 }

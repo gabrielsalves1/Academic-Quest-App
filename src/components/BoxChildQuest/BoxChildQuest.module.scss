@@ -58,3 +58,9 @@ a:hover {
   font-weight: 400;
   font-size: 14px;
 }
+
+@media only screen and (max-device-width: 900px) {
+  .boxChild {
+    width: 100%;
+  }
+}

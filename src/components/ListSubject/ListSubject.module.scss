@@ -38,13 +38,19 @@
 
 @media only screen and (max-device-width: 900px) {
   .listSubject {
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
+    margin: 0;
   }
 
   .subject {
     display: flex;
     justify-content: center;
+    width: 100%;
+  }
+
+  .subjectItem, .subjectItemActive { 
     width: 90%;
+    height: 35px;
   }
 }

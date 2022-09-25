@@ -1,6 +1,6 @@
 @import "../../global.scss";
 
-.statusBarGray{
+.statusBarYellow {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -8,7 +8,7 @@
   padding: 8px 12px;
   width: 462px;
   height: 36px;
-  background: #BDBDBD;
+  background: #F2C94C;
   color: white;
   border-radius: 36px;
   font-family: 'Inter';
@@ -16,10 +16,10 @@
   font-weight: 400;
   font-size: 24px;
   line-height: 150%;
-  margin-bottom: 25px;
+
 }
 
-.statusBarGraySlim{
+.statusBarYellowSlim {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -27,7 +27,7 @@
   padding: 8px 12px;
   width: 100%;
   height: 8px;
-  background: #BDBDBD;
+  background: #F2C94C;
   color: white;
   border-radius: 36px;
   font-family: 'Inter';
@@ -35,15 +35,16 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 150%;
+
 }
 
 @media only screen and (max-device-width: 900px) { 
-  .statusBarGray {
+  .statusBarGreen {
     margin-top: 10px;
     width: 90%;
   }
 
-  .statusBarGraySlim {
+  .statusBarGreenSlim {
     margin-top: 10px;
     width: 100%;
   }

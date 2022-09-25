@@ -47,3 +47,9 @@ a:hover {
   align-items: center;
   margin-right: 10px;
 }
+
+@media only screen and (max-device-width: 900px) {
+  .boxChild {
+    width: 100%;
+  }
+}
