@@ -20,7 +20,7 @@ import { RiSendPlane2Fill } from "react-icons/ri";
 
 export default function Chat(props) {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const [ messages, setMessages ] = useState(props.messages.chats);
+  const [ messages, setMessages ] = useState(props.messages);
   const [ idUser, setIdUser ] = useState(sessionStorage.getItem('idUser'));
  
   const onSubmit = message => {
@@ -41,7 +41,7 @@ export default function Chat(props) {
         <div className={style.containerChat}>
         <div className={style.chatBox} >
           <div id="scroll" className={style.chatBoxScroll}>
-            {(messages.length > 0 ) ? (
+            {(messages?.length > 0 ) ? (
               messages.map((msg) => {
                
                 if (msg.idUser === parseInt(idUser) ) {
@@ -78,8 +78,7 @@ export default function Chat(props) {
           </Form>
         </div>
       </div>
-      )  :
-       (<Spinner className={style.loading} animation="border" variant="primary" />)}
+      ) : (<Spinner className={style.loading} animation="border" variant="primary" />)}
     </>
   );
 }

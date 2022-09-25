@@ -16,6 +16,7 @@ export async function getClasses() {
 export async function getData(url, setData, setLoading) {
   const response = await api.get(url);
   setLoading(true);
+  console.log(response.data);
   return setData(response.data);
 }
 

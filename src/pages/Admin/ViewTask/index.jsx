@@ -18,6 +18,7 @@ import ComeBackButtonIcon from "../../../components/ComeBackButtonIcon";
 
 export default function ViewTask() {
   const [ loading, setLoading ] = useState();
+  const [ loadingTask, setLoadingTask ] = useState();
   const { idProject, idQuest, idTaskGroup } = useParams();
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [ taskGroup, setTaskGroup ] = useState();
@@ -28,7 +29,7 @@ export default function ViewTask() {
   }, [idTaskGroup]);
 
   useEffect(() => {
-    getData(`/tarefas/${idQuest}`, setTask, setLoading);
+    getData(`/tarefas/${idQuest}`, setTask, setLoadingTask);
   }, [idQuest]);
 
   const onSubmit = data => {
@@ -46,6 +47,8 @@ export default function ViewTask() {
   }
 
   return (
+    // Adicionar informações da tarefa da variável "task"
+
     <>
     <ComeBackButtonIcon url={`/project/${idProject}/evaluate-quest/${idQuest}`}> </ComeBackButtonIcon>
     <div className={style.box}>
@@ -82,6 +85,7 @@ export default function ViewTask() {
       {/* { loading ? (
          <Chat idTaskGroup={idTaskGroup} idProject={idProject} idQuest={idQuest} messages={taskGroup}/>
       ) : ("")} */}
+
      
     </div>
 
