@@ -34,7 +34,11 @@ export default function ListQuests(props) {
                     {quest.nome}
                   </BoxChildQuest>
                 );
-              }}
+              } else {
+                return (
+                  <div className={style.boxForLayout}></div>
+                )
+            }}
             )}
           </div>
           <div className={style.boxStatus}>
@@ -48,7 +52,11 @@ export default function ListQuests(props) {
                     {quest.nome}
                   </BoxChildQuest>
                 );
-              }}
+              } else {
+                return (
+                  <div className={style.boxForLayout}></div>
+                )
+            }}
             )}
           </div>
           { quests.length === 0 &&

@@ -64,8 +64,14 @@
 
 .boxBtn {
   margin: 10px;
-
 }
+
+.boxForLayout {
+  min-width: 450px;
+  min-height: 66px;
+  margin-bottom: 10px;
+}
+
 @media only screen and (max-device-width: 900px) {
   .quest {
     flex-direction: column;

@@ -114,9 +114,11 @@ input[type="file"] {
 }
 
 .inputFile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 5px;
   width: 140px;
-  border: 2px solid $color-gray;
   border-radius: 5px;
   color: $color-purple;
   text-align: center;

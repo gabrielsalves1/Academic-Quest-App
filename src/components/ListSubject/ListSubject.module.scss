@@ -26,6 +26,12 @@
   text-transform: uppercase;
 }
 
+.boxForLayout {
+  min-width: 450px;
+  min-height: 66px;
+  margin-bottom: 10px;
+}
+
 .subjectItemActive {
   border: solid 1px $color-purple-light;
 }
