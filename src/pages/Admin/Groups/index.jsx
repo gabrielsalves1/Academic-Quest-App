@@ -30,7 +30,7 @@ export default function Groups() {
             defaultOptions
             theme={(theme) => ({
               ...theme,
-              borderRadius: 5,
+              borderRadius: 16,
               colors: {
                 ...theme.colors,
                 primary: '#aea8ee',

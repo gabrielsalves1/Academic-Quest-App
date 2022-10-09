@@ -1,10 +1,12 @@
 @import "../../../global.scss";
 
 .title {
+  font-family: "Inter";
+  font-weight: 600;
   font-size: 32px;
   margin: 32px 0;
+  text-align: center;
 }
-
 .groups {
   width: 70%;
 }
