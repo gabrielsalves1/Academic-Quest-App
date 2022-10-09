@@ -8,6 +8,8 @@ import style from "./ViewGroup.module.scss";
 import { getData } from "../../../service/requests";
 import Container from "../../../components/Container";
 import LinkButton from "../../../components/LinkButton";
+import NewContainer from "../../../components/NewContainer";
+import BoxFlexDirectionColumn from "../../../components/BoxFlexDirectionColumn";
 
 export default function ViewGroup() {
   const [ loading, setLoading ] = useState();
@@ -21,9 +23,9 @@ export default function ViewGroup() {
   }, [idGroup, idSubject])
 
   return (
-    <Container classStyle="containerJustifyCenter">
+    <NewContainer>
       { loading ? (
-        <>
+        <BoxFlexDirectionColumn>
           <h1 className={style.title}>Grupo - {group?.nome}</h1>
           <h1 className={style.title}>{subject?.nome}</h1>
           <h2>Prof. {subject?.professor.firstName} {subject?.professor.lastName}</h2>
@@ -46,7 +48,7 @@ export default function ViewGroup() {
               }})
             }
           </div>
-        </>
+        </BoxFlexDirectionColumn>
       ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
       
 
@@ -55,6 +57,6 @@ export default function ViewGroup() {
 
         <LinkButton to={`/edit-group/${idGroup}/subject/${idSubject}`} classStyle="purple">Editar</LinkButton>
       </div>
-    </Container>
+    </NewContainer>
   );
 }

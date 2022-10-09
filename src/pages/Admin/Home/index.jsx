@@ -3,6 +3,8 @@ import style from "./Home.module.scss";
 
 import Container from "../../../components/Container";
 import LinkButton from "../../../components/LinkButton";
+import NewContainer from "../../../components/NewContainer";
+import BoxFlexDirectionColumn from "../../../components/BoxFlexDirectionColumn";
 
 export default function Home() {
   const [ username, setUsername ] = useState();
@@ -12,20 +14,22 @@ export default function Home() {
   }, [])
 
   return (
-    <Container classStyle="containerAlignCenter">
-      <h2 className={style.title}>Professor {username}, bem-vindo ao Academic Quest!</h2>
+    <NewContainer>
+      <BoxFlexDirectionColumn>
+        <h2 className={style.title}>Professor {username}, bem-vindo ao Academic Quest!</h2>
 
-      <div className={style.links}>
-        <LinkButton to="/projects">
-          Projetos
-        </LinkButton>
-        <LinkButton to="/groups">
-          Grupos
-        </LinkButton>
-        <LinkButton to="/dashboard">
-          Relatórios
-        </LinkButton>
-      </div>
-    </Container>
+        <div className={style.links}>
+          <LinkButton to="/projects">
+            Projetos
+          </LinkButton>
+          <LinkButton to="/groups">
+            Grupos
+          </LinkButton>
+          <LinkButton to="/dashboard">
+            Relatórios
+          </LinkButton>
+        </div>
+      </BoxFlexDirectionColumn>
+    </NewContainer>
   );
 }

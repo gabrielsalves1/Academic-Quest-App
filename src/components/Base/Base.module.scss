@@ -3,7 +3,7 @@
 
 input, select, option {
   font-family: 'Inter', sans-serif;
-  font-weight: lighter;
+  font-weight: 200;
 }
 
 .base {
@@ -12,7 +12,7 @@ input, select, option {
   justify-content: center;
   background-color: $color-gray-thin;
   font-family: 'Inter', sans-serif;
-  font-weight: lighter;
+  font-weight: 200;
   min-height: 100vh;
   width: 100%;
 }
