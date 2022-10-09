@@ -26,7 +26,7 @@ export default function Home() {
             Grupos
           </LinkButton>
           <LinkButton to="/dashboard">
-            Relatórios
+            Dashboard
           </LinkButton>
         </div>
       </BoxFlexDirectionColumn>

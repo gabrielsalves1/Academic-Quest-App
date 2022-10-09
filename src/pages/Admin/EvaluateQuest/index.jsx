@@ -41,22 +41,18 @@ export default function EvaluateQuest() {
           <BoxFlexDirectionColumn>
       
            { loading ? (
-            <>
-              <h1 className={style.title}> {task?.nome}</h1>
-              <h2 className={style.subtitle}>Descrição:  <span className={style.textBody}>{task?.descricao}</span></h2>
-              <h2 className={style.subtitle}>Data de Entrega:  <span className={style.textBody}>{new Date(Date.parse(task?.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'})}</span></h2>
-           
-              
-
-            <div className={style.questInfo}>
-              <StylizedButton onClick={() => { Base64ToPdf(task.nomeArquivo, task.upload, task.formato) }}>Baixar Arquivo<BsDownload className={style.icon}/></StylizedButton>
-              { task.nomeArquivo &&
-                <span className={style.text}>{task.nomeArquivo} <BsFillFileEarmarkMedicalFill className={style.icon}/></span>
-              }
-            </div>
+              <div className="questSection">
+                <h1 className={style.title}> {task?.nome}</h1>
+                <h2 className={style.subtitle}>Descrição:  <span className={style.textBody}>{task?.descricao}</span></h2>
+                <h2 className={style.subtitle}>Data de Entrega:  <span className={style.textBody}>{new Date(Date.parse(task?.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'})}</span></h2>
             
-            </>
-              
+                <div className={style.questInfo}>
+                  <StylizedButton onClick={() => { Base64ToPdf(task.nomeArquivo, task.upload, task.formato) }}>Baixar Arquivo<BsDownload className={style.icon}/></StylizedButton>
+                  { task.nomeArquivo &&
+                    <span className={style.text}>{task.nomeArquivo} <BsFillFileEarmarkMedicalFill className={style.icon}/></span>
+                  }
+                </div>
+              </div>
             ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
           </BoxFlexDirectionColumn>
         </BoxResult>

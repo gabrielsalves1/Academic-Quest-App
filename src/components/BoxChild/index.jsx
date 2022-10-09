@@ -1,18 +1,18 @@
 import React from "react";
 import style from "./BoxChild.module.scss";
-import { BsPencil } from "react-icons/bs";
-import { FiSettings } from "react-icons/fi";
+import { BsPencilSquare } from "react-icons/bs";
+import StylizedLink from "../StylizedLink";
 
 export default function BoxChild(props) {
   return (
     <div className={style.boxChild}>
-      <a href={props.urlProject} className={style.title}>
+      <StylizedLink to={props.urlProject} className={style.title}>
         <span>{props.children}</span>
-      </a>
+      </StylizedLink>
       <div className={style.config}>
-        <a href={props.urlConfigProject}>
-        <FiSettings className={style.icon} />
-        </a>
+        <StylizedLink to={props.urlConfigProject}>
+          <BsPencilSquare className={style.icon} />
+        </StylizedLink>
       </div>
     </div>
   );

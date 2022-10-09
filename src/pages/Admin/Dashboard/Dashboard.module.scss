@@ -1,7 +1,11 @@
+@import "../../../global.scss";
+
 .title {
-  font-family: 'Inter';
+  font-family: "Inter";
+  font-weight: 600;
   font-size: 32px;
   margin: 32px 0;
+  text-align: center;
 }
 
 .projects {
@@ -17,8 +21,10 @@
 }
 
 .selectForm {
-  width: 250px;
+  width: 300px;
+  color: $color-black;
 }
+
 
 @media only screen and (max-device-width: 900px) {
   .menuClassAndProject {
