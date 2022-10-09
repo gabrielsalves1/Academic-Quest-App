@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./BoxChildQuest.module.scss";
-import { FiSettings } from "react-icons/fi";
+import { BsPencilSquare } from "react-icons/bs";
 
 export default function BoxChildQuest(props) {
   return (
@@ -14,7 +14,7 @@ export default function BoxChildQuest(props) {
       </div>
       <div className={style.config}>
         <a href={props.urlQuest}>
-        <FiSettings className={style.icon} />
+        <BsPencilSquare className={style.icon} />
         </a>
       </div>
     </div>
