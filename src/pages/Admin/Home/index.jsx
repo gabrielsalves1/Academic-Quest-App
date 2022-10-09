@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import style from "./Home.module.scss";
 
-import Container from "../../../components/Container";
-import LinkButton from "../../../components/LinkButton";
+
 import NewContainer from "../../../components/NewContainer";
-import BoxFlexDirectionColumn from "../../../components/BoxFlexDirectionColumn";
+import { FaFolder } from "react-icons/fa";
+import { BsBarChartFill } from "react-icons/bs";
+import { HiUserGroup } from "react-icons/hi";
+
 
 export default function Home() {
   const [ username, setUsername ] = useState();
@@ -14,22 +16,37 @@ export default function Home() {
   }, [])
 
   return (
-    <NewContainer>
-      <BoxFlexDirectionColumn>
-        <h2 className={style.title}>Professor {username}, bem-vindo ao Academic Quest!</h2>
 
-        <div className={style.links}>
-          <LinkButton to="/projects">
-            Projetos
-          </LinkButton>
-          <LinkButton to="/groups">
-            Grupos
-          </LinkButton>
-          <LinkButton to="/dashboard">
-            Dashboard
-          </LinkButton>
-        </div>
-      </BoxFlexDirectionColumn>
+    <NewContainer classStyle="containerDirectionRow">
+
+    <h2 className={style.subtitle}>Olá, {username}!</h2>
+
+    <div className={style.containerBoxFlexDirectionRow}>
+     <div>
+        <a href="/projects">   
+          <div className={style.box}>
+            <span className={style.nomeMenu}> Projetos</span>
+            <FaFolder className={style.iconMenuFolder} />
+          </div>
+        </a>
+      </div>
+      <div>
+        <a href="/groups">   
+          <div className={style.box}>
+            <span className={style.nomeMenu}> Grupos</span>
+            <HiUserGroup className={style.iconMenuGroup} />
+          </div>
+        </a>
+      </div>
+      <div>
+        <a href="/dashboard">   
+          <div className={style.box}>
+            <span className={style.nomeMenu}> Dashboard</span>
+            <BsBarChartFill className={style.iconMenuGrid} />
+          </div>
+        </a>
+      </div>
+    </div>
     </NewContainer>
   );
 }

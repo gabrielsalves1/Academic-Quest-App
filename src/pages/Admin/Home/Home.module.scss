@@ -4,9 +4,28 @@
   width: 100%;
 }
 
+.containerBoxFlexDirectionRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 100px;
+}
+
 .title {
-  margin: 40px;
-  font-size: 32px;
+  font-family: 'Inter';
+  font-size: 24px;
+  font-weight: 600;
+  margin: 10px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.subtitle {
+  font-family: 'Inter';
+  font-size: 24px;
+  font-weight: 400;
+  margin: 10px;
 }
 
 .titleSecondary {
@@ -46,6 +65,51 @@
   margin-bottom: 30px;
 }
 
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 274px;
+  height: 201px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+  border-radius: 24px;
+  padding: 15px;
+  margin-left: 10px;
+}
+
+.nomeMenu {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 150%;
+  text-align: center;
+  color: #000000;
+}
+
+.iconMenuFolder {
+  width: 70px;
+  height: 70px;
+  color: #845EC2;
+  margin-top: 30px;
+}
+
+.iconMenuGroup {
+  width: 70px;
+  height: 70px;
+  color: #FF9671;
+  margin-top: 30px;
+}
+
+.iconMenuGrid {
+  width: 70px;
+  height: 70px;
+  color: #FF6F91;
+  margin-top: 30px;
+}
+
 @media only screen and (max-device-width: 900px) {
   .title {
     margin: 30px;
@@ -58,5 +122,16 @@
 
   .article {
     padding: 30px;
+  }
+
+  .containerBoxFlexDirectionRow {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .box {
+    margin-top: 30px;
   }
 }
