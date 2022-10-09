@@ -35,23 +35,23 @@ export default function ListProjects(props) {
                         <StatusBarGreen classStyle="slim">Em andamento</StatusBarGreen> 
                         <h1 className={style.title}> {project.nomeMateria}</h1>
                         <h2 className={style.subtitle}>Projeto:  <span className={style.textBody}>{project.nomeProjeto}</span></h2>
-          
+                        <p className={style.nota}><span className={style.textBody}>Nota:</span> {project.notaProjeto}</p>
                       </BoxFlexDirectionColumn>
                     </div>
                 </a>
                 )
               case "CONCLUIDO":
                 return (
-                  <li key={project.id}>
+                  <a href={`/project/${project.projetoId}/group/${project.grupoId}/tasks`} key={project.id}>
                     <div className={style.BoxGroupQuest}>
                     <BoxFlexDirectionColumn>
-                        <StatusBarGrray classStyle="slim">Concluído</StatusBarGrray> 
+                        <StatusBarGray classStyle="slim">Concluído</StatusBarGray> 
                         <h1 className={style.title}> {project.nomeMateria}</h1>
                         <h2 className={style.subtitle}>Projeto:  <span className={style.textBody}>{project.nomeProjeto}</span></h2>
-                        <p className={style.nota}>{project.notaProjeto}</p>
+                        <p className={style.nota}><span className={style.textBody}>Nota:</span> {project.notaProjeto}</p>
                       </BoxFlexDirectionColumn>
                     </div>
-                  </li>
+                  </a>
                 )
             }}
             )
