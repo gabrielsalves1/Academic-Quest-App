@@ -24,21 +24,21 @@ export default function ListProjects(props) {
     <>
    
       { loading ? (
-        <ul className={style.containerForbox}>
+        <div className={style.containerForbox}>
           { projects?.map((project) => {
             switch(project.statusProjeto) {
               case "EM_ANDAMENTO":
                 return (
-                  <li key={project.id}>
-                  <div className={style.BoxGroupQuest}>
-                    <BoxFlexDirectionColumn>
-                      <StatusBarGreen classStyle="slim">Em andamento</StatusBarGreen> 
-                      <h1 className={style.title}> {project.nomeMateria}</h1>
-                      <h2 className={style.subtitle}>Projeto:  <span className={style.textBody}>{project.nomeProjeto}</span></h2>
-        
-                    </BoxFlexDirectionColumn>
-                  </div>
-                </li>
+                  <a href={`/project/${project.projetoId}/group/${project.grupoId}/tasks`} key={project.id}>
+                    <div className={style.BoxGroupQuest}>
+                      <BoxFlexDirectionColumn>
+                        <StatusBarGreen classStyle="slim">Em andamento</StatusBarGreen> 
+                        <h1 className={style.title}> {project.nomeMateria}</h1>
+                        <h2 className={style.subtitle}>Projeto:  <span className={style.textBody}>{project.nomeProjeto}</span></h2>
+          
+                      </BoxFlexDirectionColumn>
+                    </div>
+                </a>
                 )
               case "CONCLUIDO":
                 return (
@@ -56,7 +56,7 @@ export default function ListProjects(props) {
             }}
             )
           }
-        </ul>
+        </div>
       ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
     
     </>
