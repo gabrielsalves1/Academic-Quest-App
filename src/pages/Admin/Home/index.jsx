@@ -2,11 +2,7 @@ import React, { useState, useEffect } from "react";
 import style from "./Home.module.scss";
 
 import NewContainer from "../../../components/NewContainer";
-import BoxResult from "../../../components/BoxResult";
-import BoxFlexDirectionColumn from "../../../components/BoxFlexDirectionColumn";
-import ComeBackButtonIcon from "../../../components/ComeBackButtonIcon";
-import BoxGroupQuest from "../../../components/BoxGroupQuest";
-import { FaFolder, FaTasks } from "react-icons/fa";
+import { FaFolder } from "react-icons/fa";
 import { BsBarChartFill } from "react-icons/bs";
 import { HiUserGroup } from "react-icons/hi";
 
