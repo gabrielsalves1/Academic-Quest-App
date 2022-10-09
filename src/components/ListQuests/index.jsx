@@ -21,7 +21,7 @@ export default function ListQuests(props) {
   return (
     <>
     <div>
-      { quests.length === 0 &&
+      { quests?.length === 0 &&
         <span className={style.withoutDataError}>Não há nenhuma quest cadastrada para o projeto.</span>
       }
     </div>
