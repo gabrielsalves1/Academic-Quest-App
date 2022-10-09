@@ -20,6 +20,12 @@ export default function ListQuests(props) {
 
   return (
     <>
+    <div>
+      { quests?.length === 0 &&
+        <span className={style.withoutDataError}>Não há nenhuma quest cadastrada para o projeto.</span>
+      }
+    </div>
+        
     
       { loading ? (
         <div className={style.containerQuests}>
@@ -51,14 +57,13 @@ export default function ListQuests(props) {
               }}
             )}
           </div>
-          { quests.length === 0 &&
-            <span className={style.withoutDataError}>Não há nenhuma quest cadastrada para o projeto.</span>
-          }
         </div>
       ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
       <div className={style.boxBtn}>
         <LinkButton to={`/project/${props.idProject}/create-quest`} classStyle="purple">Criar Quest</LinkButton>
       </div>
+
+       
     </>
   );
 }
