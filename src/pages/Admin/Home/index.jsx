@@ -20,8 +20,8 @@ export default function Home() {
   return (
     <NewContainer classStyle="containerDirectionRow">
 
-    <h2 className={style.subtitle}>Olá {username}!</h2>
-    
+    <h2 className={style.subtitle}>Olá, {username}!</h2>
+
     <div className={style.containerBoxFlexDirectionRow}>
      <div>
         <a href="/projects">   
