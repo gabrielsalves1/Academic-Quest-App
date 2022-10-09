@@ -2,6 +2,9 @@
 
 .stylizedLink {
   display: inline-block;
+  font-weight: 400;
+  padding: 5px;
+  text-decoration: underline;
   color: $color-purple;
   margin: 10px;
 }

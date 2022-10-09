@@ -17,11 +17,11 @@ export default function Projects() {
   return (
     <NewContainer>
       <h1 className={style.title}>Projetos</h1>
-      <BoxFlexDirectionRow>
 
+      <BoxFlexDirectionRow>
         <div className={style.projects}>
           <div className={style.menuClassAndProject}>
-        
+            <LinkButton to="/">Página inicial</LinkButton>
             <AsyncSelect 
               cacheOptions
               loadOptions={getClasses}

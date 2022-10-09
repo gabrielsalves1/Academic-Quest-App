@@ -6,6 +6,7 @@
   font-weight: 400;
   margin: 10px;
 }
+
 .title {
   font-family: 'Inter';
   font-size: 24px;
@@ -24,7 +25,7 @@
 
 .questSection {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   border: 2px solid $color-gray;
   border-radius: 5px;
@@ -37,7 +38,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   margin-right: 25px;
   margin-top: 20px;
 }

@@ -1,3 +1,5 @@
+@import "../../../global.scss";
+
 .title {
   font-family: "Inter";
   font-weight: 600;
@@ -7,7 +9,7 @@
 }
 
 .projects {
-  width: 100%;
+  width: 70%;
 }
 
 .menuClassAndProject {
@@ -33,6 +35,10 @@
   margin-right: 50px !important;
 }
 
+.selectForm {
+  width: 300px;
+  color: $color-black;
+}
 
 @media only screen and (max-device-width: 900px) {
   .menuClassAndProject {
