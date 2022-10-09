@@ -62,11 +62,14 @@ export default function Sidebar() {
             </div>
           ) : (
             <div className={style.containerLittleBoxMenu}>
+              <a href='/' className={style.littleBoxMenu}>
+                <AiFillHome className={style.iconMenuHome} />
+              </a>
               <a  href='/projects' className={style.littleBoxMenu}>
                 <FaFolder className={style.iconMenuFolder} />
               </a>
               <a href='/dashboard-aluno' className={style.littleBoxMenu}>
-                <FaTasks className={style.iconMenuTask} />
+              <BsBarChartFill className={style.iconMenuGrid} />
               </a>
             </div>
           )}

@@ -9,6 +9,11 @@ import StylizedA from "../../../components/StylizedA";
 import { useEffect } from "react";
 import { useState } from "react";
 
+import NewContainer from "../../../components/NewContainer";
+import { FaFolder, FaTasks } from "react-icons/fa";
+import { BsBarChartFill } from "react-icons/bs";
+import { HiUserGroup } from "react-icons/hi";
+
 export default function HomeStudent() {
   const [ username, setUsername ] = useState();
 
@@ -17,12 +22,28 @@ export default function HomeStudent() {
   }, [])
 
   return (
-    <Container classStyle="containerAlignCenter">
-      <div className={style.links}>
-        <LinkButton to="/projects">
-          Projetos
-        </LinkButton>
+    <NewContainer classStyle="containerDirectionRow">
+
+      <h2 className={style.subtitle}>Olá, {username}!</h2>
+
+      <div className={style.containerBoxFlexDirectionRow}>
+        <div>
+          <a href="/projects">   
+            <div className={style.box}>
+              <span className={style.nomeMenu}> Projetos</span>
+              <FaFolder className={style.iconMenuFolder} />
+            </div>
+          </a>
+        </div>
+        <div>
+        <a href="/dashboard-aluno">   
+          <div className={style.box}>
+            <span className={style.nomeMenu}> Dashboard</span>
+            <BsBarChartFill className={style.iconMenuGrid} />
+          </div>
+        </a>
+        </div>
       </div>
-    </Container>
+    </NewContainer>
   );
 }
