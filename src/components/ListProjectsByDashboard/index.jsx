@@ -27,10 +27,6 @@ export default function ListProjects(props) {
                     Dashboard {project.nome}
                   </LinkButton>
                   <span className={style.active}>Ativo</span>
-                  
-                  <LinkButton to={`/project/${project.id}/quest-management`}>
-                    Gerenciar Quest <BsPencil className={style.icon}/>
-                  </LinkButton>
                 </li>
               );
             } else if(project.status === "CONCLUIDO") {
@@ -40,9 +36,6 @@ export default function ListProjects(props) {
                   Dashboard {project.nome}
                   </LinkButton>
                   <span className={style.finished}>Concluído</span>
-                  <LinkButton to={`/project/${project.id}/quest-management`}>
-                    Gerenciar Quest <BsPencil className={style.icon}/>
-                  </LinkButton>
                 </li>
               );
             } else {
@@ -52,9 +45,6 @@ export default function ListProjects(props) {
                     Dashboard {project.nome}
                   </LinkButton>
                   <span className={style.active}>{project.status}</span>
-                  <LinkButton to={`/project/${project.id}/quest-management`}>
-                    Gerenciar Quest <BsPencil className={style.icon}/>
-                  </LinkButton>
                 </li>
               );
             }}

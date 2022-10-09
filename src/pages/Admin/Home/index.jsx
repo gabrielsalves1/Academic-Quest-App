@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import style from "./Home.module.scss";
 
+
 import NewContainer from "../../../components/NewContainer";
 import { FaFolder } from "react-icons/fa";
 import { BsBarChartFill } from "react-icons/bs";
 import { HiUserGroup } from "react-icons/hi";
+
 
 export default function Home() {
   const [ username, setUsername ] = useState();

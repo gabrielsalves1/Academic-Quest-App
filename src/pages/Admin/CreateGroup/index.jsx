@@ -10,6 +10,7 @@ import Container from "../../../components/Container";
 import LinkButton from "../../../components/LinkButton";
 import StylizedButton from "../../../components/StylizedButton";
 import ListSubject from "../../../components/ListSubject";
+import NewContainer from "../../../components/NewContainer";
 
 export default function CreateGroup() {
   const [ loading, setLoading ] = useState();
@@ -38,7 +39,7 @@ export default function CreateGroup() {
   }, [selectSubject]);
 
   return (
-    <Container classStyle="containerJustifyCenter">
+    <NewContainer>
       <h2 className={style.title}>Criar Grupo</h2>
 
       <Form className={style.form} onSubmit = { handleSubmit(onSubmit) }>
@@ -150,6 +151,6 @@ export default function CreateGroup() {
           <StylizedButton type="submit">Salvar</StylizedButton>
         </div>
       </Form>
-    </Container>
+    </NewContainer>
   );
 }

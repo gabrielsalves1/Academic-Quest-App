@@ -9,6 +9,7 @@ import { getData, putData } from "../../../service/requests";
 import Container from "../../../components/Container";
 import LinkButton from "../../../components/LinkButton";
 import StylizedButton from "../../../components/StylizedButton";
+import NewContainer from "../../../components/NewContainer";
 
 export default function EditGroup() {
   const [ loading, setLoading ] = useState();
@@ -40,7 +41,7 @@ export default function EditGroup() {
   }, [group]);
 
   return (
-    <Container classStyle="containerJustifyCenter">
+    <NewContainer>
       <h2 className={style.title}>Editar Grupo</h2>
 
       { loading ? (
@@ -123,6 +124,6 @@ export default function EditGroup() {
           </div>
         </Form>
       ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
-    </Container>
+    </NewContainer>
   );
 }
