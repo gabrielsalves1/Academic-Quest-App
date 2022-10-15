@@ -7,7 +7,7 @@ import { BsDownload, BsUpload, BsFillFileEarmarkMedicalFill } from "react-icons/
 
 import LinkButton from "../../../components/LinkButton";
 import StylizedButton from "../../../components/StylizedButton";
-import Container from "../../../components/Container";
+import QuestInfo from "../../../components/QuestInfo";
 import { getData, postDataFile } from "../../../service/requests";
 import Chat from "../../../components/Chat";
 
@@ -53,49 +53,24 @@ export default function ViewTask() {
     <>
     <div className={style.box}>
       { loading ? (
+        <>
+        <QuestInfo task={task}/>
+
         <div className={style.formHalf}>
-          { task && 
-            <div className={style.quest}>
-              <h1 className={style.title}>Informações da tarefa</h1>
-
-              <section className={style.questSection}>
-                <div className={style.questInfo}>
-                  <h2 className={style.taskItem}>{task?.nome}</h2>
-                  <p className={style.taskItem}>Descrição: {task?.descricao}</p>
-                  <span className={style.taskItem}>Data de Entrega: {new Date(Date.parse(task?.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'})}</span>
-                </div>
-
-                <div className={style.questInfo}>
-                  <StylizedButton onClick={() => { Base64ToPdf(task?.nomeArquivo, task?.upload, task?.formato) }}>Baixar Arquivo<BsDownload className={style.icon}/></StylizedButton>
-                  { task.nomeArquivo &&
-                    <span className={style.text}>{task.nomeArquivo} <BsFillFileEarmarkMedicalFill className={style.icon}/></span>
-                  }
-                </div>
-              </section>
-            </div>
-          }
 
           <h1 className={style.title}>{taskGroup?.nomeGrupo}</h1>
-          <h3 className={style.titleSecundary}>{taskGroup?.nomeTarefa}</h3>
+          <p className={style.titleSecundary}>Quest: <span className={style.text}>{taskGroup?.nomeTarefa}</span> </p>
+          <p className={style.titleSecundary}>Data de Entrega: <span className={style.text}>{taskGroup?.dataEntrega ? new Date(Date.parse(taskGroup.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'}) : "Não entregue"}</span> </p>
         
-          <div className={style.menuNameAndDate}>
-            <div>
-              <h3 className={style.titleSecundary}>Data de Entrega</h3>
-              <span className={style.titleSecundary}>
-                {taskGroup?.dataEntrega ? new Date(Date.parse(taskGroup.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'}) : " - "}
-              </span>
+          { taskGroup?.upload &&
+            <div className={style.uploadStudent}>
+              <StylizedButton onClick={() => { Base64ToPdf(taskGroup?.upload["titulo"], taskGroup?.upload["arquivoUpload"], taskGroup?.upload["formato"]) }}>
+                Baixar Arquivo<BsDownload className={style.icon}/>
+              </StylizedButton>
+              
+              <span className={style.text}>{taskGroup?.upload.titulo} <BsFillFileEarmarkMedicalFill className={style.icon}/></span>
             </div>
-        
-            { taskGroup?.upload &&
-              <div className={style.uploadStudent}>
-                <StylizedButton onClick={() => { Base64ToPdf(taskGroup?.upload["titulo"], taskGroup?.upload["arquivoUpload"], taskGroup?.upload["formato"]) }}>
-                  Baixar Arquivo<BsDownload className={style.icon}/>
-                </StylizedButton>
-                
-                <span className={style.text}>{taskGroup?.upload.titulo} <BsFillFileEarmarkMedicalFill className={style.icon}/></span>
-              </div>
-            }
-          </div>
+          }
           
           <Form onSubmit = { handleSubmit(onSubmit) }>
             <div className={style.menuDiv}>
@@ -116,7 +91,7 @@ export default function ViewTask() {
               <div className={style.menuSide}>
                 <div className={style.uploadStudent}>
                   { file &&
-                    <span className={style.text}>{file?.name} <BsFillFileEarmarkMedicalFill className={style.icon}/></span>
+                    <span className={style.textUpload}>{file?.name} <BsFillFileEarmarkMedicalFill className={style.icon}/></span>
                   }
 
                   <Form.Group controlId="formFile" className="mt-2 mb-2" htmlFor='file'>
@@ -137,6 +112,7 @@ export default function ViewTask() {
             </div>
           </Form>
         </div>
+        </>
       ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
 
       {/* { loading ? (
