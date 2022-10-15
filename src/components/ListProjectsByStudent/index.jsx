@@ -4,6 +4,12 @@ import style from "./ListProjectsByStudent.module.scss";
 
 import { getData } from "../../service/requests";
 import LinkButton from "../LinkButton";
+import StatusBarGreen from "../StatusBarGreen";
+import StatusBarGray from "../StatusBarGray";
+import BoxResult from "../BoxResult";
+import BoxFlexDirectionColumn from "../BoxFlexDirectionColumn";
+import NewContainer from "../NewContainer";
+import BoxGroupQuest from "../BoxGroupQuest";
 
 export default function ListProjects(props) {
   const [ loading, setLoading ] = useState();
@@ -16,56 +22,43 @@ export default function ListProjects(props) {
 
   return (
     <>
+   
       { loading ? (
-        <ul>
+        <div className={style.containerForbox}>
           { projects?.map((project) => {
-            if(project.statusProjeto === "EM_ANDAMENTO") {
-              return (
-                <li className={style.project} key={project.projetoId}>
-                  <LinkButton to={`/project/${project.projetoId}/group/${project.grupoId}/tasks`} classStyle="purple">
-                    {project.nomeProjeto}
-                  </LinkButton>
-                  <span className={style.active}>Ativo</span>
-                  <span className={style.infoText}>Nota: {project.notaProjeto}</span>
-                  <div className={style.infoProject}>
-                    <span className={style.infoText}>Matéria: {project.nomeMateria}</span>
-                    <span className={style.infoText}>Grupo: {project.nomeGrupo}</span>
-                  </div>
-                </li>
-              );
-            } else if(project.statusProjeto === "CONCLUIDO") {
-              return (
-                <li className={style.project} key={project.projetoId}>
-                  <LinkButton to={`/project/${project.projetoId}/group/${project.grupoId}/tasks`} classStyle="purple">
-                    {project.nomeProjeto}
-                  </LinkButton>
-                  <span className={style.finished}>Concluído</span>
-                  <span className={style.infoText}>Nota: {project.notaProjeto}</span>
-                  <div className={style.infoProject}>
-                    <span className={style.infoText}>Matéria: {project.nomeMateria}</span>
-                    <span className={style.infoText}>Grupo: {project.nomeGrupo}</span>
-                  </div>
-                </li>
-              );
-            } else {
-              return (
-                <li className={style.project} key={project.projetoId}>
-                  <LinkButton to={`/project/${project.projetoId}/group/${project.grupoId}/tasks`} classStyle="purple">
-                    {project.nome}
-                  </LinkButton>
-                  <span className={style.active}>{project.status}</span>
-                  <span className={style.infoText}>Nota: {project.notaProjeto}</span>
-                  <div className={style.infoProject}>
-                    <span className={style.infoText}>Matéria: {project.nomeMateria}</span>
-                    <span className={style.infoText}>Grupo: {project.nomeGrupo}</span>
-                  </div>
-                </li>
-              );
+            switch(project.statusProjeto) {
+              case "EM_ANDAMENTO":
+                return (
+                  <a href={`/project/${project.projetoId}/group/${project.grupoId}/tasks`} key={project.id}>
+                    <div className={style.BoxGroupQuest}>
+                      <BoxFlexDirectionColumn>
+                        <StatusBarGreen classStyle="slim">Em andamento</StatusBarGreen> 
+                        <h1 className={style.title}> {project.nomeMateria}</h1>
+                        <h2 className={style.subtitle}>Projeto:  <span className={style.textBody}>{project.nomeProjeto}</span></h2>
+                        <p className={style.nota}><span className={style.textBody}>Nota:</span> {project.notaProjeto}</p>
+                      </BoxFlexDirectionColumn>
+                    </div>
+                </a>
+                )
+              case "CONCLUIDO":
+                return (
+                  <a href={`/project/${project.projetoId}/group/${project.grupoId}/tasks`} key={project.id}>
+                    <div className={style.BoxGroupQuest}>
+                    <BoxFlexDirectionColumn>
+                        <StatusBarGray classStyle="slim">Concluído</StatusBarGray> 
+                        <h1 className={style.title}> {project.nomeMateria}</h1>
+                        <h2 className={style.subtitle}>Projeto:  <span className={style.textBody}>{project.nomeProjeto}</span></h2>
+                        <p className={style.nota}><span className={style.textBody}>Nota:</span> {project.notaProjeto}</p>
+                      </BoxFlexDirectionColumn>
+                    </div>
+                  </a>
+                )
             }}
             )
           }
-        </ul>
+        </div>
       ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
+    
     </>
   );
 }
