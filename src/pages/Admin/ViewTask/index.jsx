@@ -9,6 +9,7 @@ import api from "../../../service/api";
 import history from "../../../service/history";
 import LinkButton from "../../../components/LinkButton";
 import StylizedButton from "../../../components/StylizedButton";
+import QuestInfo from "../../../components/QuestInfo";
 import Chat from "../../../components/Chat";
 
 import NewContainer from "../../../components/NewContainer";
@@ -51,16 +52,22 @@ export default function ViewTask() {
 
     <>
     <ComeBackButtonIcon url={`/project/${idProject}/evaluate-quest/${idQuest}`}> </ComeBackButtonIcon>
+
+    { loadingTask && 
+      <QuestInfo task={task}/>
+    }
+
     <div className={style.box}>
       { loading ? (
       <div className={style.formHalf}>
         <h1 className={style.title}>{taskGroup?.nomeGrupo}</h1>
 
-        <div className={style.menuNameAndDate}>
-          <p className={style.titleSecundary}>Quest: <span className={style.text}>{taskGroup?.nomeTarefa}</span> </p>
-          <p className={style.titleSecundary}>Data de Entrega: <span className={style.text}>{taskGroup?.dataEntrega ? new Date(Date.parse(taskGroup.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'}) : "não entregue"}</span> </p>
-        </div>
+        <p className={style.titleSecundary}>Data de Entrega: <span className={style.text}>{taskGroup?.dataEntrega ? new Date(Date.parse(taskGroup.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'}) : "Não entregue"}</span> </p>
+        <p className={style.titleSecundary}>Quest: <span className={style.text}>{taskGroup?.nomeTarefa}</span> </p>
+        
+        <div className={style.alignButton}>
           <StylizedButton onClick={() => { Base64ToPdf(taskGroup?.upload["titulo"], taskGroup?.upload["arquivoUpload"], taskGroup?.upload["formato"]) }}>Baixar Arquivo<BsDownload className={style.icon}/></StylizedButton>
+        </div>
         
         <Form onSubmit = { handleSubmit(onSubmit) }>
           <Form.Group>
