@@ -5,7 +5,6 @@ import style from "./Dashboard.module.scss";
 import { getClasses, getData } from "../../../service/requests";
 import LinkButton from "../../../components/LinkButton";
 import ListSubjectByDashboard from "../../../components/ListSubjectByDashboard";
-import Container from "../../../components/Container";
 import NewContainer from "../../../components/NewContainer";
 import BoxFlexDirectionColumn from "../../../components/BoxFlexDirectionColumn";
 

@@ -5,16 +5,9 @@ import { useForm } from "react-hook-form";
 import { Form, Spinner } from "react-bootstrap";
 import { BsDownload } from "react-icons/bs";
 
-import api from "../../../service/api";
-import history from "../../../service/history";
-import LinkButton from "../../../components/LinkButton";
 import StylizedButton from "../../../components/StylizedButton";
 import QuestInfo from "../../../components/QuestInfo";
-import Chat from "../../../components/Chat";
-
-import NewContainer from "../../../components/NewContainer";
-import { getData, postMessageChat, putData } from "../../../service/requests";
-import { RiSendPlane2Fill } from "react-icons/ri";
+import { getData, putData } from "../../../service/requests";
 import ComeBackButtonIcon from "../../../components/ComeBackButtonIcon";
 
 export default function ViewTask() {

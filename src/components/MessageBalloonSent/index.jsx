@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 import style from "./MessageBalloonSent.module.scss";
 
 export default function MessageBalloonSent(props) {

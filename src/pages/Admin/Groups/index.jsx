@@ -3,7 +3,6 @@ import AsyncSelect from 'react-select/async';
 import style from "./Groups.module.scss";
 
 import { getClasses, getData } from "../../../service/requests";
-import Container from "../../../components/Container";
 import LinkButton from "../../../components/LinkButton";
 import ListSubject from "../../../components/ListSubject";
 import NewContainer from "../../../components/NewContainer";

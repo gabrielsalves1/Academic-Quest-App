@@ -1,6 +1,5 @@
 @import "../../global.scss"; 
 
-
 a {
   text-decoration: none;
 }
@@ -92,18 +91,19 @@ a:hover {
 .littleBoxMenu {
   width: 75px;
   height: 50px;
+  margin: 5px;
   background: #FFFFFF;
   border-radius: 8px;
   margin-bottom: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25) !important;
 }
 
 .boxMenu {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   width: 208px;
   height: 50px;
@@ -111,6 +111,25 @@ a:hover {
   border-radius: 8px;
   margin-bottom: 15px;
   padding-left: 20px;
+}
+
+.boxNotifications {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: #FFFFFF;
+  border-radius: 16px;
+  text-decoration: none;
+}
+
+.notificationItem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  word-break: break-word;
+  height: 50px;
+  font-weight: 300;
+  text-decoration: none;
 }
 
 .nameMenuGrid {

@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
-import { BsPencil } from "react-icons/bs";
 import style from "./ListProjectsByDashboard.module.scss";
 
 import { getData } from "../../service/requests";
 import LinkButton from "../LinkButton";
-import ViewDashboard from "../ViewDashboard";
 
 export default function ListProjects(props) {
   const [ loading, setLoading ] = useState();
@@ -24,7 +22,7 @@ export default function ListProjects(props) {
               return (
                 <li className={style.project} key={project.id}>
                   <LinkButton to={`/view-dashboard/${project.id}`} classStyle="purple">
-                    Dashboard {project.nome}
+                    {project.nome}
                   </LinkButton>
                   <span className={style.active}>Ativo</span>
                 </li>
@@ -33,7 +31,7 @@ export default function ListProjects(props) {
               return (
                 <li className={style.project} key={project.id}>
                   <LinkButton to={`/view-dashboard/${project.id}`} classStyle="purple">
-                  Dashboard {project.nome}
+                  {project.nome}
                   </LinkButton>
                   <span className={style.finished}>Concluído</span>
                 </li>
@@ -42,7 +40,7 @@ export default function ListProjects(props) {
               return (
                 <li className={style.project} key={project.id}>
                   <LinkButton to={`/view-dashboard/${project.id}`} classStyle="purple">
-                    Dashboard {project.nome}
+                    {project.nome}
                   </LinkButton>
                   <span className={style.active}>{project.status}</span>
                 </li>

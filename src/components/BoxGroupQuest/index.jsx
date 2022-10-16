@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./BoxGroupQuest.module.scss";
+import { Link } from "react-router-dom";
 import StatusBarGreen from "../StatusBarGreen";
 import StatusBarYellow from "../StatusBarYellow";
 import StatusBarRed from "../StatusBarRed";
@@ -9,7 +10,7 @@ export default function BoxGroupQuest(props) {
   const date = props.children.dataEntrega ? new Date(Date.parse(props.children.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'}) : "Não entregue";
   const nota = props.children.nota !== null ? props.children.nota : "-";
   return (
-    <a href={props.url}>   
+    <Link to={props.url}>   
       <div className={style.box}>
         <span className={style.nomeGrupo}> {props.children.nomeGrupo}</span>
 
@@ -30,6 +31,6 @@ export default function BoxGroupQuest(props) {
         }
         
       </div>
-    </a>
+    </Link>
   );
 }

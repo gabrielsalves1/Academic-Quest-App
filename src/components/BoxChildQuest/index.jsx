@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./BoxChildQuest.module.scss";
 import { BsPencilSquare } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 export default function BoxChildQuest(props) {
   return (
@@ -13,9 +14,9 @@ export default function BoxChildQuest(props) {
         <span>{props.dataEntrega}</span>
       </div>
       <div className={style.config}>
-        <a href={props.urlQuest}>
-        <BsPencilSquare className={style.icon} />
-        </a>
+        <Link to={props.urlQuest}>
+          <BsPencilSquare className={style.icon} />
+        </Link>
       </div>
     </div>
   );

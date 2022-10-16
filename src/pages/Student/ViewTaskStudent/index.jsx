@@ -9,7 +9,6 @@ import LinkButton from "../../../components/LinkButton";
 import StylizedButton from "../../../components/StylizedButton";
 import QuestInfo from "../../../components/QuestInfo";
 import { getData, postDataFile } from "../../../service/requests";
-import Chat from "../../../components/Chat";
 
 export default function ViewTask() {
   const [ loading, setLoading ] = useState();

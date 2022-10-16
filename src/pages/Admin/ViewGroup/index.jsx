@@ -6,7 +6,6 @@ import { Spinner } from "react-bootstrap";
 import style from "./ViewGroup.module.scss";
 
 import { getData } from "../../../service/requests";
-import Container from "../../../components/Container";
 import LinkButton from "../../../components/LinkButton";
 import NewContainer from "../../../components/NewContainer";
 import BoxFlexDirectionColumn from "../../../components/BoxFlexDirectionColumn";
