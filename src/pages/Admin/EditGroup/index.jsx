@@ -6,7 +6,6 @@ import { Form, Spinner } from "react-bootstrap";
 import style from "./EditGroup.module.scss";
 
 import { getData, putData } from "../../../service/requests";
-import Container from "../../../components/Container";
 import LinkButton from "../../../components/LinkButton";
 import StylizedButton from "../../../components/StylizedButton";
 import NewContainer from "../../../components/NewContainer";

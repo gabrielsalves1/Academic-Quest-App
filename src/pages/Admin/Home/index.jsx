@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import style from "./Home.module.scss";
 
-
+import { Link } from "react-router-dom";
 import NewContainer from "../../../components/NewContainer";
 import { FaFolder } from "react-icons/fa";
 import { BsBarChartFill } from "react-icons/bs";
@@ -23,28 +23,28 @@ export default function Home() {
 
     <div className={style.containerBoxFlexDirectionRow}>
      <div>
-        <a href="/projects">   
+        <Link to="/projects">   
           <div className={style.box}>
             <span className={style.nomeMenu}> Projetos</span>
             <FaFolder className={style.iconMenuFolder} />
           </div>
-        </a>
+        </Link>
       </div>
       <div>
-        <a href="/groups">   
+        <Link to="/groups">   
           <div className={style.box}>
             <span className={style.nomeMenu}> Grupos</span>
             <HiUserGroup className={style.iconMenuGroup} />
           </div>
-        </a>
+        </Link>
       </div>
       <div>
-        <a href="/dashboard">   
+        <Link to="/dashboard">   
           <div className={style.box}>
             <span className={style.nomeMenu}> Dashboard</span>
             <BsBarChartFill className={style.iconMenuGrid} />
           </div>
-        </a>
+        </Link>
       </div>
     </div>
     </NewContainer>

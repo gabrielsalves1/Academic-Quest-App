@@ -3,13 +3,10 @@ import { Spinner } from "react-bootstrap";
 import style from "./ListProjectsByStudent.module.scss";
 
 import { getData } from "../../service/requests";
-import LinkButton from "../LinkButton";
+import { Link } from "react-router-dom";
 import StatusBarGreen from "../StatusBarGreen";
 import StatusBarGray from "../StatusBarGray";
-import BoxResult from "../BoxResult";
 import BoxFlexDirectionColumn from "../BoxFlexDirectionColumn";
-import NewContainer from "../NewContainer";
-import BoxGroupQuest from "../BoxGroupQuest";
 
 export default function ListProjects(props) {
   const [ loading, setLoading ] = useState();
@@ -29,7 +26,7 @@ export default function ListProjects(props) {
             switch(project.statusProjeto) {
               case "EM_ANDAMENTO":
                 return (
-                  <a href={`/project/${project.projetoId}/group/${project.grupoId}/tasks`} key={project.id}>
+                  <Link to={`/project/${project.projetoId}/group/${project.grupoId}/tasks`} key={project.id}>
                     <div className={style.BoxGroupQuest}>
                       <BoxFlexDirectionColumn>
                         <StatusBarGreen classStyle="slim">Em andamento</StatusBarGreen> 
@@ -38,11 +35,11 @@ export default function ListProjects(props) {
                         <p className={style.nota}><span className={style.textBody}>Nota:</span> {project.notaProjeto}</p>
                       </BoxFlexDirectionColumn>
                     </div>
-                </a>
+                </Link>
                 )
               case "CONCLUIDO":
                 return (
-                  <a href={`/project/${project.projetoId}/group/${project.grupoId}/tasks`} key={project.id}>
+                  <Link to={`/project/${project.projetoId}/group/${project.grupoId}/tasks`} key={project.id}>
                     <div className={style.BoxGroupQuest}>
                     <BoxFlexDirectionColumn>
                         <StatusBarGray classStyle="slim">Concluído</StatusBarGray> 
@@ -51,7 +48,7 @@ export default function ListProjects(props) {
                         <p className={style.nota}><span className={style.textBody}>Nota:</span> {project.notaProjeto}</p>
                       </BoxFlexDirectionColumn>
                     </div>
-                  </a>
+                  </Link>
                 )
             }}
             )

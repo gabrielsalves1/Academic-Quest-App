@@ -3,7 +3,6 @@ import style from "./QuestInfo.module.scss";
 import { BsDownload, BsFillFileEarmarkMedicalFill } from "react-icons/bs";
 
 import StylizedButton from "../StylizedButton";
-import BoxResult from "../BoxResult";
 import BoxFlexDirectionColumn from "../BoxFlexDirectionColumn";
 
 export default function QuestInfo(props) {

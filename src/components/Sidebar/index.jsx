@@ -1,4 +1,5 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Image } from "react-bootstrap";
 import { HiChevronDoubleRight, HiChevronDoubleLeft } from "react-icons/hi";
@@ -7,11 +8,15 @@ import { FaFolder, FaTasks } from "react-icons/fa";
 import { HiUserGroup } from "react-icons/hi";
 import { AiFillHome } from "react-icons/ai";
 import { MdLogout } from "react-icons/md";
+import { IoNotifications } from "react-icons/io5";
 import style from './Sidebar.module.scss';
 
 
 import { Context } from "../../Context/AuthContext";
+import Dropdown from 'react-bootstrap/Dropdown';
+import SplitButton from 'react-bootstrap/SplitButton';
 import iconLogo from '../../assets/img/icon-academic-quest.svg';
+import { getData } from '../../service/requests';
 
 export default function Sidebar() {
   const [show, setShow] = useState(false);
@@ -20,15 +25,21 @@ export default function Sidebar() {
   const { handleLogout } = useContext(Context);
   const [ userFirstName, setUserFirstName] = useState(sessionStorage.getItem('userFirstName'));
   const [ userRole, setUserRole ] = useState(sessionStorage.getItem('role'));
+  const [ idUser, setUserId ] = useState(sessionStorage.getItem('idUser'));
+  const [ notifications, setNotifications ] = useState();
+  const [ loading, setLoading ] = useState();
 
+  useEffect(() => {
+    getData(`/notificacoes/${idUser}`, setNotifications, setLoading);
+  }, [idUser])
 
   return (
     <>
       <div className={style.sidebarClosed}>
         <div className={style.boxHeader}>
-          <a href='/sobre'>
+          <Link to='/sobre'>
             <Image fluid src={iconLogo} className={style.novoLogoStyle}/>
-          </a>
+          </Link>
 
           <div className={style.boxIcon}>
             <HiChevronDoubleRight onClick={handleShow} className={style.iconStyle} data-testid="sidebar"/>
@@ -40,37 +51,62 @@ export default function Sidebar() {
           <p className={style.userRole}>
             {userRole == "PROFESSOR" ? "Professor" : "Aluno"}
           </p>
+          <SplitButton
+            key="end"
+            id={`dropdown-button-drop-end`}
+            drop="end"
+            title={<IoNotifications className={style.iconMenuHome}/>}
+            className={style.littleBoxMenu}
+            variant="none"
+          >
+            {(notifications?.length > 0 ) ? (
+              notifications.map((notification) => {
+                return (
+                  <div className={style.boxNotifications}>
+                    <Dropdown.Item eventKey={notification.id} className={style.notificationItem}>
+                      {notification.mensagem}
+                    </Dropdown.Item>
+                    <Dropdown.Divider />
+                  </div>
+                );
+              })
+            ) : (
+              <div className={style.boxNotifications}>
+                <Dropdown.Item className={style.notificationItem}>Não há notificações!</Dropdown.Item>
+              </div>
+            )}
+          </SplitButton>
         </div>
 
         { userRole === "PROFESSOR" ? (
             <div className={style.containerLittleBoxMenu}>
-              <a href='/' className={style.littleBoxMenu}>
+              <Link to='/' className={style.littleBoxMenu}>
                 <AiFillHome className={style.iconMenuHome} />
-              </a>
-              <a href='/dashboard' className={style.littleBoxMenu}>
+              </Link>
+              <Link to='/dashboard' className={style.littleBoxMenu}>
                 <BsBarChartFill className={style.iconMenuGrid} />
-              </a>
-              <a  href='/projects' className={style.littleBoxMenu}>
+              </Link>
+              <Link  to='/projects' className={style.littleBoxMenu}>
                 <FaFolder className={style.iconMenuFolder} />
-              </a>
-              <a  href='/groups' className={style.littleBoxMenu}>
+              </Link>
+              <Link  to='/groups' className={style.littleBoxMenu}>
                 <HiUserGroup className={style.iconMenuGroup} />
-              </a>
-              <a  href='/to-do-list' className={style.littleBoxMenu}>
+              </Link>
+              <Link  to='/to-do-list' className={style.littleBoxMenu}>
                 <FaTasks className={style.iconMenuTask} />
-              </a>
+              </Link>
             </div>
           ) : (
             <div className={style.containerLittleBoxMenu}>
-              <a href='/' className={style.littleBoxMenu}>
+              <Link to='/' className={style.littleBoxMenu}>
                 <AiFillHome className={style.iconMenuHome} />
-              </a>
-              <a  href='/projects' className={style.littleBoxMenu}>
+              </Link>
+              <Link  to='/projects' className={style.littleBoxMenu}>
                 <FaFolder className={style.iconMenuFolder} />
-              </a>
-              <a href='/dashboard-aluno' className={style.littleBoxMenu}>
+              </Link>
+              <Link to='/dashboard-aluno' className={style.littleBoxMenu}>
               <BsBarChartFill className={style.iconMenuGrid} />
-              </a>
+              </Link>
             </div>
           )}
         <span onClick={handleLogout} className={style.sair}>
@@ -81,9 +117,9 @@ export default function Sidebar() {
 
       <Offcanvas show={show} onHide={handleClose} className={style.sidebarOpen}>
         <div className={style.boxHeader}>
-          <a href='/sobre'>
+          <Link to='/sobre'>
             <Image fluid src={iconLogo} className={style.novoLogoStyle}/>
-          </a>
+          </Link>
           <span className={style.academicQuest}>Academic <br/> Quest</span>
           <div>
             <HiChevronDoubleLeft onClick={handleClose} className={style.iconStyle} data-testid="sidebar"/>
@@ -101,38 +137,38 @@ export default function Sidebar() {
           <div className={style.containerLittleBoxMenu}>
           { userRole === "PROFESSOR" ? (
             <>
-              <a href='/' className={style.boxMenu}>
+              <Link to='/' className={style.boxMenu}>
                 <AiFillHome className={style.iconMenuHome} />
                 <span className={style.nameMenuHome}>Home</span>
-              </a>
-              <a href='/dashboard' className={style.boxMenu}>
+              </Link>
+              <Link to='/dashboard' className={style.boxMenu}>
                 <BsBarChartFill className={style.iconMenuGrid} />
                 <span className={style.nameMenuGrid}>Dashboard</span>
-              </a>
-              <a  href='/projects' className={style.boxMenu}>
+              </Link>
+              <Link  to='/projects' className={style.boxMenu}>
                 <FaFolder className={style.iconMenuFolder} />
                 <span className={style.nameMenuFolder}>Projetos</span>
-              </a>
-              <a  href='/groups' className={style.boxMenu}>
+              </Link>
+              <Link  to='/groups' className={style.boxMenu}>
                 <HiUserGroup className={style.iconMenuGroup} />
                 <span className={style.nameMenuGroup}>Grupos</span>
-              </a>
-              <a  href='/to-do-list' className={style.boxMenu}>
+              </Link>
+              <Link  to='/to-do-list' className={style.boxMenu}>
                 <FaTasks className={style.iconMenuTask} />
                 <span className={style.nameMenuTask}>Tarefas Entregues</span>
-              </a>
+              </Link>
             </>
           ) : 
           (
             <>
-              <a  href='/projects' className={style.boxMenu}>
+              <Link  to='/projects' className={style.boxMenu}>
                 <FaFolder className={style.iconMenuFolder} />
                 <span className={style.nameMenuFolder}>Projetos</span>
-              </a>
-              <a href='/dashboard-aluno' className={style.boxMenu}>
+              </Link>
+              <Link to='/dashboard-aluno' className={style.boxMenu}>
                 <FaTasks className={style.iconMenuTask} />
                 <span className={style.nameMenuTask}>Tarefas pendentes</span>
-              </a>
+              </Link>
             </>
           ) }
           </div>

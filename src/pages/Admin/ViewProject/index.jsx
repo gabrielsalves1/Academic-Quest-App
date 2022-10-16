@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 import style from "./ViewProject.module.scss";
 
-import { getData, postData, postGroupGradeByProject } from "../../../service/requests";
+import { getData, postData } from "../../../service/requests";
 import NewContainer from "../../../components/NewContainer";
 import StylizedButton from "../../../components/StylizedButton";
 import LinkButton from "../../../components/LinkButton";

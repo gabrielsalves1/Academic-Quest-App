@@ -3,12 +3,9 @@ import { useForm } from "react-hook-form";
 import { Form, Image } from "react-bootstrap";
 import style from "./Login.module.scss";
 
-import logo from '../../assets/img/logo-academic-quest.png';
 import novoLogo from '../../assets/img/logo-academic-quest.svg';
 import { Context } from "../../Context/AuthContext";
 import { postLogin } from "../../service/requests";
-import Container from "../../components/Container";
-import StylizedButton from "../../components/StylizedButton";
   
 export default function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();

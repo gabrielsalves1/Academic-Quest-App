@@ -1,6 +1,5 @@
 import React from "react";
 import style from "./About.module.scss";
-import Logo from '../../assets/img/logo-academic-quest.svg';
 
 export default function About() {
   return (

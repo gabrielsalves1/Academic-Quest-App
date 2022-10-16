@@ -6,12 +6,7 @@ import style from "./EvaluateQuest.module.scss";
 import ComeBackButtonIcon from "../../../components/ComeBackButtonIcon";
 import GroupQuestContainer from "../../../components/GroupQuestContainer";
 import NewContainer from "../../../components/NewContainer";
-import StylizedButton from "../../../components/StylizedButton";
 import { getData } from "../../../service/requests";
-import BoxResult from "../../../components/BoxResult";
-import BoxFlexDirectionColumn from "../../../components/BoxFlexDirectionColumn";
-import StatusBarGreen from "../../../components/StatusBarGreen";
-import StatusBarGray from "../../../components/StatusBarGray";
 import QuestInfo from "../../../components/QuestInfo";
 
 export default function EvaluateQuest() {
