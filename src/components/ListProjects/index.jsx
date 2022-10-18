@@ -26,13 +26,13 @@ export default function ListProjects(props) {
               { projects?.map((project) => {
                 if(project.status === "EM_ANDAMENTO") {
                   return (
-                    <BoxChild urlProject={`/view-project/${project.id}`} urlConfigProject={`/project/${project.id}/quest-management`}>
+                    <BoxChild urlProject={`/view-project/${project.id}`} urlConfigProject={`/project/${project.id}/quest-management`} key={project.id}>
                       {project.nome}
                     </BoxChild>
                   );
                 }  else {
                     return (
-                      <div className={style.boxForLayout}></div>
+                      <div className={style.boxForLayout} key={project.id}></div>
                     )
                 }
               })}
@@ -42,13 +42,13 @@ export default function ListProjects(props) {
               { projects?.map((project) => {
                 if(project.status === "CONCLUIDO") {
                   return (
-                    <BoxChild urlProject={`/view-project/${project.id}`} urlConfigProject={`/project/${project.id}/quest-management`}>
+                    <BoxChild urlProject={`/view-project/${project.id}`} urlConfigProject={`/project/${project.id}/quest-management`} key={project.id}>
                       {project.nome}
                     </BoxChild>
                   );
                 } else {
                     return (
-                      <div className={style.boxForLayout}></div>
+                      <div className={style.boxForLayout} key={project.id}></div>
                     )
                 }
               })}

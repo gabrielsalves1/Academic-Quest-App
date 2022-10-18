@@ -15,8 +15,6 @@ export default function QuestManagement(props) {
         <h1 className={style.title}>
           Gerenciamento de Quest
         </h1>
-        
-
       <ListQuests idProject={idProject}></ListQuests>
     </NewContainer>
   );

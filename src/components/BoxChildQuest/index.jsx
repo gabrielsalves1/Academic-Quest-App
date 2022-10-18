@@ -10,7 +10,7 @@ export default function BoxChildQuest(props) {
       <span className={style.title}>{props.children}</span>
     
       <div className={style.data}>
-        <span class="mb-2">Date de entrega </span>
+        <span className="mb-2">Date de entrega </span>
         <span>{props.dataEntrega}</span>
       </div>
       <div className={style.config}>

@@ -12,7 +12,7 @@ import BoxFlexDirectionRow from "../../../components/BoxFlexDirectionRow";
 export default function Projects() {
   const [ loading, setLoading ] = useState();
   const [ subjects, setSubjects ] = useState();
-
+  const [ userId, setUserId ] = useState(sessionStorage.getItem("idUser"));
 
   return (
     <NewContainer>
@@ -26,7 +26,7 @@ export default function Projects() {
               cacheOptions
               loadOptions={getClasses}
               onChange={(data) => {
-              getData(`/materias/turma/${data.id}`, setSubjects, setLoading);
+              getData(`/materias/turma/${data.id}/idProfessor/${userId}`, setSubjects, setLoading);
             }}
             defaultOptions
             theme={(theme) => ({

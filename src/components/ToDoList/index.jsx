@@ -10,9 +10,10 @@ import BoxFlexDirectionColumn from "../BoxFlexDirectionColumn";
 export default function ToDoList() {
   const [loading, setLoading] = useState();
   const [toDo, setToDo] = useState();
+  const [ userId, setUserId ] = useState(sessionStorage.getItem("idUser"));
   
   useEffect(() => {
-    getData('/tarefa/grupo/entregues', setToDo, setLoading);
+    getData(`/tarefa/grupo/entregues/professorId/${userId}`, setToDo, setLoading);
   }, []);
 
   return (

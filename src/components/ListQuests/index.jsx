@@ -36,7 +36,7 @@ export default function ListQuests(props) {
 
               if(date >= today) {
                 return (
-                  <BoxChildQuest urlQuest={`/project/${props.idProject}/evaluate-quest/${quest.id}`} dataEntrega={date}>
+                  <BoxChildQuest urlQuest={`/project/${props.idProject}/evaluate-quest/${quest.id}`} dataEntrega={date} key={quest.id}>
                     {quest.nome}
                   </BoxChildQuest>
                 );
@@ -50,7 +50,7 @@ export default function ListQuests(props) {
 
               if(date < today) {
                 return (
-                  <BoxChildQuest urlQuest={`/project/${props.idProject}/evaluate-quest/${quest.id}`} dataEntrega={date}>
+                  <BoxChildQuest urlQuest={`/project/${props.idProject}/evaluate-quest/${quest.id}`} dataEntrega={date} key={quest.id}>
                     {quest.nome}
                   </BoxChildQuest>
                 );

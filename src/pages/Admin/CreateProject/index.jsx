@@ -18,6 +18,7 @@ export default function CreateProject() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [ subjects, setSubjects ] = useState();
   const [ selectSubject, setSelectSubject ] = useState();
+  const [ userId, setUserId ] = useState(sessionStorage.getItem("idUser"));
 
   const onSubmit = data => {
     data['materiaId'] = selectSubject;
@@ -37,7 +38,7 @@ export default function CreateProject() {
         defaultOptions
         loadOptions={getClasses}
         onChange={(data) => {
-          getData(`/materias/turma/${data.id}`, setSubjects, setLoading);
+          getData(`/materias/turma/${data.id}/idProfessor/${userId}`, setSubjects, setLoading);
         }}
         theme={(theme) => ({
           ...theme,
