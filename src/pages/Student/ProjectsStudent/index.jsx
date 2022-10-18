@@ -1,7 +1,6 @@
 import React from "react";
 import style from "./ProjectsStudent.module.scss";
 
-import LinkButton from "../../../components/LinkButton";
 import NewContainer from "../../../components/NewContainer";
 import ListProjectsByStudent from "../../../components/ListProjectsByStudent";
 

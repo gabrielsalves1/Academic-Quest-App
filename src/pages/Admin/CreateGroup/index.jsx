@@ -21,6 +21,7 @@ export default function CreateGroup() {
   const [ students, setStudents ] = useState();
   const [ membersId, setMembersId ] = useState([]);
   const [ leadMember, setMemberLead ] = useState();
+  const [ userId, setUserId ] = useState(sessionStorage.getItem("idUser"));
 
   const onSubmit = data => {
     data['listaAlunosId'] = membersId;
@@ -48,7 +49,7 @@ export default function CreateGroup() {
           defaultOptions
           loadOptions={getClasses}
           onChange={(data) => {
-            getData(`/materias/turma/${data.id}`, setSubjects, setLoading);
+            getData(`/materias/turma/${data.id}/idProfessor/${userId}`, setSubjects, setLoading);
           }}
           theme={(theme) => ({
             ...theme,

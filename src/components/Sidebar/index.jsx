@@ -9,9 +9,10 @@ import { HiUserGroup } from "react-icons/hi";
 import { AiFillHome } from "react-icons/ai";
 import { MdLogout } from "react-icons/md";
 import { IoNotifications } from "react-icons/io5";
+import { BsFillXCircleFill } from "react-icons/bs";
 import style from './Sidebar.module.scss';
 
-
+import api from '../../service/api';
 import { Context } from "../../Context/AuthContext";
 import Dropdown from 'react-bootstrap/Dropdown';
 import SplitButton from 'react-bootstrap/SplitButton';
@@ -65,6 +66,9 @@ export default function Sidebar() {
                   <div className={style.boxNotifications}>
                     <Dropdown.Item eventKey={notification.id} className={style.notificationItem}>
                       {notification.mensagem}
+                      <BsFillXCircleFill className={style.iconNewNotification} onClick={() => {
+                        api.put(`/notificacoes/lida/${notification.id}`)
+                      }}/>
                     </Dropdown.Item>
                     <Dropdown.Divider />
                   </div>
@@ -72,7 +76,9 @@ export default function Sidebar() {
               })
             ) : (
               <div className={style.boxNotifications}>
-                <Dropdown.Item className={style.notificationItem}>Não há notificações!</Dropdown.Item>
+                <Dropdown.Item className={style.notificationItem}>
+                  Não há notificações!
+                </Dropdown.Item>
               </div>
             )}
           </SplitButton>
