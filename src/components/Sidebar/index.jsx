@@ -56,7 +56,7 @@ export default function Sidebar() {
             key="end"
             id={`dropdown-button-drop-end`}
             drop="end"
-            title={<IoNotifications className={style.iconMenuHome}/>}
+            title={<IoNotifications className={style.iconMenuNotifications}/>}
             className={style.littleBoxMenu}
             variant="none"
           >
@@ -139,7 +139,6 @@ export default function Sidebar() {
               {userRole == "PROFESSOR" ? "Professor" : "Aluno"}
             </p>
           </div>
-        
           <div className={style.containerLittleBoxMenu}>
           { userRole === "PROFESSOR" ? (
             <>
