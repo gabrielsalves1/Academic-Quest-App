@@ -6,6 +6,10 @@
   padding: 16px;
 }
 
+.boxGroup {
+  margin-right: 20px;
+}
+
 .menuForm {
   display: flex;
   justify-content: space-between;
@@ -73,7 +77,7 @@
   flex-direction: column !important;
   justify-content: space-around;
   align-items: center;
-  min-height: 92vh;
+
   width: 90%;
 }
 
