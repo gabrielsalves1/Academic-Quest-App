@@ -21,10 +21,12 @@
 
 .chatBoxScroll {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   height: 400px;
+  width: 100%;
   overflow-y: scroll;
   border-radius: 24px;
 }

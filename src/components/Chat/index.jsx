@@ -22,7 +22,8 @@ export default function Chat(props) {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [ messages, setMessages ] = useState(props.messages);
   const [ idUser, setIdUser ] = useState(sessionStorage.getItem('idUser'));
- 
+  
+  console.log(messages.chats?.length > 0 );
   const onSubmit = message => {
     const msg = message
     const data = {
@@ -41,9 +42,8 @@ export default function Chat(props) {
         <div className={style.containerChat}>
         <div className={style.chatBox} >
           <div id="scroll" className={style.chatBoxScroll}>
-            {(messages?.length > 0 ) ? (
-              messages.map((msg) => {
-               
+            {(messages.chats?.length > 0) ? (
+              messages.chats.map((msg) => {
                 if (msg.idUser === parseInt(idUser) ) {
                   return (
                     <div key={msg.id} className={style.marginTopChat}>
