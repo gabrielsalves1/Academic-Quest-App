@@ -65,14 +65,14 @@ export default function Chat(props) {
           </div>
         
           <Form onSubmit = { handleSubmit(onSubmit) }>
-            <div className={style.displayFlexRow}>
+            <div className={style.boxChatInputArea}>
               <>
                 <Form.Group>
                   <Form.Control as="textarea" name="mensagem"  {...register("mensagem", { required: true })} className={style.chatInputArea}/>
                 </Form.Group>
               </>
               <div className={style.boxBtnSend}>
-                <button type="submit" className={style.button}><RiSendPlane2Fill className={style.icon}/></button>
+                <StylizedButton type="submit" className={style.button}>Enviar</StylizedButton>
               </div>
             </div>
           </Form>

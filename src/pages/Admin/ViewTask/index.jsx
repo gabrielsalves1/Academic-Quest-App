@@ -7,6 +7,9 @@ import { BsDownload } from "react-icons/bs";
 
 import StylizedButton from "../../../components/StylizedButton";
 import QuestInfo from "../../../components/QuestInfo";
+import Chat from "../../../components/Chat";
+import BoxFlexDirectionRow from "../../../components/BoxFlexDirectionRow";
+import BoxFlexDirectionColumn from "../../../components/BoxFlexDirectionColumn";
 import { getData, putData } from "../../../service/requests";
 import ComeBackButtonIcon from "../../../components/ComeBackButtonIcon";
 
@@ -44,51 +47,59 @@ export default function ViewTask() {
     // Adicionar informações da tarefa da variável "task"
 
     <>
-    <ComeBackButtonIcon url={`/project/${idProject}/evaluate-quest/${idQuest}`}> </ComeBackButtonIcon>
+    <BoxFlexDirectionColumn>
+      <ComeBackButtonIcon url={`/project/${idProject}/evaluate-quest/${idQuest}`}> </ComeBackButtonIcon>
+      <BoxFlexDirectionRow>
+        <div className={style.boxQuestInfo}>
 
-    { loadingTask && 
-      <QuestInfo task={task}/>
-    }
-
-    <div className={style.box}>
-      { loading ? (
-      <div className={style.formHalf}>
-        <h1 className={style.title}>{taskGroup?.nomeGrupo}</h1>
-
-        <p className={style.titleSecundary}>Data de Entrega: <span className={style.text}>{taskGroup?.dataEntrega ? new Date(Date.parse(taskGroup.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'}) : "Não entregue"}</span> </p>
-        <p className={style.titleSecundary}>Quest: <span className={style.text}>{taskGroup?.nomeTarefa}</span> </p>
-        
-        <div className={style.alignButton}>
-          <StylizedButton onClick={() => { Base64ToPdf(taskGroup?.upload["titulo"], taskGroup?.upload["arquivoUpload"], taskGroup?.upload["formato"]) }}>Baixar Arquivo<BsDownload className={style.icon}/></StylizedButton>
+          { loadingTask && 
+            <QuestInfo task={task}/>
+          }
         </div>
-        
-        <Form onSubmit = { handleSubmit(onSubmit) }>
-          <Form.Group>
-            <Form.Label className={style.titleTertiary} htmlFor='consideration'>Considerações do trabalho</Form.Label>
-            <Form.Control as="textarea" name="consideration" {...register("consideracoes", { required: true })} className={style.inputArea}/>
-            {errors.name && <span>Esse campo é obrigatório.</span>}
-          </Form.Group>
-          
-          <Form.Group>
-            <Form.Label className={style.titleTertiary} htmlFor='note'>Nota</Form.Label>
-            <Form.Control name="note" {...register("nota", { required: true })} className={style.inputForm}/>
-            {errors.name && <span>Esse campo é obrigatório.</span>}
-          </Form.Group>
+      </BoxFlexDirectionRow>
+      <BoxFlexDirectionRow>
+        <div className={style.box}>
+          { loading ? (
+          <div className={style.boxGroup}>
+            <div className={style.formHalf}>
+              <h1 className={style.title}>{taskGroup?.nomeGrupo}</h1>
 
-          <div className={style.menuForm}>
-            <StylizedButton type="submit">Aplicar</StylizedButton>
+              <p className={style.titleSecundary}>Data de Entrega: <span className={style.text}>{taskGroup?.dataEntrega ? new Date(Date.parse(taskGroup.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'}) : "Não entregue"}</span> </p>
+              <p className={style.titleSecundary}>Quest: <span className={style.text}>{taskGroup?.nomeTarefa}</span> </p>
+              
+              <div className={style.alignButton}>
+                <StylizedButton onClick={() => { Base64ToPdf(taskGroup?.upload["titulo"], taskGroup?.upload["arquivoUpload"], taskGroup?.upload["formato"]) }}>Baixar Arquivo<BsDownload className={style.icon}/></StylizedButton>
+              </div>
+              
+              <Form onSubmit = { handleSubmit(onSubmit) }>
+                <Form.Group>
+                  <Form.Label className={style.titleTertiary} htmlFor='consideration'>Considerações do trabalho</Form.Label>
+                  <Form.Control as="textarea" name="consideration" {...register("consideracoes", { required: true })} className={style.inputArea}/>
+                  {errors.name && <span>Esse campo é obrigatório.</span>}
+                </Form.Group>
+                
+                <Form.Group>
+                  <Form.Label className={style.titleTertiary} htmlFor='note'>Nota</Form.Label>
+                  <Form.Control name="note" {...register("nota", { required: true })} className={style.inputForm}/>
+                  {errors.name && <span>Esse campo é obrigatório.</span>}
+                </Form.Group>
+
+                <div className={style.menuForm}>
+                  <StylizedButton type="submit">Aplicar</StylizedButton>
+                </div>
+              </Form>
+            </div>
           </div>
-        </Form>
-      </div>
-      ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
+          ) : (<Spinner className={style.loading} animation="border" variant="primary" />) }
 
-      {/* { loading ? (
-         <Chat idTaskGroup={idTaskGroup} idProject={idProject} idQuest={idQuest} messages={taskGroup}/>
-      ) : ("")} */}
+          { loading ? (
+            <Chat idTaskGroup={idTaskGroup} idProject={idProject} idQuest={idQuest} messages={taskGroup}/>
+          ) : ("")}
 
-     
-    </div>
-
+        
+        </div>
+      </BoxFlexDirectionRow>
+    </BoxFlexDirectionColumn>     
     </>
   );
 }
