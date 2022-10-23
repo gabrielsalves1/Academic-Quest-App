@@ -17,7 +17,7 @@ export default function QuestInfo(props) {
     }
 
     return (
-      <div className={style.formHalf}>
+      <div className={style.boxForQuestInfo}>
       { props.task && 
           <BoxFlexDirectionColumn>
             

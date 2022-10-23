@@ -1,5 +1,12 @@
 @import "../../../global.scss";
 
+.boxQuestInfo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .alignButton {
   display: flex;
   flex-direction: column;
@@ -60,12 +67,14 @@
 
 .box {
   display: flex;
-  flex-direction: row !important;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   width: 90%;
 }
 
+.boxGroup {
+  margin-right: 20px;
+}
 
 @media only screen and (max-device-width: 900px) {
   .menuNameAndDate {
