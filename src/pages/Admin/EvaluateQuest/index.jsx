@@ -24,7 +24,9 @@ export default function EvaluateQuest() {
       <ComeBackButtonIcon url={`/project/${idProject}/quest-management`}> </ComeBackButtonIcon>
       <h1 className={style.title}>Avaliar Quest</h1>
         { loading ? (
-           <QuestInfo task={task}/>
+            <div className={style.alignQuestInfo}>
+              <QuestInfo task={task}/>
+            </div>
           ) : (<Spinner className={style.loading} animation="border" variant="primary" />)
         }
       <GroupQuestContainer idProject={idProject} idQuest={idQuest}/>
