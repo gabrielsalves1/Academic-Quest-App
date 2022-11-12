@@ -8,5 +8,10 @@
 @media only screen and (max-device-width: 900px) {
   .BoxFlexDirectionRow {
     width: 100%;
+    flex-direction: column;
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

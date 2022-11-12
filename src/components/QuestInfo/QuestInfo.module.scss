@@ -7,16 +7,17 @@
   width: 600px;
   background: #FFFFFF;
 }
+
 .questSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    border: 2px solid $color-gray;
-    border-radius: 5px;
-    width: 90%;
-    padding: 50px;
-    margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid $color-gray;
+  border-radius: 5px;
+  width: 90%;
+  padding: 50px;
+  margin: 20px 0;
 }
 
 .title {
@@ -52,4 +53,29 @@
 .text {
     font-size: 18px;
     font-weight: 300;
+}
+
+@media only screen and (max-device-width: 900px) {
+  .boxForQuestInfo {
+    margin-top: 930px;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .questSection {
+    width: 80px;
+    padding: 60px;
+  }
+
+  .title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .titleSecundary {
+    margin-left: 20px;
+  }
 }

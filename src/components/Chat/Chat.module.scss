@@ -92,3 +92,14 @@
   font-weight: normal;
   margin-left: 10px;
 }
+
+
+@media only screen and (max-device-width: 900px) {
+  .chatBoxScroll {
+    width: 100%;
+  }
+
+  .chatBox{
+    width: 270px;
+  }
+}
