@@ -35,7 +35,7 @@ export default function ListProjects(props) {
                         <p className={style.nota}><span className={style.textBody}>Nota:</span> {project.notaProjeto}</p>
                       </BoxFlexDirectionColumn>
                     </div>
-                </Link>
+                  </Link>
                 )
               case "CONCLUIDO":
                 return (
