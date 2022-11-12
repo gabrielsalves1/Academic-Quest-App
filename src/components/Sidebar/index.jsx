@@ -57,7 +57,7 @@ export default function Sidebar() {
             id={`dropdown-button-drop-end`}
             drop="end"
             title={<IoNotifications className={style.iconMenuNotifications}/>}
-            className={style.littleBoxMenu}
+            className={style.littleBoxMenuNotification}
             variant="none"
           >
             {(notifications?.length > 0 ) ? (
@@ -82,6 +82,7 @@ export default function Sidebar() {
               </div>
             )}
           </SplitButton>
+
         </div>
 
         { userRole === "PROFESSOR" ? (
