@@ -51,7 +51,6 @@ export default function ViewTask() {
       <ComeBackButtonIcon url={`/project/${idProject}/evaluate-quest/${idQuest}`}> </ComeBackButtonIcon>
       <BoxFlexDirectionRow>
         <div className={style.boxQuestInfo}>
-
           { loadingTask && 
             <QuestInfo task={task}/>
           }

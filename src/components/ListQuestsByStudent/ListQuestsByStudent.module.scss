@@ -51,6 +51,82 @@
   height: 30px;
 }
 
+
+.title {
+  font-family: 'Inter';
+  font-size: 24px;
+  font-weight: 600;
+  margin: 10px;
+  text-align: center;
+  margin-bottom: 60px;
+  text-decoration: none;
+}
+
+.BoxGroupQuest {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 274px;
+  height: 229px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+  border-radius: 24px;
+  margin-left: 20px;
+  padding: 15px;
+}
+
+.project {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid $color-gray;
+  border-bottom: 0;
+  height: 120px;
+}
+
+.project:last-child {
+  border-bottom: 2px solid $color-gray;
+}
+
+.infoProject {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoText {
+  font-size: 18px;
+  margin: 4px;
+}
+
+.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  border: 2px solid $color-green;
+  background-color: $color-green-light;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: $color-white;
+  height: 30px;
+}
+
+.finished {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  border: 2px solid $color-green-dark;
+  background-color: $color-green-dark;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: $color-white;
+  height: 30px;
+}
+
 @media only screen and (max-device-width: 900px) {
   .titles {
     visibility: hidden;

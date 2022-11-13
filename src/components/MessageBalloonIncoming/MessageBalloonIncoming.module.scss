@@ -22,3 +22,11 @@
   font-size: 10px;
   margin-left: 10px;
 }
+
+
+@media only screen and (max-device-width: 900px) {
+  .balloon {
+    height: auto;
+    width: 100%;
+  }
+}

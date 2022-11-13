@@ -32,14 +32,14 @@ export default function Login() {
       
       <div className={style.boxLogin}>
         <Form onSubmit = { handleSubmit(onSubmit) } className={style.formLogin}>
-          <Form.Group>
+          <Form.Group className={style.formLoginMobile}>
             <Form.Label htmlFor="username" className={style.fontPlaceholder}>E-mail</Form.Label>
             <Form.Control name="username" {...register("username", { required: true })}
               placeholder="E-mail" className={style.inputFormLogin}/>
             {errors.username && <span className={style.error}>Esse campo é obrigatório.</span>}
           </Form.Group>
 
-          <Form.Group>
+          <Form.Group className={style.formLoginMobile}>
             <Form.Label htmlFor="password" className={style.fontPlaceholder}>Senha</Form.Label>
             <Form.Control type="password" name="password" {...register("password", { required: true })}
               placeholder="Senha" className={style.inputFormLogin}/>
@@ -49,7 +49,11 @@ export default function Login() {
           {msgError && <span className={style.error}>{msgError} <br/></span>}
           <button type="submit" className={style.btnLogin}>Entrar</button>
         </Form>
+        <div>
+          <span className={style.madeByMobile}>Made By Os Fumacas&Co 😎</span>
+        </div>
       </div>
+      
     </div>
     </>
   );

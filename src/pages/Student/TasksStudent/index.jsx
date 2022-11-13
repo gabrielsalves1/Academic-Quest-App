@@ -1,22 +1,21 @@
 import React from "react";
 import style from "./TasksStudent.module.scss";
 
-import Container from "../../../components/Container";
+import NewContainer from "../../../components/NewContainer";
+import ComeBackButtonIcon from "../../../components/ComeBackButtonIcon";
 import LinkButton from "../../../components/LinkButton";
 import ListQuestsByStudent from "../../../components/ListQuestsByStudent";
 
 export default function TasksStudent() {
   return (
-    <Container classStyle="containerAlignCenter">
-      <h1 className={style.title}>Tarefas</h1>
+    <NewContainer classStyle="containerJustifyCenter">
+     <ComeBackButtonIcon url="/projects"> </ComeBackButtonIcon>
+     
+      <h2 className={style.title}>Tarefa</h2>
 
       <div className={style.tasks}>
-        <div className={style.menuTasks}>
-          <LinkButton to="/projects">Voltar</LinkButton>
-        </div>
-
         <ListQuestsByStudent/>
       </div>
-    </Container>
+    </NewContainer>
   );
 }

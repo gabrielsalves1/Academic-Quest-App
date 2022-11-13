@@ -5,6 +5,10 @@ import style from "./ListQuestsByStudent.module.scss";
 
 import { getData } from "../../service/requests";
 import LinkButton from "../LinkButton";
+import { Link } from "react-router-dom";
+import StatusBarGreen from "../StatusBarGreen";
+import StatusBarYellow from "../StatusBarYellow";
+import BoxFlexDirectionColumn from "../BoxFlexDirectionColumn";
 
 export default function ListQuestsByStudent() {
   const { idProject, idGroup }  = useParams();
@@ -20,35 +24,32 @@ export default function ListQuestsByStudent() {
       { loading ? (
         <ul>
           { tasks?.map((task) => {
+            console.log(task)
             if(task.statusTarefa === "PENDENTE") {
               return (
-                <li className={style.task} key={task.tarefaGrupoId}>
-                  <LinkButton to={`/view-task/${task.tarefaGrupoId}`} classStyle="purple">
-                    {task.nomeTarefa}
-                  </LinkButton>
-                  <span className={style.active}>Ativo</span>
-                  <span className={style.infoText}>Data de Entrega: {new Date(Date.parse(task.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'})}</span>
-                </li>
+                 <Link to={`/view-task/${task.tarefaGrupoId}`} key={task.id}>
+                  <BoxFlexDirectionColumn>
+                    <div className={style.BoxGroupQuest}>
+                      <StatusBarYellow classStyle="slim">Pendente</StatusBarYellow> 
+                      <div>
+                        <h1 className={style.title}> {task.nomeTarefa}</h1>
+                      </div>
+                    </div>
+                  </BoxFlexDirectionColumn>
+                </Link>
               );
-            } else if(task.statusTarefa === "CONCLUIDO") {
+            } else  if(task.statusTarefa === "ENTREGUE"){
               return (
-                <li className={style.task} key={task.tarefaGrupoId}>
-                  <LinkButton to={`/view-task/${task.tarefaGrupoId}`} classStyle="purple">
-                    {task.nomeTarefa}
-                  </LinkButton>
-                  <span className={style.finished}>Concluído</span>
-                  <span className={style.infoText}>Data de Entrega: {new Date(Date.parse(task.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'})}</span>
-                </li>
-              );
-            } else {
-              return (
-                <li className={style.task} key={task.tarefaGrupoId}>
-                  <LinkButton to={`/view-task/${task.tarefaGrupoId}`} classStyle="purple">
-                    {task.nomeTarefa}
-                  </LinkButton>
-                  <span className={style.active}>{task.statusTarefa}</span>
-                  <span className={style.infoText}>Data de Entrega: {new Date(Date.parse(task.dataEntrega)).toLocaleDateString('pt-BR', {timeZone: 'UTC'})}</span>
-                </li>
+                <Link to={`/view-task/${task.tarefaGrupoId}`} key={task.id}>
+                  <BoxFlexDirectionColumn>
+                    <div className={style.BoxGroupQuest}>
+                      <StatusBarGreen classStyle="slim">Entregue</StatusBarGreen> 
+                      <div>
+                        <h1 className={style.title}> {task.nomeTarefa}</h1>
+                      </div>
+                    </div>
+                  </BoxFlexDirectionColumn>
+                </Link>
               );
             }}
             )

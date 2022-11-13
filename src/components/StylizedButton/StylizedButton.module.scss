@@ -26,3 +26,9 @@
 .buttonForm:hover {
   background-color: #1c8c4bfb;
 }
+
+@media only screen and (max-device-width: 900px) {
+  .buttonForm {
+    width: 70%;
+  }
+}
