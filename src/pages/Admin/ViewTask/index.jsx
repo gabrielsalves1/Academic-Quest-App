@@ -73,13 +73,17 @@ export default function ViewTask() {
               <Form onSubmit = { handleSubmit(onSubmit) }>
                 <Form.Group>
                   <Form.Label className={style.titleTertiary} htmlFor='consideration'>Considerações do trabalho</Form.Label>
-                  <Form.Control as="textarea" name="consideration" {...register("consideracoes", { required: true })} className={style.inputArea}/>
+                  <Form.Control as="textarea" name="consideration" {...register("consideracoes", { required: true })} 
+                    className={style.inputArea}
+                    defaultValue={`${taskGroup?.consideracoes != null ? taskGroup?.consideracoes : ''}`}/>
                   {errors.name && <span>Esse campo é obrigatório.</span>}
                 </Form.Group>
                 
                 <Form.Group>
                   <Form.Label className={style.titleTertiary} htmlFor='note'>Nota</Form.Label>
-                  <Form.Control name="note" {...register("nota", { required: true })} className={style.inputForm}/>
+                  <Form.Control name="note" {...register("nota", { required: true })} 
+                    className={style.inputForm}
+                    defaultValue={`${taskGroup?.nota != null ? taskGroup?.nota : ''}`}/>
                   {errors.name && <span>Esse campo é obrigatório.</span>}
                 </Form.Group>
 
