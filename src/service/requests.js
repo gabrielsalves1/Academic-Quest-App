@@ -16,6 +16,7 @@ export async function getClasses() {
 export async function getData(url, setData, setLoading) {
   const response = await api.get(url);
   setLoading(true);
+  console.log(response.data);
   return setData(response.data);
 }
 
@@ -27,7 +28,7 @@ export function postData(url, data, redirect) {
       toast.success('Salvo com sucesso!');
       if (res.status === 201) {
         history.push(redirect);
-      } else if(res.status === 200) {
+      } else if (res.status === 200) {
         window.location.reload();
       }
     }).catch((err) => {
@@ -52,18 +53,18 @@ export function postDataFile(url, formData, redirect, setUploadPercentage) {
       'Content-Type': 'application/json'
     }
   })
-  .then((res) => {
-    setUploadPercentage(100);
-    toast.success('Salvo com sucesso!');
+    .then((res) => {
+      setUploadPercentage(100);
+      toast.success('Salvo com sucesso!');
 
-    if (res.status === 201) {
-      history.push(redirect);
-    } else if(res.status === 200) {
-      window.location.reload();
-    }
-  }).catch((err) => {
-    toast.error("Erro na requisição.");
-  });
+      if (res.status === 201) {
+        history.push(redirect);
+      } else if (res.status === 200) {
+        window.location.reload();
+      }
+    }).catch((err) => {
+      toast.error("Erro na requisição.");
+    });
 }
 
 export function putData(data, url, redirect) {
@@ -105,9 +106,9 @@ export function postLogin(formData, handleLogin, setMsgError) {
       Authorization: 'Basic ' + window.btoa('academicquest:ricardosilvagostadexbox')
     }
   })
-  .then((res) => {
-    handleLogin(res);
-  }).catch((err) => {
-    setMsgError("E-mail ou senha inválido, verifique e tente novamente.");
-  });
+    .then((res) => {
+      handleLogin(res);
+    }).catch((err) => {
+      setMsgError("E-mail ou senha inválido, verifique e tente novamente.");
+    });
 }
