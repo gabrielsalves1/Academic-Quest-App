@@ -35,7 +35,8 @@ export default function ListQuests(props) {
               const date = new Date(Date.parse(quest.dataEntrega)).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
               const momentDate = new moment(quest.dataEntrega);
 
-              if (moment(momentDate).isAfter(today)) {
+              console.log(`momentDate ${momentDate} today ${moment(momentDate).isSameOrAfter(date)}`)
+              if (moment(momentDate).isSameOrAfter(today, 'day')) {
                 return (
                   <BoxChildQuest urlQuest={`/project/${props.idProject}/evaluate-quest/${quest.id}`} dataEntrega={date} key={quest.id}>
                     {quest.nome}
@@ -51,7 +52,7 @@ export default function ListQuests(props) {
               const date = new Date(Date.parse(quest.dataEntrega)).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
               const momentDate = new moment(quest.dataEntrega);
 
-              if (!moment(momentDate).isAfter(today)) {
+              if (!moment(momentDate).isSameOrAfter(today, 'day')) {
                 return (
                   <BoxChildQuest urlQuest={`/project/${props.idProject}/evaluate-quest/${quest.id}`} dataEntrega={date} key={quest.id}>
                     {quest.nome}
